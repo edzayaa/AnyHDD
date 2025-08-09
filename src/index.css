@@ -1,0 +1,79 @@
+:root {
+  --primary-blue: #00254B;
+  --bg-light-color: #F2F2F4;
+  --light-gray: #D9D9D9;
+  --dark-white: #E4E4E4;
+  --white: #FFFFFF;
+  --black: #000000;
+  --text-secondary: rgba(248, 248, 248, 0.70);
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica', sans-serif;
+}
+body{
+  background-color: var(--bg-light-color);
+}
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/HelveticaNowDisplay-Black.woff2') format('woff2'),
+       url('/fonts/HelveticaNowDisplay-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/HelveticaNowDisplay-ExtraBold.woff2') format('woff2'),
+       url('/fonts/HelveticaNowDisplay-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/HelveticaNowDisplay-Bold.woff2') format('woff2'),
+       url('/fonts/HelveticaNowDisplay-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/HelveticaNowDisplay-Medium.woff2') format('woff2'),
+       url('/fonts/HelveticaNowDisplay-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/HelveticaNowDisplay-Regular.woff2') format('woff2'),
+       url('/fonts/HelveticaNowDisplay-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/HelveticaNowDisplay-Light.woff2') format('woff2'),
+       url('/fonts/HelveticaNowDisplay-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/HelveticaNowDisplay-thin.woff2') format('woff2'),
+       url('/fonts/HelveticaNowDisplay-thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@media ( 1350px < width < 1600px){
+  html{
+    font-size: 14px;
+  }
+}
+@media ( 1024px < width < 1350px){
+  html{
+    font-size: 11px;
+  }
+}

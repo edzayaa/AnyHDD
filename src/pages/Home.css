@@ -1,0 +1,35 @@
+.home-container{
+    background: url(/img/bg-img.png);
+    background-size: cover;
+    background-position: center;
+}
+.top-spacing {
+    height: 10rem;
+}
+.section-2{
+    padding: 2rem 3.125rem;
+}
+.section-2 .top-title {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.section-2 h2 {
+    font-size: 3.75rem;
+    font-weight: 400;
+    color: #00254B;
+    & > span{
+        color: #00254B;
+        font-weight: 700;
+    }
+}
+.slider-controls{
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+}
+.slider-controls button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
