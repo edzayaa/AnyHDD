@@ -1,0 +1,30 @@
+.pagination{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pagination .prev-button{
+    margin-right: 2.625rem;
+}
+.pagination .next-button {
+    margin-left: 2.625rem;
+}
+.pagination .prev-button,
+.pagination .next-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.pagination .page-button{
+    color: #052F5A;
+    font-size: 1.25rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    margin-inline: 0.25rem;
+    transition: all 0.3s;
+    &.active{
+        font-weight: 700;
+        color: #236BF1;
+    }
+}

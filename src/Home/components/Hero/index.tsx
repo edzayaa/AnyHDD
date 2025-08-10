@@ -1,8 +1,26 @@
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Autoplay, FreeMode, Thumbs } from 'swiper/modules';
 import './index.css'
-import { Swiper, SwiperSlide, type SwiperProps } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { useState } from 'react';
+import type SwiperType from 'swiper';
 
 const mockData = [
+    {
+        title1: "AnyHDD Dual Monitor",
+        title2: "Docking Station",
+        image1: "/img/hero-bg.png",
+        subimg: "/img/hero-img-2.jpg",
+        subtitle: "Find out about us and our mission",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse et arcu enim."
+    },
+    {
+        title1: "AnyHDD Dual Monitor",
+        title2: "Docking Station",
+        image1: "/img/hero-bg.png",
+        subimg: "/img/hero-img-2.jpg",
+        subtitle: "Find out about us and our mission",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse et arcu enim."
+    },
     {
         title1: "AnyHDD Dual Monitor",
         title2: "Docking Station",
@@ -30,25 +48,23 @@ const mockData = [
 ]
 
 const Hero = () => {
-    const settings: SwiperProps = {
-        modules: [Pagination, Autoplay],
-        slidesPerView: 1,
-        loop: true,
-        spaceBetween: 30,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false
-        },
-        pagination: {
-            clickable: false,
-            renderBullet: (index, className) => {
-                return `<span class="pagination-hero-item ${className}">${index + 1}</span>`;
-            }
-        }
-    };
+    const [thumbsSwiper,] = useState<SwiperType | null>(null);
+
     return (
         <div className="hero-container">
-            <Swiper {...settings} className='hero-swiper'>
+            <Swiper 
+                className='hero-swiper'
+                slidesPerView={1}
+                loop={ true}
+                navigation={true}
+                spaceBetween={30}
+                autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false
+                }}
+                thumbs={{ swiper: thumbsSwiper }}
+                modules={[Autoplay, Thumbs, FreeMode]}
+            >
                 {mockData.map((item, index) => (
                     <SwiperSlide key={index} className="hero-slide">
                         <div className="hero-bg-img">
@@ -71,6 +87,26 @@ const Hero = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
+            <div className="swiper-hero-thumbnail-container">
+               {/*  <Swiper
+                    onSwiper={(swiper) => setThumbsSwiper(swiper)}
+                    loop={true}
+                    centeredSlides={true}
+                    freeMode={false}
+                    modules={[FreeMode, Thumbs]}
+                    slidesPerView={5}
+                    spaceBetween={0}
+                    className='pagination-hero'
+                >
+                    {
+                        mockData.map((_, index) => (
+                            <SwiperSlide key={index} className="hero-thumb">
+                                <span className={`pagination-hero-item`}>{index + 1}</span>
+                            </SwiperSlide>
+                        ))
+                    }
+                </Swiper> */}
+            </div>
         </div>
     )
 }
