@@ -1,0 +1,35 @@
+.testimonial-card{
+    position: relative;
+    width: fit-content;
+    & img{
+        width: 29vw;
+    }
+    & .testimonial-content{
+        & .text{
+            font-size: 1.125rem;
+            color: #052F5A;
+            width: 100%;
+            /* Center the text vertically */
+            top: 50%;
+            transform: translateY(-50%);
+            position: absolute;
+            left: 8%;
+            font-weight: 500;
+        }
+        & .author{
+            font-weight: bold;
+            position: absolute;
+            bottom: 3rem;
+            left: 8%;
+            color: #777777;
+        }
+    }
+    &.testimonial-blue .testimonial-content{
+        & .text{
+            color: #FFFFFF;
+        }
+        & .author{
+            color: #FFFFFF;
+        }
+    }
+}

@@ -74,7 +74,7 @@ const ShopSection = () => {
             <div className="sort-container">
                 <div className="search-container">
                     <input className='search-input' type="text" placeholder='Search on Docking Stations'/>
-                    <Button onClick={() => {}} className='search-button'>
+                    <Button onClick={() => {}} className='search-button' commonStyles={true} commonWithoutIcon={true}>
                         Search
                         <svg className='search-icon' xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <path d="M6.84245 10.7083C9.23424 10.7083 11.1732 8.7694 11.1732 6.3776C11.1732 3.98581 9.23424 2.04688 6.84245 2.04688C4.45065 2.04688 2.51172 3.98581 2.51172 6.3776C2.51172 8.7694 4.45065 10.7083 6.84245 10.7083Z" stroke="#052F5A" stroke-width="1.08268" stroke-linecap="round" stroke-linejoin="round"/>

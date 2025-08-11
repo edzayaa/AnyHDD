@@ -6,7 +6,37 @@ import scanners from './assets/scanners.svg';
 import thermalPrinters from './assets/printers.svg';
 import dockingStation from './assets/docking-stations.svg';
 import allCategories from './assets/all-categories.svg';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
+
 const Navbar = () => {
+    //Make navbar sticky on scroll down the navbar should hide up and show on scroll up
+    useGSAP(() => {
+        const showAnim = gsap.from("nav", {
+            yPercent: -100,
+            paused: true,
+            duration: 0.6,
+            ease: "power1.inOut"
+        }).progress(1);
+
+        ScrollTrigger.create({
+            start: "top top",
+            end: 99999,
+            onUpdate: (self) => {
+                if (self.direction === -1) {
+                    showAnim.play();
+                } else {
+                    showAnim.reverse();
+                }
+            }
+        });
+        setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 100);
+    });
   return (
     <nav>
         <div className="desk-navbar">

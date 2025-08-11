@@ -4,6 +4,8 @@ import CategoriesSlider from "../Shop/components/CategoriesSlider"
 import { useRef } from "react";
 import './Home.css'
 import ShopSection from "../Shop/components/ShopSection";
+import HomeAboutSection from "../Home/components/About";
+import Testimonials from "../Home/components/Testimonials";
 const Home = () => {
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
@@ -29,6 +31,8 @@ const Home = () => {
         <CategoriesSlider prevRef={prevRef} nextRef={nextRef} />
       </div>
       <ShopSection />
+      <HomeAboutSection />
+      <Testimonials />
     </div>
   )
 }

@@ -1,0 +1,52 @@
+.testimonials{
+   padding: 2.5rem 3.125rem;
+   height: 100vh;
+   margin-top: 6rem;
+   background: url('/img/testimonials-bg.jpg') no-repeat center 100%/cover;
+   & .testimonial-head{
+       display: flex;
+       width: 100%;
+       justify-content: space-between;
+       margin-bottom: 5%;
+       & .head{
+           width: 60%;
+           & > h2{
+                font-size: 5rem;
+                font-weight: 400;
+                color: white;
+                line-height: 100%;
+                &.gradient{
+                    background: linear-gradient(90deg, #001021 -4.53%, #F2F2F4 24.85%, #F2F2F4 50.52%, #001021 83.63%);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+           }
+       }
+       & .text{
+           width: 30%;
+       }
+       & p{
+            justify-content: flex-end;
+            font-size: 1.625rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-bottom: 2rem;
+            color: #D3D3D3;
+            margin-top: 1.5rem;
+       }
+   }
+   
+    & .swiper-horizontal > .swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal, .swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite, .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite{
+        width: 25vw;
+        position: relative;
+        height: 4px;
+        left: 50%;
+        transform: translate(-50%, -2rem);
+        background-color: #CDCDCD;
+        & .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
+            background-color: #2F80ED;
+        }
+    }
+}
