@@ -66,7 +66,11 @@ body{
   font-weight: 100;
   font-style: normal;
 }
-
+@media (width < 640px) {
+  html {
+    font-size: 10px;
+  }
+}
 @media ( 1350px < width < 1600px){
   html{
     font-size: 14px;

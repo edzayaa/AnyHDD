@@ -48,16 +48,21 @@ const CategoriesSlider = ({prevRef, nextRef}: CategoriesSliderProps) => {
         loop: true,
         spaceBetween: 20,
         breakpoints: {
-            640: {
+            10: {
+                slidesPerView: 1.8,
                 spaceBetween: 10,
             },
             768: {
+                
+                slidesPerView: 2.5,
                 spaceBetween: 20,
             },
             1024: {
+                slidesPerView: 3.5,
                 spaceBetween: 20,
             },
             1280: {
+                slidesPerView: 5,
                 spaceBetween: 20,
             }
         },
