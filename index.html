@@ -4,10 +4,865 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/img/anyhdd-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AnyHDD</title>
+    <link rel="stylesheet" href="/src/css/navbar.css" />
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/css/home.css" />
+    <link rel="stylesheet" href="/src/css/shop.css" />
+    <link rel="stylesheet" href="/src/css/footer.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <title>AnyHDD - Home</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <nav>
+        <div class="search-overlay not-show"></div>
+        <div class="submenu-overlay"></div>
+        <div class="desk-navbar">
+            <div class="left left-menu">
+                <button class="menu-button no-desk" id="menu-mb-buttom">
+                    <svg class="hamburger" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                        <path d="M2.625 10.5H18.375M2.625 5.25H18.375M2.625 15.75H18.375" stroke="#00254B" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg class="close-icon" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="15.5" cy="15.5" r="15.5" fill="#D9D9D9"/>
+                        <circle cx="15.5" cy="15.5" r="15.5" fill="url(#paint0_radial_1619_2586)"/>
+                        <path d="M18.7712 12.2267L12.314 18.684" stroke="white" stroke-width="1.07621" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12.314 12.2267L18.7712 18.684" stroke="white" stroke-width="1.07621" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                        <radialGradient id="paint0_radial_1619_2586" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(-18.6136 -13.8626) rotate(41.9444) scale(72.589 45.6061)">
+                        <stop offset="0.248721" stop-color="#55BBFF"/>
+                        <stop offset="0.735909" stop-color="#236BF1"/>
+                        <stop offset="1" stop-color="#236BF1"/>
+                        </radialGradient>
+                        </defs>
+                    </svg>
+                </button>
+                <img class='logo-navbar' src="/img/anyhdd-logo.png" />
+            </div>
+            <div class="center">
+                <input class='search-input' id="search-nav-input" type="text" placeholder='Find a Specific Product  in Our Store'/>
+                <button class="custom-button search-button" id="search-nav-button">
+                    <p>Search</p>
+                    <svg class='search-icon' xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M6.84245 10.7083C9.23424 10.7083 11.1732 8.7694 11.1732 6.3776C11.1732 3.98581 9.23424 2.04688 6.84245 2.04688C4.45065 2.04688 2.51172 3.98581 2.51172 6.3776C2.51172 8.7694 4.45065 10.7083 6.84245 10.7083Z" stroke="#052F5A" stroke-width="1.08268" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12.2572 11.7923L9.90234 9.4375" stroke="#052F5A" stroke-width="1.08268" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg class="clear-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M9.14648 3.11328L3.53125 8.72852" stroke="black" stroke-width="0.935872" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M3.53125 3.11328L9.14648 8.72852" stroke="black" stroke-width="0.935872" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="custom-button search-button" id="search-nav-button-mb">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path d="M8.32552 13.7116C11.3002 13.7116 13.7116 11.3002 13.7116 8.32552C13.7116 5.35088 11.3002 2.93945 8.32552 2.93945C5.35088 2.93945 2.93945 5.35088 2.93945 8.32552C2.93945 11.3002 5.35088 13.7116 8.32552 13.7116Z" stroke="white" stroke-width="1.34652" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15.0595 15.0597L12.1309 12.131" stroke="white" stroke-width="1.34652" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <div class="search-results-container">
+                  <ul class="search-results-list">
+                    
+                  </ul>
+                </div>
+            </div>
+            <div class="right">
+                <ul class="navbar-links">
+                    <li>
+                        <a href="/shop">Products</a>
+                    </li>
+                    <li>
+                        <a href="/faq">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="/warranty">Warranty</a>
+                    </li>
+                    <li>
+                        <a href="/about">About Us</a>
+                    </li>
+                    <li>
+                        <a href="/contact">Contact</a>
+                    </li>
+                    <li>
+                        <a href="/login">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.13654 6.31836C7.13654 4.73681 8.41863 3.45472 10.0002 3.45472C11.5817 3.45472 12.8638 4.73681 12.8638 6.31836C12.8638 7.8999 11.5817 9.182 10.0002 9.182C8.41863 9.182 7.13654 7.8999 7.13654 6.31836ZM10.0002 1.81836C7.5149 1.81836 5.50018 3.83308 5.50018 6.31836C5.50018 8.80364 7.5149 10.8184 10.0002 10.8184C12.4854 10.8184 14.5002 8.80364 14.5002 6.31836C14.5002 3.83308 12.4854 1.81836 10.0002 1.81836ZM6.72745 12.4547C4.01623 12.4547 1.81836 14.6526 1.81836 17.3638C1.81836 17.8157 2.18467 18.182 2.63654 18.182C3.08841 18.182 3.45472 17.8157 3.45472 17.3638C3.45472 15.5564 4.91997 14.0911 6.72745 14.0911H13.2729C15.0804 14.0911 16.5456 15.5564 16.5456 17.3638C16.5456 17.8157 16.9119 18.182 17.3638 18.182C17.8157 18.182 18.182 17.8157 18.182 17.3638C18.182 14.6526 15.9841 12.4547 13.2729 12.4547H6.72745Z" fill="#052F5A"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.70537 3.18414C2.83579 2.90497 3.11605 2.72656 3.42419 2.72656H4.71103C5.07481 2.72656 5.39197 2.97396 5.48055 3.32679L5.88138 4.92364H17.4829C18.518 4.92364 19.2714 5.89701 19.0205 6.89674L17.7311 12.0333C17.4654 13.0918 16.5138 13.834 15.4226 13.834H8.33856C7.24827 13.834 6.29639 13.0945 6.03045 12.035L4.53731 6.08664L2.81591 4.02933C2.61817 3.79301 2.57495 3.46333 2.70537 3.18414ZM6.27968 6.51042L7.56947 11.6487C7.65778 12.0005 7.97375 12.2472 8.33856 12.2472H15.4226C15.7863 12.2472 16.1035 11.9998 16.192 11.647L17.4814 6.51042H6.27968ZM8.05095 17.2733C8.78124 17.2733 9.37326 16.6812 9.37326 15.9509C9.37326 15.2207 8.78124 14.6287 8.05095 14.6287C7.32065 14.6287 6.72863 15.2207 6.72863 15.9509C6.72863 16.6812 7.32065 17.2733 8.05095 17.2733ZM17.308 15.9509C17.308 16.6812 16.7159 17.2733 15.9857 17.2733C15.2554 17.2733 14.6634 16.6812 14.6634 15.9509C14.6634 15.2207 15.2554 14.6287 15.9857 14.6287C16.7159 14.6287 17.308 15.2207 17.308 15.9509Z" fill="#052F5A"/>
+                        </svg>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="desk-submenu">
+            <ul class=''>
+                <li>
+                    <a href="/shop/monitors">
+                        <img src="src/assets/monitor.svg" alt="Monitors" />
+                        Monitors
+                    </a>
+                </li>
+                <li>
+                    <a href="/shop/scanners">
+                        <img src="src/assets/scanners.svg" alt="Scanners" />
+                        Scanners
+                    </a>
+                </li>
+                <li>
+                    <a href="/shop/thermals">
+                        <img src="src/assets/printers.svg" alt="Thermal Printers" />
+                        Thermal Printers
+                    </a>
+                </li>
+                <li>
+                    <a href="/shop/docking-stations">
+                        <img src="src/assets/docking-stations.svg" alt="HP & Lenovo Docking Stations" />
+                        HP & Lenovo Docking Stations
+                    </a>
+                </li>
+                <li>
+                    <a href="/shop">
+                        <img src="src/assets/all-categories.svg" alt="All Categories" />
+                        All Categories
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="mb-menu no-desk">
+            <div class="top">
+                <h3>Shop by categories</h3>
+                <ul class="categories">
+                    <li class="category-item">
+                        <a href="/shop/monitors">
+                            <img src="src/assets/monitor.svg" alt="Monitors" />
+                            <h4>Monitors</h4>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="/shop/scanners">
+                            <img src="src/assets/scanners.svg" alt="Scanners" />
+                            <h4>Scanners</h4>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="/shop/thermals">
+                            <img src="src/assets/printers.svg" alt="Thermal Printers" />
+                            <h4>Thermal Printers</h4>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="/shop/docking-stations">
+                            <img src="src/assets/docking-stations.svg" alt="HP & Lenovo Docking Stations" />
+                            <h4>HP & Lenovo Docking Stations</h4>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="/shop">
+                            <img src="src/assets/all-categories.svg" alt="All Categories" />
+                            <h4>All Categories</h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom">
+                <a href="/shop">Products</a>
+                <a href="/faq">FAQ</a>
+                <a href="/warranty">Warranty</a>
+                <a href="/about">About Us</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="white-overlay">
+      
+    </div>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <div class="home-container">
+          <div class="top-spacing"></div>
+          <section>
+            <div class="hero-container">
+            </div>
+          </section>
+          <section class="section-2">
+            <div class="badge">
+                <h6>Bestsellers on AnyHDD</h6>
+            </div>
+            <div class="top-title">
+              <h2>Explore our <span>top products</span> by category</h2>
+              <div class="slider-controls">
+                <button class="categories-slider-prev">
+                  <img src="/img/prev-arrow.svg" alt="" />
+                </button>
+                <button class="categories-slider-next">
+                  <img src="/img/next-arrow.svg" alt="" />
+                </button>
+              </div>
+            </div>
+            <div class="categories-slider-container">
+
+            </div>
+          </section>
+          <section class="shop-section">
+            <div class="blured-circle-1 blured-circle desktop-only"></div>
+            <div class="blured-circle-2 blured-circle desktop-only"></div>
+            <div class="headers">
+                <div class="top-title">
+                    <h2>
+                      <img src="/img/line.png" alt="line" class="no-desk">
+                      Best sellers
+                    </h2>
+                    <div class="slider-controls">
+                        <button class="best-sellers-slider-prev">
+                          <img src="/img/prev-arrow.svg" alt="" />
+                        </button>
+                        <button class="best-sellers-slider-next">
+                          <img src="/img/next-arrow.svg" alt="" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="best-sellers-slide">
+            </div>
+            <div class="sort-container">
+                <div class="search-container">
+                    <input class='search-input' id="shop-search-input" type="text" placeholder='Search on Docking Stations'/>
+                    <Button class='custom-button common-styles search-button' id="shop-search">
+                        Search
+                        <svg class='search-icon' xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path d="M6.84245 10.7083C9.23424 10.7083 11.1732 8.7694 11.1732 6.3776C11.1732 3.98581 9.23424 2.04688 6.84245 2.04688C4.45065 2.04688 2.51172 3.98581 2.51172 6.3776C2.51172 8.7694 4.45065 10.7083 6.84245 10.7083Z" stroke="#052F5A" stroke-width="1.08268" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12.2572 11.7923L9.90234 9.4375" stroke="#052F5A" stroke-width="1.08268" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </Button>
+                </div>
+                <div class="sort">
+                    <select class='custom-select common-styles' id="shop-sort-select">
+                        <option value="default" selected>Sort by:</option>
+                        <option value="popularity">Most Popular</option>
+                        <option value="priceLowToHigh">Price: Low to High</option>
+                        <option value="priceHighToLow">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+            <div class="divider-shop"></div>
+            <div class="shop">
+                <div class="filters">
+                    <div class='filter-head'>
+                        <img src="/img/all-categories.svg" alt="Filters Icon" />
+                        <h3>
+                            Filters
+                        </h3>
+                    </div>
+                    <div class="filter-container">
+                    </div>
+                </div>
+                <div class="products-container">
+                    <h5>Docking Stations / 33 Item(s) Found</h5>
+                    <div class="products">
+                    </div>
+                    <div class="pagination-container">
+                    </div>
+                </div>
+            </div>
+          </section>
+          <section class="desktop-only benefits-section">
+            <div class="head">
+                <h2>Why Choose AnyHDD</h2>
+            </div>
+            <div class="content">
+                <div class="left-content">
+                    <ul>
+                        <li class="active benefit-item item-1" data-content="1">
+                            <div class="text">
+                                <h6>reliable printers for all your needs.</h6>
+                                <h5>Advanced Printing Solutions</h5>
+                            </div>
+                            <svg width="82" height="84" viewBox="0 0 82 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6.75" y="0.75" width="68.5" height="68.5" rx="34.25" stroke="#F8F8F8" stroke-opacity="0.05" stroke-width="1.5"/>
+                                <foreignObject x="-65.8208" y="-71.8208" width="213.64" height="213.64"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(37.37px);clip-path:url(#bgblur_0_591_1306_clip_path);height:100%;width:100%"></div></foreignObject><g filter="url(#filter0_di_591_1306)" data-figma-bg-blur-radius="74.7368">
+                                <path d="M8.91602 34.9994C8.91602 17.2802 23.2802 2.91602 40.9994 2.91602V2.91602C58.7185 2.91602 73.0827 17.2802 73.0827 34.9994V34.9994C73.0827 52.7185 58.7185 67.0827 40.9994 67.0827V67.0827C23.2802 67.0827 8.91602 52.7185 8.91602 34.9994V34.9994Z" fill="#F8F8F8" fill-opacity="0.1" shape-rendering="crispEdges"/>
+                                <path d="M40.999 3.47656C58.4085 3.47656 72.5223 17.5896 72.5225 34.999C72.5225 52.4086 58.4086 66.5225 40.999 66.5225C23.5896 66.5223 9.47656 52.4085 9.47656 34.999C9.47674 17.5897 23.5897 3.47674 40.999 3.47656Z" stroke="url(#paint0_linear_591_1306)" stroke-opacity="0.25" stroke-width="1.12105" shape-rendering="crispEdges"/>
+                                </g>
+                                <path class="change-color-path" fill-rule="evenodd" clip-rule="evenodd" d="M26 29.8333C26 26.6117 28.6117 24 31.8333 24H33.2917C34.0971 24 34.75 24.6529 34.75 25.4583C34.75 26.2637 34.0971 26.9167 33.2917 26.9167H31.8333C30.2225 26.9167 28.9167 28.2225 28.9167 29.8333V31.2917C28.9167 32.0971 28.2637 32.75 27.4583 32.75C26.6529 32.75 26 32.0971 26 31.2917V29.8333ZM46.4167 25.4583C46.4167 24.6529 47.0696 24 47.875 24H49.3333C52.555 24 55.1667 26.6117 55.1667 29.8333V31.2917C55.1667 32.0971 54.5137 32.75 53.7083 32.75C52.9029 32.75 52.25 32.0971 52.25 31.2917V29.8333C52.25 28.2225 50.9442 26.9167 49.3333 26.9167H47.875C47.0696 26.9167 46.4167 26.2637 46.4167 25.4583ZM34.75 31.2917C35.5554 31.2917 36.2083 31.9446 36.2083 32.75V38.5833C36.2083 39.3888 35.5554 40.0417 34.75 40.0417C33.9446 40.0417 33.2917 39.3888 33.2917 38.5833V32.75C33.2917 31.9446 33.9446 31.2917 34.75 31.2917ZM40.5833 31.2917C41.3887 31.2917 42.0417 31.9446 42.0417 32.75V35.6667C42.0417 36.4721 41.3887 37.125 40.5833 37.125C39.7779 37.125 39.125 36.4721 39.125 35.6667V32.75C39.125 31.9446 39.7779 31.2917 40.5833 31.2917ZM46.4167 31.2917C47.2221 31.2917 47.875 31.9446 47.875 32.75V38.5833C47.875 39.3888 47.2221 40.0417 46.4167 40.0417C45.6113 40.0417 44.9583 39.3888 44.9583 38.5833V32.75C44.9583 31.9446 45.6113 31.2917 46.4167 31.2917ZM27.4583 38.5833C28.2637 38.5833 28.9167 39.2363 28.9167 40.0417V41.5C28.9167 43.1108 30.2225 44.4167 31.8333 44.4167H33.2917C34.0971 44.4167 34.75 45.0696 34.75 45.875C34.75 46.6804 34.0971 47.3333 33.2917 47.3333H31.8333C28.6117 47.3333 26 44.7217 26 41.5V40.0417C26 39.2363 26.6529 38.5833 27.4583 38.5833ZM53.7083 38.5833C54.5137 38.5833 55.1667 39.2363 55.1667 40.0417V41.5C55.1667 44.7217 52.555 47.3333 49.3333 47.3333H47.875C47.0696 47.3333 46.4167 46.6804 46.4167 45.875C46.4167 45.0696 47.0696 44.4167 47.875 44.4167H49.3333C50.9442 44.4167 52.25 43.1108 52.25 41.5V40.0417C52.25 39.2363 52.9029 38.5833 53.7083 38.5833Z" fill="url(#paint1_linear_591_1306)"/>
+                                <defs>
+                                <filter id="filter0_di_591_1306" x="-65.8208" y="-71.8208" width="213.64" height="213.64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                <feMorphology radius="2.98947" operator="erode" in="SourceAlpha" result="effect1_dropShadow_591_1306"/>
+                                <feOffset dy="8.22105"/>
+                                <feGaussianBlur stdDeviation="5.64263"/>
+                                <feComposite in2="hardAlpha" operator="out"/>
+                                <feColorMatrix type="matrix" values="0 0 0 0 0.0705882 0 0 0 0 0.0705882 0 0 0 0 0.0705882 0 0 0 0.3 0"/>
+                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_591_1306"/>
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_591_1306" result="shape"/>
+                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                <feOffset dx="1.49474" dy="2.98947"/>
+                                <feGaussianBlur stdDeviation="5.97895"/>
+                                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                                <feColorMatrix type="matrix" values="0 0 0 0 0.972549 0 0 0 0 0.972549 0 0 0 0 0.972549 0 0 0 0.06 0"/>
+                                <feBlend mode="normal" in2="shape" result="effect2_innerShadow_591_1306"/>
+                                </filter>
+                                <clipPath id="bgblur_0_591_1306_clip_path" transform="translate(65.8208 71.8208)"><path d="M8.91602 34.9994C8.91602 17.2802 23.2802 2.91602 40.9994 2.91602V2.91602C58.7185 2.91602 73.0827 17.2802 73.0827 34.9994V34.9994C73.0827 52.7185 58.7185 67.0827 40.9994 67.0827V67.0827C23.2802 67.0827 8.91602 52.7185 8.91602 34.9994V34.9994Z"/>
+                                </clipPath><linearGradient id="paint0_linear_591_1306" x1="40.9994" y1="2.91601" x2="68.9131" y2="73.3789" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="white" stop-opacity="0.4"/>
+                                <stop offset="0.4" stop-color="white" stop-opacity="0.01"/>
+                                <stop offset="0.6" stop-color="white" stop-opacity="0.01"/>
+                                <stop offset="1" stop-color="white" stop-opacity="0.1"/>
+                                </linearGradient>
+                                <linearGradient id="paint1_linear_591_1306" x1="40.5833" y1="24" x2="40.5833" y2="47.3333" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#F8F8F8" stop-opacity="0.9"/>
+                                <stop offset="1" stop-color="#F8F8F8" stop-opacity="0.3"/>
+                                </linearGradient>
+                                </defs>
+                            </svg>
+                        </li>
+                        <li class="benefit-item item-2" data-content="2">
+                            <div class="text">
+                                <h6>Stunning visuals, exceptional quality.</h6>
+                                <h5>Crystal-Clear Monitors</h5>
+                            </div>
+                            <svg width="82" height="84" viewBox="0 0 82 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6.75" y="0.75" width="68.5" height="68.5" rx="34.25" stroke="#F8F8F8" stroke-opacity="0.05" stroke-width="1.5"/>
+                                <foreignObject x="-65.8208" y="-71.8208" width="213.64" height="213.64"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(37.37px);clip-path:url(#bgblur_0_575_757_clip_path);height:100%;width:100%"></div></foreignObject><g filter="url(#filter0_di_575_757)" data-figma-bg-blur-radius="74.7368">
+                                <path d="M8.91602 34.9994C8.91602 17.2802 23.2802 2.91602 40.9994 2.91602C58.7185 2.91602 73.0827 17.2802 73.0827 34.9994C73.0827 52.7185 58.7185 67.0827 40.9994 67.0827C23.2802 67.0827 8.91602 52.7185 8.91602 34.9994Z" fill="#F8F8F8" fill-opacity="0.1" shape-rendering="crispEdges"/>
+                                <path d="M40.999 3.47656C58.4085 3.47656 72.5223 17.5896 72.5225 34.999C72.5225 52.4086 58.4086 66.5225 40.999 66.5225C23.5896 66.5223 9.47656 52.4085 9.47656 34.999C9.47674 17.5897 23.5897 3.47674 40.999 3.47656Z" stroke="url(#paint0_linear_575_757)" stroke-opacity="0.25" stroke-width="1.12105" shape-rendering="crispEdges"/>
+                                </g>
+                                <path class="change-stroke-path" d="M29.334 32.6673C29.334 28.2675 29.334 26.0677 30.7008 24.7008C32.0677 23.334 34.2675 23.334 38.6673 23.334H43.334C47.7338 23.334 49.9336 23.334 51.3005 24.7008C52.6673 26.0677 52.6673 28.2675 52.6673 32.6673V33.834C52.6673 37.1338 52.6673 38.7837 51.6422 39.8089C50.6171 40.834 48.9672 40.834 45.6673 40.834H36.334C33.0342 40.834 31.3842 40.834 30.3591 39.8089C29.334 38.7837 29.334 37.1338 29.334 33.834V32.6673Z" stroke="url(#paint1_linear_575_757)" stroke-width="2.1"/>
+                                <path class="change-stroke-path" d="M45.6673 46.666H36.334" stroke="#6A6A6A" stroke-width="2.1" stroke-linecap="round"/>
+                                <path class="change-stroke-path" d="M41 40.8327V46.666" stroke="#6A6A6A" stroke-width="2.1" stroke-linecap="round"/>
+                                <path class="change-stroke-path" d="M52.6673 36.166H29.334" stroke="#6A6A6A" stroke-width="2.1" stroke-linecap="round"/>
+                                <defs>
+                                <filter id="filter0_di_575_757" x="-65.8208" y="-71.8208" width="213.64" height="213.64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                <feMorphology radius="2.98947" operator="erode" in="SourceAlpha" result="effect1_dropShadow_575_757"/>
+                                <feOffset dy="8.22105"/>
+                                <feGaussianBlur stdDeviation="5.64263"/>
+                                <feComposite in2="hardAlpha" operator="out"/>
+                                <feColorMatrix type="matrix" values="0 0 0 0 0.0705882 0 0 0 0 0.0705882 0 0 0 0 0.0705882 0 0 0 0.3 0"/>
+                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_575_757"/>
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_575_757" result="shape"/>
+                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                <feOffset dx="1.49474" dy="2.98947"/>
+                                <feGaussianBlur stdDeviation="5.97895"/>
+                                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                                <feColorMatrix type="matrix" values="0 0 0 0 0.972549 0 0 0 0 0.972549 0 0 0 0 0.972549 0 0 0 0.06 0"/>
+                                <feBlend mode="normal" in2="shape" result="effect2_innerShadow_575_757"/>
+                                </filter>
+                                <clipPath id="bgblur_0_575_757_clip_path" transform="translate(65.8208 71.8208)"><path d="M8.91602 34.9994C8.91602 17.2802 23.2802 2.91602 40.9994 2.91602C58.7185 2.91602 73.0827 17.2802 73.0827 34.9994C73.0827 52.7185 58.7185 67.0827 40.9994 67.0827C23.2802 67.0827 8.91602 52.7185 8.91602 34.9994Z"/>
+                                </clipPath><linearGradient id="paint0_linear_575_757" x1="40.9994" y1="2.91601" x2="68.9131" y2="73.3789" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="white" stop-opacity="0.4"/>
+                                <stop offset="0.4" stop-color="white" stop-opacity="0.01"/>
+                                <stop offset="0.6" stop-color="white" stop-opacity="0.01"/>
+                                <stop offset="1" stop-color="white" stop-opacity="0.1"/>
+                                </linearGradient>
+                                <linearGradient id="paint1_linear_575_757" x1="41.0007" y1="23.334" x2="41.0007" y2="40.834" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#DFDFDF"/>
+                                <stop offset="1" stop-color="#6A6A6A"/>
+                                </linearGradient>
+                                </defs>
+                            </svg>
+                        </li>
+                        <li class="benefit-item item-3" data-content="3">
+                            <div class="text">
+                                <h6> Connect. Charge. Simplify.</h6>
+                                <h5>Powerful Docking Stations</h5>
+                            </div>
+                            <svg width="82" height="84" viewBox="0 0 82 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6.75" y="0.75" width="68.5" height="68.5" rx="34.25" stroke="#F8F8F8" stroke-opacity="0.05" stroke-width="1.5"/>
+                                <foreignObject x="-65.8208" y="-71.8208" width="213.64" height="213.64"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(37.37px);clip-path:url(#bgblur_0_591_1192_clip_path);height:100%;width:100%"></div></foreignObject><g filter="url(#filter0_di_591_1192)" data-figma-bg-blur-radius="74.7368">
+                                <path d="M8.91602 34.9994C8.91602 17.2802 23.2802 2.91602 40.9994 2.91602C58.7185 2.91602 73.0827 17.2802 73.0827 34.9994C73.0827 52.7185 58.7185 67.0827 40.9994 67.0827C23.2802 67.0827 8.91602 52.7185 8.91602 34.9994Z" fill="#F8F8F8" fill-opacity="0.1" shape-rendering="crispEdges"/>
+                                <path d="M40.999 3.47656C58.4085 3.47656 72.5223 17.5896 72.5225 34.999C72.5225 52.4086 58.4086 66.5225 40.999 66.5225C23.5896 66.5223 9.47656 52.4085 9.47656 34.999C9.47674 17.5897 23.5897 3.47674 40.999 3.47656Z" stroke="url(#paint0_linear_591_1192)" stroke-opacity="0.25" stroke-width="1.12105" shape-rendering="crispEdges"/>
+                                </g>
+                                <path class="change-stroke-path" d="M37 29.5V27.5C37 27.0353 37 26.803 36.9616 26.6098C36.8038 25.8164 36.1836 25.1962 35.3902 25.0384C35.197 25 34.9647 25 34.5 25C34.0353 25 33.803 25 33.6098 25.0384C32.8164 25.1962 32.1962 25.8164 32.0384 26.6098C32 26.803 32 27.0353 32 27.5V29.5C32 29.9647 32 30.197 32.0384 30.3902C32.1962 31.1836 32.8164 31.8038 33.6098 31.9616C33.803 32 34.0353 32 34.5 32C34.9647 32 35.197 32 35.3902 31.9616C36.1836 31.8038 36.8038 31.1836 36.9616 30.3902C37 30.197 37 29.9647 37 29.5Z" stroke="url(#paint1_linear_591_1192)" stroke-width="2.1"/>
+                                <path class="change-stroke-path" d="M50 29.5V27.5C50 27.0353 50 26.803 49.9616 26.6098C49.8038 25.8164 49.1836 25.1962 48.3902 25.0384C48.197 25 47.9647 25 47.5 25C47.0353 25 46.803 25 46.6098 25.0384C45.8164 25.1962 45.1962 25.8164 45.0384 26.6098C45 26.803 45 27.0353 45 27.5V29.5C45 29.9647 45 30.197 45.0384 30.3902C45.1962 31.1836 45.8164 31.8038 46.6098 31.9616C46.803 32 47.0353 32 47.5 32C47.9647 32 48.197 32 48.3902 31.9616C49.1836 31.8038 49.8038 31.1836 49.9616 30.3902C50 30.197 50 29.9647 50 29.5Z" stroke="url(#paint2_linear_591_1192)" stroke-width="2.1"/>
+                                <path class="change-stroke-path" d="M37 42.5V40.5C37 40.0353 37 39.803 36.9616 39.6098C36.8038 38.8164 36.1836 38.1962 35.3902 38.0384C35.197 38 34.9647 38 34.5 38C34.0353 38 33.803 38 33.6098 38.0384C32.8164 38.1962 32.1962 38.8164 32.0384 39.6098C32 39.803 32 40.0353 32 40.5V42.5C32 42.9647 32 43.197 32.0384 43.3902C32.1962 44.1836 32.8164 44.8038 33.6098 44.9616C33.803 45 34.0353 45 34.5 45C34.9647 45 35.197 45 35.3902 44.9616C36.1836 44.8038 36.8038 44.1836 36.9616 43.3902C37 43.197 37 42.9647 37 42.5Z" stroke="url(#paint3_linear_591_1192)" stroke-width="2.1"/>
+                                <path class="change-stroke-path" d="M50 42.5V40.5C50 40.0353 50 39.803 49.9616 39.6098C49.8038 38.8164 49.1836 38.1962 48.3902 38.0384C48.197 38 47.9647 38 47.5 38C47.0353 38 46.803 38 46.6098 38.0384C45.8164 38.1962 45.1962 38.8164 45.0384 39.6098C45 39.803 45 40.0353 45 40.5V42.5C45 42.9647 45 43.197 45.0384 43.3902C45.1962 44.1836 45.8164 44.8038 46.6098 44.9616C46.803 45 47.0353 45 47.5 45C47.9647 45 48.197 45 48.3902 44.9616C49.1836 44.8038 49.8038 44.1836 49.9616 43.3902C50 43.197 50 42.9647 50 42.5Z" stroke="url(#paint4_linear_591_1192)" stroke-width="2.1"/>
+                                <path class="change-stroke-path" d="M45 41.5H37" stroke="url(#paint5_linear_591_1192)" stroke-width="2.1"/>
+                                <path class="change-stroke-path" d="M45 29H37" stroke="url(#paint6_linear_591_1192)" stroke-width="2.1"/>
+                                <path class="change-stroke-path" d="M41 32.5L40.2717 33.7138C39.9939 34.1769 39.855 34.4084 39.8928 34.5979C39.9137 34.7028 39.9677 34.7982 40.0469 34.8701C40.1899 35 40.4599 35 41 35V35C41.5401 35 41.8101 35 41.9531 35.1299C42.0323 35.2018 42.0863 35.2972 42.1072 35.4021C42.145 35.5916 42.0061 35.8231 41.7283 36.2862L41 37.5" stroke="url(#paint7_linear_591_1192)" stroke-linecap="round"/>
+                                <defs>
+                                <filter id="filter0_di_591_1192" x="-65.8208" y="-71.8208" width="213.64" height="213.64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                <feMorphology radius="2.98947" operator="erode" in="SourceAlpha" result="effect1_dropShadow_591_1192"/>
+                                <feOffset dy="8.22105"/>
+                                <feGaussianBlur stdDeviation="5.64263"/>
+                                <feComposite in2="hardAlpha" operator="out"/>
+                                <feColorMatrix type="matrix" values="0 0 0 0 0.0705882 0 0 0 0 0.0705882 0 0 0 0 0.0705882 0 0 0 0.3 0"/>
+                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_591_1192"/>
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_591_1192" result="shape"/>
+                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                <feOffset dx="1.49474" dy="2.98947"/>
+                                <feGaussianBlur stdDeviation="5.97895"/>
+                                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                                <feColorMatrix type="matrix" values="0 0 0 0 0.972549 0 0 0 0 0.972549 0 0 0 0 0.972549 0 0 0 0.06 0"/>
+                                <feBlend mode="normal" in2="shape" result="effect2_innerShadow_591_1192"/>
+                                </filter>
+                                <clipPath id="bgblur_0_591_1192_clip_path" transform="translate(65.8208 71.8208)"><path d="M8.91602 34.9994C8.91602 17.2802 23.2802 2.91602 40.9994 2.91602C58.7185 2.91602 73.0827 17.2802 73.0827 34.9994C73.0827 52.7185 58.7185 67.0827 40.9994 67.0827C23.2802 67.0827 8.91602 52.7185 8.91602 34.9994Z"/>
+                                </clipPath><linearGradient id="paint0_linear_591_1192" x1="40.9994" y1="2.91601" x2="68.9131" y2="73.3789" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="white" stop-opacity="0.4"/>
+                                <stop offset="0.4" stop-color="white" stop-opacity="0.01"/>
+                                <stop offset="0.6" stop-color="white" stop-opacity="0.01"/>
+                                <stop offset="1" stop-color="white" stop-opacity="0.1"/>
+                                </linearGradient>
+                                <linearGradient id="paint1_linear_591_1192" x1="34.5" y1="25" x2="34.5" y2="32" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#DFDFDF"/>
+                                <stop offset="1" stop-color="#6A6A6A"/>
+                                </linearGradient>
+                                <linearGradient id="paint2_linear_591_1192" x1="47.5" y1="25" x2="47.5" y2="32" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#DFDFDF"/>
+                                <stop offset="1" stop-color="#6A6A6A"/>
+                                </linearGradient>
+                                <linearGradient id="paint3_linear_591_1192" x1="34.5" y1="38" x2="34.5" y2="45" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#DFDFDF"/>
+                                <stop offset="1" stop-color="#6A6A6A"/>
+                                </linearGradient>
+                                <linearGradient id="paint4_linear_591_1192" x1="47.5" y1="38" x2="47.5" y2="45" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#DFDFDF"/>
+                                <stop offset="1" stop-color="#6A6A6A"/>
+                                </linearGradient>
+                                <linearGradient id="paint5_linear_591_1192" x1="41" y1="40" x2="41" y2="43.5" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#DFDFDF"/>
+                                <stop offset="1" stop-color="#6A6A6A"/>
+                                </linearGradient>
+                                <linearGradient id="paint6_linear_591_1192" x1="41" y1="27.5" x2="41" y2="31" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#DFDFDF"/>
+                                <stop offset="1" stop-color="#6A6A6A"/>
+                                </linearGradient>
+                                <linearGradient id="paint7_linear_591_1192" x1="41" y1="32.5" x2="41" y2="37.5" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#DFDFDF"/>
+                                <stop offset="1" stop-color="#6A6A6A"/>
+                                </linearGradient>
+                                </defs>
+                            </svg>
+                        </li>
+                    </ul>
+                </div>
+                <div class="img-container">
+                    <ul>
+                        <li class="img-1 active" data-img="1">
+                            <img src="/img/printer-benefit.png" alt="Printer Benefits">
+                        </li>
+                        <li class="img-2" data-img="2">
+                            <img src="/img/monitor-benefit.png" alt="Monitor Benefits">
+                        </li>
+                        <li class="img-3" data-img="3">
+                            <img src="/img/docking-station-benefit.png" alt="Docking Station Benefits">
+                        </li>
+                    </ul>
+                </div>
+                <div class="right-container">
+                    <li class="benefit-item item-4" data-content="4">
+                        <svg width="82" height="84" viewBox="0 0 82 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6.75" y="0.75" width="68.5" height="68.5" rx="34.25" stroke="#F8F8F8" stroke-opacity="0.05" stroke-width="1.5"/>
+                            <foreignObject x="-65.8208" y="-71.8208" width="213.64" height="213.64"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(37.37px);clip-path:url(#bgblur_0_591_1320_clip_path);height:100%;width:100%"></div></foreignObject><g filter="url(#filter0_di_591_1320)" data-figma-bg-blur-radius="74.7368">
+                            <path d="M8.91602 34.9994C8.91602 17.2802 23.2802 2.91602 40.9994 2.91602V2.91602C58.7185 2.91602 73.0827 17.2802 73.0827 34.9994V34.9994C73.0827 52.7185 58.7185 67.0827 40.9994 67.0827V67.0827C23.2802 67.0827 8.91602 52.7185 8.91602 34.9994V34.9994Z" fill="#F8F8F8" fill-opacity="0.1" shape-rendering="crispEdges"/>
+                            <path d="M40.999 3.47656C58.4085 3.47656 72.5223 17.5896 72.5225 34.999C72.5225 52.4086 58.4086 66.5225 40.999 66.5225C23.5896 66.5223 9.47656 52.4085 9.47656 34.999C9.47674 17.5897 23.5897 3.47674 40.999 3.47656Z" stroke="url(#paint0_linear_591_1320)" stroke-opacity="0.25" stroke-width="1.12105" shape-rendering="crispEdges"/>
+                            </g>
+                            <path class="change-color-path" fill-rule="evenodd" clip-rule="evenodd" d="M39.772 22.459H42.2267C43.2749 22.459 44.149 22.4589 44.8429 22.5522C45.5753 22.6507 46.2366 22.8673 46.768 23.3987C47.2994 23.9301 47.516 24.5913 47.6145 25.3238C47.7077 26.0177 47.7077 26.8918 47.7077 27.94L47.7077 29.6391C49.8525 31.5105 51.2077 34.264 51.2077 37.334C51.2077 42.9719 46.6373 47.5423 40.9993 47.5423C35.3614 47.5423 30.791 42.9719 30.791 37.334C30.791 34.264 32.1462 31.5105 34.291 29.6391L34.291 27.94C34.291 26.8918 34.291 26.0177 34.3842 25.3238C34.4827 24.5913 34.6993 23.9301 35.2307 23.3987C35.7621 22.8673 36.4234 22.6507 37.1558 22.5522C37.8497 22.4589 38.7238 22.459 39.772 22.459ZM36.041 28.4086C37.5091 27.5913 39.1999 27.1257 40.9993 27.1257C42.7988 27.1257 44.4896 27.5913 45.9577 28.4086V28.0007C45.9577 26.876 45.9558 26.1205 45.8801 25.5569C45.8077 25.0186 45.6826 24.7882 45.5305 24.6361C45.3785 24.4841 45.1481 24.359 44.6097 24.2866C44.0462 24.2108 43.2907 24.209 42.166 24.209H39.8327C38.708 24.209 37.9525 24.2108 37.389 24.2866C36.8506 24.359 36.6202 24.4841 36.4682 24.6361C36.3161 24.7882 36.191 25.0186 36.1186 25.5569C36.0429 26.1205 36.041 26.876 36.041 28.0007V28.4086ZM40.9993 28.8757C36.3279 28.8757 32.541 32.6626 32.541 37.334C32.541 42.0054 36.3279 45.7923 40.9993 45.7923C45.6708 45.7923 49.4577 42.0054 49.4577 37.334C49.4577 32.6626 45.6708 28.8757 40.9993 28.8757ZM40.9993 35.0409C40.9315 35.1583 40.8561 35.2935 40.7672 35.453L40.6525 35.6587C40.6444 35.6732 40.6358 35.6891 40.6265 35.7061C40.5349 35.8736 40.3831 36.1511 40.1301 36.3432C39.8719 36.5392 39.5612 36.6067 39.3795 36.6461C39.3613 36.6501 39.3444 36.6537 39.329 36.6572L39.1063 36.7076C38.9019 36.7539 38.7354 36.7916 38.5931 36.8274C38.6857 36.9413 38.806 37.0829 38.9624 37.2658L39.1142 37.4433C39.125 37.4559 39.1367 37.4694 39.1492 37.4838C39.2751 37.6288 39.4784 37.863 39.5724 38.1654C39.6653 38.4641 39.6333 38.7718 39.6131 38.9659C39.6111 38.9853 39.6092 39.0035 39.6075 39.0205L39.5846 39.2574C39.5633 39.4771 39.5467 39.6524 39.5357 39.7949C39.6573 39.7414 39.7956 39.6777 39.9599 39.6021L40.1684 39.5061C40.1828 39.4995 40.1985 39.4921 40.2155 39.484C40.3829 39.4051 40.6742 39.2677 40.9993 39.2677C41.3245 39.2677 41.6158 39.4051 41.7832 39.484C41.8002 39.4921 41.8159 39.4995 41.8303 39.5061L42.0388 39.6021C42.2031 39.6777 42.3414 39.7414 42.463 39.7949C42.452 39.6524 42.4354 39.4771 42.4141 39.2574L42.3912 39.0205C42.3895 39.0035 42.3876 38.9853 42.3856 38.9659C42.3654 38.7718 42.3334 38.4641 42.4263 38.1654C42.5203 37.863 42.7236 37.6288 42.8495 37.4838C42.862 37.4694 42.8737 37.4559 42.8845 37.4433L43.0363 37.2658C43.1927 37.0828 43.313 36.9413 43.4056 36.8274C43.2633 36.7916 43.0968 36.7539 42.8924 36.7076L42.6697 36.6572C42.6543 36.6537 42.6374 36.6501 42.6192 36.6461C42.4375 36.6067 42.1268 36.5392 41.8686 36.3432C41.6156 36.1511 41.4638 35.8736 41.3722 35.7061C41.3629 35.6891 41.3543 35.6732 41.3462 35.6587L41.2315 35.453C41.1426 35.2935 41.0672 35.1583 40.9993 35.0409ZM39.8484 33.6002C40.0493 33.3379 40.414 32.959 40.9993 32.959C41.5847 32.959 41.9494 33.3379 42.1503 33.6002C42.342 33.8506 42.5351 34.1971 42.733 34.5524C42.742 34.5685 42.751 34.5847 42.76 34.6009L42.8747 34.8066C42.9013 34.8543 42.9223 34.8919 42.9406 34.924C42.9725 34.9315 43.0095 34.9399 43.0559 34.9504L43.2786 35.0008C43.2969 35.0049 43.3151 35.009 43.3333 35.0131C43.7158 35.0996 44.0959 35.1854 44.3876 35.3004C44.7098 35.4274 45.1465 35.6746 45.3148 36.2159C45.4801 36.7475 45.2715 37.1979 45.0893 37.4874C44.9206 37.7553 44.6643 38.0548 44.4019 38.3615C44.3901 38.3754 44.3782 38.3893 44.3663 38.4031L44.2145 38.5807C44.1742 38.6277 44.1439 38.6632 44.1184 38.6939C44.1219 38.7363 44.1266 38.7857 44.133 38.8517L44.156 39.0886C44.1577 39.1067 44.1595 39.1248 44.1612 39.1428C44.2011 39.5534 44.2396 39.9501 44.2255 40.2675C44.2107 40.6003 44.1308 41.1041 43.6791 41.447C43.2131 41.8007 42.6985 41.7236 42.3722 41.6301C42.0715 41.544 41.7161 41.3803 41.3583 41.2154C41.3412 41.2075 41.324 41.1996 41.3069 41.1917L41.0984 41.0957C41.0594 41.0777 41.0273 41.063 40.9993 41.0503C40.9714 41.063 40.9393 41.0777 40.9003 41.0957L40.6918 41.1917C40.6746 41.1996 40.6575 41.2075 40.6404 41.2154C40.2825 41.3803 39.9272 41.544 39.6265 41.6301C39.3002 41.7236 38.7856 41.8007 38.3196 41.447C37.8679 41.1041 37.788 40.6003 37.7732 40.2675C37.7591 39.9501 37.7976 39.5534 37.8375 39.1428C37.8392 39.1248 37.841 39.1067 37.8427 39.0886L37.8657 38.8517C37.8721 38.7857 37.8768 38.7363 37.8803 38.6939C37.8548 38.6632 37.8245 38.6277 37.7842 38.5807L37.6324 38.4031C37.6205 38.3893 37.6086 38.3754 37.5968 38.3615C37.3344 38.0548 37.0781 37.7552 36.9094 37.4874C36.7272 37.1979 36.5186 36.7475 36.6839 36.2159C36.8522 35.6746 37.2889 35.4274 37.6111 35.3004C37.9028 35.1854 38.2829 35.0996 38.6654 35.0131C38.6836 35.009 38.7018 35.0049 38.7201 35.0008L38.9428 34.9504C38.9892 34.9399 39.0262 34.9315 39.0581 34.924C39.0764 34.8919 39.0974 34.8543 39.124 34.8066L39.2387 34.6009C39.2477 34.5847 39.2567 34.5685 39.2657 34.5524C39.4636 34.1971 39.6567 33.8506 39.8484 33.6002Z" fill="url(#paint1_linear_591_1320)"/>
+                            <defs>
+                            <filter id="filter0_di_591_1320" x="-65.8208" y="-71.8208" width="213.64" height="213.64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feMorphology radius="2.98947" operator="erode" in="SourceAlpha" result="effect1_dropShadow_591_1320"/>
+                            <feOffset dy="8.22105"/>
+                            <feGaussianBlur stdDeviation="5.64263"/>
+                            <feComposite in2="hardAlpha" operator="out"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0.0705882 0 0 0 0 0.0705882 0 0 0 0 0.0705882 0 0 0 0.3 0"/>
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_591_1320"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_591_1320" result="shape"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feOffset dx="1.49474" dy="2.98947"/>
+                            <feGaussianBlur stdDeviation="5.97895"/>
+                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0.972549 0 0 0 0 0.972549 0 0 0 0 0.972549 0 0 0 0.06 0"/>
+                            <feBlend mode="normal" in2="shape" result="effect2_innerShadow_591_1320"/>
+                            </filter>
+                            <clipPath id="bgblur_0_591_1320_clip_path" transform="translate(65.8208 71.8208)"><path d="M8.91602 34.9994C8.91602 17.2802 23.2802 2.91602 40.9994 2.91602V2.91602C58.7185 2.91602 73.0827 17.2802 73.0827 34.9994V34.9994C73.0827 52.7185 58.7185 67.0827 40.9994 67.0827V67.0827C23.2802 67.0827 8.91602 52.7185 8.91602 34.9994V34.9994Z"/>
+                            </clipPath><linearGradient id="paint0_linear_591_1320" x1="40.9994" y1="2.91601" x2="68.9131" y2="73.3789" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="white" stop-opacity="0.4"/>
+                            <stop offset="0.4" stop-color="white" stop-opacity="0.01"/>
+                            <stop offset="0.6" stop-color="white" stop-opacity="0.01"/>
+                            <stop offset="1" stop-color="white" stop-opacity="0.1"/>
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_591_1320" x1="40.9993" y1="22.459" x2="40.9993" y2="47.5423" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#F8F8F8" stop-opacity="0.9"/>
+                            <stop offset="1" stop-color="#F8F8F8" stop-opacity="0.3"/>
+                            </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="text">
+                            <h6>Built to perform, built to last.</h6>
+                            <h5>Unmatched Quality & Durability</h5>
+                        </div>
+                    </li>
+                    <li class="benefit-item item-5" data-content="5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="82" height="84" viewBox="0 0 82 84" fill="none">
+                            <rect x="6.75" y="0.75" width="68.5" height="68.5" rx="34.25" stroke="#F8F8F8" stroke-opacity="0.05" stroke-width="1.5"/>
+                            <foreignObject x="-65.8208" y="-71.8208" width="213.64" height="213.64"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(37.37px);clip-path:url(#bgblur_0_591_1330_clip_path);height:100%;width:100%"></div></foreignObject><g filter="url(#filter0_di_591_1330)" data-figma-bg-blur-radius="74.7368">
+                                <path d="M8.91602 34.9994C8.91602 17.2802 23.2802 2.91602 40.9994 2.91602V2.91602C58.7185 2.91602 73.0827 17.2802 73.0827 34.9994V34.9994C73.0827 52.7185 58.7185 67.0827 40.9994 67.0827V67.0827C23.2802 67.0827 8.91602 52.7185 8.91602 34.9994V34.9994Z" fill="#F8F8F8" fill-opacity="0.1" shape-rendering="crispEdges"/>
+                                <path d="M40.999 3.47656C58.4085 3.47656 72.5223 17.5896 72.5225 34.999C72.5225 52.4086 58.4086 66.5225 40.999 66.5225C23.5896 66.5223 9.47656 52.4085 9.47656 34.999C9.47674 17.5897 23.5897 3.47674 40.999 3.47656Z" stroke="url(#paint0_linear_591_1330)" stroke-opacity="0.25" stroke-width="1.12105" shape-rendering="crispEdges"/>
+                            </g>
+                            <path class="change-color-path" d="M53.0777 31.4985C51.6952 30.1784 51.6252 30.0585 51.6606 28.0411C51.6821 26.8198 51.7064 25.4358 50.8026 24.5321C49.8989 23.6284 48.5147 23.6527 47.2937 23.6741C45.2776 23.7093 45.1582 23.6415 43.8363 22.2571C42.9757 21.3556 42.0002 20.334 40.6674 20.334C39.3346 20.334 38.3591 21.3556 37.4985 22.2571C36.1784 23.6396 36.0583 23.7096 34.0411 23.6741C32.8201 23.6527 31.4358 23.6284 30.5321 24.5321C29.6284 25.4358 29.6527 26.8198 29.6741 28.0411C29.7096 30.0578 29.6409 30.1773 28.2571 31.4985C27.3556 32.3591 26.334 33.3346 26.334 34.6674C26.334 36.0002 27.3556 36.9757 28.2571 37.8363C29.6396 39.1564 29.7096 39.2763 29.6741 41.2937C29.6527 42.5149 29.6284 43.8989 30.5321 44.8026C31.4358 45.7064 32.8201 45.6823 34.0411 45.6606C36.0561 45.6254 36.176 45.6926 37.4985 47.0777C38.3591 47.9792 39.3346 49.0008 40.6674 49.0008C42.0002 49.0008 42.9757 47.9792 43.8363 47.0777C45.1562 45.6952 45.2765 45.625 47.2937 45.6606C48.5147 45.6821 49.8989 45.7064 50.8026 44.8026C51.7064 43.8989 51.6821 42.5147 51.6606 41.2937C51.6252 39.2769 51.6937 39.1575 53.0777 37.8363C53.9792 36.9757 55.0008 36.0002 55.0008 34.6674C55.0008 33.3346 53.9792 32.3591 53.0777 31.4985ZM51.9133 36.6168C50.1811 38.2704 49.9304 38.8076 49.9746 41.3234C50.0186 43.8335 49.8329 44.0188 47.3232 43.9746C44.8058 43.9309 44.27 44.1817 42.6165 45.9133C40.8343 47.78 40.4988 47.7782 38.718 45.9133C37.0698 44.187 36.5388 43.9304 34.0116 43.9746C31.5087 44.0188 31.316 43.8429 31.3602 41.3234C31.4043 38.8078 31.1535 38.2702 29.4215 36.6165C27.5544 34.834 27.557 34.4981 29.4215 32.7182C31.1537 31.0644 31.4043 30.5272 31.3602 28.0116C31.316 25.5004 31.5021 25.3162 34.0114 25.3602C36.5265 25.4046 37.0641 25.1539 38.718 23.4215C40.5005 21.5548 40.836 21.5568 42.6165 23.4215C44.27 25.1533 44.8076 25.4046 47.3232 25.3602C49.834 25.3166 50.0186 25.5017 49.9746 28.0116C49.9304 30.5272 50.1813 31.0648 51.9133 32.7182C53.7804 34.5007 53.7775 34.8367 51.9133 36.6168Z" fill="url(#paint1_linear_591_1330)"/>
+                            <path class="change-color-path" d="M45.4801 29.8543C45.1509 29.5251 44.6171 29.5251 44.2877 29.8543L35.8564 38.2856C35.527 38.615 35.527 39.1488 35.8564 39.478C36.1856 39.8074 36.7194 39.8074 37.0488 39.478L45.4801 31.0467C45.8095 30.7173 45.8095 30.1835 45.4801 29.8543Z" fill="url(#paint2_linear_591_1330)"/>
+                            <path class="change-color-path" d="M39.8244 31.2931C39.8244 29.8983 38.6897 28.7637 37.295 28.7637C35.9003 28.7637 34.7656 29.8983 34.7656 31.2931C34.7656 32.6878 35.9003 33.8224 37.295 33.8224C38.6897 33.8224 39.8244 32.6878 39.8244 31.2931ZM36.4519 31.2931C36.4519 30.8281 36.83 30.4499 37.295 30.4499C37.7598 30.4499 38.1381 30.8281 38.1381 31.2931C38.1381 31.758 37.76 32.1362 37.295 32.1362C36.83 32.1362 36.4519 31.758 36.4519 31.2931Z" fill="url(#paint3_linear_591_1330)"/>
+                            <path class="change-color-path" d="M44.0392 35.5098C42.6444 35.5098 41.5098 36.6444 41.5098 38.0392C41.5098 39.4339 42.6444 40.5685 44.0392 40.5685C45.4339 40.5685 46.5685 39.4339 46.5685 38.0392C46.5685 36.6444 45.4339 35.5098 44.0392 35.5098ZM44.0392 38.8823C43.5744 38.8823 43.196 38.5041 43.196 38.0392C43.196 37.5742 43.5742 37.196 44.0392 37.196C44.5041 37.196 44.8823 37.5742 44.8823 38.0392C44.8823 38.5041 44.5041 38.8823 44.0392 38.8823Z" fill="url(#paint4_linear_591_1330)"/>
+                            <defs>
+                                <filter id="filter0_di_591_1330" x="-65.8208" y="-71.8208" width="213.64" height="213.64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                <feMorphology radius="2.98947" operator="erode" in="SourceAlpha" result="effect1_dropShadow_591_1330"/>
+                                <feOffset dy="8.22105"/>
+                                <feGaussianBlur stdDeviation="5.64263"/>
+                                <feComposite in2="hardAlpha" operator="out"/>
+                                <feColorMatrix type="matrix" values="0 0 0 0 0.0705882 0 0 0 0 0.0705882 0 0 0 0 0.0705882 0 0 0 0.3 0"/>
+                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_591_1330"/>
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_591_1330" result="shape"/>
+                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                <feOffset dx="1.49474" dy="2.98947"/>
+                                <feGaussianBlur stdDeviation="5.97895"/>
+                                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                                <feColorMatrix type="matrix" values="0 0 0 0 0.972549 0 0 0 0 0.972549 0 0 0 0 0.972549 0 0 0 0.06 0"/>
+                                <feBlend mode="normal" in2="shape" result="effect2_innerShadow_591_1330"/>
+                                </filter>
+                                <clipPath id="bgblur_0_591_1330_clip_path" transform="translate(65.8208 71.8208)"><path d="M8.91602 34.9994C8.91602 17.2802 23.2802 2.91602 40.9994 2.91602V2.91602C58.7185 2.91602 73.0827 17.2802 73.0827 34.9994V34.9994C73.0827 52.7185 58.7185 67.0827 40.9994 67.0827V67.0827C23.2802 67.0827 8.91602 52.7185 8.91602 34.9994V34.9994Z"/>
+                            </clipPath><linearGradient id="paint0_linear_591_1330" x1="40.9994" y1="2.91601" x2="68.9131" y2="73.3789" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="white" stop-opacity="0.4"/>
+                            <stop offset="0.4" stop-color="white" stop-opacity="0.01"/>
+                            <stop offset="0.6" stop-color="white" stop-opacity="0.01"/>
+                            <stop offset="1" stop-color="white" stop-opacity="0.1"/>
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_591_1330" x1="40.6674" y1="20.334" x2="40.6674" y2="49.0008" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#F8F8F8" stop-opacity="0.9"/>
+                            <stop offset="1" stop-color="#F8F8F8" stop-opacity="0.3"/>
+                            </linearGradient>
+                            <linearGradient id="paint2_linear_591_1330" x1="40.6683" y1="29.6074" x2="40.6683" y2="39.725" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#F8F8F8" stop-opacity="0.9"/>
+                            <stop offset="1" stop-color="#F8F8F8" stop-opacity="0.3"/>
+                            </linearGradient>
+                            <linearGradient id="paint3_linear_591_1330" x1="37.295" y1="28.7637" x2="37.295" y2="33.8224" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#F8F8F8" stop-opacity="0.9"/>
+                            <stop offset="1" stop-color="#F8F8F8" stop-opacity="0.3"/>
+                            </linearGradient>
+                            <linearGradient id="paint4_linear_591_1330" x1="44.0392" y1="35.5098" x2="44.0392" y2="40.5685" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#F8F8F8" stop-opacity="0.9"/>
+                            <stop offset="1" stop-color="#F8F8F8" stop-opacity="0.3"/>
+                            </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="text">
+                            <h6>Great deals on top tech.</h6>
+                            <h5>Exclusive Offers  </h5>
+                        </div>
+                    </li>
+                    <li class="benefit-item item-6" data-content="6">
+                        <svg width="82" height="84" viewBox="0 0 82 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6.75" y="0.75" width="68.5" height="68.5" rx="34.25" stroke="#F8F8F8" stroke-opacity="0.05" stroke-width="1.5"/>
+                            <foreignObject x="-65.8208" y="-71.8208" width="213.64" height="213.64"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(37.37px);clip-path:url(#bgblur_0_591_1325_clip_path);height:100%;width:100%"></div></foreignObject><g filter="url(#filter0_di_591_1325)" data-figma-bg-blur-radius="74.7368">
+                            <path d="M8.91602 34.9994C8.91602 17.2802 23.2802 2.91602 40.9993 2.91602V2.91602C58.7185 2.91602 73.0827 17.2802 73.0827 34.9994V34.9994C73.0827 52.7185 58.7185 67.0827 40.9993 67.0827V67.0827C23.2802 67.0827 8.91602 52.7185 8.91602 34.9994V34.9994Z" fill="#F8F8F8" fill-opacity="0.1" shape-rendering="crispEdges"/>
+                            <path d="M40.999 3.47656C58.4085 3.47656 72.5223 17.5896 72.5225 34.999C72.5225 52.4086 58.4086 66.5225 40.999 66.5225C23.5896 66.5223 9.47656 52.4085 9.47656 34.999C9.47674 17.5897 23.5897 3.47674 40.999 3.47656Z" stroke="url(#paint0_linear_591_1325)" stroke-opacity="0.25" stroke-width="1.12105" shape-rendering="crispEdges"/>
+                            </g>
+                            <path class="change-color-path" fill-rule="evenodd" clip-rule="evenodd" d="M39.5417 24.7917C34.7092 24.7917 30.7917 28.7092 30.7917 33.5417C30.7917 38.3742 34.7092 42.2917 39.5417 42.2917C44.3742 42.2917 48.2917 38.3742 48.2917 33.5417C48.2917 28.7092 44.3742 24.7917 39.5417 24.7917ZM27.875 33.5417C27.875 27.0983 33.0983 21.875 39.5417 21.875C45.985 21.875 51.2083 27.0983 51.2083 33.5417C51.2083 36.2377 50.2938 38.7202 48.7581 40.6957L53.6978 45.6355C54.2674 46.205 54.2674 47.1283 53.6978 47.6978C53.1283 48.2674 52.205 48.2674 51.6355 47.6978L46.6957 42.7581C44.7202 44.2938 42.2377 45.2083 39.5417 45.2083C33.0983 45.2083 27.875 39.985 27.875 33.5417Z" fill="url(#paint1_linear_591_1325)"/>
+                            <defs>
+                            <filter id="filter0_di_591_1325" x="-65.8208" y="-71.8208" width="213.64" height="213.64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feMorphology radius="2.98947" operator="erode" in="SourceAlpha" result="effect1_dropShadow_591_1325"/>
+                            <feOffset dy="8.22105"/>
+                            <feGaussianBlur stdDeviation="5.64263"/>
+                            <feComposite in2="hardAlpha" operator="out"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0.0705882 0 0 0 0 0.0705882 0 0 0 0 0.0705882 0 0 0 0.3 0"/>
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_591_1325"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_591_1325" result="shape"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feOffset dx="1.49474" dy="2.98947"/>
+                            <feGaussianBlur stdDeviation="5.97895"/>
+                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0.972549 0 0 0 0 0.972549 0 0 0 0 0.972549 0 0 0 0.06 0"/>
+                            <feBlend mode="normal" in2="shape" result="effect2_innerShadow_591_1325"/>
+                            </filter>
+                            <clipPath id="bgblur_0_591_1325_clip_path" transform="translate(65.8208 71.8208)"><path d="M8.91602 34.9994C8.91602 17.2802 23.2802 2.91602 40.9993 2.91602V2.91602C58.7185 2.91602 73.0827 17.2802 73.0827 34.9994V34.9994C73.0827 52.7185 58.7185 67.0827 40.9993 67.0827V67.0827C23.2802 67.0827 8.91602 52.7185 8.91602 34.9994V34.9994Z"/>
+                            </clipPath><linearGradient id="paint0_linear_591_1325" x1="40.9994" y1="2.91601" x2="68.9131" y2="73.3788" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="white" stop-opacity="0.4"/>
+                            <stop offset="0.4" stop-color="white" stop-opacity="0.01"/>
+                            <stop offset="0.6" stop-color="white" stop-opacity="0.01"/>
+                            <stop offset="1" stop-color="white" stop-opacity="0.1"/>
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_591_1325" x1="41" y1="21.875" x2="41" y2="48.125" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#F8F8F8" stop-opacity="0.9"/>
+                            <stop offset="1" stop-color="#F8F8F8" stop-opacity="0.3"/>
+                            </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="text">
+                            <h6> Solutions you can depend on.</h6>
+                            <h5>Your Trusted Tech Partner</h5>
+                        </div>
+                    </li>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="titles">
+                    <h3 class="active title-1" data-title="1">Zebra ZD421</h3>
+                    <h3 class="title-2" data-title="2">Monitor XZA</h3>
+                    <h3 class="title-3" data-title="3">Docking Station</h3>
+                </div>
+                <a href="/shop" class="custom-button common-styles">
+                    Shop Now
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+                      <path d="M14.9179 4.91794C15.1488 4.68712 15.1488 4.31288 14.9179 4.08206L11.1565 0.320624C10.9257 0.0898037 10.5514 0.0898038 10.3206 0.320624C10.0898 0.551445 10.0898 0.925679 10.3206 1.1565L13.6641 4.5L10.3206 7.8435C10.0898 8.07432 10.0898 8.44855 10.3206 8.67937C10.5514 8.91019 10.9257 8.91019 11.1565 8.67937L14.9179 4.91794ZM0.5 4.5L0.5 5.09105L14.5 5.09105L14.5 4.5L14.5 3.90895L0.5 3.90895L0.5 4.5Z" fill="#2F80ED"/>
+                    </svg>
+                </a>
+            </div>
+
+          </section>
+          <section class="benefits-section benefits-mb no-desk">
+                <div class="head">
+                    <h2>Why Choose AnyHDD</h2>
+                </div>
+                <div class="swiper benefits-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="/img/printer-benefit.png" alt="Printer Benefit" srcset="">
+                            <h3>Zebra ZD421</h3>
+                            <div class="item">
+                                <img src="/img/benefit-1-blue.png" alt="Barcode Scan">
+                                 <div class="text">
+                                    <h6>reliable printers for all your needs.</h6>
+                                    <h5>Advanced Printing Solutions</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/img/monitor-benefit.png" alt="Monitor Benefit" srcset="">
+                            <h3>Monitor XZA</h3>
+                            <div class="item">
+                                <img src="/img/benefit-2-blue.png" alt="Monitor Benefit">
+                                <div class="text">
+                                    <h6>Stunning visuals, exceptional quality.</h6>
+                                    <h5>Crystal-Clear Monitors</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/img/docking-station-benefit.png" alt="Docking Station Benefit" srcset="">
+                            <h3>Docking Station</h3>
+                            <div class="item">
+                                <img src="/img/benefit-3-blue.png" alt="Docking Station Benefit">
+                                <div class="text">
+                                    <h6> Connect. Charge. Simplify.</h6>
+                                    <h5>Powerful Docking Stations</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="button-container">
+                    <a href="/shop" class="custom-button common-styles">
+                        Shop Now
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+                        <path d="M14.9179 4.91794C15.1488 4.68712 15.1488 4.31288 14.9179 4.08206L11.1565 0.320624C10.9257 0.0898037 10.5514 0.0898038 10.3206 0.320624C10.0898 0.551445 10.0898 0.925679 10.3206 1.1565L13.6641 4.5L10.3206 7.8435C10.0898 8.07432 10.0898 8.44855 10.3206 8.67937C10.5514 8.91019 10.9257 8.91019 11.1565 8.67937L14.9179 4.91794ZM0.5 4.5L0.5 5.09105L14.5 5.09105L14.5 4.5L14.5 3.90895L0.5 3.90895L0.5 4.5Z" fill="#2F80ED"/>
+                        </svg>
+                    </a>
+                </div>
+          </section>
+          <section class="home-about">
+            <div class="overlay-about">
+                <img src="/img/about-home-overlay.png" alt="" />
+            </div>
+            <div class="badge">
+              <h6>Offering the best products</h6>
+            </div>
+            <div class="home-about-content">
+                <h2>About <span>AnyHDD</span></h2>
+                <div class="text">
+                    <p>
+                        <span>AnyHDD</span> is dedicated to providing high-quality storage solutions for all your needs. Our products are designed with the user in mind, ensuring reliability and performance.
+                    </p>
+                    <button class="custom-button common-styles">
+                        Shop Now
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+                          <path d="M14.9179 4.91794C15.1488 4.68712 15.1488 4.31288 14.9179 4.08206L11.1565 0.320624C10.9257 0.0898037 10.5514 0.0898038 10.3206 0.320624C10.0898 0.551445 10.0898 0.925679 10.3206 1.1565L13.6641 4.5L10.3206 7.8435C10.0898 8.07432 10.0898 8.44855 10.3206 8.67937C10.5514 8.91019 10.9257 8.91019 11.1565 8.67937L14.9179 4.91794ZM0.5 4.5L0.5 5.09105L14.5 5.09105L14.5 4.5L14.5 3.90895L0.5 3.90895L0.5 4.5Z" fill="#2F80ED"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="about-img-container">
+                <img src="/img/about-img.png" alt="About AnyHDD" class="about-img" />
+            </div>
+          </section>
+          <section class="testimonials">
+            <div class="testimonial-head">
+                  <div class="head">
+                      <h2>Satisfied Clients</h2>
+                      <h2 class="gradient">Trusted by Over 2k+</h2>
+                  </div>
+                  <div class="text">
+                      <p>
+                          We are proud to have served over 2,000 satisfied clients who trust us for their docking station needs.
+                      </p>
+                      <button class="custom-button common-styles">
+                          Get Started
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+                            <path d="M14.9179 4.91794C15.1488 4.68712 15.1488 4.31288 14.9179 4.08206L11.1565 0.320624C10.9257 0.0898037 10.5514 0.0898038 10.3206 0.320624C10.0898 0.551445 10.0898 0.925679 10.3206 1.1565L13.6641 4.5L10.3206 7.8435C10.0898 8.07432 10.0898 8.44855 10.3206 8.67937C10.5514 8.91019 10.9257 8.91019 11.1565 8.67937L14.9179 4.91794ZM0.5 4.5L0.5 5.09105L14.5 5.09105L14.5 4.5L14.5 3.90895L0.5 3.90895L0.5 4.5Z" fill="#2F80ED"/>
+                          </svg>
+                      </button>
+                  </div>
+            </div>
+              <!-- This is loaded dinamically from the script testimonials-slider.js -->
+            <div class="testimonial-carousel">
+
+            </div>
+          </section>
+        </div>
+        <footer>
+          <div class="overlay no-desk">
+            <img src="/img/about-home-overlay.png" alt="Overlay">
+          </div>
+          <div class="footer-content">
+            <div class="no-desk newsletter-container">
+              <h6>Ready to stay in the loop?</h6>
+              <h5>Subscribe to our newsletter and get exclusive <br> updates, deals, and insights —  <br>straight to your inbox.</h5>
+              <div class="newsletter">
+                <input class='form-input search-input' id="newsletter-input" type="text" placeholder='Enter Your Email'/>
+                <button class="custom-button search-button" id="newsletter-button">
+                    <p>Subscribe Now</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+                      <path d="M14.9179 4.91794C15.1488 4.68712 15.1488 4.31288 14.9179 4.08206L11.1565 0.320624C10.9257 0.0898037 10.5514 0.0898038 10.3206 0.320624C10.0898 0.551445 10.0898 0.925679 10.3206 1.1565L13.6641 4.5L10.3206 7.8435C10.0898 8.07432 10.0898 8.44855 10.3206 8.67937C10.5514 8.91019 10.9257 8.91019 11.1565 8.67937L14.9179 4.91794ZM0.5 4.5L0.5 5.09105L14.5 5.09105L14.5 4.5L14.5 3.90895L0.5 3.90895L0.5 4.5Z" fill="#2F80ED"/>
+                    </svg>
+                </button>
+              </div>
+            </div>
+            <div class="first-divider"></div>
+            <div class="content">
+                <ul class='footer-list products'>
+                    <li class='header'>Products</li>
+                    <li>
+                        <a href="/shop/monitors">
+                            Monitors
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/shop/docking-stations">
+                            Docking Stations
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/shop/thermals">
+                            Thermal Printers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/shop/scanners">
+                            Scanners
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/shop/cables">
+                            Cables
+                        </a>
+                    </li>
+                </ul>
+                <ul class="footer-list about">
+                    <li class='header'>About</li>
+                    <li>
+                        <a href="/about">About AnyHDD</a>
+                    </li>
+                    <li>
+                        <a href="/contact">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="/terms-and-conditions">Terms and Conditions</a>
+                    </li>
+                    <li>
+                        <a href="/global-privacy-policy">Global Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="/join-us">Join Us</a>
+                    </li>
+                </ul>
+                <ul class='footer-list services'>
+                    <li class='header'>Services</li>
+                    <li>
+                        <a href="/payment">Payment</a>
+                    </li>
+                    <li>
+                        <a href="/warranty">Warranty</a>
+                    </li>
+                    <li>
+                        <a href="/order-tracking">Order Tracking</a>
+                    </li>
+                    <li>
+                        <a href="/shipping-and-delivery">Shipping & Delivery</a>
+                    </li>
+                    <li>
+                        <a href="/returns-and-exchanges">Return & Exchanges</a>
+                    </li>
+                </ul>
+                <ul class='footer-list'>
+                    <li class='header'>Contact Us</li>
+                    <li class='footer-contact-item'>
+                        <img src="/src/assets/message.svg" alt="Message Icon" />
+                        <div>
+                            <span class='light-green'>Our Response time</span><br />
+                            Mon-Sun 9AM-5PM(PT)
+                        </div>
+                    </li>
+                    <li class='footer-contact-item'>
+                        <img src="/src/assets/message.svg" alt="Message Icon" />
+                        <a href="mailto:sales@anyhdd.com">sales@anyhdd.com</a>
+                    </li>
+                    
+                    <li class='header'>Payment Methods</li>
+                    <li class='icon-list'>
+                        <img src="/src/assets/visa.png" alt="Visa" />
+                        <img src="/src/assets/paypal.png" alt="PayPal" />
+                        <img src="/src/assets/maestro.png" alt="Maestro" />
+                        <img src="/src/assets/american-express.png" alt="American Express" />
+                        <img src="/src/assets/discover.png" alt="Discover" />
+                        <img src="/src/assets/apple-pay.png" alt="Apple Pay" />
+                        <img src="/src/assets/dinner-clubs.png" alt="Diners Club" />
+                        <img src="/src/assets/after-pay.png" alt="AfterPay" />
+                        <img src="/src/assets/shopify-pay.png" alt="Shopify Pay" />
+                        <img src="/src/assets/klarna.png" alt="Klarna" />
+                    </li>
+                </ul>
+            </div>
+            <div class="social-media no-desk">
+              <ul>
+                <li><a target="_blank" href="https://www.facebook.com/AnyHDD"><img src="/src/assets/facebook.svg" alt="Facebook" /></a></li>
+                <li><a target="_blank" href="https://www.twitter.com/AnyHDD"><img src="/src/assets/tiktok.svg" alt="Twitter" /></a></li>
+                <li><a target="_blank" href="https://www.instagram.com/AnyHDD"><img src="/src/assets/x.svg" alt="Instagram" /></a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/company/AnyHDD"><img src="/src/assets/instagram.svg" alt="LinkedIn" /></a></li>
+              </ul>
+            </div>
+            <div class="second-divider"></div>
+            <div class="footer-bottom">
+              <p>
+                <span>DesignBy MDX</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                  <circle cx="2.5" cy="2.5" r="2.5" fill="#D0D0D0"/>
+                </svg>
+                © 2023 AnyHDD. All rights reserved.
+              </p>
+              <p>Select Your Region: <img src="/src/assets/usa_flag.svg" alt="USA Flag" /> United States / English</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script defer type="module" src="/src/js/SmoothScroll.js"></script>
+    <script defer type="module" src="/src/js/navbar.js"></script>
+    <script defer type="module" src="/src/js/home-hero.js"></script>
+    <script defer type="module" src="/src/js/categories-slider.js"></script>
+    <script defer type="module" src="/src/js/shop.js"></script>
+    <script defer type="module" src="/src/js/testimonials-slider.js"></script>
+    <script defer type="module" src="/src/js/home-animations.js"></script>
+    <script defer type="module" src="/src/js/hover-matcher.js"></script>
+    <script defer type="module" src="/src/js/main.js"></script>
   </body>
 </html>
