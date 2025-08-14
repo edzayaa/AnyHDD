@@ -222,7 +222,7 @@ nav .search-results-container{
 #search-nav-button-mb{
     display: none;
 }
-@media (width < 640px) {
+@media (width < 1024px) {
     nav .navbar-links li:not(:nth-last-child(-n+2)) {
         display: none;
     }
@@ -338,6 +338,7 @@ nav .search-results-container{
         z-index: 10;
         transform: translateY(-100%);
         pointer-events: none;
+        width: 100%;
         &.active{
             opacity: 1;
             transform: translateY(0);

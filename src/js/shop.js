@@ -164,15 +164,15 @@ function renderBestSellersSlider() {
                 spaceBetween: 10
             },
             640: {
-                slidesPerView: 2.3,
+                slidesPerView: 3,
                 spaceBetween: 10
             },
             768: {
-                slidesPerView: 2,
+                slidesPerView: 3.2,
                 spaceBetween: 15
             },
             1024: {
-                slidesPerView: 3,
+                slidesPerView: 3.6,
                 spaceBetween: 20
             },
             1350: {

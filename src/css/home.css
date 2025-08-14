@@ -317,10 +317,13 @@
             }
         }
     }
-   @media (width < 640px) {
+   @media (width < 1024px) {
         &{
             height: auto;
             background: url(/img/benefit-bg-mb.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
             display: block;
             padding-block: 50px 80px;
         }
@@ -396,7 +399,7 @@
    }
 }
 
-@media (width < 640px) {
+@media (width < 1024px) {
     .benefits-section.benefits-mb{
         display: block;
     }
