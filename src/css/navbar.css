@@ -321,9 +321,11 @@ nav .search-results-container{
         width: 150vw;
         height: 150vh;
         z-index: -1;
+        pointer-events: none;
         transition: all 300ms ease-in-out;
         &.active{
             opacity: 0.5;
+            pointer-events: all;
         }
     }
     .mb-menu{
