@@ -398,7 +398,7 @@
 
 @media (width < 640px) {
     .benefits-section.benefits-mb{
-        display: flex;
+        display: block;
     }
     .top-spacing{
         height: 120px;
