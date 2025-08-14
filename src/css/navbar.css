@@ -296,7 +296,7 @@ nav .search-results-container{
         width: calc(100% - 28px);
     }
     #search-nav-button-mb{
-        display: block;
+        display: flex;
         padding: 6px 10px 6px 10px;
         svg{
             background-color: transparent;
