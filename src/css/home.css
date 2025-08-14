@@ -328,7 +328,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 100px;
+            margin-top: 60px;
         }
        .head h2{
            font-size: 32px;
@@ -381,18 +381,18 @@
                 }
             }
         }
-        .swiper{
-            overflow: visible;
-        }
         .swiper-horizontal > .swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal, .swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite, .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite{
             top: auto;
-            bottom: -10%;
+            bottom: 0%;
             width: 80%;
             left: 0;
             right: 0;
             margin: 0 auto;
         }
-
+        .spacer{
+            height: 20px;
+            width: 100%;
+        }
    }
 }
 
