@@ -2,6 +2,8 @@ import Swiper from "swiper";
 import { Navigation } from "swiper/modules";
 import 'swiper/css';
 import gsap from "gsap";
+import customSelect from 'custom-select';
+import 'custom-select/build/custom-select.css';
 
 const mockProducts = [
     {
@@ -59,7 +61,29 @@ const mockProducts = [
         category: 'Category 8',
         img: '/img/product-img.png',
         price: 80000
-    }
+    },
+    {
+        id: '9',
+        name: 'Product 9',
+        category: 'Category 9',
+        img: '/img/product-img.png',
+        price: 90000
+    },
+    {
+        id: '10',
+        name: 'Product 10',
+        category: 'Category 10',
+        img: '/img/product-img.png',
+        price: 100000
+    },
+    {
+        id: '11',
+        name: 'Product 11',
+        category: 'Category 11',
+        img: '/img/product-img.png',
+        price: 110000
+    },
+
 ];
 
 const filterOptions = [
@@ -369,4 +393,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderFilter(filterOptions);
     renderProductsList(mockProducts);
     renderPagination(paginationState.currentPage, paginationState.totalPages);
+
+    const select = customSelect('#shop-sort-select');
 });

@@ -1,5 +1,7 @@
 import Swiper from "swiper";
 import 'swiper/css'
+import { Pagination } from "swiper/modules";
+import gsap from "gsap";
 
 const mockData = [
     {
@@ -78,30 +80,78 @@ export function renderHeroSlider() {
             <div class="swiper-wrapper">
                 ${slides}
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
         </div>
         <div class="swiper-hero-thumbnail-container"></div>
     `;
-
-    new Swiper('.hero-swiper', {
-        slidesPerView: 1,
-        loop: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
+const heroSlide = new Swiper('.hero-swiper', {
+    modules: [Pagination],
+    slidesPerView: 1,
+    loop: true,
+    spaceBetween: 30,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'custom',
+        renderCustom: (swiper, current, total) => {
+            // Genera los números de página con separadores
+            let pagHtml = '';
+            for (let i = 1; i <= total; i++) {
+                pagHtml += `<span class="swiper-pagination-bullet${i === current ? ' active' : ''}" data-index="${i}"><span class="bullet-inner">${i}</span></span>`;
+                if (i < total) {
+                    pagHtml += `<span class="bullet-separator" aria-hidden="true"></span>`;
+                }
+            }
+            // Envuelve en un contenedor para el arco
+            return `<div class="swiper-pagination-arc">${pagHtml}</div>`;
         },
-        spaceBetween: 30,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false
+    },
+    on: {
+        init: function() {
+            positionBullets(this);
         },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true
+        slideChange: function() {
+            positionBullets(this);
+        },
+        slideChangeTransitionEnd: function() {
+            positionBullets(this);
         }
+    }
+});
+
+// Función para posicionar las bullets en forma de ruleta
+function positionBullets(swiper) {
+    const total = swiper.slides.length;
+    const activeIndex = swiper.realIndex;
+    const arc = document.querySelector('.swiper-pagination-arc');
+    if (!arc) return;
+    const bullets = arc.querySelectorAll('.swiper-pagination-bullet');
+    const separators = arc.querySelectorAll('.bullet-separator');
+
+    // Layout horizontal, 100% ancho, separación y punto blanco
+    gsap.set(arc, {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: 'auto',
+        gap: '0.75rem',
+        margin: '20px auto',
     });
+}
+
+// Añadir event listeners para los bullets
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.swiper-pagination-bullet')) {
+        const bullet = e.target.closest('.swiper-pagination-bullet');
+        const index = parseInt(bullet.getAttribute('data-index')) - 1;
+        heroSlide.slideTo(index);
+    }
+});
 }
 
 document.addEventListener('DOMContentLoaded', renderHeroSlider);

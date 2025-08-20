@@ -229,6 +229,12 @@ nav .search-results-container{
     nav .desk-submenu{
         display: none;
     }
+    nav ul  li.sign-in-link.active{
+        display: flex;
+    }
+    nav .inactive{
+        display: none ;
+    }
     .desk-navbar{
         padding-inline: 14px;
         .left-menu{
@@ -236,7 +242,7 @@ nav .search-results-container{
             align-items: center;
             justify-content: center;
             position: relative;
-            gap: 15px;
+            gap: 20px;
             .menu-button{
                 display: flex;
                 justify-content: center;

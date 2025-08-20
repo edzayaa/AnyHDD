@@ -113,14 +113,46 @@
     gap: 0.25rem;
 }
 .hero-swiper .swiper-pagination{
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 1rem;
-    z-index: 1;
-    align-items: center;
+    .swiper-pagination-arc{
+        width: 100%;
+    }
+    .swiper-pagination-bullet{
+        opacity: 1;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: auto;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s ease;
+        background: transparent;
+        padding: 1px;
+        transition: all 0.3s ease;
+        .bullet-inner{
+            border-radius: 2rem;
+            border: 0.991px solid var(--stroke-25-button, rgba(0, 0, 0, 0.05));
+            background: var(--Control-Active, rgba(248, 248, 248, 0.05));
+            background-blend-mode: luminosity;
+            box-shadow: 0 15.857px 15.857px 0 rgba(0, 0, 0, 0.30);
+            backdrop-filter: blur(10.571428298950195px);
+            width: 2.5rem;
+            height: 2.5rem;
+            display: grid;
+            color: rgba(255, 255, 255, 0.80);
+            background: linear-gradient(158deg, var(--neutral-neutral-140, rgba(255, 255, 255, 0.10)) 14.19%, var(--neutral-neutral-10, rgba(255, 255, 255, 0.00)) 50.59%, var(--neutral-neutral-10, rgba(255, 255, 255, 0.00)) 68.79%, var(--neutral-neutral-110, rgba(255, 255, 255, 0.03)) 105.18%);
+            place-items: center;
+            transition: all 0.3s ease;
+        }
+        &.active{
+            border-radius: 2rem;
+            border: 0.991px solid var(--stroke-25-button, rgba(255, 255, 255, 0.4));
+            .bullet-inner{
+                height: 4rem;
+            }
+        }
+    }
 }
 .swiper-hero-thumbnail-container{
     bottom: 5rem;
@@ -326,6 +358,7 @@
             background-position: center;
             display: block;
             padding-block: 50px 80px;
+            padding-inline: 15px;
         }
         .button-container{
             display: flex;
@@ -362,7 +395,8 @@
                 margin-block: 40px 10px;
             }
             .item{
-                display: flex;
+                display: grid;
+                grid-template-columns: 1fr 3fr;
                 align-items: center;
                 justify-content: center;
                 gap: 15px;
@@ -383,6 +417,9 @@
                     text-transform: capitalize;
                 }
             }
+        }
+        .slider-img-benefit-1{
+            transform: translate(10%, 10%);
         }
         .swiper-horizontal > .swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal, .swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite, .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite{
             top: auto;

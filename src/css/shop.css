@@ -77,6 +77,7 @@
     padding: 0.675rem 0.375rem 0.675rem 2.25rem;
     transform: translateY(-50%);
     height: 2.8rem;
+    font-size: 0.9375rem;
 }
 .sort-container .search-button svg{
     width: 2rem;
@@ -273,6 +274,9 @@
     .product-card{
         width: 100%;
         height: auto;
+        padding: 10px 10px;
+    }
+    .best-sellers-slide .product-card{
         padding: 20px 10px;
     }
     .product-card-top{

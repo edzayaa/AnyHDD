@@ -15,6 +15,7 @@
     "vite-plugin-image-optimizer": "2.0.2"
   },
   "dependencies": {
+    "custom-select": "^1.1.15",
     "gsap": "^3.13.0",
     "swiper": "^11.2.10"
   }
