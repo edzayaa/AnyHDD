@@ -125,6 +125,9 @@ footer .footer-bottom p{
 }
 
 @media (width < 1024px) {
+  footer{
+    height: auto;
+  }
   footer .footer-content .content{
     display: grid;
     grid-template-columns: 1fr 1fr;

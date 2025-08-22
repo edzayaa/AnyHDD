@@ -176,7 +176,7 @@ function renderBestSellersSlider() {
 
     new Swiper('.best-sellers-swiper', {
         modules: [Navigation],
-        slidesPerView: 1.3,
+        slidesPerView: 1.6,
         spaceBetween: 20,
         navigation: {
             prevEl: ".best-sellers-slider-prev",
@@ -184,7 +184,7 @@ function renderBestSellersSlider() {
         },
         breakpoints: {
             480: {
-                slidesPerView: 1.7,
+                slidesPerView: 1.8,
                 spaceBetween: 10
             },
             640: {

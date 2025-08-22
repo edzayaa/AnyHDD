@@ -274,10 +274,20 @@
     .product-card{
         width: 100%;
         height: auto;
-        padding: 10px 10px;
+        padding: 0;
+    }
+    .product-card-details{
+        margin: 10px;
     }
     .best-sellers-slide .product-card{
-        padding: 20px 10px;
+        height: 320px;
+        padding: 0;
+        .product-card-top{
+            margin: 20px
+        }
+        .product-card-details{
+            margin-bottom: 20px;
+        }
     }
     .product-card-top{
         display: flex;
@@ -285,9 +295,15 @@
         padding: 1rem;
         align-items: flex-start;
         justify-content: flex-start;
+        margin: 10px;
     }
     .product-card-top h3{
         margin-top: 10px;
-        width: 100%;
+        width: 10ch; /* Limita el ancho a 15 caracteres */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
     }
 }
