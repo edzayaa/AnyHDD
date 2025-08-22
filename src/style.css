@@ -356,6 +356,9 @@ line-height: normal;
    height: 100vh;
    margin-top: 6rem;
    background: url('/img/testimonials-bg.webp') no-repeat center 100%/cover;
+   .swiper-3d .swiper-slide-shadow{
+    background: transparent !important;
+   }
    & .testimonial-head{
        display: flex;
        width: 100%;
