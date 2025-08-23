@@ -7,40 +7,40 @@ const mockData = [
     {
         title1: "AnyHDD Dual Monitor",
         title2: "Docking Station",
-        image1: "/img/hero-bg.png",
-        subimg: "/img/hero-img-2.jpg",
+        image1: "/img/hero-bg.webp",
+        subimg: "/img/hero-img-2.webp",
         subtitle: "Find out about us and our mission",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse et arcu enim."
     },
     {
         title1: "AnyHDD Dual Monitor",
         title2: "Docking Station",
-        image1: "/img/hero-bg.png",
-        subimg: "/img/hero-img-2.jpg",
+        image1: "/img/hero-bg.webp",
+        subimg: "/img/hero-img-2.webp",
         subtitle: "Find out about us and our mission",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse et arcu enim."
     },
     {
         title1: "AnyHDD Dual Monitor",
         title2: "Docking Station",
-        image1: "/img/hero-bg.png",
-        subimg: "/img/hero-img-2.jpg",
+        image1: "/img/hero-bg.webp",
+        subimg: "/img/hero-img-2.webp",
         subtitle: "Find out about us and our mission",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse et arcu enim."
     },
     {
         title1: "AnyHDD Dual Monitor",
         title2: "Docking Station",
-        image1: "/img/hero-bg.png",
-        subimg: "/img/hero-img-2.jpg",
+        image1: "/img/hero-bg.webp",
+        subimg: "/img/hero-img-2.webp",
         subtitle: "Find out about us and our mission",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse et arcu enim."
     },
     {
         title1: "AnyHDD Dual Monitor",
         title2: "Docking Station",
-        image1: "/img/hero-bg.png",
-        subimg: "/img/hero-img-2.jpg",
+        image1: "/img/hero-bg.webp",
+        subimg: "/img/hero-img-2.webp",
         subtitle: "Find out about us and our mission",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse et arcu enim."
     }

@@ -202,6 +202,18 @@ function renderBestSellersSlider() {
             1350: {
                 slidesPerView: 4.4,
                 spaceBetween: 25
+            },
+            1600: {
+                slidesPerView: 4.1,
+                spaceBetween: 30
+            },
+            2160: {
+                slidesPerView: 5,
+                spaceBetween: 30
+            },
+            2560: {
+                slidesPerView: 5.2,
+                spaceBetween: 35
             }
         }
     });

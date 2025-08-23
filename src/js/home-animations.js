@@ -56,8 +56,10 @@ const benefitsTl = gsap.timeline({
 });
 
 benefitsTl.fromTo(".benefits-section h2",{
-    yPercent: -200,
+    yPercent: -500,
+    alpha: 0
 },{
+    alpha: 1,
     yPercent: 0,
     duration: 1,
     ease: 'power2.out'
@@ -65,13 +67,15 @@ benefitsTl.fromTo(".benefits-section h2",{
 
 benefitsTl.fromTo(".benefits-section .img-container", {
     yPercent: -50,
+    alpha: 0
 },{
+    alpha: 1,
     yPercent: 0,
     duration: 1,
     ease: 'power2.out'
 }, "<");
 
-benefitsTl.from(".benefits-section .benefit-item.item-1", {
+/* benefitsTl.from(".benefits-section .benefit-item.item-1", {
     x: -500,
     duration: 1,
     ease: 'power2.out'
@@ -80,7 +84,7 @@ benefitsTl.from(".benefits-section .benefit-item.item-4", {
     x: 500,
     duration: 1,
     ease: 'power2.out'
-}, "<");
+}, "<"); */
 
 /*About Section TL*/
 

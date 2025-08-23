@@ -496,6 +496,54 @@
         }
     }
 }
+@media (2160px <= width < 2560px) {
+    .benefits-section{
+        .benefit-item{
+            &.item-1{
+                transform: translate(-134%, -200%);
+            }
+            &.item-2{
+                transform: translate(-148%, 30%);
+            }
+            &.item-3{
+                transform: translate(-138%, 280%);
+            }
+            &.item-4{
+                transform: translate(30%, -200%);
+            }
+            &.item-5{
+                transform: translate(65%, 30%);
+            }
+            &.item-6{
+                transform: translate(35%, 280%);
+            }
+        }
+    }
+}
+@media (width > 2560px) {
+    .benefits-section{
+        .benefit-item{
+            &.item-1{
+                transform: translate(-140%, -200%);
+            }
+            &.item-2{
+                transform: translate(-152%, 80%);
+            }
+            &.item-3{
+                transform: translate(-145%, 370%);
+            }
+            &.item-4{
+                transform: translate(37%, -200%);
+            }
+            &.item-5{
+                transform: translate(68%, 80%);
+            }
+            &.item-6{
+                transform: translate(45%, 370%);
+            }
+        }
+    }
+}
 @media (width <= 1280px) {
     .benefits-section{
         .benefit-item{
