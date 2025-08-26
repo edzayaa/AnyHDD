@@ -62,6 +62,7 @@ footer .footer-content ul.footer-list{
     li.icon-list{
       display: grid;
       grid-template-columns:  1fr 1fr 1fr 1fr 1fr;
+      width: fit-content;
     }
 }
 footer .footer-content ul.footer-list li.header{
