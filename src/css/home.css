@@ -70,7 +70,7 @@
     object-fit: cover;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -60%);
+    transform: translate(-50%, -50%);
 }
 
 .hero-slide .content{
@@ -368,6 +368,7 @@
         }
        .head h2{
            font-size: 32px;
+              margin-bottom: 40px;
        }
         .swiper .swiper-slide{
             display: flex;
@@ -425,9 +426,9 @@
             top: auto;
             bottom: 0%;
             width: 80%;
-            left: 0;
+            left: 50%;
             right: 0;
-            margin: 0 auto;
+            transform: translate(-50%, 0);
         }
         .spacer{
             height: 20px;
@@ -437,6 +438,16 @@
 }
 
 @media (width < 1024px) {
+    .benefits-mb{
+        position: relative;
+        .elipse-mb{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -90%);
+        }
+    }
+    
     .benefits-section.benefits-mb{
         display: block;
     }
@@ -469,7 +480,7 @@
         display: none;
     }
     .section-2{
-        padding: 25px 15px;
+        padding: 25px 0px 25px 15px;
     }
 }
 @media (width <= 1536px) {
@@ -496,51 +507,33 @@
         }
     }
 }
-@media (2160px <= width < 2560px) {
+@media (2160px <= width) {
     .benefits-section{
         .benefit-item{
             &.item-1{
-                transform: translate(-134%, -200%);
+            transform: translate(-21vw, -15vh);
             }
             &.item-2{
-                transform: translate(-148%, 30%);
+                transform: translate(-23.5vw, 2vh);
             }
             &.item-3{
-                transform: translate(-138%, 280%);
+                transform: translate(-21vw, 18vh);
             }
             &.item-4{
-                transform: translate(30%, -200%);
+                transform: translate(4.3vw, -15vh);
             }
             &.item-5{
-                transform: translate(65%, 30%);
+                transform: translate(8vw, 2vh);
             }
             &.item-6{
-                transform: translate(35%, 280%);
+                transform: translate(5vw, 18vh);
             }
         }
     }
-}
-@media (width > 2560px) {
-    .benefits-section{
-        .benefit-item{
-            &.item-1{
-                transform: translate(-140%, -200%);
-            }
-            &.item-2{
-                transform: translate(-152%, 80%);
-            }
-            &.item-3{
-                transform: translate(-145%, 370%);
-            }
-            &.item-4{
-                transform: translate(37%, -200%);
-            }
-            &.item-5{
-                transform: translate(68%, 80%);
-            }
-            &.item-6{
-                transform: translate(45%, 370%);
-            }
+    .img-container{
+        .img-1{
+            top: 10%;
+            position: relative;
         }
     }
 }

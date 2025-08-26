@@ -225,6 +225,12 @@
     }
 }
 
+.best-sellers-swiper{
+    .swiper-slide{
+        width: 22.5rem;
+    }
+}
+
 @media (width < 680px){
     .shop-section{
         padding: 30px 0;
@@ -305,5 +311,10 @@
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
+    }
+}
+@media (width < 1024px){
+    .shop-section{
+        padding-right: 0;
     }
 }
