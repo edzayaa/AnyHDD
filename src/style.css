@@ -240,8 +240,8 @@ line-height: normal;
 .product-card{
     background: url(/img/product-card-bg.png) no-repeat center center;
     background-color: white;
-    width: 22.125rem;
-    height: 22.875rem;
+    width: 20vw;
+    height: 23.5rem;
     padding: 1.875rem 1rem 0.75rem 1rem;
     background-blend-mode: hard-light;
     border-radius: 1.25rem;
@@ -294,6 +294,8 @@ line-height: normal;
         align-items: center;
 
         & > button {
+            display: flex;
+            align-items: center;
             background: none;
             border: none;
             cursor: pointer;
@@ -541,9 +543,9 @@ line-height: normal;
       height: 45px;
     }
     &.custom-button.common-styles svg{
-      height: 36px;
-      width: 36px;
-      padding: 10px;
+      height: 24px;
+      width: 24px;
+      padding: 6px;
     }
   }
   .badge h6{
@@ -618,7 +620,7 @@ line-height: normal;
         width: 100%;
         & > h2{
           font-size: 35px;
-          margin-bottom: 20px;
+          margin-bottom: 10px;
           line-height: 75%;
         }
       }
@@ -629,7 +631,7 @@ line-height: normal;
     }
     .testimonial-card {
       & img{
-        width: 100%;
+        width: 80vw;
         height: auto;
       }
       & .testimonial-content {
