@@ -387,6 +387,7 @@ line-height: normal;
    padding: 2.5rem 3.125rem;
    height: 100vh;
    margin-top: 6rem;
+   overflow: hidden;
    background: url('/img/testimonials-bg.webp') no-repeat center 100%/cover;
    .swiper-3d .swiper-slide-shadow{
     background: transparent !important;

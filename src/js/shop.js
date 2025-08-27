@@ -196,8 +196,7 @@ function renderBestSellersSlider() {
                 spaceBetween: 15
             },
             1024: {
-                slidesPerView: 3.6,
-                spaceBetween: 20
+                slidesPerView: "auto",
             },
             1280:{
                 slidesPerView: "auto",

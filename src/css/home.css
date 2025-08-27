@@ -255,14 +255,14 @@
                 }
                 &.img-1 img{
                     transform: translate(10%, -0%);
-                    width: 30vw;
+                    width: 26vw;
                 }
                 &.img-2 img{
                     transform: translate(10%, -12%);
                     width: 40vw;
                 }
                 &.img-3 img{
-                    width: 30vw;
+                    width: 26vw;
                 }
             }
         }
@@ -300,22 +300,22 @@
             }
         }
         &.item-1{
-            transform: translate(-125%, -180%);
+            transform: translate(-130%, -180%);
         }
         &.item-2{
-            transform: translate(-140%, 20%);
+            transform: translate(-152%, 10%);
         }
         &.item-3{
-            transform: translate(-125%, 220%);
+            transform: translate(-125%, 200%);
         }
         &.item-4{
-            transform: translate(25%, -180%);
+            transform: translate(30%, -180%);
         }
         &.item-5{
-            transform: translate(50%, 20%);
+            transform: translate(70%, 10%);
         }
         &.item-6{
-            transform: translate(25%, 220%);
+            transform: translate(25%, 200%);
         }
     }
     .bottom{
