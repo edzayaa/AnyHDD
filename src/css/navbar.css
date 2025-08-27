@@ -88,7 +88,7 @@ nav .desk-submenu ul li a{
 nav .search-overlay{
     background-color: black;
     opacity: 0;
-    width: 150vw;
+    width: 100%;
     height: 200vh;
     position: absolute;
     top: 0;
@@ -324,7 +324,7 @@ nav .search-results-container{
         left: 50%;
         transform: translateX(-50%);
         background-color: black;
-        width: 150vw;
+        width: 100%;
         height: 150vh;
         z-index: -1;
         pointer-events: none;
