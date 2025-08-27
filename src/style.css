@@ -277,6 +277,9 @@ line-height: normal;
         height: auto;
     }
 }
+.sort-container{
+  margin-right: 3.125rem;
+}
 .product-card-details{
     border-radius: 0.5rem;
     background-color: #F2F2F2;
@@ -525,8 +528,9 @@ line-height: normal;
 .custom-select-container .custom-select-panel{
   scrollbar-width: none;
   scrollbar-color: #EBEBEB transparent;
-  border-radius: 2rem;
+  border-radius: 0.5rem;
   margin-top: 2%;
+  max-height: none !important;
 }
 .custom-select-container .custom-select-option{
   color: #686868;
