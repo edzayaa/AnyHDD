@@ -684,7 +684,7 @@ line-height: normal;
       margin-right: 0 !important
     }
     .swiper-wrapper{
-      margin-inline: 20px;
+      margin-inline: 7%;
     }
     & .swiper-horizontal > .swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal, .swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite, .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite{
       transform: translateX(-50%) translateY(-3vh);

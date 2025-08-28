@@ -116,8 +116,8 @@ aboutTl.fromTo(".home-about h2",{
 const testimonialTl = gsap.timeline({
     scrollTrigger: {
         trigger: '.testimonials',
-        start: 'top 80%',
-        end: '70% 80%',
+        start: 'top 90%',
+        end: '45% 90%',
         scrub: true,
     }
 });
