@@ -293,7 +293,7 @@
     }
     .product-card-details{
         margin: 10px;
-        padding: 4px;
+        padding: 2vw 2vw;
         & > a{
             white-space: nowrap;
         }
@@ -312,13 +312,10 @@
         }
     }
     .best-sellers-slide .product-card{
-        height: 320px;
+        height: auto;
         padding: 0;
         .product-card-top{
             margin: 20px
-        }
-        .product-card-details{
-            margin-bottom: 20px;
         }
     }
     .product-card-top{

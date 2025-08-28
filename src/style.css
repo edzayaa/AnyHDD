@@ -530,7 +530,11 @@ line-height: normal;
   scrollbar-color: #EBEBEB transparent;
   border-radius: 0.5rem;
   margin-top: 2%;
-  max-height: none !important;
+}
+.customSelect.is-open{
+  .custom-select-panel{
+    max-height: fit-content !important;
+  }
 }
 .custom-select-container .custom-select-option{
   color: #686868;
