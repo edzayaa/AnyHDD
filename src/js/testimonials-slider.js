@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { EffectCards, Pagination } from 'swiper/modules';
+import { Autoplay, EffectCards, Pagination } from 'swiper/modules';
 import 'swiper/css/effect-cards';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -19,7 +19,27 @@ const mockTestimonials = [
         id: 3,
         text: "The best investment I've ever made!",
         author: "Loyal User"
-    }
+    },
+    {
+        id: 4,
+        text: "Lorem ipsum dolor sit amet consectetur. Malesuada tempor imperdiet fermentum vitae ut lorem placerat lectus. Consectetur tincidunt erat id diam phasellus viverra. Amet dolor semper eu id id in pulvinar. Orci varius nisi feugiat porttitor turpis in at.",
+        author: "Happy Customer"
+    },
+    {
+        id: 5,
+        text: "I can't imagine my life without this product!",
+        author: "Satisfied Client"
+    },
+    {
+        id: 6,
+        text: "The best investment I've ever made!",
+        author: "Loyal User"
+    },
+    {
+        id: 1,
+        text: "Lorem ipsum dolor sit amet consectetur. Malesuada tempor imperdiet fermentum vitae ut lorem placerat lectus. Consectetur tincidunt erat id diam phasellus viverra. Amet dolor semper eu id id in pulvinar. Orci varius nisi feugiat porttitor turpis in at.",
+        author: "Happy Customer"
+    },
 ];
 
 function renderTestimonialsSlider() {
@@ -47,13 +67,16 @@ function renderTestimonialsSlider() {
         </div>
     `;
 
-    new Swiper('.testimonials-swiper', {
-        modules: [EffectCards, Pagination],
+    const swiperTestimonial = new Swiper('.testimonials-swiper', {
+        modules: [EffectCards, Pagination, Autoplay],
         pagination: {
             el: '.swiper-pagination',
             type: 'progressbar'
         },
         effect: 'cards',
+        cardsEffect:{
+            slideShadows: false,
+        },
         loop: true,
         spaceBetween: 30,
         slidesPerView: 3,
