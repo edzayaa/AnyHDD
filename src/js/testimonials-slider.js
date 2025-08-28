@@ -29,17 +29,7 @@ const mockTestimonials = [
         id: 5,
         text: "I can't imagine my life without this product!",
         author: "Satisfied Client"
-    },
-    {
-        id: 6,
-        text: "The best investment I've ever made!",
-        author: "Loyal User"
-    },
-    {
-        id: 1,
-        text: "Lorem ipsum dolor sit amet consectetur. Malesuada tempor imperdiet fermentum vitae ut lorem placerat lectus. Consectetur tincidunt erat id diam phasellus viverra. Amet dolor semper eu id id in pulvinar. Orci varius nisi feugiat porttitor turpis in at.",
-        author: "Happy Customer"
-    },
+    }
 ];
 
 function renderTestimonialsSlider() {
@@ -76,6 +66,7 @@ function renderTestimonialsSlider() {
         effect: 'cards',
         cardsEffect:{
             slideShadows: false,
+            rotate: false
         },
         loop: true,
         spaceBetween: 30,
