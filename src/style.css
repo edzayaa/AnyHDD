@@ -546,9 +546,10 @@ line-height: normal;
     display: none !important;
   }
   .custom-button{
-    font-size: 15px;
+    font-size: 12px;
     &.common-styles{
-      height: 45px;
+      height: auto;
+      padding: 5px 5px 5px 20px;
     }
     &.custom-button.common-styles svg{
       height: 24px;
