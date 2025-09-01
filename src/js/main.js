@@ -27,3 +27,8 @@ footerTl.fromTo("footer .content", {
     duration: 3,
     ease: 'power2.out'
 }, "<");
+
+//Up to the top of the page before reload
+window.addEventListener("beforeunload", () => {
+  window.scrollTo(0, 0);
+});
