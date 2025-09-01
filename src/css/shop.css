@@ -82,10 +82,10 @@
 }
 .sort-container .search-button{
     position: absolute;
-    right: 0.25rem;
+    right: 0.55rem;
     top: 50%;
     padding: 0.675rem 0.375rem 0.675rem 2.25rem;
-    transform: translateY(-50%);
+    transform: translateY(-54%);
     height: 2.8rem;
     font-size: 0.9375rem;
 }
