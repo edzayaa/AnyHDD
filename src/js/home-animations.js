@@ -155,7 +155,7 @@ testimonialTl.fromTo(".testimonials .testimonial-carousel", {
 
 /*Benefits Slider*/
 
-/* new Swiper(".benefits-slider", {
+new Swiper(".benefits-slider", {
     modules: [Navigation, Pagination, EffectFade, Autoplay],
     loop: true,
     effect: "fade",
@@ -168,4 +168,4 @@ testimonialTl.fromTo(".testimonials .testimonial-carousel", {
         el: ".benefits-slider .swiper-pagination",
         type: "progressbar"
     },
-}); */
+});
