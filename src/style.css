@@ -672,6 +672,7 @@ line-height: normal;
     }
   }
   .testimonials{
+    padding-top: 10rem;
     & .swiper-horizontal > .swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal, .swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite, .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite{
       width: 30vw;
       left: 53%;

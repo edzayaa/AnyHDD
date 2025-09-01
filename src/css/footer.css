@@ -1,6 +1,7 @@
 footer{
     background-color: #001021;
-    height: 100vh;
+    height: fit-content;
+    padding-bottom: 14rem;
     overflow: hidden;
     position: relative;
     display: flex;
