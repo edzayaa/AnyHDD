@@ -124,23 +124,21 @@ const heroSlide = new Swiper('.hero-swiper', {
 
 // Función para posicionar las bullets en forma de ruleta
 function positionBullets(swiper) {
-    const total = swiper.slides.length;
-    const activeIndex = swiper.realIndex;
     const arc = document.querySelector('.swiper-pagination-arc');
     if (!arc) return;
-    const bullets = arc.querySelectorAll('.swiper-pagination-bullet');
-    const separators = arc.querySelectorAll('.bullet-separator');
-
-    // Layout horizontal, 100% ancho, separación y punto blanco
-    gsap.set(arc, {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-        height: 'auto',
-        gap: '0.75rem',
-        margin: '20px auto',
+    // Usar requestAnimationFrame para evitar reflow forzado
+    window.requestAnimationFrame(() => {
+        // Solo aplicar estilos si no están ya aplicados
+        if (arc.style.display !== 'flex') {
+            arc.style.display = 'flex';
+            arc.style.flexDirection = 'row';
+            arc.style.justifyContent = 'center';
+            arc.style.alignItems = 'center';
+            arc.style.width = '100%';
+            arc.style.height = 'auto';
+            arc.style.gap = '0.75rem';
+            arc.style.margin = '20px auto';
+        }
     });
 }
 
