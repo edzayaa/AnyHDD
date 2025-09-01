@@ -569,6 +569,7 @@ line-height: normal;
     width: 75%;
   }
   .best-sellers-slide{
+    overflow: hidden;
     .product-card-top{
       flex-direction: row;
       justify-content: space-between;
