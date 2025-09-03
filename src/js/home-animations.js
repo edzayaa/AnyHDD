@@ -35,11 +35,28 @@ tl.fromTo(".hero-container",{
 }, "<")
 
 /*Categories*/
-
 tl.fromTo(".section-2",{
     yPercent: 40,
 },{
     yPercent: 0,
+    duration: 2,
+    ease: 'power2.out',
+}, "<")
+
+const shopTl = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.shop-section',
+        start: 'top 80%',
+        end: '20% 80%',
+        scrub: true,
+        markers: true
+    }
+});
+
+shopTl.fromTo(".shop-section",{
+    opacity: 0,
+},{
+    opacity: 1,
     duration: 2,
     ease: 'power2.out',
 }, "<")
