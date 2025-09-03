@@ -49,7 +49,6 @@ const shopTl = gsap.timeline({
         start: 'top 80%',
         end: '20% 80%',
         scrub: true,
-        markers: true
     }
 });
 
