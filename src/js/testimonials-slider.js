@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Autoplay, EffectCards, Pagination } from 'swiper/modules';
+import { Autoplay, EffectCards, Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css/effect-cards';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -36,29 +36,41 @@ function renderTestimonialsSlider() {
     const section = document.querySelector('.testimonial-carousel');
     if (!section) return;
 
-    section.innerHTML = `
-        <div class="swiper testimonials-swiper swiper-container">
-          <div class="swiper-wrapper">
-            ${mockTestimonials.map((testimonial, index) => `
-              <div class="swiper-slide">
-                <div class="testimonial-card ${index % 2 !== 0 ? "testimonial-blue" : ""}">
-                    <div class="bg-img">
-                        <img src="/img/${index % 2 !== 0 ? "blue" : "grey"}-testimonial-card.png" alt="${testimonial.author}" />
+        section.innerHTML = `
+                <div class="swiper testimonials-swiper swiper-container">
+                    <div class="swiper-wrapper">
+                        ${mockTestimonials.map((testimonial, index) => `
+                            <div class="swiper-slide">
+                                <div class="testimonial-card ${index % 2 !== 0 ? "testimonial-blue" : ""}">
+                                        <div class="bg-img">
+                                                <img src="/img/${index % 2 !== 0 ? "blue" : "grey"}-testimonial-card.png" alt="${testimonial.author}" />
+                                        </div>
+                                        <div class="testimonial-content">
+                                                <p class='text'>${testimonial.text}</p>
+                                                <p class='author'>${testimonial.author}</p>
+                                        </div>
+                                </div>
+                            </div>
+                        `).join('')}
                     </div>
-                    <div class="testimonial-content">
-                        <p class='text'>${testimonial.text}</p>
-                        <p class='author'>${testimonial.author}</p>
-                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next swiper-nav-desktop"></div>
+                    <div class="swiper-button-prev swiper-nav-desktop"></div>
                 </div>
-              </div>
-            `).join('')}
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-    `;
+                <style>
+                    .swiper-nav-desktop {
+                        display: none;
+                    }
+                    @media (min-width: 1024px) {
+                        .swiper-nav-desktop {
+                            display: block;
+                        }
+                    }
+                </style>
+        `;
 
     const swiperTestimonial = new Swiper('.testimonials-swiper', {
-        modules: [EffectCards, Pagination, Autoplay],
+        modules: [EffectCards, Pagination, Autoplay, Navigation],
         pagination: {
             el: '.swiper-pagination',
             type: 'progressbar'
@@ -75,14 +87,17 @@ function renderTestimonialsSlider() {
             320: {
                 slidesPerView: 1,
                 spaceBetween: 20,
+                navigation: false
             },
             640: {
                 slidesPerView: 1,
                 spaceBetween: 20,
+                navigation: false
             },
             768: {
                 slidesPerView: 1.2,
                 spaceBetween: 40,
+                navigation: false
             },
             1024: {
                 slidesPerView: 3,
@@ -90,7 +105,11 @@ function renderTestimonialsSlider() {
                 cardsEffect: {
                     slideShadows: false,
                     rotate: true
-                }
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
             },
         }
     });
