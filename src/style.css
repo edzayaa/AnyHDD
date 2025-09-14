@@ -176,6 +176,12 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 2rem;
+    display: block;
+    transition: all 0.3s ease;
+    &:hover{
+      transform: scale(1.05);
+      opacity: 0.85;
+    }
 }
 .category-card img.category-bg{
     width: 100%;
@@ -208,7 +214,7 @@ line-height: normal;
     h3{
       margin-bottom: 0.5rem;
     }
-    & > a {
+    & > .explore-category {
         display: flex;
         align-items: center;
         gap: 0.8rem;
