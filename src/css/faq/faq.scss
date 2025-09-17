@@ -1,0 +1,116 @@
+@import url("./accordion.scss");
+.faq-container{
+	background: url("/src/assets/faq/faq_bg.webp");
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	@media only screen and (max-width: 767px) {
+		background-image: none;
+		background-color: rgba(242, 242, 244, 1);
+		.hide-mobile{
+			display: none;
+		}
+	}
+	.top-spacing {
+		height: 10rem;
+	}
+
+	.header-section{
+		color: var(--header-blue);
+		text-align: center;
+		margin-top: 3%;
+		position: relative;
+	}
+
+	.header-section::before{
+		content: "";
+		position: absolute;
+		bottom: unset;
+		top: -113%;
+		left: 12%;
+		width: 18.125rem;
+		height: 10.8rem;
+		background-color: #F2F2F4;
+		border-radius: 100%;
+		opacity: 0.8;
+		color: #F2F2F4;
+		filter: blur(2rem);
+
+		@media only screen and (min-width: 768px) and (max-width: 1024px) {
+			left: 21%;
+			top: -100%;
+			width: 8rem;
+		    height: 5.8rem;
+		}
+        @media only screen and (max-width: 767px) {
+            top: -53%;
+            left: -30%;
+        }
+	}
+
+	.header-section::after{
+		content: "";
+		position: absolute;
+		bottom: unset;
+		top: -113%;
+		right: 13%;
+		width: 18.125rem;
+		height: 10.8rem;
+		background-color: #F2F2F4;
+		border-radius: 100%;
+		opacity: 0.8;
+		color: #F2F2F4;
+		filter: blur(2rem);
+		@media only screen and (min-width: 768px) and (max-width: 1024px) {
+			right: 21%;
+			top: -100%;
+			width: 8rem;
+			height: 5.8rem;
+		}
+        @media only screen and (max-width: 767px) {
+            top: -53%;
+            right: -30%;
+        }
+
+	}
+
+	.sub-title{
+		color: var(--text-gray);
+		text-align: center;
+		margin: 1.5% auto;
+		@media only screen and (max-width: 767px) {
+			width: 78%;
+		}
+	}
+
+
+
+	.blured-circle {
+		position: absolute;
+		background: rgba(35, 107, 241, 0.8);
+		width: 16.25rem;
+		height: 19.65rem;
+		border-radius: 100%;
+		filter: blur(11.875rem);
+		z-index: 0;
+		&.blured-circle-3 {
+			top: 15%;
+			left: 45%;
+		}
+
+}
+
+	@media (width < 1024px) {
+
+		.top-spacing{
+			height: 120px;
+		}
+
+	}
+	@media (2160px <= width) {
+
+	}
+	@media (1023px < width <= 1280px) {
+
+	}
+}
