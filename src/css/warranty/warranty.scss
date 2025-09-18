@@ -1,0 +1,174 @@
+.warranty-container{
+	background: url("/src/assets/warranty/bg_warranty.webp");
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	@media only screen and (max-width: 767px) {
+		.hide-mobile{
+			display: none;
+		}
+	}
+	.top-spacing {
+		height: 10rem;
+	}
+
+		.ask_warranty {
+			display: flex;
+			justify-content: space-between;
+			padding-inline: 3%;
+			margin-bottom: 5%;
+			margin-top: 2.5%;
+		}
+	.section-header{
+		color: var(--header-blue);
+		margin-top: 0%;
+		position: relative;
+			font-weight: 400;
+				line-height: 1em;
+	}
+
+		.section-header span{
+		font-weight: 700;
+	}
+
+		.sub-title{
+			color: var(--header-blue);
+			margin: 2.5% 0 ;
+		}
+
+		.warranty_images{
+			border-radius: var(--radius-m);
+			max-width: 51%;
+				aspect-ratio: calc(939/825);
+				object-fit: cover;
+		}
+
+		.form_container{
+			width: 44%;
+			height: auto;
+			min-height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.warranty_form{
+
+		}
+			.upload_icon{
+				width: 4.25%;
+				aspect-ratio: 1;
+				margin-right: 1%;
+			}
+
+
+
+		.input-container{
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 2.5%;
+
+		}
+
+		.wrapper-halfs{
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+				margin-bottom: 2.5%;
+		}
+
+		.warranty_form input{
+			border-radius: 100px;
+			outline: none;
+			border: none;
+			padding: 1em 1.5em;
+				font-size: 16px;
+				color: var(--text-gray-darker);
+				&::placeholder{
+					color: rgba(104, 104, 104, 1);
+				}
+		}
+
+		.warranty_form label{
+			font-size: 16px;
+			color: var(--header-blue);
+			margin-bottom: 2%;
+				height: 100%;
+		}
+
+		.warranty_form textarea{
+			border-radius: var(--radius-xs);
+				outline: none;
+			border: none;
+			padding: 1em 1.5em;
+				font-size: 16px;
+				color: var(--text-gray-darker);
+				height: 90px;
+				&::placeholder{
+					color: rgba(104, 104, 104, 1);
+				}
+		}
+
+		.input-container-half{
+			display: flex;
+			width: 49%;
+			flex-direction: column;
+		}
+
+			.upload-container{
+				display: flex;
+				justify-content: center;
+				flex-direction: row;
+				align-items: center;
+				height: 48px;
+
+			}
+				.upload-container input{
+					width: 0;
+					height: 0;
+					margin: 0;
+					padding: 0;
+				}
+			.upload-container label{
+				width: 100%;
+				background-color: brown;
+					display: flex;
+				justify-content: center;
+				flex-direction: row;
+				align-items: center;
+				margin-bottom: 0;
+				border-radius: 100px;
+					background:linear-gradient(0deg, #A2DAFF, #A2DAFF);
+					font-size: 16px;
+						white-space: pre;
+				}
+
+				.upload-container label span{
+					color: rgba(5, 47, 90, 1);
+					margin-left: 1%;
+					white-space: pre;
+				}
+
+				.upload-container .file-name {
+					color: var(--header-blue);
+					font-weight: bold;
+					font-size: 16px;
+
+			}
+
+			.submit-btn{
+				height: 48px;
+				width: 100%;
+				color: #ffffff;
+				font-weight: 700;
+                font-size: 16px;
+				border-radius: 100px;
+				border: none;
+				outline: none;
+				background: linear-gradient(0deg, #2F80ED, #2F80ED),
+radial-gradient(112.05% 596.14% at 119.58% 0%, #45B4FF 24.87%, #236BF1 68.27%, #236BF1 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+
+	}
+
+}
