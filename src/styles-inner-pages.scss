@@ -41,7 +41,11 @@
         font-size: 14px;
     }
 
-
+            @media only screen and (min-width: 2150px) {
+            .xxxs{
+                font-size:0.9vw ;//22px;
+            }
+            }
 
 
             @media only screen and (max-width: 1650px) {
@@ -157,9 +161,9 @@
      @media only screen and (max-width: 767px) {
         :root {
             --radius-xxs:8.23px;
-            --radius-xs:40px;
-            --radius-s:50px;
-            --radius-m:60px;
-            --radius-l:70px;
+            --radius-xs:20px;
+            --radius-s:20px;
+            --radius-m:20px;
+            --radius-l:30px;
             }
       }
