@@ -1,0 +1,201 @@
+.about-us-container{
+
+	@media only screen and (max-width: 767px) {
+
+		.about_us_image_mobile{
+			display: block;
+		}
+	}
+
+    		.about_us_image_mobile{
+			display: none;
+		}
+	.top-spacing {
+		height: 10rem;
+	}
+
+    .who_we_are{
+        height: 70vh;
+        overflow: visible;
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+         height: 52vh;
+        }
+        @media only screen and (max-width: 767px) {
+           height: 72.5vh;
+		
+	    }
+
+    }
+
+	.section-header{
+		color: var(--header-blue);
+		margin-top: 0%;
+		position: relative;
+		font-weight: 700;
+		line-height: 1em;
+        white-space: pre;
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+         font-size: 45px;
+        }
+         @media only screen and (max-width: 767px) {
+          margin-bottom: 5%;
+        }
+	}
+	.section-header::before{
+		content: "";
+		position: absolute;
+		bottom: unset;
+		top: -60%;
+		left: -52%;
+		width: 18.125rem;
+		height: 10.8rem;
+		background-color: #F2F2F4;
+		border-radius: 100%;
+		opacity: 0.8;
+		color: #F2F2F4;
+		filter: blur(2rem);
+        @media only screen and (min-width: 1440px) and (max-width: 1650px) {
+            width: 9.125rem;
+            height: 5.8rem;
+            left: -35%;
+        }
+        @media only screen and (min-width: 1024px) and (max-width: 1440px) {
+            width: 9.125rem;
+            height: 5.8rem;
+            left: -30%;
+        }
+        @media only screen and (max-width: 767px) {
+            display: none;
+        }
+	}
+
+	.section-header::after{
+		content: "";
+		position: absolute;
+		bottom: unset;
+		top: -60%;
+		right: -52%;
+		width: 18.125rem;
+		height: 10.8rem;
+		background-color: #F2F2F4;
+		border-radius: 100%;
+		opacity: 0.8;
+		color: #F2F2F4;
+		filter: blur(2rem);
+        @media only screen and (min-width: 1440px) and (max-width: 1650px) {
+            width: 9.125rem;
+            height: 5.8rem;
+            right: -35%;
+        }
+        @media only screen and (min-width: 1024px) and (max-width: 1440px) {
+            width: 9.125rem;
+            height: 5.8rem;
+            right: -30%;
+        }
+        @media only screen and (max-width: 767px) {
+            display: none;
+        }
+
+	}
+    .section-header span{
+        font-weight: 400;
+	}
+
+    .who_we_text{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5%;
+        padding-bottom:1.5% ;
+        min-height: 200px;
+        padding-inline: 3%;
+        @media only screen and (max-width: 1024px) {
+            flex-direction: column;
+            margin-bottom: 10%;
+
+        }
+
+    }
+
+    .header_cont{
+        height: auto;
+    }
+
+    .description_cont{
+        width: 44%;
+        height: 100%;
+        @media only screen and (min-width: 1024px) and (max-width: 1650px) {
+             width: 48%;
+        }
+        @media only screen and (max-width: 1024px) {
+           width: 100%;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+         margin-bottom: 2%;
+         margin-top: 2%;
+        }
+    }
+
+    .description_cont p{
+        margin-bottom: 5%;
+        color: var(--text-gray);
+
+        @media only screen and (min-width: 1024px) and (max-width: 1440px) {
+            font-size: 16px;
+        }
+        @media only screen and (max-width: 767px) {
+            line-height: 1.5em;
+        }
+    }
+
+    .about_us_image{
+        width: 94%;
+        margin-inline: auto;
+        display: block;
+        height: auto;
+        @media only screen and (max-width: 767px) {
+            display: none;
+        }
+    }
+    .about_us_image_mobile{
+        width: 94%;
+        margin-inline: auto;
+        display: block;
+        height: auto;
+        margin-top: 5%;
+    }
+    p.label-header.parragraph_desk{
+        margin-bottom: 7.55%;
+        color: var(--active-blue);
+        border-radius: 100px;
+        padding: 0.5rem 1.5rem;
+        background-color:rgba(229, 229, 231, 1) ;
+        width: fit-content;
+        @media only screen and (min-width: 2250px) {
+            font-size: 0.9vw;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+         margin-bottom: 4%;
+         margin-top: 1%;
+        }
+
+        @media only screen and (max-width: 767px) {
+          font-size: 12px;
+          margin-top: 5%;
+          margin-bottom: 5%;
+        }
+    }
+
+    .custom-button.common-styles svg {
+        padding: 0;
+
+
+    }
+
+    .custom-button.common-styles{
+        @media only screen and (max-width: 767px) {
+        padding: 5px 5px 5px 30px;
+        }
+    }
+}
