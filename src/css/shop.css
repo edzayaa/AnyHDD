@@ -202,6 +202,12 @@
     background: none;
     border: none;
     cursor: pointer;
+    transition: filter 0.1s ease-in;
+}
+
+.pagination .prev-button:hover ,
+.pagination .next-button:hover {
+  filter: opacity(0.8);
 }
 .pagination .page-button{
     color: #052F5A;
@@ -239,6 +245,14 @@
     .swiper-slide{
         width: 20vw;
     }
+}
+
+.add-to-cart-button {
+    transition: filter 0.1s ease-in;
+}
+
+    .add-to-cart-button:hover {
+    filter: opacity(0.8);
 }
 @media (width < 680px){
     .shop-section{
@@ -305,6 +319,7 @@
             display: flex;
         }
     }
+
     .add-to-cart-button {
         img {
             width: 20px;
