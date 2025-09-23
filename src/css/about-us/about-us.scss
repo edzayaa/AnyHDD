@@ -1,5 +1,8 @@
 .about-us-container{
 
+    		.about_us_image_mobile{
+			display: none;
+		}
 	@media only screen and (max-width: 767px) {
 
 		.about_us_image_mobile{
@@ -7,9 +10,6 @@
 		}
 	}
 
-    		.about_us_image_mobile{
-			display: none;
-		}
 	.top-spacing {
 		height: 10rem;
 	}
@@ -153,6 +153,8 @@
         margin-inline: auto;
         display: block;
         height: auto;
+        position: relative;
+        z-index: 1;
         @media only screen and (max-width: 767px) {
             display: none;
         }
@@ -163,6 +165,12 @@
         display: block;
         height: auto;
         margin-top: 5%;
+        display: none;
+        position: relative;
+        z-index: 1;
+        @media only screen and (max-width: 767px) {
+            display:block;
+        }
     }
     p.label-header.parragraph_desk{
         margin-bottom: 7.55%;

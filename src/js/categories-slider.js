@@ -59,6 +59,8 @@ function renderCategoriesSlider() {
                     <div class="swiper-slide category-slide">
                         <a href=${category.uri} class="category-card">
                             <img src="/img/category-bg.png" alt="Category" class="category-bg" />
+                            <div class="content-hover-bg">
+                            </div>
                             <div class="content">
                                 <h3>${category.title}</h3>
                                 <p>${category.description}</p>

@@ -168,7 +168,25 @@ body{
     width: fit-content;
     border-radius: 1.5rem;
     overflow: hidden;
+    background-color: #F8F8F8;
+   background: radial-gradient(107.28% 107.28% at 55.62% 55.46%, #D2D2D2 0%, #F8F8F8 60.66%) ; 
+    /* transition: all ease-in 0.5s; */
+
 }
+.category-slide .content-hover-bg{
+ background: url(/img/blue-bg.png) no-repeat center center;
+ background-size: cover;
+ width: 100%;
+ height: 100%;
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ transition: filter 0.3s ease;
+ filter: opacity(0);
+}
+
 
 .category-card{
     position: relative;
@@ -178,10 +196,26 @@ body{
     border-radius: 2rem;
     display: block;
     transition: all 0.3s ease;
-    &:hover{
+    /* &:hover{
       transform: scale(1.05);
-      opacity: 0.85;
-    }
+       opacity: 0.85; 
+    } */
+}
+
+.category-card:hover{
+  transform: scale(1.05);
+}
+
+.category-card:hover .content-hover-bg{
+  filter: opacity(1);
+}
+
+.category-card:hover .content h3,.category-card:hover .content p, .category-card:hover .content span {
+  color: #fff;
+}
+
+.category-card:hover .content path {
+  fill: #fff;
 }
 .category-card img.category-bg{
     width: 100%;
@@ -234,7 +268,7 @@ line-height: normal;
     bottom: 0;
     z-index: 0;
     width: 70%;
-    mix-blend-mode: darken;
+    /* mix-blend-mode: darken; */
     
 }
 @media (1024px < width < 1920px) {

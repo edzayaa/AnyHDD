@@ -1,4 +1,62 @@
 .stablished_in{
   height: 160vh;
-  background-color: blue;
+  background: linear-gradient(180deg, #052F5A 0.01%, #001021 100%);
+  padding-top: 47.55vh;
+  position: relative;
+   	@media only screen and (min-width: 1400px) and (max-width: 1650px) {
+    padding-top:55vh ;
+   }
+   @media only screen and (min-width: 1024px) and (max-width: 1400px) {
+    padding-top:32.5vh ;
+   }
+  .established_header{
+    font-weight: 400;
+    color:#fff ;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    & span{
+      color: var(--active-blue);
+      font-weight: 700;
+    }
+  }
+
+  .show_mobile{
+    display: none;
+     @media only screen and (max-width: 767px) {
+       display: block;
+     }
+  }
+
+    .hide_mobile{
+    display: block;
+     @media only screen and (max-width: 767px) {
+       display: none;
+     }
+  }
+
+  .elipse_light{
+    width: 60%;
+    height: 40vh;
+    background-color: rgba(35, 107, 241, 1);
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    top: 2%;
+    filter: blur(150px);
+    border-radius: 50%;
+  }
+
+  .xs.established_text{
+
+    margin-top: 2.5%;
+    text-align: center;
+    margin-inline: auto;
+    width: 67%;
+    color: rgba(164, 164, 166, 1);
+    line-height: 1.4em;
+    & span{
+      color: #fff;
+    }
+  }
 }
