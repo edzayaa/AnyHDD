@@ -248,11 +248,13 @@
 }
 
 .add-to-cart-button {
-    transition: filter 0.1s ease-in;
+    transition: all 0.1s ease-in;
 }
 
     .add-to-cart-button:hover {
     filter: opacity(0.8);
+    transform: scale(1.1);
+
 }
 @media (width < 680px){
     .shop-section{
