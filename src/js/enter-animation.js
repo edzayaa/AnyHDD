@@ -9,8 +9,8 @@ elementsToAnimatedTop.forEach((element) => gsap.from(element, {
     autoAlpha: 0, y: -20, duration: 0.5, delay:1,
     scrollTrigger:{
       trigger:element,
-      start:"top top+=10%",
-      //markers:true
+      start:"top top+=40%",
+      markers:true
 } }))
 
 const elementsToAnimatedLeft = gsap.utils.toArray(".fade-in-left")
@@ -19,7 +19,7 @@ elementsToAnimatedLeft.forEach((element) => gsap.from(element, {
     autoAlpha: 0, x: -20, duration: 0.5, delay:1,
     scrollTrigger:{
       trigger:element,
-      start:"top top+=10%",
+      start:"top top+=40%",
       //markers:true
 } }))
 
@@ -30,7 +30,7 @@ elementsToAnimatedRight.forEach((element) => gsap.from(element, {
     autoAlpha: 0, x: 20, duration: 0.5, delay:1,
     scrollTrigger:{
       trigger:element,
-      start:"top top+=10%",
+      start:"top top+=40%",
       //markers:true
 } }))
 
@@ -41,6 +41,6 @@ elementsToAnimatedBottom.forEach((element) => gsap.from(element, {
     autoAlpha: 0, y: 20, duration: 0.5, delay:1,
     scrollTrigger:{
       trigger:element,
-      start:"top top+=10%",
-      //markers:true
+      start:"top top+=40%",
+      markers:true
 } }))

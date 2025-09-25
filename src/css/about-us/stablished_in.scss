@@ -1,13 +1,34 @@
 .stablished_in{
-  height: 160vh;
+  min-height: 160vh;
+  padding-bottom: 5%;
   background: linear-gradient(180deg, #052F5A 0.01%, #001021 100%);
   padding-top: 47.55vh;
   position: relative;
    	@media only screen and (min-width: 1400px) and (max-width: 1650px) {
     padding-top:55vh ;
    }
-   @media only screen and (min-width: 1024px) and (max-width: 1400px) {
+
+      @media only screen and (min-width: 1260px) and (max-width: 1440px) {
+    padding-top:55.5vh ;
+   }
+   @media only screen and (min-width: 1024px) and (max-width: 1260px) {
     padding-top:32.5vh ;
+   }
+
+      @media only screen and (min-width: 768px) and (max-width:1024px) {
+    padding-top:24.5vh ;
+   }
+
+   @media only screen and (max-width: 767px) {
+       padding-top:35.5vh ;
+   }
+
+      @media only screen and (max-width: 350px) {
+       padding-top:90% ;
+   }
+
+         @media only screen and (min-width: 2150px) {
+       padding-top:30vh;
    }
   .established_header{
     font-weight: 400;
@@ -19,6 +40,11 @@
       color: var(--active-blue);
       font-weight: 700;
     }
+      @media only screen and (max-width: 767px) {
+        
+        font-size: 6.2vw;
+        margin-bottom: 5%;
+      }
   }
 
   .show_mobile{
@@ -45,6 +71,9 @@
     top: 2%;
     filter: blur(150px);
     border-radius: 50%;
+         @media only screen and (max-width: 1024px) {
+      height: 25vh;
+     }
   }
 
   .xs.established_text{
@@ -58,5 +87,142 @@
     & span{
       color: #fff;
     }
+       @media only screen and (max-width: 767px) {
+        width: 90%;
+           margin-bottom: 7.5%;
+       }
   }
+
+  .three_card_container{
+    width: 94%;
+    
+    aspect-ratio: calc(1870/588);
+    margin-inline: 3%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5%;
+  }
+
+  .card{
+   border-radius: var(--radius-xs);
+    height: 100%;
+    width: 32%;
+    border: 1.5px solid;
+    border-image-source: linear-gradient(158.39deg, rgba(255, 255, 255, 0.06) 14.19%, rgba(255, 255, 255, 1.5e-05) 50.59%, rgba(255, 255, 255, 1.5e-05) 68.79%, rgba(255, 255, 255, 0.015) 105.18%);
+    backdrop-filter: blur(100px);
+    box-shadow: 2px 4px 16px 0px rgba(248, 248, 248, 0.06) inset;
+    background-size: cover;
+    background-position: center center;
+    padding-top: 2%;
+    padding-inline: 2%;
+    padding-bottom: 1%;
+    position: relative;
+  }
+
+  .white_label{
+    color: var(--active-blue);
+    background-color: #fff;
+    border-radius:100px;
+    padding: 0.6rem 1.4rem;
+    position: absolute;
+    @media only screen and (min-width: 2150px) {
+      font-size: 0.9vw;
+   }
+
+  }
+
+  .card h5{
+    color: rgba(164, 164, 164, 1);
+    font-weight: 400;
+    margin-top: 20%;
+  }
+
+  .card h5 span{
+    color: #fff;
+  }
+
+  .card p{
+     color: rgba(164, 164, 164, 1);
+     margin-top: 7.5%;
+     width: 94%;
+     @media only screen and (max-width: 1440px) {
+       width: 100%;
+     }
+  }
+
+  .card p.xxxs {
+    @media only screen and (max-width: 1440px) {
+    font-size: 16px;
+    }
+}
+
+  .card p span{
+    color: #fff;
+  }
+
+  .card_1   .white_label, .card_3   .white_label{
+    right: 7.55%;
+    top: 7.55%;
+  }
+
+  .card_2   .white_label{
+    bottom: 4.55%;
+    left: 7.55%;
+  }
+
+  .card_icon{
+    width: 13%;
+    position: absolute;
+  }
+
+  .card_1   .card_icon, .card_3   .card_icon{
+    right: 7.55%;
+    bottom: 3.55%;
+  }
+  .card_3{
+    background-image: url("/src/assets/about-us/bg_card_3.webp");
+
+  }
+
+    .card_2{
+    background-image: url("/src/assets/about-us/bg_card_2.webp");
+
+  }
+
+      .card_1{
+    background-image: url("/src/assets/about-us/bg_card_1.webp");
+
+  }
+
+   @media only screen and (max-width: 1024px) {
+     .card_1, .card_3{
+      display: none;
+     }
+
+     .three_card_container{
+       aspect-ratio: unset;
+       justify-content: center;
+
+       height: 366px;
+     }
+
+     .card_2{
+      width: 50%;
+     }
+   }
+
+      @media only screen and (max-width: 767px) {
+
+
+     .card_2{
+      width: 100%;
+      padding-top: 6%;
+    padding-inline: 8%;
+     }
+
+     .white_label{
+      font-size: 10px;
+     }
+   }
 }

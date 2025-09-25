@@ -1,0 +1,216 @@
+.built_for{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+		background-color: #fff;
+		padding-inline: 3%;
+		min-height: 100vh;
+		@media only screen and (max-width: 1024px) {
+	// flex-direction: column;
+	// justify-content: center;
+		min-height: 50vh;
+		}
+
+			@media only screen and (max-width: 767px) {
+			flex-direction: column;
+				justify-content: space-around;
+			min-height: 100vh;
+		}
+	.buil_for_text{
+		width: 45%;
+		position: relative;
+			@media only screen and (max-width: 1024px) {
+				width: 50%;
+			}
+			@media only screen and (max-width:767px) {
+				width: 100%;
+			}
+	}
+	.built_for_image {
+		width: 48%;
+			display: flex;
+		justify-content: center;
+		align-items: center;
+			position: relative;
+				@media only screen and (max-width: 1024px) {
+					width: 43%;
+				}
+					@media only screen and (max-width:767px) {
+					width: 100%;
+				}
+	}
+
+	h2.xl{
+		color: var(--text-blue);
+		font-weight: 500;
+		margin-bottom: 4%;
+		position: relative;
+        @media only screen and (max-width:767px) {
+			font-size: 9.4vw;
+		}
+	}
+
+	h2::before{
+	content: "";
+	position: absolute;
+	bottom: unset;
+	top: 60%;
+	left: -13%;
+	width: 12.125rem;
+	height: 5.3rem;
+		transform: rotate(90deg);
+	background-color: rgba(242, 242, 244, 1);
+		//background-color: red;
+	border-radius: 100%;
+	opacity: 0.8;
+
+	filter: blur(2rem);
+		// @media only screen and (min-width: 1440px) and (max-width: 1650px) {
+		// width: 9.125rem;
+		// height: 5.8rem;
+		// left: -35%;
+		// }
+		// @media only screen and (min-width: 1024px) and (max-width: 1440px) {
+		// width: 9.125rem;
+		// height: 5.8rem;
+		// left: -30%;
+		// }
+		@media only screen and (max-width: 767px) {
+			display: none;
+		}
+	}
+
+		h2::after{
+		content: "";
+		position: absolute;
+		bottom: unset;
+		top: 60%;
+		right: 7%;
+		width: 12.125rem;
+		height: 5.3rem;
+			transform: rotate(90deg);
+		background-color: rgba(242, 242, 244, 1);
+
+			//background-color: red;
+		border-radius: 100%;
+		opacity: 0.8;
+
+		filter: blur(2rem);
+			// @media only screen and (min-width: 1440px) and (max-width: 1650px) {
+			// width: 9.125rem;
+			// height: 5.8rem;
+			// left: -35%;
+			// }
+			// @media only screen and (min-width: 1024px) and (max-width: 1440px) {
+			// width: 9.125rem;
+			// height: 5.8rem;
+			// left: -30%;
+			// }
+			@media only screen and (max-width: 767px) {
+				display: none;
+			}
+	}
+		h2 span{
+			color: var(--active-blue);
+		}
+		.blue-indicator{
+			position: absolute;
+			left: -20%;
+			top: 5%;
+			width: 7.87%;
+
+				@media only screen and (max-width: 1024px) {
+					display: none;
+				}
+		}
+		.built_for_image img{
+			width: 70%;
+			object-fit: contain;
+			z-index: 1;
+            @media only screen and (max-width:767px) {
+				width: 85%;
+			}
+		}
+
+		p.xs{
+			color: var(--text-gray);
+			margin-bottom: 4%;
+			width: 92%;
+			line-height: 1.4em;
+				@media only screen and (min-width: 1441px) and (max-width: 1650px) {
+					width: 73%;
+			}
+
+				@media only screen and (max-width: 1024px) {
+					width: 100%;
+				}
+
+                @media only screen and (max-width:767px) {
+					font-size: 16px;
+                    width: 95%;
+				}
+		}
+
+
+
+		.stadistics{
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+             @media only screen and (max-width:767px) {
+                justify-content: space-between;
+           
+            }
+		}
+
+		.stadistics .item{
+			margin-right: 15%;
+             @media only screen and (max-width:767px) {
+                margin-right: 0%;
+               margin: 5% 0;
+            }
+		}
+
+		.stadistics .item span.xxxs{
+			color: var(--text-gray);
+            @media only screen and (max-width:767px) {
+                font-size: 16px;
+           
+            }
+		}
+
+		.stadistics .blue_text{
+            color: var(--text-blue);
+            font-weight: 500;
+            @media only screen and (max-width:767px) {
+                font-size: 38px;
+           
+            }
+		}
+		.elipse_light{
+			background: rgba(5, 47, 90, 1);
+			width: 20%;
+			height:80%;
+		filter: blur(5rem);
+		transform: rotate(-25deg);
+			position: absolute;
+			top: 22.5%;
+			left: 30%;
+			z-index: 0;
+		}
+
+		.elipse_light_2{
+			background-color: rgb(47, 128, 237);
+			z-index: 0;
+			position: absolute;
+			width: 56%;
+			height: 80%;
+			top: 16%;
+			left: 20%;
+			right: 50%;
+			bottom: 50%;
+			border-radius: 50%;
+			filter: blur(10rem);
+		}
+
+}
