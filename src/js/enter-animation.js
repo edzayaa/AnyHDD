@@ -10,7 +10,7 @@ elementsToAnimatedTop.forEach((element) => gsap.from(element, {
     scrollTrigger:{
       trigger:element,
       start:"top top+=40%",
-      markers:true
+      //markers:true
 } }))
 
 const elementsToAnimatedLeft = gsap.utils.toArray(".fade-in-left")
@@ -42,5 +42,5 @@ elementsToAnimatedBottom.forEach((element) => gsap.from(element, {
     scrollTrigger:{
       trigger:element,
       start:"top top+=40%",
-      markers:true
+      //markers:true
 } }))
