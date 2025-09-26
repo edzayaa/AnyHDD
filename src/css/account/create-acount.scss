@@ -1,0 +1,191 @@
+
+.create-acount-container{
+        display: flex;
+        justify-content: space-between;
+        padding: 1.5% 3%;
+        padding-top: 5%;
+        background-image: url("/src/assets/account/bg-account.webp");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .user-banner{
+            width: 47.5%;
+            aspect-ratio: calc(896/1054);
+        }
+        .create-user-form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            width: 50%;
+        }
+
+        form.account-form {
+            width: 60%;
+            margin-bottom: 4.5%;
+            @media only screen and (min-width: 1024px) and (max-width: 1650px) {
+                width: 80%;
+            }
+
+        }
+
+        .over-title{
+            color: var(--active-blue);
+            padding: 0.75rem 1.5rem;
+            background-color: rgba(229, 229, 231, 1);
+            border-radius: 100px;
+            margin-bottom: 2.5%;
+        }
+
+        h1{
+            color: var(--header-blue);
+            margin-bottom: 2.5%;
+        }
+
+
+
+		.input-container{
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 2.5%;
+				@media only screen and (max-width:1024px) {
+					margin-bottom:5%;
+					}
+		}
+
+		.wrapper-halfs{
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 2.5%;
+				@media only screen and (max-width:1024px) {
+					flex-direction: column;
+					margin-bottom: 0%;
+					}
+		}
+
+		.account-form input{
+			border-radius: 100px;
+			outline: none;
+			border: none;
+			padding: 1em 1.5em;
+			font-size: 16px;
+			color: var(--text-gray-darker);
+				&::placeholder{
+					color: rgba(104, 104, 104, 1);
+				}
+					@media only screen and (min-width:2150px) {
+						font-size: 0.9vw;
+					}
+		}
+
+		.account-form label{
+			font-size: 16px;
+			color: var(--header-blue);
+			margin-bottom: 2%;
+			height: 100%;
+				@media only screen and (min-width:2150px) {
+					font-size: 0.9vw;
+				}
+				@media only screen and (max-width:1024px) {
+					margin-bottom: 3%;
+					}
+		}
+
+
+
+		.input-container-half{
+			display: flex;
+			width: 49%;
+			flex-direction: column;
+				@media only screen and (max-width:1024px) {
+					flex-direction: column;
+					margin-bottom: 5%;
+					width: 100%;
+				}
+		}
+
+
+
+        .custom-button.common-styles{
+           margin-inline: auto;
+           margin-top: 7.5%;
+            @media only screen and (min-width: 1024px) and (max-width: 1650px) {
+                    font-size: 1.15rem;
+            }
+        }
+
+         .custom-button.common-styles svg {
+            height: 2rem;
+            width: 2rem;
+            padding: 0;
+        }
+
+         .custom-button.common-styles svg rect {
+            height: 40px;
+            width: 40px;
+            
+        }
+        .continue-alternatives{
+
+            width: 57.55%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5%;
+            @media only screen and (min-width: 1024px) and (max-width: 1650px) {
+                width: 78%;
+            }
+        }
+
+        .continue-alternatives button{
+            background-color: transparent;
+            border-radius: 100px;
+            border: rgba(5, 47, 90, 0.78) 1px solid;
+            outline: none;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0.515rem 1.5rem;
+            font-size: 16px;
+            color: var(--header-blue);
+            width: 46.5%;
+            @media only screen and (min-width: 1024px) and (max-width: 1650px) {
+                font-size:   1.2rem;
+            }
+            @media only screen and (min-width:2150px) {
+            font-size: 1.10rem;
+            }
+           
+          
+        }
+
+         .continue-alternatives button img{
+             width: 1.75rem;
+             aspect-ratio: 1;
+             object-fit: contain;
+            @media only screen and (min-width:2150px) {
+              width: 1.5rem;
+            }
+         }
+
+         .login-link{
+            color: var(--active-blue);
+            text-decoration: none;
+            font-size: 18px;
+            @media only screen and (min-width:2150px) {
+             font-size: 1.10rem;
+            }
+         }
+
+         .login-link span{
+            color: var(--text-gray-darker);
+         }
+}
+
+.top-spacing {
+    height: 5.5rem;
+}
