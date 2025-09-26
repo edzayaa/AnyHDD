@@ -8,10 +8,15 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-
+            @media only screen and (max-width:1024px) {
+            background-image: none;
+        }
         .user-banner{
             width: 47.5%;
             aspect-ratio: calc(896/1054);
+            @media only screen and (max-width:1024px) {
+				display: none;
+			}
         }
         .create-user-form{
             display: flex;
@@ -20,6 +25,16 @@
             justify-content: center;
 
             width: 50%;
+
+             @media only screen and (max-width:1024px) {
+				width: 100%;
+                padding-top:10%;
+                padding-bottom: 7.5%;
+			}
+
+            @media only screen and (max-width:767px) {
+                padding-top:20%;
+			}
         }
 
         form.account-form {
@@ -28,7 +43,9 @@
             @media only screen and (min-width: 1024px) and (max-width: 1650px) {
                 width: 80%;
             }
-
+             @media only screen and (max-width:1024px) {
+				width: 100%;
+			}
         }
 
         .over-title{
@@ -122,6 +139,11 @@
             height: 2rem;
             width: 2rem;
             padding: 0;
+            @media only screen and (max-width:1024px) {
+                height: 3rem !important;
+                width: 3rem !important;
+   
+              }
         }
 
          .custom-button.common-styles svg rect {
@@ -138,6 +160,15 @@
             margin-bottom: 5%;
             @media only screen and (min-width: 1024px) and (max-width: 1650px) {
                 width: 78%;
+            }
+            @media only screen and (max-width:1024px) {
+				width: 85%;
+			}
+
+            @media only screen and (max-width:767px) {
+                width: 100%;
+                margin-top: 4.5%;
+                margin-bottom: 7.5%;
             }
         }
 
@@ -157,10 +188,19 @@
                 font-size:   1.2rem;
             }
             @media only screen and (min-width:2150px) {
-            font-size: 1.10rem;
+                font-size: 1.10rem;
             }
-           
-          
+            @media only screen and (max-width:1024px) {
+                padding: 1.2515rem 1.5rem;
+            }
+
+            @media only screen and (max-width:767px) {
+                width: 49%;
+                   font-size:11px;
+            }
+          @media only screen and (max-width:350px) {
+            font-size: 9px;
+          }
         }
 
          .continue-alternatives button img{
@@ -179,11 +219,24 @@
             @media only screen and (min-width:2150px) {
              font-size: 1.10rem;
             }
+
+            @media only screen and (max-width:767px) {
+                font-size: 14px;
+			}
          }
 
          .login-link span{
             color: var(--text-gray-darker);
          }
+
+         button.custom-button.common-styles {
+              @media only screen and (max-width:1024px) {
+                font-size: 1.5rem;
+                padding: 1rem 1.5rem;
+              }
+        }
+
+   
 }
 
 .top-spacing {
