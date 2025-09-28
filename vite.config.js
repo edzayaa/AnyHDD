@@ -33,6 +33,7 @@ export default defineConfig({
         resetpassword: resolve(__dirname, "reset-password.html"),
         confirmedrequest: resolve(__dirname, "confirmed-request.html"),
         contact: resolve(__dirname, "contact.html"),
+        notfound: resolve(__dirname, "not-found.html"),
       },
     },
   },
