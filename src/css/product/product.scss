@@ -1,0 +1,331 @@
+.main-product-container{
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 3%;
+  min-height: 80vh;
+
+  .product-header{
+    width: 97.5%;
+    color: var(--header-blue);
+    margin: 5% 0;
+    
+  }
+
+  p.description-text{
+    color: var(--header-blue);
+    padding-inline: 2%;
+    
+  }
+
+  .prices p{
+    font-size: 32px;
+    color: var(--price-blue);
+    padding: 2.5% 2%;
+    & span{
+        color: var(--text-gray);
+        text-decoration: line-through;
+        margin-right: 5%;
+    }
+  }
+
+  .add_btn_container {
+    display: flex;
+    align-items: center;
+    gap: 5%;
+}
+
+.add_btn {
+    display: flex;
+    align-items: center;
+    gap: 0%;
+    justify-content: space-between;
+}
+
+.add_btn span{
+    font-size: 24px;
+    color: var(--header-blue);
+    margin-inline:7.5%;
+}
+
+.add_btn button{
+    font-size: 24px;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 43px;
+    height: 43px;
+    outline: none;
+    border: none;
+    display: block;
+    aspect-ratio: 1;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    &:hover{
+        background-color: #dfdfdf;
+    }
+}
+
+.custom-button.common-styles svg {
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+}
+  .thumbnail-carousel{
+    width: 47.5%;
+  
+  }
+
+  .product-info{
+    width: 47%;
+  }
+
+  .accordeon-header-title{
+    font-size: 20px;
+  }
+  .accordion-section{
+    padding: 5% 0%;
+    z-index: 1;
+    position: relative;
+    @media only screen and (max-width: 767px) {
+      padding-top: 20%;
+      padding-inline: 15px;
+      padding-bottom: 15%;
+    }
+    .accordion-wrapper {
+
+        width: 100%;
+        margin: 0 auto;
+    }
+
+.accordion {
+    position: relative;
+    z-index: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #fff;
+  margin-bottom: 2%;
+  border-radius:8px;
+
+
+
+  .accordion__header {
+   
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    height: 57px;
+    @media only screen and (min-width: 2150px) {
+        height: 240px;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+          height:70px;
+    }
+    @media only screen and (max-width: 767px) {
+         height:unset;
+         min-height:57px ;
+         padding: 1rem 1.75rem;
+    }
+  }
+
+
+   h4 {
+      font-weight: 500;
+       transition: 200ms transform ease-in-out;
+      color: var(--text-blue);
+        @media only screen and (max-width: 767px) {
+            width: 87%;
+        }
+
+    }
+
+    svg{
+        height: 10px;
+        width: 10px;
+        @media only screen and (min-width: 2150px) {
+         height:16px;
+          width: 16px;
+         }
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+       height: 10px;
+        width: 10px;
+        }
+
+        @media only screen and (max-width: 767px) {
+        height: 10px;
+            width: 10px;
+         }
+    }
+
+  .hide-open{
+    transition: 200ms transform ease-in-out;
+    transform-origin: center center;
+  }
+  &.accordion--expand  .hide-open{
+    //background-color: blue;
+    transform: rotate(90deg);
+  }
+
+  &.accordion--expand  svg path{
+    //background-color: blue;
+    stroke: var(--active-blue);
+  }
+
+  .accordion__body {
+    overflow: hidden;
+    max-height: 0px;
+    will-change: height;
+    transition: 300ms all ease-in-out;
+    padding-inline: 3rem;
+    @media only screen and (max-width: 767px) {
+      padding-inline: 1.75rem;
+    }
+  }
+
+  .accordion__body p{
+    color: var(--text-gray-darker);
+    padding-bottom: 2.5%;
+     @media only screen and (max-width: 767px) {
+        padding-bottom: 5%;
+        width: 93%;
+        padding-top: 2.5%;
+    }
+  }
+  .radial_gradient_divider{
+    width: 100%;
+    height: 2px;
+    margin-bottom: 2%;
+    background: radial-gradient(50% 2489.16% at 50% 50%, #2F80ED 0%, rgba(240, 242, 246, 0) 61.06%);
+
+
+  }
+  &.accordion--expand .accordion__body {
+
+    max-height: 500px;
+   h4 {
+      color: var(--active-blue);
+    }
+  }
+
+    &.accordion--expand .accordion__header {
+
+   h4 {
+      color: var(--active-blue);
+    }
+  }
+}
+
+}
+
+
+
+
+/* Contenedor que inyectamos con JavaScript */
+.product-slider-container {
+    /* Eliminamos la altura fija que causa que se corten las imágenes */
+    height: auto;
+    max-height: none; 
+    background-color: transparent;
+    overflow: visible; /* Dejamos que el contenido defina la altura */
+}
+
+.gallery-main {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+
+    /* * CÁLCULO: (632px de alto / 1920px de ancho) * 100 = 32.92vw
+     * Esto hace que la altura sea siempre el 32.92% del ancho de la pantalla.
+    */
+    height: 32.92vw; /* <-- ALTURA PROPORCIONAL */
+    
+    /* Límite para que no crezca indefinidamente en pantallas muy grandes */
+    max-height: 632px; 
+    
+    /* Agregamos una altura mínima para pantallas más pequeñas */
+    min-height: 280px; 
+}
+
+/* Sobrescribimos el aspect-ratio del slide, ya que la altura ahora 
+  la controla el contenedor principal.
+*/
+.gallery-main .swiper-slide {
+    height: 100%;
+    background-color: #f8f8f8;
+}
+
+.gallery-main .product-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* --- 2. Estilos para el Slider de Miniaturas (Thumbs) --- */
+.gallery-thumbs {
+    /* * CÁLCULO: (145px de alto / 1920px de ancho) * 100 = 7.55vw
+    */
+    height: 7.55vw; /* <-- ALTURA PROPORCIONAL */
+
+    /* Límites para que no se haga ni muy grande ni muy pequeño */
+    max-height: 145px;
+    min-height: 80px; 
+}
+
+/* El resto de estilos de las miniaturas permanece igual... */
+
+.gallery-thumbs .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.gallery-thumbs .swiper-slide:hover {
+    opacity: 0.5;
+}
+
+.gallery-thumbs .swiper-slide-thumb-active {
+    opacity: 0.5;
+  
+}
+
+.gallery-thumbs .product-img-thumb {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* IMPORTANTE: En la vista móvil, queremos que la galería principal 
+  vuelva a ser cuadrada para que se vea bien al ocupar todo el ancho.
+*/
+@media (max-width: 992px) {
+    .main-product-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .thumbnail-carousel,
+    .product-info {
+        width: 100%;
+    }
+    
+    /* Restauramos el aspect-ratio para la vista móvil */
+    .gallery-main {
+        height: auto; /* Dejamos que el aspect-ratio controle la altura */
+        aspect-ratio: 1 / 1;
+    }
+}
+}
+
+	.top-spacing {
+		height: 10rem;
+	}

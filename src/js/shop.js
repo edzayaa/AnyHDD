@@ -132,6 +132,7 @@ const paginationState = {
  */
 function renderProductCard(product) {
     return `
+     <a>
         <div class="product-card">
             <div class="product-card-top">
                 <h3>${product.name}</h3>
@@ -150,6 +151,7 @@ function renderProductCard(product) {
                 </div>
             </div>
         </div>
+        </a>
     `;
 }
 
@@ -162,7 +164,8 @@ function renderBestSellersSlider() {
 
     const slides = mockProducts.map(product => `
         <div class="swiper-slide">
-            ${renderProductCard(product)}
+        ${renderProductCard(product)}
+           
         </div>
     `).join('');
 
