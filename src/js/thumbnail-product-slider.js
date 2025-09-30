@@ -1,3 +1,6 @@
+
+
+
 import Swiper from "swiper";
 import { Navigation, Thumbs } from "swiper/modules";
 
@@ -18,9 +21,8 @@ const products_image = [
 
 function renderCategoriesSlider() {
     const container = document.querySelector('.product-slider-container');
-    console.log("holis")
     if (!container) return;
-   console.log("aloha")
+
     // Estructura HTML con ambos sliders SEPARADOS
     container.innerHTML = `
         <div class="swiper gallery-main">
@@ -31,8 +33,14 @@ function renderCategoriesSlider() {
                     </div>
                 `).join('')}
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <!-- Contenedores para las flechas de navegación -->
+            <div class="swiper-button-next custom-next">
+               
+                 <img src="/img/next-arrow.svg" alt="Next"/>
+            </div>
+            <div class="swiper-button-prev custom-prev">
+               <img src="/img/prev-arrow.svg" alt="Previous"/>
+            </div>
         </div>
 
         <div class="swiper gallery-thumbs">
@@ -55,16 +63,15 @@ function renderCategoriesSlider() {
         watchSlidesProgress: true, // Importante para que la sincronización funcione
     });
 
-    // 2. Inicializar el Swiper principal y conectarlo con las miniaturas
+    // 2. Inicializar el Swiper principal y conectar las flechas personalizadas
     new Swiper('.gallery-main', {
         modules: [Navigation, Thumbs],
         spaceBetween: 10,
         loop: true,
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: '.custom-next', // Selector del contenedor de la flecha "Next"
+            prevEl: '.custom-prev', // Selector del contenedor de la flecha "Previous"
         },
-        // ✨ La magia sucede aquí: se conecta con la instancia del swiper de miniaturas
         thumbs: {
             swiper: thumbsSwiper,
         },

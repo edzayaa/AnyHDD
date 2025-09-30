@@ -132,7 +132,6 @@ const paginationState = {
  */
 function renderProductCard(product) {
     return `
-     <a>
         <div class="product-card">
             <div class="product-card-top">
                 <h3>${product.name}</h3>
@@ -151,7 +150,6 @@ function renderProductCard(product) {
                 </div>
             </div>
         </div>
-        </a>
     `;
 }
 

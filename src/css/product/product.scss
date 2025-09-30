@@ -2,18 +2,37 @@
   display: flex;
   justify-content: space-between;
   padding-inline: 3%;
-  min-height: 80vh;
+  min-height: 85vh;
+  margin-bottom: 0%;
+  margin-top: 1%;
 
+  @media only screen and (max-width: 1024px) {
+    flex-direction: column;
+    gap: 30px;
+   
+    margin-top: 5%;
+    min-height: unset;
+  }
+ @media only screen and (max-width: 767px) {
+     margin-top: 7.5%;
+ }
   .product-header{
     width: 97.5%;
     color: var(--header-blue);
     margin: 5% 0;
+    margin-top: 0;
     
   }
 
   p.description-text{
     color: var(--header-blue);
     padding-inline: 2%;
+     @media only screen and (max-width: 767px) {
+      font-size: 18px;
+      padding-inline: 0%;
+      width: 94%;
+      margin-bottom: 5%;
+     }
     
   }
 
@@ -26,12 +45,22 @@
         text-decoration: line-through;
         margin-right: 5%;
     }
+
+         @media only screen and (max-width: 767px) {
+      padding-inline: 0%;
+     }
   }
 
   .add_btn_container {
     display: flex;
     align-items: center;
     gap: 5%;
+             @media only screen and (max-width: 767px) {
+      padding-inline: 0%;
+      width: 100%;
+      background-color: aquamarine;
+      justify-content: space-between;
+     }
 }
 
 .add_btn {
@@ -63,31 +92,61 @@
         background-color: #dfdfdf;
     }
 }
+.add_btn_container #add-to-cart-button{
+   @media only screen and (max-width: 767px) {
+    height: 45px !important;
+    width: 50%;
+    max-width: 174px;
+    padding-right: 0em;
+    padding-left:10%;
+    font-size: 15px;
+    white-space: nowrap;
+   }
 
-.custom-button.common-styles svg {
+      @media only screen and (max-width: 380px) {
+    padding-left:7.5%;
+    font-size: 14px;
+    white-space: nowrap;
+   }
+}
+.add_btn_container .custom-button.common-styles svg {
     width: 2.25rem;
     height: 2.25rem;
     padding: 0;
+       @media only screen and (max-width: 767px) {
+      width: 3.75rem;
+    height: 3.75rem;
+     padding: 0;
+    
+     margin-right: 5px;
+     margin-left: auto;
+   }
 }
   .thumbnail-carousel{
     width: 47.5%;
-  
+    margin-bottom: 4%;
   }
 
   .product-info{
     width: 47%;
+    margin-top: 1%;
   }
 
   .accordeon-header-title{
     font-size: 20px;
+     @media only screen and (max-width: 767px) {
+      font-size: 15px;
+      white-space: nowrap;
+     }
   }
   .accordion-section{
     padding: 5% 0%;
+    padding-bottom: 0;
     z-index: 1;
     position: relative;
     @media only screen and (max-width: 767px) {
       padding-top: 20%;
-      padding-inline: 15px;
+      padding-inline: 0px;
       padding-bottom: 15%;
     }
     .accordion-wrapper {
@@ -189,7 +248,7 @@
     padding-bottom: 2.5%;
      @media only screen and (max-width: 767px) {
         padding-bottom: 5%;
-        width: 93%;
+        width: 100%;
         padding-top: 2.5%;
     }
   }
@@ -234,7 +293,7 @@
 .gallery-main {
     width: 100%;
     margin-bottom: 15px;
-    border-radius: 8px;
+    border-radius: var(--radius-m);
     overflow: hidden;
 
     /* * CÁLCULO: (632px de alto / 1920px de ancho) * 100 = 32.92vw
@@ -261,7 +320,7 @@
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+       object-fit: cover;
 }
 
 
@@ -274,6 +333,10 @@
     /* Límites para que no se haga ni muy grande ni muy pequeño */
     max-height: 145px;
     min-height: 80px; 
+          @media only screen and (max-width: 1024px) {
+       max-height: 60px;
+    min-height: 59px; 
+  }
 }
 
 /* El resto de estilos de las miniaturas permanece igual... */
@@ -304,10 +367,30 @@
     object-fit: cover;
 }
 
+.custom-next, .custom-prev{
+    width: 5%;
+    aspect-ratio: 1;
+      @media only screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.custom-next::after, .custom-prev::after{
+    display: none;
+}
+.swiper-button-next {
+
+    right: 5%;
+}
+
+.swiper-button-prev {
+
+    left: 5%;
+}
 /* IMPORTANTE: En la vista móvil, queremos que la galería principal 
   vuelva a ser cuadrada para que se vea bien al ocupar todo el ancho.
 */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
     .main-product-container {
         flex-direction: column;
         gap: 30px;
@@ -322,6 +405,7 @@
     .gallery-main {
         height: auto; /* Dejamos que el aspect-ratio controle la altura */
         aspect-ratio: 1 / 1;
+        max-height: 230px;
     }
 }
 }
