@@ -1,5 +1,5 @@
 const accordionItems = document.querySelectorAll('.js-accordion');
-console.log(accordionItems)
+
 if (accordionItems) {
   accordionItems.forEach((accordion) => {
     accordion.addEventListener('click', (e) => toggleAccordion(e));
