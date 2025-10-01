@@ -1,0 +1,163 @@
+.video-section {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: calc(1890/562);
+  margin-top: 2%;
+  display: flex;
+  justify-content:space-between;
+  margin-bottom: 5%;
+  padding-inline: 3%;
+    @media only screen and (max-width: 1024px) {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+  .left-box {
+    width: 19%;
+      height: 100%;
+      object-fit: cover;
+        border-radius: var(--radius-xs);
+         @media only screen and (max-width: 1024px) {
+            display: none;
+         }
+  }
+
+  .video {
+    width: 60%;
+    
+    height: 100%;
+    max-height: 100%;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+      display: flex;
+      border-radius: var(--radius-l);
+      overflow: hidden;
+    video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+        object-fit: cover;
+    }
+     @media only screen and (max-width: 1024px) {
+       width: 100%;
+       border-radius: 10px;
+       height: 270px;
+       min-height:270px;
+    }
+
+    @media only screen and (max-width:767px) {
+    
+       height: 171px;
+       min-height: 171px;
+    }
+  }
+
+  .thumbnail {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: 2;
+  }
+
+  .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10%;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    z-index: 2;
+
+    &:hover {
+      opacity: 1;
+    }
+
+     @media only screen and (max-width: 1024px) {
+       width: 52px;
+ 
+       height:52px;
+     
+    }
+  }
+
+  .right-box {
+    width: 19%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    img {
+      width: 100%;
+    }
+     @media only screen and (max-width: 1024px) {
+         display: none;
+    }
+  }
+
+  .right-image{
+    height: 48.5%;
+    border-radius: var(--radius-xs);
+  }
+
+  // Transiciones específicas para el video
+  .thumbnail,
+  .play-btn {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  // Clase específica para la animación de fade-out del video
+  .video-fade-out {
+    animation: videoFadeOut 0.5s ease forwards;
+  }
+
+  @keyframes videoFadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+
+  .center-box-mobile{
+    display: none;
+    @media only screen and (max-width: 1024px) {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height:270px;
+      margin-top: 2%;
+ 
+       .left-box-mobile{
+        width: 29.5%;
+        height: 100%;
+        object-fit: cover;
+           border-radius: 8px;
+       }
+         .right-box-mobile{
+          width: 69%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+            justify-content: space-between;
+                .right-image-mobile{
+                width: 100%;
+                height: 48.5%;
+                border-radius: 8px;
+                }
+         }
+    }
+
+    @media only screen and (max-width: 767px) {
+         height:172px;
+    }
+  }
+}

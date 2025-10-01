@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/src/style.css">
     <link rel="stylesheet" href="/src/styles-inner-pages.scss">
     <link rel="stylesheet" href="/src/css/product/product.scss">
+    <link rel="stylesheet" href="/src/css/product/video-section.scss">
     <link rel="stylesheet" href="/src/css/footer.css" />
     <title>AnyHDD - Any Product</title>
   </head>
@@ -274,6 +275,31 @@
                      </div>
                 </div>
                 </section>
+
+                <section class="video-section">
+                    <img class="left-box" alt="video-section-left-image" src="/src/assets/product/video-section/left-image.webp"></img>
+                    <div class="video">
+                        <img class="thumbnail" src="/src/assets/product/video-section/thumbnail.webp" alt="">
+                        <img src="/src/assets/product/video-section/play-icon.webp" alt="play-btn" role="button" class="play-btn">
+                        <video  controls  muted  src="/public/mock-video.mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+                    <div class="right-box">
+                        <img class="right-image" src="/src/assets/product/video-section/right-1-image.webp" alt="video-section-right-image">
+                        <img class="right-image" src="/src/assets/product/video-section/right-2-image.webp" alt="video-section-right-image">
+                    </div>
+
+                    <div class="center-box-mobile">
+                        <img class="left-box-mobile" alt="video-section-left-image" src="/src/assets/product/video-section/left-image.webp"></img>
+
+                        <div class="right-box-mobile">
+                            <img class="right-image-mobile" src="/src/assets/product/video-section/right-1-image-mobile.png" alt="video-section-right-image">
+                            <img class="right-image-mobile" src="/src/assets/product/video-section/right-2-image-mobile.png" alt="video-section-right-image">
+                        </div>
+                    </div>
+                </section>
               <!-- END HERE -->
         <footer>
           <div class="overlay no-desk">
@@ -418,6 +444,7 @@
     <script defer type="module" src="/src/js/main.js"></script>
     <script defer type="module" src="/src/js/accordion.js"></script>
     <script defer type="module" src="/src/js/thumbnail-product-slider.js"></script>
+    <script defer type="module" src="/src/js/video-animation.js"></script>
   
   </body>
 </html>
