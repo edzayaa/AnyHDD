@@ -1,5 +1,5 @@
 .warning-dual{
-    	.section-header{
+    .section-header{
 		color: var(--header-blue);
 		margin-top: 0%;
 		position: relative;
@@ -14,7 +14,7 @@
         }
 	}
 
-        .section-header span{
+    .section-header span{
         font-weight: 400;
 	}
 	.section-header::before{
@@ -89,9 +89,7 @@
         @media only screen and (max-width: 1024px) {
             flex-direction: column;
             margin-bottom: 10%;
-
         }
-
     }
 
     .header_cont{
@@ -240,7 +238,6 @@
         @media only screen and (max-width: 1024px) {
                    padding: 0.4rem 0.8rem;
         }
-
         
         & > h6 {
             font-size: 1rem;
