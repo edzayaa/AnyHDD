@@ -10,13 +10,13 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
 const products_image = [
-    { id:1, img: "/src/assets/product/1.webp" },
-    { id:2, img: "/src/assets/product/2.webp" },
-    { id:3, img: "/src/assets/product/3.webp" },
-    { id:4, img: "/src/assets/product/4.webp" },
-    { id:5, img: "/src/assets/product/1.webp" },
-    { id:6, img: "/src/assets/product/2.webp" },
-    { id:7, img: "/src/assets/product/3.webp" },
+    { id:1, img: "/img/product/1.webp" },
+    { id:2, img: "/img/product/2.webp" },
+    { id:3, img: "/img/product/3.webp" },
+    { id:4, img: "/img/product/4.webp" },
+    { id:5, img: "/img/product/1.webp" },
+    { id:6, img: "/img/product/2.webp" },
+    { id:7, img: "/img/product/3.webp" },
 ];
 
 function renderCategoriesSlider() {

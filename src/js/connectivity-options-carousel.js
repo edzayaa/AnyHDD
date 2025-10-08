@@ -11,7 +11,7 @@ import 'swiper/css/effect-fade';
 const products_image = [
     { 
         id: 1, 
-        img: "/src/assets/product/connectivity-options/connectivity.webp", 
+        img: "/img/connectivity-options/connectivity.webp", 
         labels: [
             { num: 1, upperText: "reliable printers for all your needs.", lowerText: "power in Port" },
             { num: 2, upperText: "Stunning visuals, exceptional quality.", lowerText: "HDMI 2.0 port" },
@@ -23,7 +23,7 @@ const products_image = [
     },
     { 
         id: 2, 
-        img: "/src/assets/product/connectivity-options/connectivity.webp", 
+        img: "/img/connectivity-options/connectivity.webp", 
         labels: [
             { num: 1, upperText: "reliable printers for all your needs.", lowerText: "power in Port" },
             { num: 2, upperText: "Stunning visuals, exceptional quality.", lowerText: "HDMI 2.0 port" },
