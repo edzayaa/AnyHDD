@@ -34,6 +34,7 @@ export default defineConfig({
         confirmedrequest: resolve(__dirname, "confirmed-request.html"),
         contact: resolve(__dirname, "contact.html"),
         shop: resolve(__dirname, "shop.html"),
+        product: resolve(__dirname, "product.html"),
         termsConditions: resolve(__dirname, "terms-and-conditions.html"),
         globalPrivacyPolicy: resolve(__dirname, "global-privacy-policy.html"),
         notfound: resolve(__dirname, "not-found.html"),
