@@ -7,7 +7,7 @@ if (accordionItems) {
 }
 
 const toggleAccordion = (e) => {
-    console.log(e)
+
   let target = e.currentTarget;
 
   if (!target.classList.contains('accordion--expand')) {

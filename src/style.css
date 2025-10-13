@@ -811,3 +811,11 @@ radial-gradient(112.05% 596.14% at 119.58% 0%, #45B4FF 24.87%, #236BF1 68.27%, #
 .cart-button{
   cursor: pointer;
 }
+
+.fade-in-element, .fade-in-reverse, .show-in-left, .show-in-right {
+  /* Usamos visibility: hidden, NO display: none */
+  visibility: hidden;
+  will-change: transform;
+  /* Opcional: autoAlpha de GSAP lo hará por sí mismo, pero es una buena práctica */
+  /* opacity: 0; */ 
+}
