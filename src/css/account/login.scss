@@ -16,6 +16,8 @@
         .user-banner{
             width: 47.5%;
             height: 100%;
+            border-radius: 1.2rem;
+            object-fit: cover;
             @media only screen and (max-width:1024px) {
 				display: none;
 			}
@@ -37,6 +39,13 @@
             @media only screen and (max-width:767px) {
                 padding-top:20%;
 			}
+            
+            @media only screen and (max-width:479px) {
+                padding-top:10%;
+			}
+            @media only screen and (max-width:380px) {
+                padding-top:13%;
+			}
         }
 
         form.account-form {
@@ -53,25 +62,29 @@
             }
 
             @media only screen and (max-width:767px) {
-                padding-top:20%;
-                min-height: 90vh;
+                // padding-top:20%;
+                padding-top: 0%;
+                min-height: auto;
                 justify-content: flex-start;
 			}
         }
 
         .over-title{
             color: var(--active-blue);
-            padding: 0.75rem 1.5rem;
-            background-color: rgba(229, 229, 231, 1);
+            padding: 0.75rem 2.5rem;
+            background-color: rgb(223, 223, 226);
             border-radius: 100px;
             margin-bottom: 2.5%;
         }
 
-        h1{
+        h1.xl{
             color: var(--header-blue);
             margin-bottom: 2.5%;
             @media only screen and (max-width:1024px) {
                 margin-bottom: 10%;
+            }
+            @media only screen and (max-width:480px) {
+                    font-size:4rem; 
             }
         }
 

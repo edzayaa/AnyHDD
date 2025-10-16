@@ -105,9 +105,15 @@
 		width: 70%;
 		margin-bottom: 5%;
 		margin-inline: auto;
-			@media only screen and (max-width:767px) {
+		@media only screen and (max-width:767px) {
 			display: block;
-			}
+		}
+		@media only screen and (max-width:480px) {
+			width: 73%;
+		}
+		@media only screen and (max-width:380px) {
+			width: 82%;
+		}
 	}
 
 	button.custom-button.common-styles {
