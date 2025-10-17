@@ -12,7 +12,7 @@ elementsToAnimatedTop.forEach((element) => gsap.from(element, {
       start:"top top+=60%",
       end:"top top+=40%",
       scrub:1,
-      markers:true
+      //markers:true
 } }))
 
 const elementsToAnimatedLeft = gsap.utils.toArray(".fade-in-left")
@@ -24,7 +24,7 @@ elementsToAnimatedLeft.forEach((element) => gsap.from(element, {
       start:"top top+=60%",
       end:"top top+=30%",
       scrub:1,
-      markers:true
+      //markers:true
 } }))
 
 // New code for right-to-left animation
@@ -37,7 +37,7 @@ elementsToAnimatedRight.forEach((element) => gsap.from(element, {
       start:"top top+=60%",
       end:"top top+=30%",
       scrub:1,
-      markers:true
+      //markers:true
 } }))
 
 // New code for bottom-to-top animation
@@ -63,5 +63,5 @@ subtitleToAnimatedBottom.forEach((element) => gsap.from(element, {
       start:"top top+=85%",
       end:"top top+=95%",
       scrub:1,
-      markers:true
+      //markers:true
 } }))
