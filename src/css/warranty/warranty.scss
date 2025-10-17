@@ -200,9 +200,14 @@
 				flex-direction: row;
 				align-items: center;
 				height: 48px;
-                	@media only screen and (min-width:2150px) {
-						height:80px;
-                    }
+				transition: all 0.5s ease; 
+				cursor: pointer;
+				&:hover{
+					filter: brightness(0.85) opacity(0.85);
+				}
+				@media only screen and (min-width:2150px) {
+					height:80px;
+				}
                 @media only screen and (min-width:3250px) {
 					height:110px;
 				}
@@ -221,6 +226,7 @@
 				}
 			.upload-container label{
 				width: 100%;
+				cursor: pointer;
 				background-color: brown;
 				display: flex;
 				justify-content: center;
@@ -260,12 +266,18 @@
 				width: 100%;
 				color: #ffffff;
 				font-weight: 700;
-					font-size: 16px;
+				font-size: 16px;
 				border-radius: 100px;
 				border: none;
 				outline: none;
 				background: radial-gradient(112.05% 596.14% at 119.58% 0%, #45B4FF 24.87%, #236BF1 68.27%, #236BF1 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-
+				transition: all 0.5s ease; 
+				background-size: 100% 100%; 
+				cursor: pointer;
+				&:hover{
+					background-position: -205% 100%; 
+  					background-size: 150% 150%; 
+				}
                 @media only screen and (min-width:2150px) {
 					height:80px;
 						font-size: 0.9vw;
@@ -273,6 +285,8 @@
                 @media only screen and (min-width:3250px) {
 					height:110px;
 				}
-	}
+
+			
+			}
 
 }

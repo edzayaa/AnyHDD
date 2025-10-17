@@ -12,11 +12,3 @@ tl.to('.white-overlay', {
     pointerEvents: 'none',
     duration: 1.5,
 });
-
-tl.fromTo('nav',{
-    yPercent: -100,
-},{
-    yPercent: 0,
-    duration: 2,
-    ease: 'power2.out',
-}, "<")
