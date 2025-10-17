@@ -29,7 +29,7 @@
 
   p.description-text{
     color: var(--header-blue);
-    padding-inline: 2%;
+    //padding-inline: 2%;
      @media only screen and (max-width: 767px) {
       font-size: 18px;
       padding-inline: 0%;
@@ -42,7 +42,7 @@
   .prices p{
     font-size: 32px;
     color: var(--price-blue);
-    padding: 2.5% 2%;
+    padding: 2.5% 0%;
     & span{
         color: var(--text-gray);
         text-decoration: line-through;
@@ -242,7 +242,7 @@
     max-height: 0px;
     will-change: height;
     transition: 300ms all ease-in-out;
-    padding-inline: 3rem;
+    padding-inline: 1.5rem;
     @media only screen and (max-width: 767px) {
       padding-inline: 1.75rem;
     }
@@ -251,6 +251,7 @@
   .accordion__body p{
     color: var(--text-gray-darker);
     padding-bottom: 2.5%;
+    font-size: 1rem;
      @media only screen and (max-width: 767px) {
         padding-bottom: 5%;
         width: 100%;

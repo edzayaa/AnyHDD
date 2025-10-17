@@ -2,7 +2,6 @@
 .faq-container{
 	background: url("/src/assets/faq/faq_bg.webp");
 	background-size: cover;
-	background-attachment: fixed;
 	background-position: center;
 	@media only screen and (max-width: 767px) {
 		overflow-x: clip;

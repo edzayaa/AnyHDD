@@ -4,21 +4,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const cards = document.querySelectorAll('.card');
 
   cards.forEach(card => {
-    let isFlipped = false; // Estado para saber si la carta está girada
+    const faces = card.querySelector('.faces');
+    if (!faces) return;
 
-    card.addEventListener('click', () => {
-      const faces = card.querySelector('.faces');
+    // Evento para cuando el cursor entra en la tarjeta
+    card.addEventListener('mouseenter', () => {
+      // Detiene cualquier animación en curso sobre 'faces'
+      gsap.killTweensOf(faces);
+      // Gira la tarjeta para mostrar la parte trasera
+      gsap.to(faces, { rotationY: 180, duration: 0.8, ease: "power1.inOut" });
+    });
 
-      if (!faces) return;
-
-      // Alternar entre el frente y la parte trasera
-      if (!isFlipped) {
-        gsap.to(faces, { rotationY: 180, duration: 0.8, ease: "power1.inOut" });
-      } else {
-        gsap.to(faces, { rotationY: 0, duration: 0.8, ease: "power1.inOut" });
-      }
-
-      isFlipped = !isFlipped; // Cambiar el estado
+    // Evento para cuando el cursor sale de la tarjeta
+    card.addEventListener('mouseleave', () => {
+      // Detiene cualquier animación en curso sobre 'faces'
+      gsap.killTweensOf(faces);
+      // Devuelve la tarjeta a su posición original
+      gsap.to(faces, { rotationY: 0, duration: 0.8, ease: "power1.inOut" });
     });
   });
 });

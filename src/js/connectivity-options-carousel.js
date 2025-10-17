@@ -132,86 +132,42 @@ function renderConnectivitySlider() {
 }
 
 function setupConnectivityAnimations() {
-    const swiperContainer = document.querySelector('.gallery-main-connectivity');
-    if (!swiperContainer) return;
+    const allLabels = document.querySelectorAll('.label-item');
 
-    swiperContainer.addEventListener('click', (event) => {
-        // 1. Identificar la zona clicable y el label-item padre.
-        const clickableArea = event.target.closest('.label-texts, .label-num');
-        if (!clickableArea) return;
+    allLabels.forEach(label => {
+        const parentSlide = label.closest('.swiper-slide');
+        if (!parentSlide) return;
+
+        const labelNumMatch = label.className.match(/label-(\d+)/);
+        if (!labelNumMatch) return;
         
-        const clickedLabel = clickableArea.closest('.label-item');
-        if (!clickedLabel) return;
+        const num = labelNumMatch[1];
         
-        // 2. Asegurarse de que la interacción ocurra solo en el slide activo.
-        const parentSlide = clickedLabel.closest('.swiper-slide');
-        if (!parentSlide || !parentSlide.classList.contains('swiper-slide-active')) {
-            return;
-        }
-
-        // Evitar re-animar el item que ya está activo.
-        if (clickedLabel.classList.contains('active')) {
-            return;
-        }
-
-        // --- LÓGICA RESPONSIVA ---
-        // 3. Detectar si estamos en vista móvil.
-        const isMobile = window.matchMedia('(max-width: 767px)').matches;
-
-        // 4. Ocultar el 'arrow' activo anterior.
-        const currentActiveLabel = parentSlide.querySelector('.label-item.active');
-        if (currentActiveLabel) {
-            currentActiveLabel.classList.remove('active');
-
-            // Extraer el número del label anterior para saber qué flecha ocultar.
-            const prevLabelNumMatch = currentActiveLabel.className.match(/label-(\d+)/);
-            if (prevLabelNumMatch) {
-                const prevNum = prevLabelNumMatch[1];
-                let arrowToHide;
-
-                if (isMobile) {
-                    // En móvil, buscar la flecha en el contenedor del slide.
-                    arrowToHide = parentSlide.querySelector(`.arrow-mobile-${prevNum}`);
-                } else {
-                    // En escritorio, buscar la flecha dentro del propio label.
-                    arrowToHide = currentActiveLabel.querySelector('.arrow-item');
-                }
-
-                if (arrowToHide) {
-                    gsap.to(arrowToHide, { opacity: 0, duration: 0.3 });
-                }
-            }
-        }
-
-        // 5. Mostrar el nuevo 'arrow' activo.
-        clickedLabel.classList.add('active');
-
-        // Extraer el número del label clickeado para saber qué flecha mostrar.
-        const newLabelNumMatch = clickedLabel.className.match(/label-(\d+)/);
-        if (newLabelNumMatch) {
-            const newNum = newLabelNumMatch[1];
-            let arrowToShow;
-            
+        const getArrow = () => {
+            const isMobile = window.matchMedia('(max-width: 767px)').matches;
             if (isMobile) {
-                // En móvil, buscar la flecha correspondiente en el contenedor del slide.
-                arrowToShow = parentSlide.querySelector(`.arrow-mobile-${newNum}`);
+                return parentSlide.querySelector(`.arrow-mobile-${num}`);
             } else {
-                // En escritorio, buscar la flecha dentro del label clickeado.
-                arrowToShow = clickedLabel.querySelector('.arrow-item');
+                return label.querySelector(`.arrow-${num}`);
             }
-            
-            if (arrowToShow) {
-                gsap.to(arrowToShow, { opacity: 1, duration: 0.3 });
-            }
-        }
-    });
+        };
 
-    // ACTUALIZADO: Aplicar la lógica de detener propagación a AMBOS tipos de flechas.
-    const allArrows = document.querySelectorAll('.arrow-item, .arrow-item-mobile');
-    allArrows.forEach(arrow => {
-        arrow.addEventListener('click', (e) => {
-            if (window.getComputedStyle(arrow).opacity === '0') {
-                e.stopPropagation();
+        label.addEventListener('mouseenter', () => {
+            // Actuar solo si el label está en el slide activo
+            if (parentSlide.classList.contains('swiper-slide-active')) {
+                const arrow = getArrow();
+                if (arrow) {
+                    gsap.killTweensOf(arrow); // Detener animación previa
+                    gsap.to(arrow, { opacity: 1, duration: 0.3 });
+                }
+            }
+        });
+
+        label.addEventListener('mouseleave', () => {
+            const arrow = getArrow();
+            if (arrow) {
+                gsap.killTweensOf(arrow); // Detener animación previa
+                gsap.to(arrow, { opacity: 0, duration: 0.3 });
             }
         });
     });

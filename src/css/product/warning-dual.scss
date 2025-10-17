@@ -1,4 +1,7 @@
 .warning-dual{
+    @media only screen and (max-width: 767px) {
+        overflow: hidden;
+    }
     .section-header{
 		color: var(--header-blue);
 		margin-top: 0%;
@@ -159,7 +162,8 @@
         border-radius: var(--radius-s);
         padding: 1.75rem;
         padding-right: 0.1rem;
-
+        position: relative;
+        overflow: hidden;
         h5{
             background: radial-gradient(15.96% 366.85% at 49.34% -21.56%, #6BC0F9 0%, #45B4FF 24.87%, #236BF1 68.27%, #236BF1 100%);
             -webkit-background-clip: text;
@@ -176,7 +180,7 @@
             }
             @media only screen and (max-width:767px) {
                 font-size: 8.108vw ;
-                margin-top: 25%;
+                margin-top: 17.55%;
             }
            
         }
@@ -187,6 +191,21 @@
             @media only screen and (max-width:767px) {
                 font-size: 4.324vw ;
             }
+        }
+    }
+
+    img.hide-image {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        transition: 0.2s opacity ease-in-out;
+        opacity: 0;
+        &:hover{
+            opacity: 1;
         }
     }
 
@@ -210,6 +229,11 @@
         width: 24%;
         @media only screen and (max-width: 767px) {
           width: 100%;
+          height: 20rem;
+        }
+        @media only screen and (max-width: 350px) {
+   
+          height: 17rem;
         }
     }
 

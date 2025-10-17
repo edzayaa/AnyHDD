@@ -9,8 +9,10 @@ elementsToAnimatedTop.forEach((element) => gsap.from(element, {
     autoAlpha: 0, y: -20, duration: 0.5, delay:0.5,
     scrollTrigger:{
       trigger:element,
-      start:"top top+=40%",
-//      markers:true
+      start:"top top+=60%",
+      end:"top top+=40%",
+      scrub:1,
+      markers:true
 } }))
 
 const elementsToAnimatedLeft = gsap.utils.toArray(".fade-in-left")
@@ -19,8 +21,10 @@ elementsToAnimatedLeft.forEach((element) => gsap.from(element, {
     autoAlpha: 0, x: -20, duration: 0.5, delay:0.5,
     scrollTrigger:{
       trigger:element,
-      start:"top top+=40%",
-      //markers:true
+      start:"top top+=60%",
+      end:"top top+=30%",
+      scrub:1,
+      markers:true
 } }))
 
 // New code for right-to-left animation
@@ -30,8 +34,10 @@ elementsToAnimatedRight.forEach((element) => gsap.from(element, {
     autoAlpha: 0, x: 20, duration: 0.5, delay:0.5,
     scrollTrigger:{
       trigger:element,
-      start:"top top+=40%",
-      //markers:true
+      start:"top top+=60%",
+      end:"top top+=30%",
+      scrub:1,
+      markers:true
 } }))
 
 // New code for bottom-to-top animation
@@ -42,6 +48,8 @@ elementsToAnimatedBottom.forEach((element) => gsap.from(element, {
     scrollTrigger:{
       trigger:element,
       start:"top top+=60%",
+      end:"top top+=85%",
+      scrub:1
     // markers:true
 } }))
 
@@ -49,9 +57,11 @@ elementsToAnimatedBottom.forEach((element) => gsap.from(element, {
 const subtitleToAnimatedBottom = gsap.utils.toArray(".fade-in-bottom-subtitle")
 
 subtitleToAnimatedBottom.forEach((element) => gsap.from(element, { 
-    autoAlpha: 0, y: 20, duration: 0.5, delay:0.5,
+    autoAlpha: 0, y: 20, duration: 0.25, delay:0.5,
     scrollTrigger:{
       trigger:element,
-      start:"top top+=70%",
-     //markers:true
+      start:"top top+=85%",
+      end:"top top+=95%",
+      scrub:1,
+      markers:true
 } }))
