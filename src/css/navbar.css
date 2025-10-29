@@ -3,6 +3,7 @@ nav{
     position: fixed;
     width: 100%;
     z-index: 10;
+    will-change: transform;
 }
 .desk-navbar{
    padding: 1rem 3.125rem;

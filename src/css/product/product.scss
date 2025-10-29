@@ -147,10 +147,11 @@
   .accordion-section{
     padding: 5% 0%;
     padding-bottom: 0;
+    padding-top: 2.5%;
     z-index: 1;
     position: relative;
     @media only screen and (max-width: 767px) {
-      padding-top: 20%;
+      padding-top: 7.5%;
       padding-inline: 0px;
       padding-bottom: 15%;
     }
@@ -432,6 +433,41 @@
         aspect-ratio: 1 / 1;
         max-height: 230px;
     }
+}
+
+.model-title{
+  margin-top: 2.5%;
+}
+
+.btn-model-select-container{
+  display: flex;
+  margin-top: 2%;
+
+  .condition-btn{
+    background-color: #fff;
+    height: 2.8125rem;
+    border-radius:4rem ;
+    border: none;
+    outline: none;
+    padding: 0.5rem 2rem;
+    margin-right: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgba(0, 37, 75, 1);
+    transition: 0.2s ease-in-out ;
+     border: 2px solid transparent;
+    cursor: pointer;
+    &:hover{
+      filter: brightness(0.85) opacity(0.85);
+    }
+    &.active{
+      border: 2px solid rgba(43, 148, 255, 1);
+    }
+    @media (max-width: 1024px) {
+      font-size: 1.5rem;
+      height: unset;
+    }
+  }
 }
 }
 
