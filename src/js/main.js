@@ -14,9 +14,10 @@ const footerTl = gsap.timeline({
 });
 
 footerTl.fromTo("footer .first-divider", {
-    width: "80%"
+    scaleX: "80%",
+    transformOrigin:'center'
 }, {
-    width: "100%",
+    scaleX: "100%",
     duration: 1,
     ease: 'power2.out'
 });

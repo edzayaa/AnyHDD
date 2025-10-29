@@ -818,3 +818,7 @@ radial-gradient(112.05% 596.14% at 119.58% 0%, #45B4FF 24.87%, #236BF1 68.27%, #
   visibility: hidden;
   will-change: transform;
 }
+
+#smooth-content {
+  will-change: transform;
+}
