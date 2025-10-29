@@ -464,8 +464,9 @@
       border: 2px solid rgba(43, 148, 255, 1);
     }
     @media (max-width: 1024px) {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       height: unset;
+      padding: 0.75rem 2rem;
     }
   }
 }
