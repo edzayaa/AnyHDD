@@ -159,6 +159,9 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 5%;
+    @media only screen and (max-width:1500px)  and (min-width:1200px) {
+        aspect-ratio:2.80;
+    }
   }
 
   .card{
