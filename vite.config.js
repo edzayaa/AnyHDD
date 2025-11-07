@@ -37,6 +37,7 @@ export default defineConfig({
         product: resolve(__dirname, "product.html"),
         termsConditions: resolve(__dirname, "terms-and-conditions.html"),
         globalPrivacyPolicy: resolve(__dirname, "global-privacy-policy.html"),
+        sellToUs: resolve(__dirname, "sell-to-us.html"),
         notfound: resolve(__dirname, "not-found.html"),
       },
     },
