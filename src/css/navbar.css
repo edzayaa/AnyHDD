@@ -18,7 +18,7 @@ nav{
 }
 .desk-navbar .center{
     display: flex;
-    width: 100%;
+    width: 80%;
     margin-left: 5%;
     position: relative;
     justify-content: center;
