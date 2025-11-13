@@ -82,6 +82,7 @@
     padding: 1.25rem 0.675rem 1.25rem 1.5rem;
     height: 3.875rem;
     border-radius: 4.18rem;
+    font-weight: 700;
 }
 .sort-container .search-button{
     position: absolute;
