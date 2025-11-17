@@ -64,11 +64,12 @@
     z-index: 1;
 }
 .sort-container .search-container{
-    width: 32rem;
+    width: 45rem;
     position: relative;
     /*centrando search bar*/
     transform: translateX(-50%);
     left: 50%;
+
 }
 .sort-container .search-input{
     background-color: #F8F8F8;
