@@ -39,6 +39,7 @@ export default defineConfig({
         globalPrivacyPolicy: resolve(__dirname, "global-privacy-policy.html"),
         sellToUs: resolve(__dirname, "sell-to-us.html"),
         notfound: resolve(__dirname, "not-found.html"),
+        configMyAccount: resolve(__dirname, "config-my-account.html"),
       },
     },
   },

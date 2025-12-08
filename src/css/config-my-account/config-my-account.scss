@@ -1,0 +1,324 @@
+.my-account-general-layout {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    margin-top: 2rem;
+    @media (max-width: 1440px) {
+        max-width: 90%;
+    }
+    #welcome-to-user {
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--header-blue);
+        margin-bottom: 0.5rem;
+    }
+    .welcome-to-user-subtitle {
+    font-size: 0.95rem;
+    color: rgba(109, 109, 109, 1);
+    margin-bottom: 2.5rem;
+    }
+    /* ===== MY ACCOUNT LAYOUT ===== */
+    .my-account-layout {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    }
+    /* ===== SIDEBAR ===== */
+    .my-account-sidebar {
+        width: 20%;
+        /* flex-shrink: 0; */
+        border-radius: 12px;
+        padding: 1rem 0;
+        min-height: 100%;
+        display: flex;
+        /* align-items: center; */
+        flex-direction: column;
+        justify-content: space-between;
+
+        height: -webkit-fill-available;
+    }
+    .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    }
+    .sidebar-menu li {
+    margin: 0;
+    }
+    .sidebar-menu a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.25rem;
+    color: rgba(109, 109, 109, 1);
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    }
+    .sidebar-menu a:hover {
+    background: #F3F4F6;
+    color: #00254B;
+    }
+    .sidebar-menu a.active {
+    background: rgba(5, 47, 90, 1);
+    color: #fff;
+    border-radius: 10rem;
+    }
+    .sidebar-menu svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    path {
+        stroke: rgba(109, 109, 109, 1);
+    }
+    }
+
+    .sidebar-menu a.active {
+        path {
+            stroke: #fff;
+        }
+    }
+    /* Sign Out Button */
+    .sidebar-signout {
+    margin-top: 1rem;
+    padding: 0 1.25rem;
+    }
+    .signout-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        background: transparent;
+        border: 1px solid #E5E7EB;
+        border-radius: 4rem;
+        color: #6B7280;
+        font-size: 0.9rem;
+        font-weight: 400;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        justify-content: center;
+    }
+    .signout-btn:hover {
+    background: #FEF2F2;
+    border-color: #FCA5A5;
+    color: #DC2626;
+    path {
+        stroke: #DC2626;
+    }
+    }
+    .signout-btn svg {
+    width: 18px;
+    height: 18px;
+    }
+    /* ===== CONTENT AREA ===== */
+    .my-account-content {
+    flex: 1;
+    min-width: 0;
+    background-color: #fff;
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    min-height: calc(100lvh - 19rem);
+    }
+    /* ===== INFO CARDS GRID ===== */
+    .info-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+    }
+    .info-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(200, 218, 237, 1);
+    color: rgba(5, 47, 90, 1);
+    min-height: 242px;
+    }
+    .info-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    }
+    .info-card-icon {
+    width: 48px;
+    height: 48px;
+
+ 
+    }
+    .info-card-icon svg {
+        width: 2rem;
+        height: 2rem;
+        path {
+            stroke: rgba(5, 47, 90, 1);
+            stroke-width: 0.01rem;
+            fill: rgba(5, 47, 90, 1);
+        }
+    }
+    .info-card-title {
+    font-size:1.25rem;
+    color: rgba(5, 47, 90, 1);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    }
+
+    /* Highlighted number badge */
+    .info-card-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #2F80ED 0%, #1E40AF 100%);
+    color: #FFFFFF;
+    padding: 0.5rem 1.25rem;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    min-width: 80px;
+    }
+    /* ===== RESPONSIVE DESIGN ===== */
+    // @media (max-width: 1024px) {
+    // .my-account-layout {
+    //     flex-direction: column;
+    // }
+    // .my-account-sidebar {
+    //     width: 100%;
+    // }
+    // .sidebar-menu {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     gap: 0.5rem;
+    //     padding: 0 1rem;
+    // }
+    // .sidebar-menu li {
+    //     flex: 1;
+    //     min-width: 150px;
+    // }
+    // .sidebar-menu a {
+    //     border-left: none;
+    //     justify-content: center;
+    //     border-radius: 8px;
+    // }
+
+    // .sidebar-signout {
+    //     padding: 0 1rem;
+    // }
+    // }
+
+    @media (min-width: 2250px) {
+        .sidebar-menu svg, .signout-btn svg {
+            width: 1.75rem;
+            height: 1.75rem;
+        }
+        .info-card{
+            border-width: 0.15rem;
+        }
+        .info-card-icon {
+
+            margin-bottom: 1.25rem;
+        }
+
+        .signout-btn{
+            border-width: 0.15rem;
+        }
+    }
+
+    @media (min-width: 3150px) {
+    .sidebar-menu svg, .signout-btn svg {
+        width: 2rem;
+        height: 2rem;
+    }
+    .info-card-icon {
+
+            margin-bottom: 1.5rem;
+    }
+    }
+    @media (max-width: 900px) {
+    .my-account-general-layout {
+        padding: 1.5rem 1rem;
+    }
+    #welcome-to-user {
+        font-size: 1.75rem;
+    }
+    .welcome-to-user-subtitle {
+        font-size: 1rem;
+    }
+    .my-account-content{
+        width: 100%;
+        min-height: auto;
+    }
+    .info-cards-grid {
+        gap: 1rem;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    .info-card {
+        padding: 1.5rem 1rem;
+        padding: 1.5rem 1rem;
+        width: 33.3%;
+    }
+
+    .my-account-sidebar {
+        width: 100%;
+    }
+    
+    .sidebar-menu li {
+        min-width: 25%;
+    }
+    .sidebar-menu a {
+        justify-content: flex-start;
+    }
+
+
+    .sidebar-menu {
+        flex-direction: row;
+        gap: 1rem;
+        flex-wrap: nowrap;
+          display: flex;
+           padding: 0 1rem;
+    }
+
+     .my-account-layout {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    flex-direction: column;
+}
+    }
+    @media (max-width: 480px) {
+    .info-card-value {
+        font-size: 1.5rem;
+    }
+    .info-card-badge {
+        font-size: 1.25rem;
+        padding: 0.4rem 1rem;
+        min-width: 60px;
+    }
+
+    .sidebar-menu, .info-cards-grid {
+        flex-direction: column;
+    }
+    .info-card {
+        width: 100%;
+        min-height: 100px;
+    }
+
+    .info-card-icon {
+        width: 2rem;
+        height: 2rem;
+        margin-bottom: 1rem;
+    }
+    }
+
+}
+
+.top-spacing {
+    height: 7rem;
+    @media (max-width: 900px) {
+        height: 9rem;
+    }
+}
