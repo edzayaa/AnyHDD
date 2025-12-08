@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="/src/styles-inner-pages.scss">
     <link rel="stylesheet" href="/src/css/config-my-account/config-my-account.scss">
     <link rel="stylesheet" href="/src/css/config-my-account/config-my-account-information.scss">
-    <link rel="stylesheet" href="/src/css/shopping-bag/shopping-bag.scss"> 
+    <link rel="stylesheet" href="/src/css/shopping-bag/shopping-bag.scss">
+    <link rel="stylesheet" href="/src/css/config-my-account/edit-account-drawer.scss"> 
     <link rel="stylesheet" href="/src/css/footer.css" />
     <title>AnyHDD - My Account Information</title>
   </head>
@@ -574,6 +575,73 @@
 				</div>
 			</aside>
 		</div>
+		<!-- EDIT ACCOUNT DRAWER -->
+		<div id="edit-account-drawer-container">
+			<div id="edit-account-overlay"></div>
+
+			<aside id="edit-account-drawer">
+				<div class="drawer-header">
+                    <svg class="close-btn-account-edit" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 13L1 7L7 1" stroke="#052F5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+					<h2 class="s">Edit your details</h2>
+
+				</div>
+				
+				<div class="drawer-content">
+					<form id="edit-account-form">
+                        <div class="divided-input">
+                            <div class="form-group">
+                                <label class="form-label" for="edit-first-name">First Name</label>
+                                <input type="text" id="edit-first-name" class="form-input" value="Alex" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="edit-last-name">Last Name</label>
+                                <input type="text" id="edit-last-name" class="form-input" value="Sehgal" required>
+                            </div>
+                        </div>
+
+
+						<!-- <div class="form-group">
+							<label class="form-label" for="edit-gender">Gender</label>
+							<select id="edit-gender" class="form-select" required>
+								<option value="male" selected>Male</option>
+								<option value="female">Female</option>
+								<option value="other">Other</option>
+								<option value="prefer-not-to-say">Prefer not to say</option>
+							</select>
+						</div> -->
+
+						<div class="form-group">
+							<label class="form-label" for="edit-dob">Date of Birth</label>
+							<input type="date" id="edit-dob" class="form-input" value="1995-10-01" required>
+						</div>
+
+						<div class="form-group">
+							<label class="form-label" for="edit-phone">Phone Number</label>
+							<input type="tel" id="edit-phone" class="form-input" value="+1215-3565" required>
+						</div>
+
+						<div class="form-group">
+							<label class="form-label" for="edit-password">Password</label>
+							<input type="password" id="edit-password" class="form-input" placeholder="Enter new password">
+						</div>
+
+						<div class="form-group">
+							<label class="form-label" for="edit-confirm-password">Confirm Password</label>
+							<input type="password" id="edit-confirm-password" class="form-input" placeholder="Confirm new password">
+						</div>
+					</form>
+				</div>
+
+				<div class="drawer-footer">
+                    
+					<button type="submit" form="edit-account-form" class="btn-save">Submit</button>
+                <button type="button" class="btn-cancel" id="cancel-edit-btn">Cancel</button>
+                </div>
+			</aside>
+		</div>
     <script defer type="module" src="/src/js/SmoothScroll.js"></script>
     <script defer type="module" src="/src/js/navbar.js"></script>
     <script defer type="module" src="/src/js/hover-matcher.js"></script>
@@ -585,5 +653,6 @@
     <script defer type="module" src="/src/js/white-overlay.js"></script>
     <script defer type="module" src="/src/js/show-navbar.js"></script>
     <script defer type="module" src="/src/js/toggle-password-input.js"></script>
+    <script defer type="module" src="/src/js/edit-account-drawer.js"></script>
   </body>
 </html>
