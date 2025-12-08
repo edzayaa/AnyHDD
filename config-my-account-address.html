@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/img/anyhdd-logo.webp" />
+    <meta content="initial-scale=1.0, width=device-width" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/css/navbar.css" />
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/styles-inner-pages.scss">
+    <link rel="stylesheet" href="/src/css/config-my-account/config-my-account.scss">
+    <link rel="stylesheet" href="/src/css/config-my-account/config-my-account-information.scss">
+    <link rel="stylesheet" href="/src/css/shopping-bag/shopping-bag.scss">
+    <link rel="stylesheet" href="/src/css/config-my-account/edit-account-drawer.scss">
+    <link rel="stylesheet" href="/src/css/config-my-account/config-my-account-address.scss"> 
+    <link rel="stylesheet" href="/src/css/footer.css" />
+    <title>AnyHDD - My Account Address</title>
+  </head>
+  <body class="inner-pages">
+    <nav>
+        <div class="search-overlay not-show"></div>
+        <div class="submenu-overlay"></div>
+        <div class="desk-navbar">
+            <div class="left left-menu">
+                <button class="menu-button no-desk" id="menu-mb-buttom">
+                    <svg class="hamburger" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                        <path d="M2.625 10.5H18.375M2.625 5.25H18.375M2.625 15.75H18.375" stroke="#00254B" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg class="close-icon" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="15.5" cy="15.5" r="15.5" fill="#D9D9D9"/>
+                        <circle cx="15.5" cy="15.5" r="15.5" fill="url(#paint0_radial_1619_2586)"/>
+                        <path d="M18.7712 12.2267L12.314 18.684" stroke="white" stroke-width="1.07621" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12.314 12.2267L18.7712 18.684" stroke="white" stroke-width="1.07621" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                        <radialGradient id="paint0_radial_1619_2586" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(-18.6136 -13.8626) rotate(41.9444) scale(72.589 45.6061)">
+                        <stop offset="0.248721" stop-color="#55BBFF"/>
+                        <stop offset="0.735909" stop-color="#236BF1"/>
+                        <stop offset="1" stop-color="#236BF1"/>
+                        </radialGradient>
+                        </defs>
+                    </svg>
+                </button>
+                <a href="/"><img class='logo-navbar' src="/img/anyhdd-logo.webp" /></a>
+            </div>
+            <div class="center">
+                <input class='search-input' id="search-nav-input" type="text" placeholder='Find a Specific Product  in Our Store'/>
+                <button class="custom-button search-button" id="search-nav-button">
+                    <p>Search</p>
+                    <svg class='search-icon' xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M6.84245 10.7083C9.23424 10.7083 11.1732 8.7694 11.1732 6.3776C11.1732 3.98581 9.23424 2.04688 6.84245 2.04688C4.45065 2.04688 2.51172 3.98581 2.51172 6.3776C2.51172 8.7694 4.45065 10.7083 6.84245 10.7083Z" stroke="#052F5A" stroke-width="1.08268" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12.2572 11.7923L9.90234 9.4375" stroke="#052F5A" stroke-width="1.08268" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg class="clear-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M9.14648 3.11328L3.53125 8.72852" stroke="black" stroke-width="0.935872" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M3.53125 3.11328L9.14648 8.72852" stroke="black" stroke-width="0.935872" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="custom-button search-button" id="search-nav-button-mb">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path d="M8.32552 13.7116C11.3002 13.7116 13.7116 11.3002 13.7116 8.32552C13.7116 5.35088 11.3002 2.93945 8.32552 2.93945C5.35088 2.93945 2.93945 5.35088 2.93945 8.32552C2.93945 11.3002 5.35088 13.7116 8.32552 13.7116Z" stroke="white" stroke-width="1.34652" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15.0595 15.0597L12.1309 12.131" stroke="white" stroke-width="1.34652" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <div class="search-results-container">
+                  <ul class="search-results-list">
+                    
+                  </ul>
+                </div>
+            </div>
+            <div class="right">
+                <ul class="navbar-links">
+                    <li>
+                        <a href="/shop">Products</a>
+                    </li>
+                    <li>
+                        <a href="/faq">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="/sell-to-us">Sell to us</a>
+                    </li>
+                    <li>
+                        <a href="/warranty">Warranty</a>
+                    </li>
+                    <li>
+                        <a href="/about">About Us</a>
+                    </li>
+                    <li>
+                        <a href="/contact">Contact</a>
+                    </li>
+                    <li class="sign-in-link no-desk">
+                        <a href="/sign-in">
+                            Sign In
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/login">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.13654 6.31836C7.13654 4.73681 8.41863 3.45472 10.0002 3.45472C11.5817 3.45472 12.8638 4.73681 12.8638 6.31836C12.8638 7.8999 11.5817 9.182 10.0002 9.182C8.41863 9.182 7.13654 7.8999 7.13654 6.31836ZM10.0002 1.81836C7.5149 1.81836 5.50018 3.83308 5.50018 6.31836C5.50018 8.80364 7.5149 10.8184 10.0002 10.8184C12.4854 10.8184 14.5002 8.80364 14.5002 6.31836C14.5002 3.83308 12.4854 1.81836 10.0002 1.81836ZM6.72745 12.4547C4.01623 12.4547 1.81836 14.6526 1.81836 17.3638C1.81836 17.8157 2.18467 18.182 2.63654 18.182C3.08841 18.182 3.45472 17.8157 3.45472 17.3638C3.45472 15.5564 4.91997 14.0911 6.72745 14.0911H13.2729C15.0804 14.0911 16.5456 15.5564 16.5456 17.3638C16.5456 17.8157 16.9119 18.182 17.3638 18.182C17.8157 18.182 18.182 17.8157 18.182 17.3638C18.182 14.6526 15.9841 12.4547 13.2729 12.4547H6.72745Z" fill="#052F5A"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="cart-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.70537 3.18414C2.83579 2.90497 3.11605 2.72656 3.42419 2.72656H4.71103C5.07481 2.72656 5.39197 2.97396 5.48055 3.32679L5.88138 4.92364H17.4829C18.518 4.92364 19.2714 5.89701 19.0205 6.89674L17.7311 12.0333C17.4654 13.0918 16.5138 13.834 15.4226 13.834H8.33856C7.24827 13.834 6.29639 13.0945 6.03045 12.035L4.53731 6.08664L2.81591 4.02933C2.61817 3.79301 2.57495 3.46333 2.70537 3.18414ZM6.27968 6.51042L7.56947 11.6487C7.65778 12.0005 7.97375 12.2472 8.33856 12.2472H15.4226C15.7863 12.2472 16.1035 11.9998 16.192 11.647L17.4814 6.51042H6.27968ZM8.05095 17.2733C8.78124 17.2733 9.37326 16.6812 9.37326 15.9509C9.37326 15.2207 8.78124 14.6287 8.05095 14.6287C7.32065 14.6287 6.72863 15.2207 6.72863 15.9509C6.72863 16.6812 7.32065 17.2733 8.05095 17.2733ZM17.308 15.9509C17.308 16.6812 16.7159 17.2733 15.9857 17.2733C15.2554 17.2733 14.6634 16.6812 14.6634 15.9509C14.6634 15.2207 15.2554 14.6287 15.9857 14.6287C16.7159 14.6287 17.308 15.2207 17.308 15.9509Z" fill="#052F5A"/>
+                        </svg>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="desk-submenu">
+            <ul class=''>
+                <li>
+                    <a href="/shop/monitors">
+                        <img src="src/assets/monitor.svg" alt="Monitors" />
+                        Monitors
+                    </a>
+                </li>
+                <li>
+                    <a href="/shop/scanners">
+                        <img src="src/assets/scanners.svg" alt="Scanners" />
+                        Scanners
+                    </a>
+                </li>
+                <li>
+                    <a href="/shop/thermals">
+                        <img src="src/assets/printers.svg" alt="Thermal Printers" />
+                        Thermal Printers
+                    </a>
+                </li>
+                <li>
+                    <a href="/shop/docking-stations">
+                        <img src="src/assets/docking-stations.svg" alt="HP & Lenovo Docking Stations" />
+                        HP & Lenovo Docking Stations
+                    </a>
+                </li>
+                <li>
+                    <a href="/shop">
+                        <img src="src/assets/all-categories.svg" alt="All Categories" />
+                        All Categories
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="mb-menu no-desk">
+            <div class="top">
+                <h3>Shop by categories</h3>
+                <ul class="categories">
+                    <li class="category-item">
+                        <a href="/shop/monitors">
+                            <img src="src/assets/monitor.svg" alt="Monitors" />
+                            <h4>Monitors</h4>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="/shop/scanners">
+                            <img src="src/assets/scanners.svg" alt="Scanners" />
+                            <h4>Scanners</h4>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="/shop/thermals">
+                            <img src="src/assets/printers.svg" alt="Thermal Printers" />
+                            <h4>Thermal Printers</h4>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="/shop/docking-stations">
+                            <img src="src/assets/docking-stations.svg" alt="HP & Lenovo Docking Stations" />
+                            <h4>HP & Lenovo Docking Stations</h4>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="/shop">
+                            <img src="src/assets/all-categories.svg" alt="All Categories" />
+                            <h4>All Categories</h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom">
+                <a href="/shop">Products</a>
+                <a href="/faq">FAQ</a>
+                <a href="/sell-to-us">Sell to us</a>
+                <a href="/warranty">Warranty</a>
+                <a href="/about">About Us</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="white-overlay">
+      
+    </div>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <div class="contact-us-container">
+          <div class="top-spacing"></div>
+
+            <!-- START HERE -->
+            <section class="my-account-general-layout">
+            <h1 id="welcome-to-user">Hello Joe</h1>
+            <p class="welcome-to-user-subtitle">Welcome to your private corner You can manage your orders, and account info here</p>
+
+            <div class="my-account-layout">
+                <!-- Sidebar -->
+                <div class="my-account-sidebar">
+                <ul class="sidebar-menu">
+                    <li>
+                    <a href="#" class="menu-item active">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.70833 16.043C8.4552 16.043 8.25 16.2482 8.25 16.5013C8.25 16.7544 8.4552 16.9596 8.70833 16.9596H13.2917C13.5448 16.9596 13.75 16.7544 13.75 16.5013C13.75 16.2482 13.5448 16.043 13.2917 16.043H8.70833Z" fill="white"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.9907 2.36204C11.825 1.44182 10.1802 1.44182 9.01457 2.36204L3.05624 7.06599C2.28557 7.67442 1.83594 8.60225 1.83594 9.58415V16.9598C1.83594 18.7317 3.27235 20.1682 5.04427 20.1682H16.9609C18.7329 20.1682 20.1693 18.7317 20.1693 16.9598V9.58415C20.1693 8.60225 19.7196 7.67442 18.949 7.06599L12.9907 2.36204ZM9.5826 3.08152C10.4152 2.42421 11.59 2.42421 12.4226 3.08152L18.3809 7.78546C18.9314 8.22006 19.2526 8.8828 19.2526 9.58415V16.9598C19.2526 18.2255 18.2266 19.2515 16.9609 19.2515H5.04427C3.77862 19.2515 2.7526 18.2255 2.7526 16.9598V9.58415C2.7526 8.8828 3.07377 8.22006 3.62425 7.78546L9.5826 3.08152Z" />
+                        </svg>
+                        Overview
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#" class="menu-item">
+                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.7344 14.8907V7.31412C21.7347 7.24253 21.716 7.17214 21.6804 7.11007C21.6447 7.04801 21.5933 6.99647 21.5313 6.96068L11.6797 1.27318C11.6179 1.23752 11.5479 1.21875 11.4766 1.21875C11.4053 1.21875 11.3352 1.23752 11.2734 1.27318L1.42188 6.96068C1.35988 6.99647 1.30845 7.04801 1.27278 7.11007C1.23711 7.17214 1.21847 7.24253 1.21875 7.31412V18.6891C1.21847 18.7607 1.23711 18.8311 1.27278 18.8932C1.30845 18.9552 1.35988 19.0068 1.42188 19.0426L11.2734 24.7301C11.3352 24.7657 11.4053 24.7845 11.4766 24.7845C11.5479 24.7845 11.6179 24.7657 11.6797 24.7301L15.3806 22.5932C15.8419 23.2395 16.4458 23.771 17.1454 24.1466C17.845 24.5221 18.6217 24.7317 19.4152 24.759C20.2088 24.7863 20.9981 24.6306 21.7218 24.3041C22.4456 23.9775 23.0846 23.4888 23.5892 22.8757C24.0939 22.2626 24.4507 21.5417 24.6321 20.7686C24.8135 19.9956 24.8145 19.1911 24.6352 18.4176C24.4559 17.6441 24.101 16.9222 23.598 16.3077C23.0949 15.6933 22.4573 15.2029 21.7344 14.8744V14.8907ZM11.4766 2.0938L20.5156 7.31412L15.9819 9.93037L7.58875 4.34037L11.4766 2.0938ZM11.4766 12.5344L2.4375 7.31412L6.80469 4.7913L15.1938 10.3854L11.4766 12.5344ZM2.03125 8.01693L11.0703 13.2372V23.6738L2.03125 18.4535V8.01693ZM11.8828 23.6738V13.2372L15.5391 11.1126V14.2772C15.5391 14.385 15.5819 14.4883 15.6581 14.5645C15.7342 14.6407 15.8376 14.6835 15.9453 14.6835C16.0531 14.6835 16.1564 14.6407 16.2326 14.5645C16.3088 14.4883 16.3516 14.385 16.3516 14.2772V10.6454L20.9016 8.01693V14.6022C20.4713 14.4846 20.0273 14.4245 19.5813 14.4235C18.7021 14.4257 17.8381 14.6521 17.0707 15.0811C16.3034 15.5101 15.658 16.1277 15.1957 16.8754C14.7334 17.6232 14.4693 18.4765 14.4285 19.3547C14.3876 20.2329 14.5713 21.107 14.9622 21.8944L11.8828 23.6738ZM19.6016 23.9704C18.7378 23.9704 17.8935 23.7142 17.1753 23.2344C16.4571 22.7545 15.8974 22.0724 15.5668 21.2744C15.2363 20.4764 15.1498 19.5983 15.3183 18.7512C15.4868 17.904 15.9027 17.1259 16.5135 16.5151C17.1243 15.9043 17.9024 15.4884 18.7496 15.3199C19.5967 15.1514 20.4748 15.2379 21.2728 15.5684C22.0708 15.899 22.7529 16.4587 23.2327 17.1769C23.7126 17.8951 23.9688 18.7394 23.9688 19.6032C23.9677 20.7611 23.5072 21.8713 22.6884 22.6901C21.8697 23.5088 20.7595 23.9693 19.6016 23.9704Z" />
+                        <path d="M21.5323 17.4951L19.0135 20.8182L17.6932 19.2663C17.6237 19.1828 17.5239 19.1304 17.4157 19.1205C17.3075 19.1106 17.1998 19.144 17.1163 19.2135C17.0328 19.283 16.9804 19.3828 16.9705 19.491C16.9606 19.5992 16.994 19.7069 17.0635 19.7904L18.6885 21.7323C18.7267 21.7769 18.774 21.8127 18.8273 21.8372C18.8806 21.8618 18.9386 21.8745 18.9973 21.8745C19.0583 21.8726 19.1181 21.857 19.1722 21.8289C19.2264 21.8008 19.2735 21.7608 19.3101 21.712L22.1335 17.9867C22.1864 17.9514 22.2304 17.9043 22.2618 17.849C22.2931 17.7937 22.3111 17.7319 22.3142 17.6684C22.3174 17.6049 22.3055 17.5416 22.2797 17.4835C22.2539 17.4254 22.2148 17.3742 22.1656 17.3339C22.1164 17.2937 22.0584 17.2656 21.9964 17.2518C21.9343 17.2381 21.8699 17.2391 21.8083 17.2547C21.7467 17.2704 21.6896 17.3003 21.6417 17.3421C21.5937 17.3838 21.5563 17.4362 21.5323 17.4951Z" />
+                    </svg>
+
+                        Orders
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#" class="menu-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.3125 9.375C16.3125 6.99375 14.3812 5.0625 12 5.0625C9.61875 5.0625 7.6875 6.99375 7.6875 9.375C7.6875 11.7562 9.61875 13.6875 12 13.6875C14.3812 13.6875 16.3125 11.7562 16.3125 9.375ZM8.8125 9.375C8.8125 7.6125 10.2375 6.1875 12 6.1875C13.7625 6.1875 15.1875 7.6125 15.1875 9.375C15.1875 11.1375 13.7625 12.5625 12 12.5625C10.2375 12.5625 8.8125 11.1375 8.8125 9.375Z" fill="#6D6D6D"/>
+                        <path d="M4.78034 20.2875C4.87409 20.3437 4.96784 20.3625 5.06159 20.3625C5.24909 20.3625 5.45534 20.2687 5.54909 20.0812C6.86159 17.7562 9.33659 16.3125 11.9991 16.3125C14.6616 16.3125 17.1366 17.7562 18.4678 20.0812C18.6178 20.3437 18.9741 20.4375 19.2366 20.2875C19.4991 20.1375 19.5928 19.7812 19.4428 19.5187C17.9241 16.8562 15.0741 15.1875 11.9991 15.1875C8.92409 15.1875 6.07409 16.8562 4.55534 19.5187C4.40534 19.7812 4.49909 20.1375 4.78034 20.2875Z" />
+                    </svg>
+
+                        Information
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#" class="menu-item">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.914062 5.50065V20.1673L7.33073 16.5007L14.6641 20.1673L21.0807 16.5007V1.83398L14.6641 5.50065L7.33073 1.83398L0.914062 5.50065Z" stroke="#6D6D6D" stroke-width="0.916667" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7.33594 1.83398V16.5007" stroke="#6D6D6D" stroke-width="0.916667" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14.6641 5.5V20.1667" stroke="#6D6D6D" stroke-width="0.916667" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+
+                        Address Book
+                    </a>
+                    </li>
+                </ul>
+                <div class="sidebar-signout" >
+                    <button class="signout-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="#999999" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 17L21 12L16 7" stroke="#999999" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M21 12H9" stroke="#999999" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                        SIGN OUT
+                    </button>
+                </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="my-account-content">
+                    <!-- Addresses Section -->
+                    <div class="addresses-section">
+                        <h2 class="addresses-title">Addresses</h2>
+
+                        <!-- Default Address -->
+                        <div class="address-item">
+                            <div class="default-indicator">
+                                <!-- <div class="default-radio"></div> -->
+                                  <input class="default-radio" checked type="radio">
+                                <p class="default-label">Default</p>
+                            </div>
+
+                            <div class="address-fields">
+                                <div class="address-field">
+                                    <p class="field-label">Street*</p>
+                                    <p class="field-value">Street 1236 Jacksonville</p>
+                                </div>
+
+                                <div class="address-field">
+                                    <p class="field-label">House Number</p>
+                                    <p class="field-value">House 2564</p>
+                                </div>
+
+                                <div class="address-field full-width">
+                                    <p class="field-label">Additional Address Line</p>
+                                    <p class="field-value">89 Pine Avenue, Apt 12C</p>
+                                </div>
+
+                                <div class="address-field postal-city-group">
+                                    <div class="postal-code-field">
+                                        <p class="field-label">Postal Code</p>
+                                        <p class="field-value">8050</p>
+                                    </div>
+                                    <div class="city-field">
+                                        <p class="field-label">City</p>
+                                        <p class="field-value">Melbourne</p>
+                                    </div>
+                                </div>
+
+                                <div class="address-field full-width">
+                                    <p class="field-label">Country</p>
+                                    <p class="field-value">Australia</p>
+                                </div>
+                            </div>
+
+                            <div class="address-actions">
+                                <button class="action-link">Edit</button>
+                                <button class="action-link remove-link">Remove</button>
+                            </div>
+                        </div>
+
+                        <!-- Add New Address Button -->
+                        <button class="add-address-btn">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="16" height="16" rx="8" fill="#D7D7D7"/>
+                                <path d="M8.375 4.25V11.5M4.75 7.875H12" stroke="black" stroke-width="1.03571" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Add New Address
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!-- END HERE -->
+        <footer>
+          <div class="overlay no-desk">
+            <img src="/img/about-home-overlay.webp" alt="Overlay">
+          </div>
+          <div class="footer-content">
+            <div class="no-desk newsletter-container">
+              <h6>Ready to stay in the loop?</h6>
+              <h5>Subscribe to our newsletter and get <br> exclusive updates, deals, and insights —  <br>straight to your inbox.</h5>
+              <div class="newsletter">
+                <input class='form-input search-input' id="newsletter-input" type="text" placeholder='Enter Your Email'/>
+                <button class="custom-button search-button" id="newsletter-button">
+                    <p>Subscribe Now</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+                      <path d="M14.9179 4.91794C15.1488 4.68712 15.1488 4.31288 14.9179 4.08206L11.1565 0.320624C10.9257 0.0898037 10.5514 0.0898038 10.3206 0.320624C10.0898 0.551445 10.0898 0.925679 10.3206 1.1565L13.6641 4.5L10.3206 7.8435C10.0898 8.07432 10.0898 8.44855 10.3206 8.67937C10.5514 8.91019 10.9257 8.91019 11.1565 8.67937L14.9179 4.91794ZM0.5 4.5L0.5 5.09105L14.5 5.09105L14.5 4.5L14.5 3.90895L0.5 3.90895L0.5 4.5Z" />
+                    </svg>
+                </button>
+              </div>
+            </div>
+            <div class="first-divider"></div>
+            <div class="content">
+                <ul class='footer-list products'>
+                    <li class='header'>Products</li>
+                    <li>
+                        <a href="/shop/monitors">
+                            Monitors
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/shop/docking-stations">
+                            Docking Stations
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/shop/thermals">
+                            Thermal Printers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/shop/scanners">
+                            Scanners
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/shop/cables">
+                            Cables
+                        </a>
+                    </li>
+                </ul>
+                <ul class="footer-list about">
+                    <li class='header'>About</li>
+                    <li>
+                        <a href="/about">About AnyHDD</a>
+                    </li>
+                    <li>
+                        <a href="/contact">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="/terms-and-conditions">Terms and Conditions</a>
+                    </li>
+                    <li>
+                        <a href="/global-privacy-policy">Global Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="/join-us">Join Us</a>
+                    </li>
+                </ul>
+                <ul class='footer-list services'>
+                    <li class='header'>Services</li>
+                    <li>
+                        <a href="/payment">Payment</a>
+                    </li>
+                    <li>
+                        <a href="/warranty">Warranty</a>
+                    </li>
+                    <li>
+                        <a href="/order-tracking">Order Tracking</a>
+                    </li>
+                    <li>
+                        <a href="/shipping-and-delivery">Shipping & Delivery</a>
+                    </li>
+                    <li>
+                        <a href="/returns-and-exchanges">Return & Exchanges</a>
+                    </li>
+                </ul>
+                <ul class='footer-list'>
+                    <li class='header'>Contact Us</li>
+                    <li class='footer-contact-item'>
+                        <img src="/src/assets/message.svg" alt="Message Icon" />
+                        <div>
+                            <span class='light-green'>Our Response time</span><br />
+                            Mon-Sun 9:00AM-5:00PM EST
+                        </div>
+                    </li>
+                    <li class='footer-contact-item'>
+                        <img src="/src/assets/message.svg" alt="Message Icon" />
+                        <a href="mailto:sales@anyhdd.com">sales@anyhdd.com</a>
+                    </li>
+                    <li class='footer-contact-item'>
+                        <img src="/src/assets/message.svg" alt="Message Icon" />
+                        <a href="tel:407555xxxx">(407) 555-xxxx </a>
+                    </li>                    
+                    <li class='header'>Payment Methods</li>
+                    <li class='icon-list'>
+                        <img src="/src/assets/visa.webp" alt="Visa" />
+                        <img src="/src/assets/paypal.webp" alt="PayPal" />
+                        <img src="/src/assets/maestro.webp" alt="Maestro" />
+                        <img src="/src/assets/american-express.webp" alt="American Express" />
+                        <img src="/src/assets/discover.webp" alt="Discover" />
+                        <img src="/src/assets/apple-pay.webp" alt="Apple Pay" />
+                        <img src="/src/assets/dinner-clubs.webp" alt="Diners Club" />
+                        <img src="/src/assets/after-pay.webp" alt="AfterPay" />
+                        <img src="/src/assets/shopify-pay.webp" alt="Shopify Pay" />
+                        <img src="/src/assets/klarna.webp" alt="Klarna" />
+                    </li>
+                </ul>
+            </div>
+            <div class="social-media no-desk">
+              <ul>
+                <!-- <li><a target="_blank" href="https://www.facebook.com/AnyHDD"><img src="/src/assets/facebook.svg" alt="Facebook" /></a></li>
+                <li><a target="_blank" href="https://www.twitter.com/AnyHDD"><img src="/src/assets/tiktok.svg" alt="Twitter" /></a></li>
+                <li><a target="_blank" href="https://www.instagram.com/AnyHDD"><img src="/src/assets/x.svg" alt="Instagram" /></a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/company/AnyHDD"><img src="/src/assets/instagram.svg" alt="LinkedIn" /></a></li> -->
+                <li>
+                    <a href="https://www.ebay.com/str/anyhdd" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M606.5 253.5L551.7 363.4L496.8 253.5L459.3 253.5L470.2 274.1C458.7 255.1 434.3 248.1 406.9 248.1C375.1 248.1 339 256.8 335.4 291.2L369.1 291.2C370.5 277.4 384.8 269.4 404.1 269.4C430.1 269.4 445.1 279 445.1 302.4L445.1 305.8C432.4 305.8 417.1 305.9 403.4 306.2C361 307.1 333.8 316.2 326.7 340.6C327.7 335.4 328.2 330 328.2 324.4C328.2 272.3 288.5 248.2 252.8 248.2C231.5 248.2 209.8 253.7 194.1 272.4L194.1 191.8L162 191.8L162 361.3C162 371.6 161.4 384.2 160.9 394.4L192.4 394.4C193.1 388.1 193.5 381.5 193.5 374.9C207.1 391.5 228.9 399.8 252.2 399.8C289.1 399.8 317.1 377.9 325.5 345.6C325 348.4 324.8 351.4 324.8 354.6C324.8 378.7 345.9 399.6 385.4 399.6C412 399.6 431.2 393.9 447.3 374.1C447.3 380.7 447.6 387.4 448.4 394.3L478.2 394.3C477.5 386.1 477.2 376.8 477.2 367.5L477.2 301.9C477.2 292.6 475.5 284.7 472.4 278.1L533.9 394.2L505.4 448.3L541.3 448.3L640.5 253.5L606.5 253.5zM244.2 377.8C214.6 377.8 194 356.3 194 324C194 291.6 214.6 270.2 244.2 270.2C274 270.2 294.4 291.6 294.4 324C294.4 356.3 274 377.8 244.2 377.8zM445.1 330.5C445.1 360.5 427.2 378.9 393.5 378.9C368.4 378.9 358.5 365.5 358.5 353.1C358.5 334 376.6 328.7 405.7 327.8C418.8 327.3 433.3 327.2 445.1 327.2L445.1 330.5zM33.2 332.1L162 332.1L162 323.6C162 271.9 128.9 248.2 83.6 248.2C26.8 248.2 .6 279 .6 325.8C.6 368.3 25.9 399.8 83.1 399.8C114.5 399.8 151.1 388.1 157.5 353.7L124.4 353.7C112.4 389.5 36.7 390.4 33.2 332.1zM128.2 310.7L33.8 310.7C40.7 254.1 125.9 256 128.2 310.7z"/></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.amazon.com/s?i=merchant-items&me=A1M9Q2WB0F8EVB" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M353.7 226.7C305 228.5 184.2 242.2 184.2 344.2C184.2 453.7 322.5 458.2 367.7 387.4C374.2 397.6 403.1 424.9 413 434.2L469.8 378.2C469.8 378.2 437.5 352.9 437.5 325.4L437.5 178.3C437.5 153 413 96 325.2 96C237.2 96 190.5 151 190.5 200.3L264 207.1C280.3 157.6 318.2 157.6 318.2 157.6C358.9 157.5 353.7 187.4 353.7 226.7zM353.7 313.5C353.7 393.5 269.5 381.5 269.5 330.7C269.5 283.5 320 274 353.7 272.9L353.7 313.5zM489.7 477C482 487 419.7 544 315.2 544C210.7 544 130.7 472.5 106.2 443C99.4 435.3 107.2 431.7 111.7 434.7C185 479.2 299.5 552.5 484.2 465C491.7 461.3 497.5 467 489.7 477zM529.5 479.2C523 495 513.5 506 508.3 510.2C502.8 514.7 498.8 512.9 501.8 506.4C504.8 499.9 521.1 459.9 514.5 451.4C508 443.1 477.5 447.1 466.5 448.2C455.7 449.2 453.5 450.2 452.5 447.9C450.2 442.2 474.2 432.4 490 430.4C505.7 428.6 531 429.6 536 436.1C539.7 441.2 536 463.2 529.5 479.2z"/></svg>
+                    </a>
+                </li>
+            </ul>
+            </div>
+            <div class="second-divider"></div>
+            <div class="footer-bottom">
+              <p>
+                <span>DesignBy MDX</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                  <circle cx="2.5" cy="2.5" r="2.5" fill="#D0D0D0"/>
+                </svg>
+                © 2023 AnyHDD. All rights reserved.
+              </p>
+              <p>Select Your Region: <img src="/src/assets/usa_flag.svg" alt="USA Flag" /> United States / English</p>
+            </div>
+          </div>
+        </footer>
+        </div>
+      </div>
+    </div>
+		<!-- SHOPPING BAG -->
+		<div id="shopping-bag-container">
+			<div id="shopping-bag-overlay"></div>
+
+			<aside id="shopping-bag">
+				<div class="bag-header">
+					<h2 class="s">Shopping Bag</h2>
+					<button id="close-bag-btn" aria-label="Cerrar carrito">
+						<img class="close-btn" src="/public/img/shopping-bag/close-btn.webp" alt="">
+					</button>
+				</div>
+				
+				<div class="bag-items-container">
+					<div class="product-item">
+						
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M10.3094 2.25002H13.6908C13.9072 2.24988 14.0957 2.24976 14.2737 2.27819C14.977 2.39049 15.5856 2.82915 15.9146 3.46084C15.9978 3.62073 16.0573 3.79961 16.1256 4.00494L16.2373 4.33984C16.2562 4.39653 16.2616 4.41258 16.2661 4.42522C16.4413 4.90933 16.8953 5.23659 17.4099 5.24964C17.4235 5.24998 17.44 5.25004 17.5001 5.25004H20.5001C20.9143 5.25004 21.2501 5.58582 21.2501 6.00004C21.2501 6.41425 20.9143 6.75004 20.5001 6.75004H3.5C3.08579 6.75004 2.75 6.41425 2.75 6.00004C2.75 5.58582 3.08579 5.25004 3.5 5.25004H6.50008C6.56013 5.25004 6.5767 5.24998 6.59023 5.24964C7.10488 5.23659 7.55891 4.90936 7.73402 4.42524C7.73863 4.41251 7.74392 4.39681 7.76291 4.33984L7.87452 4.00496C7.94281 3.79964 8.00233 3.62073 8.08559 3.46084C8.41453 2.82915 9.02313 2.39049 9.72643 2.27819C9.90445 2.24976 10.093 2.24988 10.3094 2.25002ZM9.00815 5.25004C9.05966 5.14902 9.10531 5.04404 9.14458 4.93548C9.1565 4.90251 9.1682 4.86742 9.18322 4.82234L9.28302 4.52292C9.37419 4.24941 9.39519 4.19363 9.41601 4.15364C9.52566 3.94307 9.72853 3.79686 9.96296 3.75942C10.0075 3.75231 10.067 3.75004 10.3553 3.75004H13.6448C13.9331 3.75004 13.9927 3.75231 14.0372 3.75942C14.2716 3.79686 14.4745 3.94307 14.5842 4.15364C14.605 4.19363 14.626 4.2494 14.7171 4.52292L14.8169 4.82216L14.8556 4.9355C14.8949 5.04405 14.9405 5.14902 14.992 5.25004H9.00815Z" fill="#212121"/>
+							<path d="M5.91509 8.45015C5.88754 8.03685 5.53016 7.72415 5.11686 7.7517C4.70357 7.77925 4.39086 8.13663 4.41841 8.54993L4.88186 15.5017C4.96736 16.7844 5.03642 17.8205 5.19839 18.6336C5.36679 19.4789 5.65321 20.185 6.2448 20.7385C6.8364 21.2919 7.55995 21.5308 8.4146 21.6425C9.23662 21.7501 10.275 21.7501 11.5606 21.75H12.4395C13.7251 21.7501 14.7635 21.7501 15.5856 21.6425C16.4402 21.5308 17.1638 21.2919 17.7554 20.7385C18.347 20.185 18.6334 19.4789 18.8018 18.6336C18.9638 17.8206 19.0328 16.7844 19.1183 15.5017L19.5818 8.54993C19.6093 8.13663 19.2966 7.77925 18.8833 7.7517C18.47 7.72415 18.1126 8.03685 18.0851 8.45015L17.6251 15.3493C17.5353 16.6971 17.4713 17.6349 17.3307 18.3406C17.1943 19.025 17.004 19.3873 16.7306 19.6431C16.4572 19.8989 16.083 20.0647 15.391 20.1552C14.6776 20.2485 13.7376 20.25 12.3868 20.25H11.6134C10.2626 20.25 9.32255 20.2485 8.60915 20.1552C7.91715 20.0647 7.54299 19.8989 7.26958 19.6431C6.99617 19.3873 6.80583 19.025 6.66948 18.3406C6.52892 17.6349 6.46489 16.6971 6.37503 15.3493L5.91509 8.45015Z" fill="#212121"/>
+							<path d="M9.42546 10.2538C9.83762 10.2125 10.2052 10.5133 10.2464 10.9254L10.7464 15.9254C10.7876 16.3376 10.4869 16.7051 10.0747 16.7463C9.66256 16.7875 9.29503 16.4868 9.25381 16.0747L8.75381 11.0747C8.7126 10.6625 9.01331 10.295 9.42546 10.2538Z" fill="#212121"/>
+							<path d="M14.5747 10.2538C14.9869 10.295 15.2876 10.6625 15.2464 11.0747L14.7464 16.0747C14.7052 16.4868 14.3376 16.7875 13.9255 16.7463C13.5133 16.7051 13.2126 16.3376 13.2538 15.9254L13.7538 10.9254C13.795 10.5133 14.1626 10.2125 14.5747 10.2538Z" fill="#212121"/>
+						</svg>
+
+
+						<div class="product-image-container">
+							<img src="/img/product/cart-product.webp" alt="Dual Monitor Docking Station" class="product-image">
+						</div>
+
+						
+							<div class="product-info">
+								<div class="product-name">Dual Monitor <br> Docking Station</div>
+								<div class="quantity-control">
+									<button class="quantity-button minus">-</button>
+									<span class="quantity-number">01</span>
+									<button class="quantity-button plus">+</button>
+								</div>
+							</div>
+
+							<div class="product-controls-and-price">
+
+
+								<div class="product-price">$19.60</div>
+							</div>
+					
+					</div>
+					<div class="product-item">
+						
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M10.3094 2.25002H13.6908C13.9072 2.24988 14.0957 2.24976 14.2737 2.27819C14.977 2.39049 15.5856 2.82915 15.9146 3.46084C15.9978 3.62073 16.0573 3.79961 16.1256 4.00494L16.2373 4.33984C16.2562 4.39653 16.2616 4.41258 16.2661 4.42522C16.4413 4.90933 16.8953 5.23659 17.4099 5.24964C17.4235 5.24998 17.44 5.25004 17.5001 5.25004H20.5001C20.9143 5.25004 21.2501 5.58582 21.2501 6.00004C21.2501 6.41425 20.9143 6.75004 20.5001 6.75004H3.5C3.08579 6.75004 2.75 6.41425 2.75 6.00004C2.75 5.58582 3.08579 5.25004 3.5 5.25004H6.50008C6.56013 5.25004 6.5767 5.24998 6.59023 5.24964C7.10488 5.23659 7.55891 4.90936 7.73402 4.42524C7.73863 4.41251 7.74392 4.39681 7.76291 4.33984L7.87452 4.00496C7.94281 3.79964 8.00233 3.62073 8.08559 3.46084C8.41453 2.82915 9.02313 2.39049 9.72643 2.27819C9.90445 2.24976 10.093 2.24988 10.3094 2.25002ZM9.00815 5.25004C9.05966 5.14902 9.10531 5.04404 9.14458 4.93548C9.1565 4.90251 9.1682 4.86742 9.18322 4.82234L9.28302 4.52292C9.37419 4.24941 9.39519 4.19363 9.41601 4.15364C9.52566 3.94307 9.72853 3.79686 9.96296 3.75942C10.0075 3.75231 10.067 3.75004 10.3553 3.75004H13.6448C13.9331 3.75004 13.9927 3.75231 14.0372 3.75942C14.2716 3.79686 14.4745 3.94307 14.5842 4.15364C14.605 4.19363 14.626 4.2494 14.7171 4.52292L14.8169 4.82216L14.8556 4.9355C14.8949 5.04405 14.9405 5.14902 14.992 5.25004H9.00815Z" fill="#212121"/>
+							<path d="M5.91509 8.45015C5.88754 8.03685 5.53016 7.72415 5.11686 7.7517C4.70357 7.77925 4.39086 8.13663 4.41841 8.54993L4.88186 15.5017C4.96736 16.7844 5.03642 17.8205 5.19839 18.6336C5.36679 19.4789 5.65321 20.185 6.2448 20.7385C6.8364 21.2919 7.55995 21.5308 8.4146 21.6425C9.23662 21.7501 10.275 21.7501 11.5606 21.75H12.4395C13.7251 21.7501 14.7635 21.7501 15.5856 21.6425C16.4402 21.5308 17.1638 21.2919 17.7554 20.7385C18.347 20.185 18.6334 19.4789 18.8018 18.6336C18.9638 17.8206 19.0328 16.7844 19.1183 15.5017L19.5818 8.54993C19.6093 8.13663 19.2966 7.77925 18.8833 7.7517C18.47 7.72415 18.1126 8.03685 18.0851 8.45015L17.6251 15.3493C17.5353 16.6971 17.4713 17.6349 17.3307 18.3406C17.1943 19.025 17.004 19.3873 16.7306 19.6431C16.4572 19.8989 16.083 20.0647 15.391 20.1552C14.6776 20.2485 13.7376 20.25 12.3868 20.25H11.6134C10.2626 20.25 9.32255 20.2485 8.60915 20.1552C7.91715 20.0647 7.54299 19.8989 7.26958 19.6431C6.99617 19.3873 6.80583 19.025 6.66948 18.3406C6.52892 17.6349 6.46489 16.6971 6.37503 15.3493L5.91509 8.45015Z" fill="#212121"/>
+							<path d="M9.42546 10.2538C9.83762 10.2125 10.2052 10.5133 10.2464 10.9254L10.7464 15.9254C10.7876 16.3376 10.4869 16.7051 10.0747 16.7463C9.66256 16.7875 9.29503 16.4868 9.25381 16.0747L8.75381 11.0747C8.7126 10.6625 9.01331 10.295 9.42546 10.2538Z" fill="#212121"/>
+							<path d="M14.5747 10.2538C14.9869 10.295 15.2876 10.6625 15.2464 11.0747L14.7464 16.0747C14.7052 16.4868 14.3376 16.7875 13.9255 16.7463C13.5133 16.7051 13.2126 16.3376 13.2538 15.9254L13.7538 10.9254C13.795 10.5133 14.1626 10.2125 14.5747 10.2538Z" fill="#212121"/>
+						</svg>
+
+						<div class="product-image-container">
+							<img src="/img/product/cart-product.webp" alt="Dual Monitor Docking Station" class="product-image">
+						</div>
+
+						
+							<div class="product-info">
+								<div class="product-name">Dual Monitor <br> Docking Station</div>
+								<div class="quantity-control">
+									<button class="quantity-button minus">-</button>
+									<span class="quantity-number">01</span>
+									<button class="quantity-button plus">+</button>
+								</div>
+							</div>
+
+							<div class="product-controls-and-price">
+
+
+								<div class="product-price">$19.60</div>
+							</div>
+					
+					</div>
+				</div>
+
+				<div class="bag-footer">
+					<div class="subtotal">
+						<span>Subtotal</span>
+						<span class="blue">$67.80</span>
+					</div>
+					<div class="shipping">
+						<span>Shipping</span>
+						<span>Free</span>
+					</div>
+					<input class="coupon" type="text" placeholder="Coupon">
+					<div class="total-row">
+                        <p class="total-amount">Total <span>$67.80</span></p>
+						<Button class='custom-button common-styles checkout-btn' id="add-to-cart-button">
+							Place Order
+							<svg viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect rx="18.5" fill="white"></rect>
+								<path d="M25.9179 18.9179C26.1488 18.6871 26.1488 18.3129 25.9179 18.0821L22.1565 14.3206C21.9257 14.0898 21.5514 14.0898 21.3206 14.3206C21.0898 14.5514 21.0898 14.9257 21.3206 15.1565L24.6641 18.5L21.3206 21.8435C21.0898 22.0743 21.0898 22.4486 21.3206 22.6794C21.5514 22.9102 21.9257 22.9102 22.1565 22.6794L25.9179 18.9179ZM11.5 18.5L11.5 19.0911L25.5 19.0911L25.5 18.5L25.5 17.9089L11.5 17.9089L11.5 18.5Z" fill="#2F80ED"></path>
+							</svg>
+						</Button>
+					</div>
+
+				</div>
+			</aside>
+		</div>
+		<!-- EDIT ACCOUNT DRAWER -->
+		<div id="edit-account-drawer-container">
+			<div id="edit-account-overlay"></div>
+
+			<aside id="edit-account-drawer">
+				<div class="drawer-header">
+                    <svg class="close-btn-account-edit" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 13L1 7L7 1" stroke="#052F5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+					<h2 class="s">Edit your details</h2>
+
+				</div>
+				
+				<div class="drawer-content">
+					<form id="edit-account-form">
+                        <div class="divided-input">
+                            <div class="form-group">
+                                <label class="form-label" for="edit-first-name">First Name</label>
+                                <input type="text" id="edit-first-name" class="form-input" value="Alex" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="edit-last-name">Last Name</label>
+                                <input type="text" id="edit-last-name" class="form-input" value="Sehgal" required>
+                            </div>
+                        </div>
+
+
+						<!-- <div class="form-group">
+							<label class="form-label" for="edit-gender">Gender</label>
+							<select id="edit-gender" class="form-select" required>
+								<option value="male" selected>Male</option>
+								<option value="female">Female</option>
+								<option value="other">Other</option>
+								<option value="prefer-not-to-say">Prefer not to say</option>
+							</select>
+						</div> -->
+
+						<div class="form-group">
+							<label class="form-label" for="edit-dob">Date of Birth</label>
+							<input type="date" id="edit-dob" class="form-input" value="1995-10-01" required>
+						</div>
+
+						<div class="form-group">
+							<label class="form-label" for="edit-phone">Phone Number</label>
+							<input type="tel" id="edit-phone" class="form-input" value="+1215-3565" required>
+						</div>
+
+						<div class="form-group">
+							<label class="form-label" for="edit-password">Password</label>
+							<input type="password" id="edit-password" class="form-input" placeholder="Enter new password">
+						</div>
+
+						<div class="form-group">
+							<label class="form-label" for="edit-confirm-password">Confirm Password</label>
+							<input type="password" id="edit-confirm-password" class="form-input" placeholder="Confirm new password">
+						</div>
+					</form>
+				</div>
+
+				<div class="drawer-footer">
+                    
+					<button type="submit" form="edit-account-form" class="btn-save">Submit</button>
+                <button type="button" class="btn-cancel" id="cancel-edit-btn">Cancel</button>
+                </div>
+			</aside>
+		</div>
+    <script defer type="module" src="/src/js/SmoothScroll.js"></script>
+    <script defer type="module" src="/src/js/navbar.js"></script>
+    <script defer type="module" src="/src/js/hover-matcher.js"></script>
+    <script defer type="module" src="/src/js/main.js"></script>
+    <script defer type="module" src="/src/js/uploadImage.js"></script>
+    <script defer type="module" src="/src/js/enter-animation.js"></script>
+    <script defer type="module" src="/src/js/fade-in.js"></script>
+    <script defer type="module" src="/src/js/shopping-bag.js"></script>
+    <script defer type="module" src="/src/js/white-overlay.js"></script>
+    <script defer type="module" src="/src/js/show-navbar.js"></script>
+    <script defer type="module" src="/src/js/toggle-password-input.js"></script>
+    <script defer type="module" src="/src/js/edit-account-drawer.js"></script>
+  </body>
+</html>
