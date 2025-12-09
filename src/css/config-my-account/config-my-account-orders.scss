@@ -166,3 +166,141 @@
         }
     }
 }
+
+@media (min-width: 2250px) {
+    .orders-section {
+        gap: 48px;
+
+        .order-header-title {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .wrapper-scroll {
+            gap: 3rem;
+ 
+        }
+
+        .order-card {
+            border-radius: 20px;
+            padding: 3rem;
+            padding-bottom: 0rem;
+            
+            .order-details-grid {
+                gap: 90px;
+                padding-bottom: 3rem;
+
+                .detail-item {
+                    gap: 6px;
+
+                    .label {
+                        font-size: 1.125rem;
+                    }
+
+                    .value {
+                        font-size: 1.375rem;
+                    }
+                }
+            }
+
+            .order-product-row {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+
+                .product-info {
+                    gap: 24px;
+
+                    img {
+                        width: 100px;
+                        height: 70px;
+                    }
+
+                    .nav-text {
+                        gap: 6px;
+
+                        h4 {
+                            font-size: 1.5rem;
+                        }
+
+                        p {
+                            font-size: 1.25rem;
+                        }
+                    }
+                }
+
+                .view-order-link {
+                    font-size: 1.375rem;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 3150px) {
+    .orders-section {
+        gap: 42px;
+
+        .order-header-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .wrapper-scroll {
+            gap: 2.6rem;
+  
+        }
+
+        .order-card {
+            border-radius: 18px;
+            padding: 2.6rem;
+            padding-bottom: 0rem;
+            
+            .order-details-grid {
+                gap: 78px;
+                padding-bottom: 2.6rem;
+
+                .detail-item {
+                    gap: 5px;
+
+                    .label {
+                        font-size: 1.15rem;
+                    }
+
+                    .value {
+                        font-size: 1.3rem;
+                    }
+                }
+            }
+
+            .order-product-row {
+                padding-top: 2.6rem;
+                padding-bottom: 2.6rem;
+
+                .product-info {
+                    gap: 20px;
+
+                    img {
+                        width: 85px;
+                        height: 60px;
+                    }
+
+                    .nav-text {
+                        gap: 5px;
+
+                        h4 {
+                            font-size: 1.5rem;
+                        }
+
+                        p {
+                            font-size: 1.25rem;
+                        }
+                    }
+                }
+
+                .view-order-link {
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+}
