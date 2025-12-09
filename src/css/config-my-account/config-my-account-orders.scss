@@ -6,7 +6,7 @@
 
     .order-header-title {
         color: #909090;
-        font-family: "Outfit", sans-serif;
+        
         font-size: 16px;
         font-weight: 400;
         margin-bottom: 8px;
@@ -65,16 +65,19 @@
 
                 .label {
                     color: #909090;
-                    font-family: "Outfit", sans-serif;
+                    
                     font-size: 12px;
                     font-weight: 400;
                 }
 
                 .value {
                     color: #052F5A;
-                    font-family: "Outfit", sans-serif;
+                    
                     font-size: 14px;
                     font-weight: 500;
+                    @media (max-width: 767px) {
+                        font-size: 12px;
+                    }
                 }
             }
         }
@@ -104,7 +107,7 @@
 
                     h4 {
                         color: #052F5A;
-                        font-family: "Outfit", sans-serif;
+                        
                         font-size: 16px;
                         font-style: normal;
                         font-weight: 600;
@@ -114,7 +117,7 @@
 
                     p {
                         color: #909090;
-                        font-family: "Outfit", sans-serif;
+                        
                         font-size: 13px;
                         font-style: normal;
                         font-weight: 300;
@@ -126,7 +129,7 @@
 
             .view-order-link {
                 color: #052F5A;
-                font-family: "Outfit", sans-serif;
+                
                 font-size: 14px;
                 font-style: normal;
                 font-weight: 500;
@@ -147,7 +150,7 @@
         gap: 32px;
         width: 100%;
 
-        .info-card {
+        .info-card-order {
             border-radius: 16px;
             border: 1px solid #EBEBEB;
             background: #FFF;
@@ -161,7 +164,7 @@
 
             .info-title {
                 color: #052F5A;
-                font-family: "Outfit", sans-serif;
+                
                 font-size: 16px;
                 font-weight: 500;
                 margin: 0;
@@ -170,11 +173,12 @@
 
             .info-text {
                 color: #909090;
-                font-family: "Outfit", sans-serif;
+                
                 font-size: 14px;
                 font-weight: 300;
                 margin: 0;
                 margin-top: 8px;
+                text-align: left;
             }
 
             .summary-details {
@@ -188,7 +192,7 @@
                     align-items: center;
                     width: 100%;
                     color: #909090;
-                    font-family: "Outfit", sans-serif;
+                    
                     font-size: 14px;
                     font-weight: 300;
                     justify-content: flex-start;
@@ -211,14 +215,14 @@
 
                 .total-label {
                     color: #052F5A;
-                    font-family: "Outfit", sans-serif;
+                    
                     font-size: 14px;
                     font-weight: 500;
                 }
 
                 .total-value {
                     color: #052F5A;
-                    font-family: "Outfit", sans-serif;
+                    
                     font-size: 16px;
                     font-weight: 500;
                 }
@@ -227,7 +231,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .orders-section {
         .order-bottom-row {
             grid-template-columns: 1fr;
@@ -325,7 +329,7 @@
         .order-bottom-row {
             gap: 48px;
 
-            .info-card {
+            .info-card-order {
                 border-radius: 20px;
                 padding: 3rem;
                 gap: 36px;
@@ -430,7 +434,7 @@
         .order-bottom-row {
             gap: 42px;
 
-            .info-card {
+            .info-card-order {
                 border-radius: 18px;
                 padding: 2.6rem;
                 gap: 24px;
