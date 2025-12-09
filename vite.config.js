@@ -40,6 +40,8 @@ export default defineConfig({
         sellToUs: resolve(__dirname, "sell-to-us.html"),
         notfound: resolve(__dirname, "not-found.html"),
         configMyAccount: resolve(__dirname, "config-my-account.html"),
+        configMyAccountAddress: resolve(__dirname, "config-my-account-address.html"),
+        configMyAccountInformation: resolve(__dirname, "config-my-account-information.html"),
       },
     },
   },
