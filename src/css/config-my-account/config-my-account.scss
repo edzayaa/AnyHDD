@@ -44,6 +44,7 @@
     }
     .sidebar-menu li {
     margin: 0;
+        margin-bottom: 0.25rem;
     }
     .sidebar-menu a {
     display: flex;
@@ -58,8 +59,9 @@
     border-left: 3px solid transparent;
     }
     .sidebar-menu a:hover {
-    background: #F3F4F6;
-    color: #00254B;
+       background: rgba(5, 47, 90, 1);
+    color: #fff;
+    border-radius: 10rem;
     }
     .sidebar-menu a.active {
     background: rgba(5, 47, 90, 1);

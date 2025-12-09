@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/src/css/config-my-account/config-my-account-orders.scss">
     <link rel="stylesheet" href="/src/css/config-my-account/add-address-drawer.scss"> 
     <link rel="stylesheet" href="/src/css/footer.css" />
-    <title>AnyHDD - My Account Orders</title>
+    <title>AnyHDD - My Account Orders  Id</title>
   </head>
   <body class="inner-pages">
     <nav>
@@ -265,11 +265,10 @@
                 <!-- Content Area -->
                 <div class="my-account-content">
                     <div class="orders-section">
-                        <div class="wrapper-scroll">
-                            <!-- Order 1 -->
-                            <div>
-                                <h3 class="order-header-title">Order number <span>SS-123457895</span></h3>
-                                <div class="order-card">
+                        <!-- Order Details Header & Card -->
+                        <div class="single-order-container">
+                            <h3 class="order-header-title">Order number <span>SS-123457895</span></h3>
+                            <div class="order-card">
                                 <div class="order-details-grid">
                                     <div class="detail-item">
                                         <span class="label">Order Date</span>
@@ -297,69 +296,48 @@
                             </div>
                         </div>
 
-                        <!-- Order 2 -->
-                         <div>
-                            <h3 class="order-header-title">Order number <span>SS-123457895</span></h3>
-                            <div class="order-card">
-                                <div class="order-details-grid">
-                                    <div class="detail-item">
-                                        <span class="label">Order Date</span>
-                                        <span class="value">03.10.2024</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="label">Total</span>
-                                        <span class="value">208,00 €</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="label">Status</span>
-                                        <span class="value">Delivered</span>
-                                    </div>
+                        <!-- Bottom Row: Address & Summary -->
+                        <div class="order-bottom-row">
+                            <!-- Delivery Address Card -->
+                            <div class="info-card address-card">
+                                <div class="info-group">
+                                    <h4 class="info-title">Delivery Address</h4>
+                                    <p class="info-text">This is a text to show delivery address</p>
                                 </div>
-                                <div class="order-product-row">
-                                    <div class="product-info">
-                                        <img src="/src/assets/orders-product-image.png"  alt="AnyHDD Dual Monitor Docking Station" onerror="this.src='/src/assets/docking-stations.svg'">
-                                        <div class="nav-text">
-                                            <h4>AnyHDD Dual Monitor Docking Station</h4>
-                                            <p>6” wide pre sloped trench drain</p>
-                                        </div>
-                                    </div>
-                                    <a href="/config-my-account-orders-id"  class="view-order-link">View Order</a>
+                                <div class="info-group">
+                                    <h4 class="info-title">Delivery Address</h4>
+                                    <p class="info-text">This is a text to show delivery address</p>
                                 </div>
                             </div>
-                         </div>
 
-                        <!-- Order 3 -->
-                         <div>
-                            <h3 class="order-header-title">Order number <span>SS-123457895</span></h3>
-                            <div class="order-card">
-                                <div class="order-details-grid">
-                                    <div class="detail-item">
-                                        <span class="label">Order Date</span>
-                                        <span class="value">03.10.2024</span>
+                            <!-- Total Summary Card -->
+                            <div class="info-card summary-card">
+                                <h4 class="info-title">Total Summary</h4>
+                                <div class="summary-details">
+                                    <div class="summary-row">
+                                        <span>Subtotal:</span>
+                                        <span class="blue-text">240$</span>
                                     </div>
-                                    <div class="detail-item">
-                                        <span class="label">Total</span>
-                                        <span class="value">208,00 €</span>
+                                    <div class="summary-row">
+                                        <span>Delivery:</span>
+                                        <span class="blue-text">15$</span>
                                     </div>
-                                    <div class="detail-item">
-                                        <span class="label">Status</span>
-                                        <span class="value">Delivered</span>
+                                    <div class="summary-row">
+                                        <span>Payment:</span>
+                                        <span class="blue-text">Credit Card</span>
+                                    </div>
+                                    <div class="summary-row">
+                                        <span>Discount:</span>
+                                        <span class="blue-text">5$</span>
                                     </div>
                                 </div>
-                                <div class="order-product-row">
-                                    <div class="product-info">
-                                        <img src="/src/assets/orders-product-image.png"  alt="AnyHDD Dual Monitor Docking Station" onerror="this.src='/src/assets/docking-stations.svg'">
-                                        <div class="nav-text">
-                                            <h4>AnyHDD Dual Monitor Docking Station</h4>
-                                            <p>6” wide pre sloped trench drain</p>
-                                        </div>
-                                    </div>
-                                    <a href="/config-my-account-orders-id" class="view-order-link">View Order</a>
+                                <div class="total-row">
+                                    <span class="total-label">Total</span>
+                                    <span class="total-value">208,00$</span>
                                 </div>
                             </div>
-                         </div>
+                        </div>
                     </div>
-                </div>
             </div>
             </section>
             <!-- END HERE -->

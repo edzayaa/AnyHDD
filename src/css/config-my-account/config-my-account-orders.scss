@@ -129,7 +129,7 @@
                 font-family: "Outfit", sans-serif;
                 font-size: 14px;
                 font-style: normal;
-                font-weight: 600;
+                font-weight: 500;
                 line-height: normal;
                 text-decoration-line: underline;
                 cursor: pointer;
@@ -141,10 +141,98 @@
             }
         }
     }
+    .order-bottom-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        width: 100%;
+
+        .info-card {
+            border-radius: 16px;
+            border: 1px solid #EBEBEB;
+            background: #FFF;
+            padding: 2rem;
+            box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            justify-content: flex-start;
+            align-items: baseline;
+
+            .info-title {
+                color: #052F5A;
+                font-family: "Outfit", sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+                margin: 0;
+                text-align: left;
+            }
+
+            .info-text {
+                color: #909090;
+                font-family: "Outfit", sans-serif;
+                font-size: 14px;
+                font-weight: 300;
+                margin: 0;
+                margin-top: 8px;
+            }
+
+            .summary-details {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                width: 100%;
+
+                .summary-row {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    color: #909090;
+                    font-family: "Outfit", sans-serif;
+                    font-size: 14px;
+                    font-weight: 300;
+                    justify-content: flex-start;
+                    gap: 0.5rem;
+                    .blue-text {
+                        color: #052F5A;
+                        font-weight: 500;
+                    }
+                }
+            }
+
+            .total-row {
+                margin-top: auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-top: 1px solid transparent; 
+                padding-top: 0;
+                width: 100%;
+
+                .total-label {
+                    color: #052F5A;
+                    font-family: "Outfit", sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+
+                .total-value {
+                    color: #052F5A;
+                    font-family: "Outfit", sans-serif;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 768px) {
     .orders-section {
+        .order-bottom-row {
+            grid-template-columns: 1fr;
+        }
+
         .order-card {
             padding: 20px;
 
@@ -178,7 +266,7 @@
 
         .wrapper-scroll {
             gap: 3rem;
- 
+            
         }
 
         .order-card {
@@ -230,6 +318,42 @@
 
                 .view-order-link {
                     font-size: 1.375rem;
+                }
+            }
+        }
+
+        .order-bottom-row {
+            gap: 48px;
+
+            .info-card {
+                border-radius: 20px;
+                padding: 3rem;
+                gap: 36px;
+
+                .info-title {
+                    font-size: 1.5rem;
+                }
+
+                .info-text {
+                    font-size: 1.25rem;
+                    margin-top: 12px;
+                }
+
+                .summary-details {
+                    gap: 12px;
+
+                    .summary-row {
+                        font-size: 1.25rem;
+                    }
+                }
+
+                .total-row {
+                    .total-label {
+                        font-size: 1.375rem;
+                    }
+                    .total-value {
+                        font-size: 1.5rem;
+                    }
                 }
             }
         }
@@ -299,6 +423,42 @@
 
                 .view-order-link {
                     font-size: 1.3rem;
+                }
+            }
+        }
+
+        .order-bottom-row {
+            gap: 42px;
+
+            .info-card {
+                border-radius: 18px;
+                padding: 2.6rem;
+                gap: 24px;
+
+                .info-title {
+                    font-size: 1.4rem;
+                }
+
+                .info-text {
+                    font-size: 1.2rem;
+                    margin-top: 10px;
+                }
+
+                .summary-details {
+                    gap: 10px;
+
+                    .summary-row {
+                        font-size: 1.2rem;
+                    }
+                }
+
+                .total-row {
+                    .total-label {
+                        font-size: 1.25rem;
+                    }
+                    .total-value {
+                        font-size: 1.4rem;
+                    }
                 }
             }
         }
