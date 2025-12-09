@@ -42,6 +42,8 @@ export default defineConfig({
         configMyAccount: resolve(__dirname, "config-my-account.html"),
         configMyAccountAddress: resolve(__dirname, "config-my-account-address.html"),
         configMyAccountInformation: resolve(__dirname, "config-my-account-information.html"),
+        configMyAccountOrders: resolve(__dirname, "config-my-account-orders.html"),
+        configMyAccountOrdersId: resolve(__dirname, "config-my-account-orders-id.html"),
       },
     },
   },
