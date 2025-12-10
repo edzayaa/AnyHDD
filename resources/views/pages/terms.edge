@@ -1,0 +1,106 @@
+@layout.app({title: 'Terms and Conditions', customClass: 'inner-pages'})
+
+@slot('styles')
+@vite(['resources/css/core/terms.scss', 'resources/js/core/terms.js'])
+@endslot
+
+@slot('main')
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+        <div class="terms-conditions">
+            <div class="top-spacing"></div>
+
+            <!-- START HERE -->
+            <section class="privacy-policy-container">
+                <h1 class="xxxl">Terms and Conditions</h1>
+                <div class="legal-content">
+                    <h2>Terms and conditions of <span>AnyHDD</span></h2>
+                    <p>These Terms and Conditions ("Terms") govern your use of the AnyHDD website and the services we
+                        offer. By accessing or using our site, you agree to be bound by these Terms.</p>
+
+
+
+                    <h2 class="m">General</h2>
+                    <p>AnyHDD is an online retailer providing electronic hardware and IT solutions, including hard
+                        drives, docking stations, and storage systems.</p>
+
+
+
+                    <h2 class="m">Eligibility</h2>
+                    <p>You must be at least 18 years old or have the permission of a legal guardian to use this site. By
+                        placing an order, you confirm that the information provided is accurate and complete.</p>
+
+
+
+                    <h2 class="m">Orders and Payments</h2>
+                    <ul>
+                        <li>All prices are listed in USD and are subject to change without notice.</li>
+                        <li>We reserve the right to refuse or cancel orders at our discretion.</li>
+                        <li>Payment must be completed through our secure checkout system before an order is processed.
+                        </li>
+                    </ul>
+
+
+
+                    <h2 class="m">Shipping and Returns</h2>
+                    <p>Shipping details, estimated delivery times, and return policies are outlined on our <a
+                            href="#">Shipping &amp; Returns page</a>. Any delays caused by carriers are beyond our
+                        control.</p>
+
+
+
+                    <h2 class="m">Product Descriptions</h2>
+                    <p>We make every effort to provide accurate product information. However, we do not warrant that
+                        descriptions, pricing, or other content is error-free.</p>
+
+
+
+                    <h2 class="m">Warranty</h2>
+                    <p>Our products come with a limited warranty unless otherwise specified. Visit our <a
+                            href="#">Warranty Policy page</a> for full details.</p>
+
+
+
+                    <h2 class="m">Intellectual Property</h2>
+                    <p>All content on the website, including text, images, logos, and product data, is the property of
+                        AnyHDD and protected by copyright and trademark laws.</p>
+
+
+
+                    <h2 class="m">Prohibited Use</h2>
+                    <p>You agree not to use the site for any unlawful purpose or to engage in any activity that may harm
+                        our business, server, or users. This includes:</p>
+                    <ul>
+                        <li>Transmitting viruses or malware</li>
+                        <li>Attempting unauthorized access to our systems</li>
+                        <li>Violating intellectual property rights</li>
+                    </ul>
+
+
+
+                    <h2 class="m">Limitation of Liability</h2>
+                    <p>AnyHDD shall not be held liable for any indirect, incidental, or consequential damages arising
+                        from the use or inability to use our services.</p>
+
+
+
+                    <h2 class="m">Governing Law</h2>
+                    <p>These Terms are governed by and interpreted according to the laws of the State of [Insert
+                        State/Country]. Any disputes shall be handled in the courts of [Insert Jurisdiction].</p>
+
+
+
+                    <h2 class="m">Contact Us</h2>
+                    <p>For any questions or concerns regarding these Terms, contact us at: <a
+                            href="mailto:support@anyhdd.com">support@anyhdd.com</a></p>
+
+                </div>
+
+            </section>
+            <!-- END HERE -->
+            @include('partials/common/footer')
+        </div>
+    </div>
+</div>
+@endslot
+@end

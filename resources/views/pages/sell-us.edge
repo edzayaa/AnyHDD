@@ -1,0 +1,80 @@
+@layout.app({title: 'Sell to Us', customClass: 'inner-pages'})
+
+@slot('styles')
+@vite(['resources/css/core/sell-us.scss', 'resources/js/core/sell-us.js'])
+@endslot
+
+@slot('main')
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+        <div class="sell-to-us-container">
+            <div class="top-spacing"></div>
+
+            <!-- START HERE -->
+            <section class="ask_warranty">
+                <a class="warranty_images show-in-left" href="https://maps.app.goo.gl/PWLKcriQJxEQ5zwi6">
+                    <img tabindex="0" src="/assets/sell-to-us/map.webp" alt="warranty images">
+                </a>
+                <div class="form_container">
+                    <h1 class="section-header xxxxl">Sell <span>to Us</span></h1>
+                    <p class="xxxs sub-title">Turn your excess IT hardware into cash. We buy new, refurbished, and
+                        decommissioned equipment directly from companies and IT resellers.</p>
+                    <form class="warranty_form" action="">
+                        <!-- <div class="input-container">
+                                    <label  for="fullname">Full Name*</label>
+                                    <input placeholder="Enter your name" name="fullname" required type="text">
+                                </div> -->
+                        <div class="wrapper-halfs">
+                            <div class="input-container-half ">
+                                <label for="fullname">Contact Name*</label>
+                                <input placeholder="Enter your contact name" name="fullname" required type="text">
+                            </div>
+
+                            <div class="input-container-half ">
+                                <label for="fullname">Company Name</label>
+                                <input placeholder="Enter your company name" name="fullname" type="text">
+                            </div>
+                        </div>
+                        <div class="wrapper-halfs">
+                            <div class="input-container-half ">
+                                <label for="email">Email*</label>
+                                <input placeholder="Enter your email" name="email" required type="email">
+                            </div>
+                            <div class="input-container-half ">
+                                <label for="phone-number">Phone Number*</label>
+                                <input placeholder="Phone Number" name="phone-number" required type="tel">
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <label for="message">Product List</label>
+                            <textarea placeholder="List the products you want to sell" name="product-list"
+                                type="text"></textarea>
+                        </div>
+                        <div class="input-container">
+                            <label for="message">Comments or Notes</label>
+                            <textarea placeholder="Add any comments or notes" name="comments" type="text"></textarea>
+                        </div>
+                        <div class="input-container upload-container">
+
+
+                            <label for="file-upload">
+                                <img class="upload_icon" src="/assets/warranty/upload_icon.png" alt="upload icon">
+                                <div id="upload-text-container">
+                                    <p>File Upload <span>(Not Required)</span></p>
+                                </div>
+
+                            </label>
+                            <input id="file-upload" name="file" accept="image/png,image/jpeg,image/webp" type="file">
+                        </div>
+                        <button class="submit-btn" type="submit">Get a Quote</button>
+                    </form>
+                </div>
+
+            </section>
+            <!-- END HERE -->
+            @include('partials/common/footer')
+        </div>
+    </div>
+</div>
+@endslot
+@end

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/img/anyhdd-logo.webp" />
+    <meta content="initial-scale=1.0, width=device-width" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }} - AnyHDD</title>
+    @if ($slots.styles)
+    {{{ await $slots.styles() }}}
+    @endif
+</head>
+
+<body {{ customClass ? `class=${customClass}` : '' }}>
+    @include('partials/common/nav')
+    <div class="white-overlay"></div>
+    {{{ await $slots.main() }}}
+    @include('partials/common/cart')
+
+    @if ($slots.scripts)
+    {{{ await $slots.scripts() }}}
+    @endif
+</body>
+
+</html>

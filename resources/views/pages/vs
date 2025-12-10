@@ -1,0 +1,10 @@
+@layout.app({title: 'Home'})
+
+@slot('styles')
+@vite(['resources/css/core/home.scss', 'resources/js/core/home.js'])    
+@endslot
+
+@slot('main')
+
+@endslot
+@end

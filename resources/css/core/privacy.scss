@@ -1,0 +1,13 @@
+/*
+<link rel="stylesheet" href="/src/css/navbar.css" />
+		<link rel="stylesheet" href="/src/style.css">
+		<link rel="stylesheet" href="/src/styles-inner-pages.scss"> 
+        <link rel="stylesheet" href="/src/css/privacy-policy/global-privacy-policy.scss"> 
+		<link rel="stylesheet" href="/src/css/shopping-bag/shopping-bag.scss"> 
+		<link rel="stylesheet" href="/src/css/footer.css" />
+*/
+
+@use './common.scss';
+
+@use '../styles-inner-pages.scss';
+@use '../privacy-policy/global-privacy-policy.scss';

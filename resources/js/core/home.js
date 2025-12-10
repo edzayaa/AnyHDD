@@ -1,0 +1,10 @@
+import '../SmoothScroll.js';
+import '../navbar.js';
+import '../home-hero.js';
+import '../categories-slider.js';
+import '../shop.js';
+import '../testimonials-slider.js';
+import '../home-animations.js';
+import '../hover-matcher.js';
+import '../shopping-bag.js';
+import '../main.js';

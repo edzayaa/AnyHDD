@@ -1,0 +1,211 @@
+@layout.app({title: 'FAQs', customClass: 'inner-pages'})
+
+@slot('styles')
+@vite(['resources/css/core/faq.scss', 'resources/js/core/faq.js'])
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+@endslot
+
+@slot('main')
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+        <div class="faq-container">
+            <div class="top-spacing"></div>
+
+            <h1 class="header-section xxxl fade-in-element">Frequently Asked Questions</h1>
+            <p class="sub-title xxxs fade-in-reverse">Find everything you need to know about our products,
+                compatibility,<br class="hide-mobile" /> setup, shipping, and more — all in one place.</p>
+            <section class="accordion-section">
+                <div class="blured-circle-3 blured-circle desktop-only"></div>
+                <div class="accordion js-accordion">
+                    <div class="accordion__header">
+                        <h4 class="m">What kind of products do you sell?</h4>
+                        <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.7676 3V22.525" class="hide-open" stroke="#052F5A" stroke-width="5.53778"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M3 12.7617H22.525" stroke="#052F5A" stroke-width="5.53778" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+
+                    </div>
+                    <div class="accordion__body">
+                        <div class="radial_gradient_divider"></div>
+                        <p class="xs">
+                            We specialize in servers, storage, docking stations, monitors, and other enterprise IT
+                            hardware from Dell, HP, Lenovo, and more. All items are new or refurbished, fully tested,
+                            cleaned, and boxed before shipment.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-wrapper">
+                    <div class="accordion js-accordion">
+                        <div class="accordion__header">
+                            <h4 class="m">Are your products authentic OEM parts?</h4>
+                            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7676 3V22.525" class="hide-open" stroke="#052F5A" stroke-width="5.53778"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 12.7617H22.525" stroke="#052F5A" stroke-width="5.53778"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                        </div>
+                        <div class="accordion__body">
+                            <div class="radial_gradient_divider"></div>
+                            <p class="xs">
+                                Yes. Every product we sell is genuine OEM hardware. We source equipment from trusted
+                                partners and ITAD providers, never unauthorized replicas or knock-offs.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion js-accordion">
+                        <div class="accordion__header">
+                            <h4 class="m">Do you offer a warranty?</h4>
+                            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7676 3V22.525" class="hide-open" stroke="#052F5A" stroke-width="5.53778"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 12.7617H22.525" stroke="#052F5A" stroke-width="5.53778"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                        </div>
+                        <div class="accordion__body">
+                            <div class="radial_gradient_divider"></div>
+                            <p class="xs">
+                                All items include a standard 1-year warranty covering hardware defects. Extended
+                                coverage and advanced replacement options are available on request.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion js-accordion">
+                        <div class="accordion__header">
+                            <h4 class="m">Do you sell to individuals or only businesses?</h4>
+                            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7676 3V22.525" class="hide-open" stroke="#052F5A" stroke-width="5.53778"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 12.7617H22.525" stroke="#052F5A" stroke-width="5.53778"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                        </div>
+                        <div class="accordion__body">
+                            <div class="radial_gradient_divider"></div>
+                            <p class="xs">
+                                We sell to both. Whether you’re an IT department, reseller, or small business, we’re
+                                happy to help.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion js-accordion">
+                        <div class="accordion__header">
+                            <h4 class="m">Do you ship internationally?</h4>
+                            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7676 3V22.525" class="hide-open" stroke="#052F5A" stroke-width="5.53778"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 12.7617H22.525" stroke="#052F5A" stroke-width="5.53778"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                        </div>
+                        <div class="accordion__body">
+                            <div class="radial_gradient_divider"></div>
+                            <p class="xs">
+                                Yes. We ship worldwide using trusted carriers. Transit times vary by region, but most
+                                orders leave our warehouse within one business day.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion js-accordion">
+                        <div class="accordion__header">
+                            <h4 class="m">How can I request a bulk quote or bid?</h4>
+                            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7676 3V22.525" class="hide-open" stroke="#052F5A" stroke-width="5.53778"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 12.7617H22.525" stroke="#052F5A" stroke-width="5.53778"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                        </div>
+                        <div class="accordion__body">
+                            <div class="radial_gradient_divider"></div>
+                            <p class="xs">
+                                Use our <a href="/contact">Contact Us</a> or <a href="/sell-to-us">Sell to Us</a> forms
+                                and include your part numbers, quantities, and any specific delivery requirements. Our
+                                team will respond quickly with pricing and lead times.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion js-accordion">
+                        <div class="accordion__header">
+                            <h4 class="m">Do you accept returns?</h4>
+                            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7676 3V22.525" class="hide-open" stroke="#052F5A" stroke-width="5.53778"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 12.7617H22.525" stroke="#052F5A" stroke-width="5.53778"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                        </div>
+                        <div class="accordion__body">
+                            <div class="radial_gradient_divider"></div>
+                            <p class="xs">
+                                Yes. Returns are accepted within 30 days of delivery for items in their original
+                                condition. Products returned for warranty evaluation will be tested before credit or
+                                replacement is issued.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion js-accordion">
+                        <div class="accordion__header">
+                            <h4 class="m">How fast will my order ship?</h4>
+                            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7676 3V22.525" class="hide-open" stroke="#052F5A" stroke-width="5.53778"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 12.7617H22.525" stroke="#052F5A" stroke-width="5.53778"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                        </div>
+                        <div class="accordion__body accordion-body-with-image">
+                            <div class="radial_gradient_divider"></div>
+                            <p class="xs">
+                                Orders placed before 3 PM Eastern typically ship the same or next business day. Tracking
+                                information is provided immediately after dispatch.
+                            </p>
+                            <a target="_blank"
+                                href="https://www.fedex.com/grd/maps/MapResult.do">(https://www.fedex.com/grd/maps/MapResult.do)</a>
+                            <img src="/assets/faq/map.webp" class="map" alt="map">
+                        </div>
+                    </div>
+                    <div class="accordion js-accordion">
+                        <div class="accordion__header">
+                            <h4 class="m">Do you buy equipment as well?</h4>
+                            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7676 3V22.525" class="hide-open" stroke="#052F5A" stroke-width="5.53778"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 12.7617H22.525" stroke="#052F5A" stroke-width="5.53778"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                        </div>
+                        <div class="accordion__body">
+                            <div class="radial_gradient_divider"></div>
+                            <p class="xs">
+                                Yes. We buy new, refurbished, or surplus IT hardware from companies, resellers, and
+                                recyclers. Visit our “Sell to Us” page to get started. (link to the “Sell to Us” page)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            @include('partials/common/footer')
+        </div>
+    </div>
+</div>
+@endslot
+@end

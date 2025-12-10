@@ -1,0 +1,279 @@
+.warning-dual{
+    @media only screen and (max-width: 767px) {
+        overflow: hidden;
+    }
+    .section-header{
+		color: var(--header-blue);
+		margin-top: 0%;
+		position: relative;
+		font-weight: 700;
+		line-height: 1em;
+        //white-space: pre;
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+         font-size: 45px;
+        }
+         @media only screen and (max-width: 767px) {
+          margin-bottom: 5%;
+        }
+	}
+
+    .section-header span{
+        font-weight: 400;
+	}
+	.section-header::before{
+		content: "";
+		position: absolute;
+		bottom: unset;
+		top: 0%;
+		left: -30%;
+        right: unset;
+		width: 18.125rem;
+		height: 10.8rem;
+		background-color: #F2F2F4;
+       
+		border-radius: 100%;
+		opacity: 0.8;
+		color: #F2F2F4;
+		filter: blur(2rem);
+        @media only screen and (min-width: 1440px) and (max-width: 1650px) {
+            width: 9.125rem;
+            height: 5.8rem;
+            left: -25%;
+        }
+        @media only screen and (min-width: 1024px) and (max-width: 1440px) {
+            width: 9.125rem;
+            height: 5.8rem;
+            left: -22%;
+        }
+        @media only screen and (max-width: 767px) {
+            display: none;
+        }
+	}
+
+	.section-header::after{
+		content: "";
+		position: absolute;
+		bottom: unset;
+		top: unset;
+        bottom: -40%;
+		right: 5%;
+		width: 14.125rem;
+		height: 10.8rem;
+		background-color: #F2F2F4;
+		border-radius: 100%;
+		opacity: 0.8;
+		color: #F2F2F4;
+		filter: blur(2rem);
+        @media only screen and (min-width: 1440px) and (max-width: 1650px) {
+            width: 9.125rem;
+            height: 5.8rem;
+            bottom: -35%;
+           right: 15%;
+        }
+        @media only screen and (min-width: 1024px) and (max-width: 1440px) {
+            width: 9.125rem;
+            height: 5.8rem;
+              right: 10%;
+        }
+        @media only screen and (max-width: 767px) {
+            display: none;
+        }
+
+	}
+
+
+    .who_we_text{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5%;
+        padding-bottom:1.5% ;
+        min-height: 200px;
+        padding-inline: 3%;
+        @media only screen and (max-width: 1024px) {
+            flex-direction: column;
+            margin-bottom: 10%;
+        }
+    }
+
+    .header_cont{
+        height: auto;
+    }
+
+    .description_cont{
+        width: 36%;
+        height: 100%;
+        @media only screen and (min-width: 1024px) and (max-width: 1650px) {
+             width: 48%;
+        }
+        @media only screen and (max-width: 1024px) {
+           width: 100%;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+         margin-bottom: 2%;
+         margin-top: 2%;
+        }
+    }
+
+    .description_cont p{
+        margin-bottom: 5%;
+        color: var(--text-gray);
+
+        @media only screen and (min-width: 1024px) and (max-width: 1440px) {
+            font-size: 16px;
+        }
+        @media only screen and (max-width: 767px) {
+            line-height: 1.5em;
+        }
+    }
+    
+    .custom-button.common-styles svg {
+        padding: 0;
+
+
+    }
+
+    .custom-button.common-styles{
+        @media only screen and (max-width: 767px) {
+        padding: 5px 5px 5px 30px;
+        }
+    }
+
+    .white-cards-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        aspect-ratio: calc(1890/254);
+        padding-inline: 3%;
+        margin: 7.55% 0;
+        @media only screen and (max-width: 767px) {
+            aspect-ratio: calc(345/200);
+        }
+    }
+
+    .white-card{
+
+        background-image: url(/src/assets/product/warning-dual/bg-white-card.webp);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100%;
+        border-radius: var(--radius-s);
+        padding: 1.75rem;
+        padding-right: 0.1rem;
+        position: relative;
+        overflow: hidden;
+        h5{
+            background: radial-gradient(15.96% 366.85% at 49.34% -21.56%, #6BC0F9 0%, #45B4FF 24.87%, #236BF1 68.27%, #236BF1 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: capitalize;
+            font-size: 2.083vw;
+            font-weight: 400;
+            margin-top: 20%;
+            margin-bottom: 2.5%;
+            @media only screen and (max-width: 1024px) {
+                margin-top: 15%;
+            margin-bottom: 2%;
+            }
+            @media only screen and (max-width:767px) {
+                font-size: 8.108vw ;
+                margin-top: 17.55%;
+            }
+           
+        }
+
+        p{
+            font-size: 1.042vw;
+            color:rgba(119, 119, 119, 1) ;
+            @media only screen and (max-width:767px) {
+                font-size: 4.324vw ;
+            }
+        }
+    }
+
+    img.hide-image {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        transition: 0.2s opacity ease-in-out;
+        opacity: 0;
+        &:hover{
+            opacity: 1;
+        }
+    }
+
+    .card-image{
+        height: 100%;
+        width: 26%;
+         border-radius: var(--radius-s);
+         overflow: hidden;
+        img{
+             object-fit: cover;
+             width: 100%;
+             height: 100%;
+        }  
+                @media only screen and (max-width: 767px) {
+          display: none;
+        }
+      
+    }
+
+    .card-1{
+        width: 24%;
+        @media only screen and (max-width: 767px) {
+          width: 100%;
+          height: 20rem;
+        }
+        @media only screen and (max-width: 350px) {
+   
+          height: 17rem;
+        }
+    }
+
+    .card-2{
+        width: 22.5%;
+        @media only screen and (max-width: 767px) {
+          display: none;
+        }
+    }
+
+    .card-3{
+        width: 22.5%;
+        @media only screen and (max-width: 767px) {
+          display: none;
+        }
+    }
+
+
+
+    .badge-feature-benefits {
+        color: #2F80ED;
+        background-color: rgba(229, 229, 231, 1);
+        border-radius: 7rem;
+        padding: 0.5rem 1rem;
+        display: inline-block;
+        @media only screen and (max-width: 1024px) {
+                   padding: 0.4rem 0.8rem;
+        }
+        
+        & > h6 {
+            font-size: 1rem;
+            font-weight: 400;
+            @media only screen and (max-width: 1024px) {
+                font-size: 0.7rem;
+            }
+           @media only screen and (max-width:767px) {
+            font-size:3.243vw;
+        }
+        }
+    }
+
+
+}

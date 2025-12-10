@@ -1,0 +1,241 @@
+/* --- Edit Account Drawer Styles --- */
+#edit-account-drawer-container{
+    /* Evita el scroll del body cuando el drawer está abierto */
+    .edit-drawer-open {
+        overflow: hidden;
+    }
+
+    .edit-account-drawer > svg {
+        cursor: pointer;
+    }
+
+    /* Overlay para el fondo oscuro */
+    #edit-account-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.75);
+        z-index: 999;
+        
+        /* Estado inicial (oculto) */
+        opacity: 0;
+        pointer-events: none; /* No se puede clickear cuando está oculto */
+    }
+
+    .close-btn-account-edit{
+        cursor: pointer;
+
+		transition: all 0.1s  ease-in;
+			&:hover{
+				filter: opacity(0.8);
+				transform: scale(1.025);
+			}
+
+    }
+
+    .divided-input {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    /* Panel del Edit Account Drawer */
+    #edit-account-drawer {
+        position: fixed;
+        top: 0%;
+        bottom: 0%;
+        right: 0%;
+        height: 100%;
+        width: 30%; /* Ancho para desktop */
+        background-color: rgba(242, 242, 244, 1);
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+
+        /* Estructura interna con Flexbox */
+        display: flex;
+        flex-direction: column;
+         padding-inline: 2%;
+        /* Estado inicial (fuera de la pantalla a la derecha) */
+        transform: translateX(100%);
+        visibility: hidden;
+        @media (max-width: 767px) {
+                padding-inline: 5%;
+        }
+    }
+
+    /* --- Estilos internos del Drawer --- */
+    .drawer-header {
+        display: flex;
+        justify-content: flex-start;
+        gap: 1rem;
+        align-items: center;
+        padding: 1rem 0rem;
+        width: 100%;
+        margin-inline: auto;
+    }
+
+    .drawer-header h2 {
+        margin: 0;
+        color: var(--header-blue);
+        font-size: 1.25rem;
+        @media (max-width: 767px) {
+            font-size: 2.2rem;
+        }
+    }
+
+    // #close-drawer-btn {
+    //     background: none;
+    //     border: none;
+    //     cursor: pointer;
+    //     padding: 0.5rem;
+    // }
+
+    .drawer-content {
+        flex-grow: 1; /* Ocupa todo el espacio disponible */
+        padding:  2rem 0;
+        overflow-y: auto; /* Permite scroll si hay mucho contenido */
+        padding: 2rem 0.25rem;
+    }
+
+    .drawer-footer {
+        padding: 2rem 0;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    /* Form Styles */
+    .form-group {
+        margin-bottom: 1.5rem;
+
+    }
+
+    .divided-input .form-group{
+        width: 50%;
+    }
+
+    .form-label {
+        display: block;
+        font-size: 1rem;
+        font-weight: 500;
+        color: rgba(5, 47, 90, 1);
+        margin-bottom: 0.5rem;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border-radius: 5rem;
+        font-size: 1rem;
+        background-color: #fff;
+        transition: border-color 0.2s;
+        outline: none;
+        border: none;
+        transition: box-shadow 0.15s ease, transform 0.06s ease;
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(35, 107, 241, 0.09);
+            border-radius: 100px;
+        }
+
+        @media (max-width: 767px) {
+            font-size: 1.2rem;
+            padding: 1rem 1.2rem;
+        }
+    }
+
+    .form-select {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border-radius: 1rem;
+        font-size: 1rem;
+        background-color: #fff;
+        cursor: pointer;
+        transition: border-color 0.2s;
+
+        &:focus {
+            outline: none;
+            border-color: var(--price-blue);
+        }
+
+        @media (max-width: 767px) {
+            font-size: 1.2rem;
+            padding: 1rem 1.2rem;
+        }
+    }
+
+    /* Button Styles */
+    .btn-cancel {
+        flex: 1;
+        padding: 0.875rem 1.5rem;
+        border: 1px solid #ddd;
+        border-radius: 100px;
+        background-color: #fff;
+        color: #333;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: #f5f5f5;
+        }
+
+        @media (max-width: 767px) {
+            font-size: 1.2rem;
+        }
+    }
+
+    .btn-save {
+        flex: 1;
+        padding: 0.875rem 1.5rem;
+        border: none;
+        border-radius: 100px;
+        background: linear-gradient(135deg, #55BBFF, #236BF1);
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(35, 107, 241, 0.3);
+        }
+
+        @media (max-width: 767px) {
+            font-size: 1.2rem;
+        }
+    }
+
+    @media (max-width: 1440px) {
+        #edit-account-drawer {
+            width:35%; /* Ocupa el 35% en viewports de hasta 1440px */
+        }
+    }
+    @media (max-width: 1280px) {
+        #edit-account-drawer {
+            width:40%; /* Ocupa el 40% en viewports de hasta 1280px */
+        }
+    }
+
+    @media (max-width: 1024px) {
+        #edit-account-drawer {
+            width:55%; 
+        }
+    }
+    @media (max-width: 767px) {
+        #edit-account-drawer {
+            width:100%; 
+            top:0%;
+            left: 0%;
+            right: 0%;
+            border-radius: 0;
+            height: 100svh;
+        }
+    }
+}
