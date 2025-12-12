@@ -1,0 +1,169 @@
+@layout.app({title: 'Account', customClass: 'inner-pages'})
+
+@slot('styles')
+@vite(['resources/css/core/accounts/my-account.scss', 'resources/js/core/accounts/my-account.js'])
+@endslot
+
+@slot('main')
+<!-- EDIT ACCOUNT DRAWER -->
+<div id="edit-account-drawer-container">
+    <div id="edit-account-overlay"></div>
+
+    <aside id="edit-account-drawer">
+        <div class="drawer-header">
+            <svg class="close-btn-account-edit" width="8" height="14" viewBox="0 0 8 14" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 13L1 7L7 1" stroke="#052F5A" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            <h2 class="s">Edit your details</h2>
+
+        </div>
+
+        <div class="drawer-content">
+            <form id="edit-account-form">
+                <div class="divided-input">
+                    <div class="form-group">
+                        <label class="form-label" for="edit-first-name">First Name</label>
+                        <input type="text" id="edit-first-name" class="form-input" value="Alex" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="edit-last-name">Last Name</label>
+                        <input type="text" id="edit-last-name" class="form-input" value="Sehgal" required>
+                    </div>
+                </div>
+
+
+                <!-- <div class="form-group">
+							<label class="form-label" for="edit-gender">Gender</label>
+							<select id="edit-gender" class="form-select" required>
+								<option value="male" selected>Male</option>
+								<option value="female">Female</option>
+								<option value="other">Other</option>
+								<option value="prefer-not-to-say">Prefer not to say</option>
+							</select>
+						</div> -->
+
+                <div class="form-group">
+                    <label class="form-label" for="edit-dob">Date of Birth</label>
+                    <input type="date" id="edit-dob" class="form-input" value="1995-10-01" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="edit-phone">Phone Number</label>
+                    <input type="tel" id="edit-phone" class="form-input" value="+1215-3565" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="edit-password">Password</label>
+                    <input type="password" id="edit-password" class="form-input" placeholder="Enter new password">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="edit-confirm-password">Confirm Password</label>
+                    <input type="password" id="edit-confirm-password" class="form-input"
+                        placeholder="Confirm new password">
+                </div>
+            </form>
+        </div>
+
+        <div class="drawer-footer">
+
+            <button type="submit" form="edit-account-form" class="btn-save">Submit</button>
+            <button type="button" class="btn-cancel" id="cancel-edit-btn">Cancel</button>
+        </div>
+    </aside>
+</div>
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+        <div class="contact-us-container">
+            <div class="top-spacing"></div>
+
+            <!-- START HERE -->
+            <section class="my-account-general-layout">
+                <h1 id="welcome-to-user" class="fade-in-element">Hello Joe</h1>
+                <p class="welcome-to-user-subtitle fade-in-element">Welcome to your private corner You can manage your
+                    orders, and account info here</p>
+
+                <div class="my-account-layout">
+                    <!-- Sidebar -->
+                    @include('components/accounts/sidebar')
+
+                    <!-- Content Area -->
+                    <div class="my-account-content show-in-right">
+
+
+                        <!-- Personal Information Section -->
+                        <div class="personal-info-section">
+                            <div class="section-header">
+                                <h2 class="section-title">Personal Information</h2>
+                                <button class="edit-btn">Edit</button>
+                            </div>
+
+                            <div class="info-grid">
+                                <div class="info-field">
+                                    <label class="info-label">Name</label>
+                                    <p class="info-value">Alex</p>
+                                </div>
+
+                                <div class="info-field">
+                                    <label class="info-label">Last Name</label>
+                                    <p class="info-value">Sehgal</p>
+                                </div>
+
+                                <div class="info-field">
+                                    <label class="info-label">Gender</label>
+                                    <p class="info-value">Male</p>
+                                </div>
+
+                                <div class="info-field">
+                                    <label class="info-label">Date of birth</label>
+                                    <p class="info-value">October 1 1995</p>
+                                </div>
+
+                                <div class="info-field">
+                                    <label class="info-label">Phone Number</label>
+                                    <p class="info-value">+1215-3565</p>
+                                </div>
+
+                                <div class="info-field">
+                                    <label class="info-label">Password</label>
+                                    <div class="password-field">
+                                        <input type="password" readonly value="12345678" class="info-value">
+                                        <button class="toggle-password" aria-label="Toggle password visibility">
+                                            <!-- <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.66667 10C1.66667 10 4.16667 4.16667 10 4.16667C15.8333 4.16667 18.3333 10 18.3333 10C18.3333 10 15.8333 15.8333 10 15.8333C4.16667 15.8333 1.66667 10 1.66667 10Z" stroke="#6D6D6D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z" stroke="#6D6D6D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg> -->
+                                            <svg width="16" height="16" viewBox="0 0 12 12" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <g clip-path="url(#clip0_2558_3672)">
+                                                    <path
+                                                        d="M8.97 8.97001C8.1153 9.62151 7.07455 9.98244 6 10C2.5 10 0.5 6.00001 0.5 6.00001C1.12194 4.84096 1.98457 3.82832 3.03 3.03001M4.95 2.12001C5.29417 2.03945 5.64653 1.99918 6 2.00001C9.5 2.00001 11.5 6.00001 11.5 6.00001C11.1965 6.56782 10.8345 7.10238 10.42 7.59501M7.06 7.06001C6.92268 7.20739 6.75707 7.32559 6.57308 7.40757C6.38908 7.48956 6.19045 7.53364 5.98905 7.5372C5.78764 7.54075 5.58758 7.5037 5.4008 7.42826C5.21403 7.35282 5.04436 7.24053 4.90192 7.09809C4.75949 6.95565 4.6472 6.78598 4.57175 6.59921C4.49631 6.41243 4.45926 6.21237 4.46282 6.01097C4.46637 5.80956 4.51045 5.61094 4.59244 5.42694C4.67442 5.24294 4.79263 5.07734 4.94 4.94001"
+                                                        stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path class="toggle-line" d="M0.5 0.5L11.5 11.5" stroke="black"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_2558_3672">
+                                                        <rect width="12" height="12" fill="white" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END HERE -->
+            @include('components/common/footer')
+        </div>
+    </div>
+</div>
+@endslot
+@end

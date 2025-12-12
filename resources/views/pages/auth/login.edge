@@ -1,0 +1,56 @@
+@layout.app({title: 'Login', customClass: 'inner-pages', isAuth: true})
+
+@slot('styles')
+@vite(['resources/css/core/auth/login.scss', 'resources/js/core/auth/login.js'])
+@endslot
+
+@slot('main')
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+        <div class="login-acount-container-major">
+            <div class="top-spacing"></div>
+
+            <!-- START HERE -->
+            <section class="login-acount-container">
+
+                <img class="user-banner show-in-left" src="/assets/account/account-banner.webp"
+                    alt="account  page  banner">
+                <div class="login-user-form">
+                    <span class="over-title">Sign In</span>
+                    <h1 class="xl">Sign In</h1>
+                    <form class="account-form" action="">
+
+                        <div class="input-container">
+                            <label for="fullname">Email</label>
+                            <input placeholder="Enter your email" name="email" required type="email">
+                        </div>
+
+                        <div class="input-container password-container">
+                            <label for="password">Password</label>
+                            <input id="password-input" placeholder="Enter your password" name="password" required
+                                type="password">
+                            <img class="show-password-icon" src="/assets/account/eye.png" alt="show-password-icon"
+                                role="button" tabindex="0">
+                        </div>
+                        <button class="custom-button common-styles" type="submit">
+                            Sign In
+                            <svg viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect rx="18.5" fill="white" />
+                                <path
+                                    d="M25.9179 18.9179C26.1488 18.6871 26.1488 18.3129 25.9179 18.0821L22.1565 14.3206C21.9257 14.0898 21.5514 14.0898 21.3206 14.3206C21.0898 14.5514 21.0898 14.9257 21.3206 15.1565L24.6641 18.5L21.3206 21.8435C21.0898 22.0743 21.0898 22.4486 21.3206 22.6794C21.5514 22.9102 21.9257 22.9102 22.1565 22.6794L25.9179 18.9179ZM11.5 18.5L11.5 19.0911L25.5 19.0911L25.5 18.5L25.5 17.9089L11.5 17.9089L11.5 18.5Z"
+                                    fill="#2F80ED" />
+                            </svg>
+                        </button>
+                    </form>
+                    <a class="forgot-password-link" href="{{ route('auth.forgotPassword') }}">Forgot Password?</a>
+                    <a class="login-link" href="{{ route('auth.register') }}"><span>New User?</span> Create an account</a>
+                </div>
+
+            </section>
+            <!-- END HERE -->
+            @include('components/common/footer')
+        </div>
+    </div>
+</div>
+@endslot
+@end

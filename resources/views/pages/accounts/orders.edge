@@ -1,0 +1,139 @@
+@layout.app({title: 'Orders', customClass: 'inner-pages'})
+
+@slot('styles')
+@vite(['resources/css/core/accounts/orders.scss', 'resources/js/core/accounts/orders.js'])
+@endslot
+
+@slot('main')
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+        <div class="contact-us-container">
+            <div class="top-spacing"></div>
+
+            <!-- START HERE -->
+            <section class="my-account-general-layout">
+                <h1 id="welcome-to-user" class="fade-in-element">Hello Joe</h1>
+                <p class="welcome-to-user-subtitle fade-in-element">Welcome to your private corner You can manage your
+                    orders, and account info here</p>
+
+                <div class="my-account-layout">
+                    <!-- Sidebar -->
+                    @include('components/accounts/sidebar')
+
+                    <!-- Content Area -->
+                    <!-- Content Area -->
+                    <div class="my-account-content show-in-right">
+                        <div class="orders-section">
+                            <div class="wrapper-scroll">
+                                <!-- Order 1 -->
+                                <div>
+                                    <h3 class="order-header-title">Order number <span>SS-123457895</span></h3>
+                                    <div class="order-card">
+                                        <div class="order-details-grid">
+                                            <div class="detail-item">
+                                                <span class="label">Order Date</span>
+                                                <span class="value">03.10.2024</span>
+                                            </div>
+                                            <div class="detail-item">
+                                                <span class="label">Total</span>
+                                                <span class="value">208,00 €</span>
+                                            </div>
+                                            <div class="detail-item">
+                                                <span class="label">Status</span>
+                                                <span class="value">Delivered</span>
+                                            </div>
+                                        </div>
+                                        <div class="order-product-row">
+                                            <div class="product-info">
+                                                <img src="/assets/orders-product-image.png"
+                                                    alt="AnyHDD Dual Monitor Docking Station"
+                                                    onerror="this.src='/src/assets/docking-stations.svg'">
+                                                <div class="nav-text">
+                                                    <h4>AnyHDD Dual Monitor Docking Station</h4>
+                                                    <p>6” wide pre sloped trench drain</p>
+                                                </div>
+                                            </div>
+                                            <a href="/config-my-account-orders-id" class="view-order-link">View
+                                                Order</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Order 2 -->
+                                <div>
+                                    <h3 class="order-header-title">Order number <span>SS-123457895</span></h3>
+                                    <div class="order-card">
+                                        <div class="order-details-grid">
+                                            <div class="detail-item">
+                                                <span class="label">Order Date</span>
+                                                <span class="value">03.10.2024</span>
+                                            </div>
+                                            <div class="detail-item">
+                                                <span class="label">Total</span>
+                                                <span class="value">208,00 €</span>
+                                            </div>
+                                            <div class="detail-item">
+                                                <span class="label">Status</span>
+                                                <span class="value">Delivered</span>
+                                            </div>
+                                        </div>
+                                        <div class="order-product-row">
+                                            <div class="product-info">
+                                                <img src="/assets/orders-product-image.png"
+                                                    alt="AnyHDD Dual Monitor Docking Station"
+                                                    onerror="this.src='/src/assets/docking-stations.svg'">
+                                                <div class="nav-text">
+                                                    <h4>AnyHDD Dual Monitor Docking Station</h4>
+                                                    <p>6” wide pre sloped trench drain</p>
+                                                </div>
+                                            </div>
+                                            <a href="/config-my-account-orders-id" class="view-order-link">View
+                                                Order</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Order 3 -->
+                                <div>
+                                    <h3 class="order-header-title">Order number <span>SS-123457895</span></h3>
+                                    <div class="order-card">
+                                        <div class="order-details-grid">
+                                            <div class="detail-item">
+                                                <span class="label">Order Date</span>
+                                                <span class="value">03.10.2024</span>
+                                            </div>
+                                            <div class="detail-item">
+                                                <span class="label">Total</span>
+                                                <span class="value">208,00 €</span>
+                                            </div>
+                                            <div class="detail-item">
+                                                <span class="label">Status</span>
+                                                <span class="value">Delivered</span>
+                                            </div>
+                                        </div>
+                                        <div class="order-product-row">
+                                            <div class="product-info">
+                                                <img src="/assets/orders-product-image.png"
+                                                    alt="AnyHDD Dual Monitor Docking Station"
+                                                    onerror="this.src='/src/assets/docking-stations.svg'">
+                                                <div class="nav-text">
+                                                    <h4>AnyHDD Dual Monitor Docking Station</h4>
+                                                    <p>6” wide pre sloped trench drain</p>
+                                                </div>
+                                            </div>
+                                            <a href="/config-my-account-orders-id" class="view-order-link">View
+                                                Order</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <!-- END HERE -->
+            @include('components/common/footer')
+        </div>
+    </div>
+</div>
+@endslot
+@end

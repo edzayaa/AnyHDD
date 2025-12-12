@@ -13,10 +13,12 @@
 </head>
 
 <body {{ customClass ? `class=${customClass}` : '' }}>
-    @include('partials/common/nav')
+    @if(!isAuth) 
+    @include('components/common/nav')
+    @endif
     <div class="white-overlay"></div>
     {{{ await $slots.main() }}}
-    @include('partials/common/cart')
+    @include('components/common/cart')
 
     @if ($slots.scripts)
     {{{ await $slots.scripts() }}}

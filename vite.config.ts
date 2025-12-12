@@ -2,8 +2,12 @@ import { defineConfig } from 'vite'
 import adonisjs from '@adonisjs/vite/client'
 
 export default defineConfig({
+  server: {
+    allowedHosts: ['.anyhdd.com', 'localhost'],
+  },
   plugins: [
     adonisjs({
+      buildDirectory: 'public/static',
       /**
        * Entrypoints of your application. Each entrypoint will
        * result in a separate bundle.

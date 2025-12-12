@@ -29,7 +29,10 @@
     "#tests/*": "./tests/*.js",
     "#start/*": "./start/*.js",
     "#config/*": "./config/*.js",
-    "#modules/*": "./app/modules/*.js"
+    "#modules/*": "./app/modules/*.js",
+    "#interfaces/*": "./app/interfaces/*.js",
+    "#shopify/*": "./app/shopify/*.js",
+    "#helpers/*": "./app/helpers/*.js"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^7.8.2",
@@ -46,14 +49,13 @@
     "hot-hook": "^0.4.0",
     "pino-pretty": "^13.0.0",
     "prettier": "^3.5.3",
+    "sass": "^1.92.1",
     "sass-embedded": "^1.95.1",
+    "sharp": "0.34.3",
+    "svgo": "4.0.0",
     "ts-node-maintained": "^10.9.5",
     "typescript": "~5.8",
     "vite": "^6.3.5",
-
-    "sass": "^1.92.1",
-    "sharp": "0.34.3",
-    "svgo": "4.0.0",
     "vite-plugin-image-optimizer": "2.0.2",
     "vite-plugin-to-webp": "^1.0.2"
   },
@@ -65,14 +67,14 @@
     "@adonisjs/shield": "^8.2.0",
     "@adonisjs/static": "^1.1.1",
     "@adonisjs/vite": "^4.0.0",
+    "@shopify/storefront-api-client": "^1.0.9",
     "@vinejs/vine": "^3.0.1",
     "better-sqlite3": "^12.5.0",
+    "custom-select": "^1.1.15",
     "edge.js": "^6.2.1",
+    "gsap": "^3.13.0",
     "luxon": "^3.7.2",
     "reflect-metadata": "^0.2.2",
-
-    "custom-select": "^1.1.15",
-    "gsap": "^3.13.0",
     "swiper": "^11.2.10"
   },
   "hotHook": {

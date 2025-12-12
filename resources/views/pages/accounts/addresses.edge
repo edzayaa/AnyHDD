@@ -1,0 +1,233 @@
+@layout.app({title: 'Addresses', customClass: 'inner-pages'})
+
+@slot('styles')
+@vite(['resources/css/core/accounts/address.scss', 'resources/js/core/accounts/address.js'])
+@endslot
+
+@slot('main')
+<!-- EDIT ACCOUNT DRAWER -->
+<div id="edit-account-drawer-container">
+    <div id="edit-account-overlay"></div>
+
+    <aside id="edit-account-drawer">
+        <div class="drawer-header">
+            <svg class="close-btn-account-edit" width="8" height="14" viewBox="0 0 8 14" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 13L1 7L7 1" stroke="#052F5A" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            <h2 class="s">Edit your details</h2>
+
+        </div>
+
+        <div class="drawer-content">
+            <form id="edit-account-form">
+                <div class="divided-input">
+                    <div class="form-group">
+                        <label class="form-label" for="edit-first-name">First Name</label>
+                        <input type="text" id="edit-first-name" class="form-input" value="Alex" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="edit-last-name">Last Name</label>
+                        <input type="text" id="edit-last-name" class="form-input" value="Sehgal" required>
+                    </div>
+                </div>
+
+
+                <!-- <div class="form-group">
+							<label class="form-label" for="edit-gender">Gender</label>
+							<select id="edit-gender" class="form-select" required>
+								<option value="male" selected>Male</option>
+								<option value="female">Female</option>
+								<option value="other">Other</option>
+								<option value="prefer-not-to-say">Prefer not to say</option>
+							</select>
+						</div> -->
+
+                <div class="form-group">
+                    <label class="form-label" for="edit-dob">Date of Birth</label>
+                    <input type="date" id="edit-dob" class="form-input" value="1995-10-01" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="edit-phone">Phone Number</label>
+                    <input type="tel" id="edit-phone" class="form-input" value="+1215-3565" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="edit-password">Password</label>
+                    <input type="password" id="edit-password" class="form-input" placeholder="Enter new password">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="edit-confirm-password">Confirm Password</label>
+                    <input type="password" id="edit-confirm-password" class="form-input"
+                        placeholder="Confirm new password">
+                </div>
+            </form>
+        </div>
+
+        <div class="drawer-footer">
+
+            <button type="submit" form="edit-account-form" class="btn-save">Submit</button>
+            <button type="button" class="btn-cancel" id="cancel-edit-btn">Cancel</button>
+        </div>
+    </aside>
+</div>
+<!-- ADD ADDRESS DRAWER -->
+<div id="add-address-drawer-container">
+    <div id="add-address-overlay"></div>
+
+    <aside id="add-address-drawer">
+        <div class="drawer-header">
+            <svg class="close-btn-address-drawer" width="8" height="14" viewBox="0 0 8 14" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 13L1 7L7 1" stroke="#052F5A" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            <h2 class="s">Add your address</h2>
+
+        </div>
+
+        <div class="drawer-content">
+            <form id="add-address-form">
+                <div class="divided-input">
+                    <div class="form-group">
+                        <label class="form-label" for="add-street">Street</label>
+                        <input type="text" id="add-street" class="form-input" placeholder="" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="add-number">Number</label>
+                        <input type="text" id="add-number" class="form-input" placeholder="" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="add-additional">Additional Address Line</label>
+                    <input type="text" id="add-additional" class="form-input" placeholder="">
+                </div>
+
+                <div class="divided-input">
+                    <div class="form-group">
+                        <label class="form-label" for="add-zip">ZIP Code</label>
+                        <input type="text" id="add-zip" class="form-input" placeholder="" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="add-city">City</label>
+                        <input type="text" id="add-city" class="form-input" placeholder="" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="add-country">Country</label>
+                    <select id="add-country" class="form-select" required>
+                        <option value="">Select country</option>
+                        <option value="australia">Australia</option>
+                        <option value="usa">United States</option>
+                        <option value="canada">Canada</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <div class="drawer-footer">
+
+            <button type="submit" form="add-address-form" class="btn-save">Submit</button>
+            <button type="button" class="btn-cancel" id="cancel-address-btn">Cancel</button>
+        </div>
+    </aside>
+</div>
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+        <div class="contact-us-container">
+            <div class="top-spacing"></div>
+
+            <!-- START HERE -->
+            <section class="my-account-general-layout">
+                <h1 id="welcome-to-user" class="fade-in-element">Hello Joe</h1>
+                <p class="welcome-to-user-subtitle fade-in-element">Welcome to your private corner You can manage your
+                    orders, and account info here</p>
+
+                <div class="my-account-layout">
+                    <!-- Sidebar -->
+                    @include('components/accounts/sidebar')
+
+                    <!-- Content Area -->
+                    <div class="my-account-content show-in-right">
+                        <!-- Addresses Section -->
+                        <div class="addresses-section">
+                            <h2 class="addresses-title">Addresses</h2>
+
+                            <!-- Default Address -->
+                            <div class="address-item">
+                                <div class="default-indicator">
+                                    <!-- <div class="default-radio"></div> -->
+                                    <input class="default-radio" checked type="radio">
+                                    <p class="default-label">Default</p>
+                                </div>
+
+                                <div class="address-fields">
+                                    <div class="address-field">
+                                        <p class="field-label">Street*</p>
+                                        <p class="field-value">Street 1236 Jacksonville</p>
+                                    </div>
+
+                                    <div class="address-field">
+                                        <p class="field-label">House Number</p>
+                                        <p class="field-value">House 2564</p>
+                                    </div>
+
+                                    <div class="address-field full-width">
+                                        <p class="field-label">Additional Address Line</p>
+                                        <p class="field-value">89 Pine Avenue, Apt 12C</p>
+                                    </div>
+
+                                    <div class="address-field postal-city-group">
+                                        <div class="postal-code-field">
+                                            <p class="field-label">Postal Code</p>
+                                            <p class="field-value">8050</p>
+                                        </div>
+                                        <div class="city-field">
+                                            <p class="field-label">City</p>
+                                            <p class="field-value">Melbourne</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="address-field full-width">
+                                        <p class="field-label">Country</p>
+                                        <p class="field-value">Australia</p>
+                                    </div>
+                                </div>
+
+                                <div class="address-actions">
+                                    <button class="action-link">Edit</button>
+                                    <button class="action-link remove-link">Remove</button>
+                                </div>
+                            </div>
+
+                            <!-- Add New Address Button -->
+                            <button class="add-address-btn">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="16" height="16" rx="8" fill="#D7D7D7" />
+                                    <path d="M8.375 4.25V11.5M4.75 7.875H12" stroke="black" stroke-width="1.03571"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                Add New Address
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END HERE -->
+            @include('components/common/footer')
+        </div>
+    </div>
+</div>
+@endslot
+@end
