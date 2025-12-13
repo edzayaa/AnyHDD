@@ -21,6 +21,7 @@
                     <form class="account-form" 
                         hx-post="{{ route('api.auth.login') }}" 
                         hx-target="#response-feedback" 
+                        hx-target-error="#response-feedback"
                         hx-swap="innerHTML"
                         hx-on::after-request="this.reset()">
 
@@ -43,7 +44,7 @@
                             </p>
                             @endif
                         </div>
-                        <button class="custom-button common-styles" type="submit" hx-disabled-elt="this">
+                        <button class="custom-button common-styles htmx-button" type="submit" hx-disabled-elt="this">
                             Sign In
                             <svg viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect rx="18.5" fill="white" />

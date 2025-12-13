@@ -10,6 +10,7 @@ export class AuthController {
     constructor(private authService: AuthService) {}
     
     async login({ request, response }: HttpContext) {
+        await new Promise(resolve => setTimeout(resolve, 10000));
         const payload = await request.validateUsing(loginValidator)
         const data = await this.authService.login(payload)
         response.cookie('customerAccessToken', data.accessToken)
