@@ -24,4 +24,9 @@ export default await Env.create(new URL('../', import.meta.url), {
   |----------------------------------------------------------
   */
   SESSION_DRIVER: Env.schema.enum(['cookie', 'memory'] as const),
+
+  // Shopify API Variables
+  SHOPIFY_STORE_DOMAIN: Env.schema.string(),
+  SHOPIFY_STOREFRONT_ACCESS_TOKEN: Env.schema.string(),
+  SHOPIFY_API_VERSION: Env.schema.string(),
 })

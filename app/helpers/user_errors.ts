@@ -5,6 +5,9 @@ export default function handleUserErrors(errors: CustomerUserErrors[]) {
     if (errors.length > 0) {
         const firstError = errors[0];
         if (firstError.code === 'UNIDENTIFIED_CUSTOMER') {
+            if (firstError.message.toLocaleLowerCase() === 'could not find customer') {
+                throw new BadRequestException('No account found with the provided email address.');
+            }
             throw new BadRequestException('The provided credentials are incorrect. Please try again.');
         }
         throw new BadRequestException(errors[0].message)

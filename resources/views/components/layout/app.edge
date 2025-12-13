@@ -2,27 +2,109 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/img/anyhdd-logo.webp" />
-    <meta content="initial-scale=1.0, width=device-width" name="viewport">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title }} - AnyHDD</title>
-    @if ($slots.styles)
-    {{{ await $slots.styles() }}}
-    @endif
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/img/anyhdd-logo.webp" />
+  <meta content="initial-scale=1.0, width=device-width" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="csrf-token" content="{{ csrfToken }}">
+  <title>{{ title }} - AnyHDD</title>
+  @if ($slots.styles)
+  {{{ await $slots.styles() }}}
+  @endif
+  <style>
+    .global-message {
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .error-text {
+      color: #d00;
+    }
+
+    .success-text {
+      color: #0a0;
+    }
+
+    #response-feedback {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .htmx-button {
+      position: relative;
+    }
+
+
+    .htmx-request button,
+    .htmx-request.htmx-button {
+      color: transparent;
+    }
+
+    .htmx-request button svg,
+    .htmx-request.htmx-button svg {
+      visibility: hidden;
+    }
+
+
+    .btn-loader {
+      width: 18px;
+      height: 18px;
+      border: 3px solid rgba(255, 255, 255, 0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+
+      position: absolute;
+      inset: 0;
+      margin: auto;
+
+      display: none;
+    }
+
+
+    .htmx-request .htmx-indicator,
+    .htmx-request.htmx-indicator {
+      display: block;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
+  <script>
+    (function () { var f; var o = "hx-target-"; function g(e, r) { return e.substring(0, r.length) === r } function s(e, r) { if (!e || !r) return null; var t = r.toString(); var s = [t, t.substring(0, 2) + "*", t.substring(0, 2) + "x", t.substring(0, 1) + "*", t.substring(0, 1) + "x", t.substring(0, 1) + "**", t.substring(0, 1) + "xx", "*", "x", "***", "xxx"]; if (g(t, "4") || g(t, "5")) { s.push("error") } for (var n = 0; n < s.length; n++) { var i = o + s[n]; var a = f.getClosestAttributeValue(e, i); if (a) { if (a === "this") { return f.findThisElement(e, i) } else { return f.querySelectorExt(e, a) } } } return null } function n(e) { if (e.detail.isError) { if (htmx.config.responseTargetUnsetsError) { e.detail.isError = false } } else if (htmx.config.responseTargetSetsError) { e.detail.isError = true } } htmx.defineExtension("response-targets", { init: function (e) { f = e; if (htmx.config.responseTargetUnsetsError === undefined) { htmx.config.responseTargetUnsetsError = true } if (htmx.config.responseTargetSetsError === undefined) { htmx.config.responseTargetSetsError = false } if (htmx.config.responseTargetPrefersExisting === undefined) { htmx.config.responseTargetPrefersExisting = false } if (htmx.config.responseTargetPrefersRetargetHeader === undefined) { htmx.config.responseTargetPrefersRetargetHeader = true } }, onEvent: function (e, r) { if (e === "htmx:beforeSwap" && r.detail.xhr && r.detail.xhr.status !== 200) { if (r.detail.target) { if (htmx.config.responseTargetPrefersExisting) { r.detail.shouldSwap = true; n(r); return true } if (htmx.config.responseTargetPrefersRetargetHeader && r.detail.xhr.getAllResponseHeaders().match(/HX-Retarget:/i)) { r.detail.shouldSwap = true; n(r); return true } } if (!r.detail.requestConfig) { return true } var t = s(r.detail.requestConfig.elt, r.detail.xhr.status); if (t) { n(r); r.detail.shouldSwap = true; r.detail.target = t } return true } } }) })();
+  </script>
+
+  <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
-<body {{ customClass ? `class=${customClass}` : '' }}>
-    @if(!isAuth) 
-    @include('components/common/nav')
-    @endif
-    <div class="white-overlay"></div>
-    {{{ await $slots.main() }}}
-    @include('components/common/cart')
+<body {{ customClass ? `class=${customClass}` : '' }} hx-ext="response-targets">
+  @include('components/common/nav')
+  @endif
+  <div class="white-overlay"></div>
+  {{{ await $slots.main() }}}
+  @include('components/common/cart')
 
-    @if ($slots.scripts)
-    {{{ await $slots.scripts() }}}
-    @endif
+  @if ($slots.scripts)
+  {{{ await $slots.scripts() }}}
+  @endif
+  <script>
+    document.body.addEventListener('htmx:configRequest', (event) => {
+      const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+      event.detail.headers['x-csrf-token'] = csrfToken;
+    });
+  </script>
 </body>
 
-</html>
+</html

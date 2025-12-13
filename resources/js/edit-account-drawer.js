@@ -41,6 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const closeDrawer = () => {
+        // Limpiar el mensaje de feedback
+        const feedbackElement = document.querySelector('#response-feedback');
+        if (feedbackElement) {
+            feedbackElement.innerHTML = '';
+        }
+
         // Ejecuta la animación en reversa
         tl.reverse();
 
@@ -51,7 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // 4. Asignar los eventos a los botones y al overlay
-    openDrawerBtn.addEventListener('click', openDrawer);
+    // Usar delegación de eventos para el botón de abrir, ya que puede ser reemplazado por HTMX
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.edit-btn')) {
+            openDrawer();
+        }
+    });
+    
     // closeDrawerBtn.addEventListener('click', closeDrawer);
     overlay.addEventListener('click', closeDrawer); // Cierra el drawer si se clickea fuera
 

@@ -5,6 +5,17 @@ export default class AuthMapper {
         }
     }
 
+    static toRegister(data: any) {
+        return {
+            input: {
+                firstName: data.firstName.toLowerCase(),
+                lastName: data.lastName.toLowerCase(),
+                email: data.email,
+                password: data.password
+            }
+        }
+    }
+
     static toForgotPassword(data: any) {
         return {
             email: data.email

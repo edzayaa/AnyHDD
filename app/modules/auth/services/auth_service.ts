@@ -26,41 +26,41 @@ export default class AuthService {
         }
     }
 
-    async register(body: InputInterface) {
-        const variables = AuthMapper.toAuth(body)
-        const data = await this.storefront.request(mutations.customerCreate, variables) as Response.RegisterInterface
+    async register(body: InputInterface, ip: string) {
+        const variables = AuthMapper.toRegister(body)
+        const data = await this.storefront.request(mutations.customerCreate, variables, ip) as Response.RegisterInterface
         const customerData = data.customerCreate
         handleUserErrors(customerData.customerUserErrors)
         return customerData.customer
     }
 
-    async forgotPassword(body: InputInterface) {
+    async forgotPassword(body: InputInterface, ip: string) {
         const variables = AuthMapper.toForgotPassword(body)
-        const data = await this.storefront.request(mutations.customerRecover, variables) as Response.ForgotPasswordInterface
+        const data = await this.storefront.request(mutations.customerRecover, variables, ip) as Response.ForgotPasswordInterface
         const customerData = data.customerRecover
         handleUserErrors(customerData.customerUserErrors)
         return { success: true}
     }
 
-    async resetPassword(body: InputInterface) {
+    async resetPassword(body: InputInterface, ip: string) {
         const variables = AuthMapper.toResetPassword(body)
-        const data = await this.storefront.request(mutations.customerReset, variables) as Response.ResetPasswordInterface
+        const data = await this.storefront.request(mutations.customerReset, variables, ip) as Response.ResetPasswordInterface
         const customerData = data.customerReset
         handleUserErrors(customerData.customerUserErrors)
         return { success: true}
     }
 
-    async activateAccount(body: InputInterface) {
+    async activateAccount(body: InputInterface, ip: string) {
         const variables = AuthMapper.toActivateAccount(body)
-        const data = await this.storefront.request(mutations.customerActivate, variables) as Response.ActivateAccountInterface
+        const data = await this.storefront.request(mutations.customerActivate, variables, ip) as Response.ActivateAccountInterface
         const customerData = data.customerActivate
         handleUserErrors(customerData.customerUserErrors)
         return { success: true}
     }
 
-    async deleteAccessToken(customerAccessToken: string) {
+    async deleteAccessToken(customerAccessToken: string, ip: string) {
         if (!customerAccessToken) throw new BadRequestException('Access token is required')
-        await this.storefront.request(mutations.customerAccessTokenDelete, { customerAccessToken })
+        await this.storefront.request(mutations.customerAccessTokenDelete, { customerAccessToken }, ip)
         return { success: true}
     }
 }

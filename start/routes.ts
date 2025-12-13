@@ -10,10 +10,12 @@
 import router from '@adonisjs/core/services/router'
 import { PagesController } from '#modules/pages/controllers/PagesController'
 import { ShopController } from '#modules/shop/controllers/Http/ShopController'
-import { AccountsController } from '#modules/accounts/controllers/AccountsController'
+import { CustomerController } from '#modules/customer/controllers/http/customer_controller'
 
 // API 
 import { AuthController } from '#modules/auth/controllers/auth_controller'
+import { CustomerApiController } from '#modules/customer/controllers/api/customer_controller'
+
 
 router.group(() => {
     router.get('/', [PagesController, 'index']).as('home')
@@ -40,10 +42,10 @@ router.group(() => {
 }).as('auth').prefix('/account')
 
 router.group(() => {
-    router.get('/', [AccountsController, 'overview']).as('overview')
-    router.get('/settings', [AccountsController, 'settings']).as('settings')
-    router.get('/addresses', [AccountsController, 'addresses']).as('addresses')
-    router.get('/orders', [AccountsController, 'orders']).as('orders')
+    router.get('/', [CustomerController, 'overview']).as('overview')
+    router.get('/settings', [CustomerController, 'settings']).as('settings')
+    router.get('/addresses', [CustomerController, 'addresses']).as('addresses')
+    router.get('/orders', [CustomerController, 'orders']).as('orders')
 }).as('account').prefix('/account')
 
 // API Routes
@@ -55,3 +57,7 @@ router.group(() => {
     router.post('/activate-account', [AuthController, 'activateAccount']).as('activateAccount')
     router.post('/delete-access-token', [AuthController, 'deleteAccessToken']).as('deleteAccessToken')
 }).prefix('/api/auth').as('api.auth')
+
+router.group(() => {
+    router.post('/', [CustomerApiController, 'updateCustomer']).as('updateCustomer')
+}).prefix('/api/customer').as('api.customer')

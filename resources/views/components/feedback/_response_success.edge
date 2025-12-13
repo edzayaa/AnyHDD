@@ -1,0 +1,9 @@
+@if(hxSwapOob)
+<p class="success-text" hx-swap-oob="true" id="{{ targetId }}">
+    {{ message }}
+</p>
+@else
+<p class="success-text" id="{{ targetId }}">
+    {{ message }}
+</p>
+@endif
