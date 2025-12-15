@@ -6,6 +6,9 @@
     @media (max-width: 1440px) {
         max-width: 90%;
     }
+    @media (max-width: 900px) {
+        overflow-x: hidden;
+    }
     #welcome-to-user {
         font-size: 2rem;
         font-weight: 600;
