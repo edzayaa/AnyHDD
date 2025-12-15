@@ -29,4 +29,17 @@ export default await Env.create(new URL('../', import.meta.url), {
   SHOPIFY_STORE_DOMAIN: Env.schema.string(),
   SHOPIFY_STOREFRONT_ACCESS_TOKEN: Env.schema.string(),
   SHOPIFY_API_VERSION: Env.schema.string(),
+
+  /*
+  |----------------------------------------------------------
+  | Variables for configuring the mail package
+  |----------------------------------------------------------
+  */
+  SMTP_HOST: Env.schema.string(),
+  SMTP_PORT: Env.schema.string(),
+  SMTP_USERNAME: Env.schema.string(),
+  SMTP_PASSWORD: Env.schema.string(),
+
+  RESEND_API_KEY: Env.schema.string(),
+  CONTACT_TO: Env.schema.string()
 })

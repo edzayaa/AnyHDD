@@ -2,22 +2,29 @@ export class CustomerMapper {
     static toUpdateCustomer(data: any) {
         const customer: any = {
             customerAccessToken: data.customerAccessToken,
-            input: {
-                firstName: data.firstName,
-                lastName: data.lastName,
-                email: data.email,
-            }
+            input: {}
         }
-        if (data.prefixCode && data.phone) {
-            const prefix = data.prefixCode.toString();
-            let rawPhone = data.phone.toString().replace(/^\+/, '');
-            const prefixRegex = new RegExp(`^${prefix}`);
-            if (prefixRegex.test(rawPhone)) {
-                customer.input.phone = `+${rawPhone}`;
-            } else {
-                customer.input.phone = `+${prefix}${rawPhone}`;
-            }
+        
+        if (data.firstName !== undefined && data.firstName !== null) {
+            customer.input.firstName = data.firstName;
         }
+        if (data.lastName !== undefined && data.lastName !== null) {
+            customer.input.lastName = data.lastName;
+        }
+        if (data.email !== undefined && data.email !== null) {
+            customer.input.email = data.email;
+        }
+        
+        if (data.phone !== undefined && data.phone !== null) {
+            let phone = data.phone.toString().replace(/[\s\(\)\-]/g, '');
+            //let phone = data.phone.toString().trim();
+            customer.input.phone = phone.startsWith('+') ? phone : `+${phone}`;
+        }
+        
+        if (data.password !== undefined && data.password !== null) {
+            customer.input.password = data.password;
+        }
+
         return customer
     }
 

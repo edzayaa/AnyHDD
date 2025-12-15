@@ -8,9 +8,9 @@ export const customerValidator = vine.compile(
         firstName: vine.string().trim().minLength(2).maxLength(20).regex(nameRegex).optional(),
         lastName: vine.string().trim().minLength(2).maxLength(20).regex(nameRegex).optional(),
         email: vine.string().trim().email().optional(),
-        phone: vine.string().trim().regex(/^\+?[1-9]\d{1,14}$/).optional(),
-        newPassword: vine.string().trim().minLength(6).optional(),
-        confirmPassword: vine.string().trim().minLength(6).sameAs('newPassword').optional(),
+        phone: vine.string().trim().regex(/^\+?[\d\s\(\)\-]{7,20}$/).optional(),
+        password: vine.string().trim().minLength(6).optional(),
+        confirmPassword: vine.string().trim().minLength(6).sameAs('password').optional(),
     })
 )
 
@@ -26,9 +26,9 @@ export const addressValidator = vine.compile(
             country: vine.string().trim().minLength(2).maxLength(50),
             province: vine.string().trim().minLength(2).maxLength(50).optional(),
             zip: vine.string().trim().minLength(2).maxLength(50).optional(),
-            phone: vine.string().trim().optional(),
-            prefixCode: vine.string().trim().minLength(1).maxLength(5).optional(),
-            isDefault: vine.boolean().transform((value) => value === true),
+            phone: vine.string().trim().regex(/^[1-9]\d{4,14}$/).optional(),
+            prefixCode: vine.string().trim().regex(/^[1-9]\d{0,3}$/).optional(),
+            isDefault: vine.boolean().optional(),
         })
     })
 )

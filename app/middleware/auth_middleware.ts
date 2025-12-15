@@ -6,12 +6,11 @@ export default class CustomerAuthMiddleware {
   async handle(ctx: HttpContext, next: NextFn) {
     const { response, request } = ctx
     const accessToken = request.cookie('customerAccessToken')
-
-    console.log('Auth Middleware - Access Token:', accessToken)
     
     if (!accessToken) {
       const loginUrl = router.makeUrl('auth.login')
-      return response.redirect(loginUrl) 
+      response.redirect(loginUrl)
+      return
     }
 
     await next()

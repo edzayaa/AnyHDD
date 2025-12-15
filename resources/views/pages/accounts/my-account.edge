@@ -2,6 +2,8 @@
 
 @slot('styles')
 @vite(['resources/css/core/accounts/my-account.scss', 'resources/js/core/accounts/my-account.js'])
+@vite('resources/css/app.css')
+<link href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/components/alert.css,npm/daisyui@5/theme/light.css" rel="stylesheet" type="text/css" />
 @endslot
 
 @slot('main')
@@ -9,8 +11,12 @@
 <div id="edit-account-drawer-container">
     <div id="edit-account-overlay"></div>
 
-    <aside id="edit-account-drawer" 
-        hx-on:close-modal="document.getElementById('cancel-edit-btn').click()">
+    <aside id="edit-account-drawer" x-data="editAccountDrawer({
+            firstName: '{{ customer.firstName ?? '' }}',
+            lastName: '{{ customer.lastName ?? '' }}',
+            email: '{{ customer.email }}',
+            phone: '{{ customer.phone ?? '' }}'
+        })" @close:modal="$refs.cancelButton.click()">
         <div class="drawer-header">
             <svg class="close-btn-account-edit" width="8" height="14" viewBox="0 0 8 14" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -18,66 +24,71 @@
                     stroke-linejoin="round" />
             </svg>
             <h2 class="s">Edit your details</h2>
-
         </div>
+
+        <div id="response-feedback"></div>
 
         <div class="drawer-content">
             <form id="edit-account-form" 
+                x-ref="editAccountForm" 
                 hx-post="{{ route('api.customer.updateCustomer') }}"
-                hx-ext="response-targets"
-                hx-target="#personal-info-section"
+                hx-target="#personal-info-section" 
                 hx-target-error="#response-feedback"
                 hx-swap="innerHTML"
-                hx-indicator="#save-account-btn"
-                hx-on::after-request="this.reset()">
-
+                @htmx:before-request="loading = true"
+                @htmx:after-request="loading = false">
                 <div class="divided-input">
                     <div class="form-group">
                         <label class="form-label" for="edit-first-name">First Name</label>
-                        <input type="text" id="edit-first-name" class="form-input" name="firstName" value="{{ customer.firstName ? customer.firstName : '' }}">
+                        <input type="text" id="edit-first-name" class="form-input" name="firstName"
+                            x-model="form.firstName">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="edit-last-name">Last Name</label>
-                        <input type="text" id="edit-last-name" class="form-input" name="lastName" value="{{ customer.lastName ? customer.lastName : '' }}">
+                        <input type="text" id="edit-last-name" class="form-input" name="lastName"
+                            x-model="form.lastName">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="edit-email">Email</label>
-                    <input type="email" id="edit-email" class="form-input" name="email" value="{{ customer.email }}">
+                    <input type="email" id="edit-email" class="form-input" name="email" x-model="form.email">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="edit-phone">Phone Number</label>
-                    <input type="tel" id="edit-phone" class="form-input" name="phone" value="{{ customer.phone ? customer.phone : '' }}">
+                    <input type="tel" id="edit-phone" class="form-input" name="phone" x-model="form.phone">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="edit-password">Password</label>
-                    <input type="password" id="edit-password" class="form-input" name="password" placeholder="Enter new password">
+                    <input type="password" id="edit-password" class="form-input" name="password" x-model="form.password"
+                        placeholder="Enter new password">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="edit-confirm-password">Confirm Password</label>
                     <input type="password" id="edit-confirm-password" class="form-input" name="confirmPassword"
-                        placeholder="Confirm new password">
+                        x-model="form.confirmPassword" placeholder="Confirm new password">
                 </div>
             </form>
         </div>
 
-        <div id="response-feedback"></div>
-
         <div class="drawer-footer">
-
-            <button type="submit" form="edit-account-form" id="save-account-btn" class="btn-save htmx-button"  hx-disabled-elt="this">
-                Submit
-                <span class="htmx-indicator btn-loader" aria-hidden="true"></span>
+            <button type="submit" form="edit-account-form" id="save-account-btn" class="btn-save htmx-button"
+                :disabled="loading || !hasChanges" :class="{ 'opacity-50 cursor-not-allowed': loading || !hasChanges }">
+                <span :style="{ color: loading ? 'transparent' : ''}">Submit</span>
+                <span x-show="loading" class="btn-loader" aria-hidden="true"></span>
             </button>
-            <button type="button" class="btn-cancel" id="cancel-edit-btn">Cancel</button>
+
+            <button type="button" class="btn-cancel" id="cancel-edit-btn" x-ref="cancelButton">
+                Cancel
+            </button>
         </div>
     </aside>
 </div>
+
 <div id="smooth-wrapper">
     <div id="smooth-content">
         <div class="contact-us-container">

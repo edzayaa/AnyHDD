@@ -17,6 +17,13 @@ const messages = {
     'phone.regex': 'Phone number is invalid.',
     'firstName.regex': 'First Name contains invalid characters.',
     'lastName.regex': 'Last Name contains invalid characters.',
+    'message.minLength': 'Message must be at least {{ min }} characters long.',
+    'message.maxLength': 'Message must be at most {{ max }} characters long.',
+    'reason.in': 'Please select a valid reason for contact.',
+    'notes.minLength': 'Notes must be at least {{ min }} characters long.',
+    'notes.maxLength': 'Notes must be at most {{ max }} characters long.',
+    'productList.minLength': 'Product List must be at least {{ min }} characters long.',
+    'productList.maxLength': 'Product List must be at most {{ max }} characters long.',
 }
 
 const fields = {

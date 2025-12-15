@@ -46,7 +46,8 @@ export class CustomerController {
         return ctx.view.render('pages/accounts/addresses', { customer })
     }
 
-    orders({ view }: HttpContext) {
-        return view.render('pages/accounts/orders')
+    async orders(ctx: HttpContext) {
+        const customer = await this.getCustomer(ctx)
+        return ctx.view.render('pages/accounts/orders', { customer })
     }
 }

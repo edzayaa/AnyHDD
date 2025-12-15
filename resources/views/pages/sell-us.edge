@@ -2,6 +2,8 @@
 
 @slot('styles')
 @vite(['resources/css/core/sell-us.scss', 'resources/js/core/sell-us.js'])
+@vite('resources/css/app.css')
+<link href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/components/loading.css,npm/daisyui@5/components/alert.css,npm/daisyui@5/theme/light.css" rel="stylesheet" type="text/css" />
 @endslot
 
 @slot('main')
@@ -19,20 +21,42 @@
                     <h1 class="section-header xxxxl">Sell <span>to Us</span></h1>
                     <p class="xxxs sub-title">Turn your excess IT hardware into cash. We buy new, refurbished, and
                         decommissioned equipment directly from companies and IT resellers.</p>
-                    <form class="warranty_form" action="">
-                        <!-- <div class="input-container">
-                                    <label  for="fullname">Full Name*</label>
-                                    <input placeholder="Enter your name" name="fullname" required type="text">
-                                </div> -->
+                    <form class="warranty_form"
+                        x-data="sellUsForm()"
+                        x-ref="sellUsForm"
+                        hx-post="{{ route('api.pages.sellToUs') }}" 
+                        hx-encoding="multipart/form-data"
+                        hx-target="#response-feedback"
+                        hx-target-error="#response-feedback"
+                        hx-swap="innerHTML"
+                        @htmx:before-request="loading = true" 
+                        @htmx:after-settle="loading = false; resetForm()"
+                        >
+
+                        <div id="response-feedback">
+                            <template x-if="error">
+                                <div role="alert" class="tw-alert tw-alert-error" style="padding: 1rem !important; margin-bottom: 1rem !important;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="tw-h-6 tw-w-6 tw-shrink-0 tw-stroke-current tw-stroke-white" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+
+                                    <span class="tw-text-white" x-text="error"></span>
+
+                                </div>
+                            </template>
+                        </div>
+                        
                         <div class="wrapper-halfs">
                             <div class="input-container-half ">
-                                <label for="fullname">Contact Name*</label>
-                                <input placeholder="Enter your contact name" name="fullname" required type="text">
+                                <label for="name">Contact Name*</label>
+                                <input placeholder="Enter your contact name" name="name" required type="text">
                             </div>
 
                             <div class="input-container-half ">
-                                <label for="fullname">Company Name</label>
-                                <input placeholder="Enter your company name" name="fullname" type="text">
+                                <label for="company">Company Name</label>
+                                <input placeholder="Enter your company name" name="company" type="text">
                             </div>
                         </div>
                         <div class="wrapper-halfs">
@@ -41,32 +65,47 @@
                                 <input placeholder="Enter your email" name="email" required type="email">
                             </div>
                             <div class="input-container-half ">
-                                <label for="phone-number">Phone Number*</label>
-                                <input placeholder="Phone Number" name="phone-number" required type="tel">
+                                <label for="phone">Phone Number*</label>
+                                <input placeholder="Phone Number" name="phone" required type="tel">
                             </div>
                         </div>
                         <div class="input-container">
-                            <label for="message">Product List</label>
-                            <textarea placeholder="List the products you want to sell" name="product-list"
+                            <label for="productList">Product List</label>
+                            <textarea placeholder="List the products you want to sell" name="productList"
                                 type="text"></textarea>
                         </div>
                         <div class="input-container">
-                            <label for="message">Comments or Notes</label>
-                            <textarea placeholder="Add any comments or notes" name="comments" type="text"></textarea>
+                            <label for="notes">Comments or Notes</label>
+                            <textarea placeholder="Add any comments or notes" name="notes" type="text"></textarea>
                         </div>
+
                         <div class="input-container upload-container">
-
-
-                            <label for="file-upload">
+                            <label for="file-upload" style="cursor: pointer;">
                                 <img class="upload_icon" src="/assets/warranty/upload_icon.png" alt="upload icon">
+ 
                                 <div id="upload-text-container">
-                                    <p>File Upload <span>(Not Required)</span></p>
+                                    <template x-if="files.length > 0">
+                                        <p>Files(<span x-text="files.length"></span>)</p>
+                                    </template>
+                                    <template x-if="files.length === 0">
+                                        <p>File Upload <span>(Not Required)</span></p>
+                                    </template>
                                 </div>
-
+                              
                             </label>
-                            <input id="file-upload" name="file" accept="image/png,image/jpeg,image/webp" type="file">
+                            <input 
+                                id="file-upload" 
+                                name="images[]" 
+                                accept="image/jpeg,image/jpg,image/png,image/webp" 
+                                type="file"
+                                multiple
+                                @change="handleFiles($event)"
+                                style="display: none;">
                         </div>
-                        <button class="submit-btn" type="submit">Get a Quote</button>
+                        <button class="submit-btn htmx-button" type="submit" :disabled="loading">
+                            <span x-show="!loading">Get a Quote</span>
+                            <span x-show="loading" class="loading loading-dots loading-md"></span>
+                        </button>
                     </form>
                 </div>
 

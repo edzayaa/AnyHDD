@@ -13,6 +13,7 @@ export default defineConfig({
        * result in a separate bundle.
        */
       entrypoints: [
+        'resources/css/app.css',
         'resources/css/core/common.scss',
         'resources/css/core/home.scss',
         'resources/css/core/about.scss',

@@ -19,111 +19,46 @@
                     @include('components/accounts/sidebar')
 
                     <!-- Content Area -->
-                    <!-- Content Area -->
                     <div class="my-account-content show-in-right">
                         <div class="orders-section">
                             <div class="wrapper-scroll">
                                 <!-- Order 1 -->
+                                @each(order in customer.orders.edges)
                                 <div>
-                                    <h3 class="order-header-title">Order number <span>SS-123457895</span></h3>
+                                    <h3 class="order-header-title">Order number <span>#{{ order.node.orderNumber }}</span></h3>
                                     <div class="order-card">
                                         <div class="order-details-grid">
                                             <div class="detail-item">
                                                 <span class="label">Order Date</span>
-                                                <span class="value">03.10.2024</span>
+                                                <span class="value">{{ formatOrderDate(order.node.processedAt) }}</span>
                                             </div>
                                             <div class="detail-item">
                                                 <span class="label">Total</span>
-                                                <span class="value">208,00 €</span>
+                                                <span class="value">{{ order.node.totalPrice.amount }} {{ order.node.totalPrice.currencyCode }}</span>
                                             </div>
                                             <div class="detail-item">
                                                 <span class="label">Status</span>
-                                                <span class="value">Delivered</span>
+                                                <span class="value">{{ formatOrderStatus(order.node.fulfillmentStatus) }}</span>
                                             </div>
                                         </div>
                                         <div class="order-product-row">
+                                            @each(item in order.node.lineItems.edges)
                                             <div class="product-info">
-                                                <img src="/assets/orders-product-image.png"
-                                                    alt="AnyHDD Dual Monitor Docking Station"
+                                                <img src="{{ item.node.variant.image.url }}"
+                                                    alt="{{ item.node.title }}"
                                                     onerror="this.src='/src/assets/docking-stations.svg'">
                                                 <div class="nav-text">
-                                                    <h4>AnyHDD Dual Monitor Docking Station</h4>
-                                                    <p>6” wide pre sloped trench drain</p>
+                                                    <h4>{{ item.node.title }}</h4>
+                                                    <p>x{{ item.node.quantity }}</p>
                                                 </div>
                                             </div>
-                                            <a href="/config-my-account-orders-id" class="view-order-link">View
+                                            @endeach
+                                            <a href="{{ order.node.statusUrl }}" class="view-order-link">View
                                                 Order</a>
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Order 2 -->
-                                <div>
-                                    <h3 class="order-header-title">Order number <span>SS-123457895</span></h3>
-                                    <div class="order-card">
-                                        <div class="order-details-grid">
-                                            <div class="detail-item">
-                                                <span class="label">Order Date</span>
-                                                <span class="value">03.10.2024</span>
-                                            </div>
-                                            <div class="detail-item">
-                                                <span class="label">Total</span>
-                                                <span class="value">208,00 €</span>
-                                            </div>
-                                            <div class="detail-item">
-                                                <span class="label">Status</span>
-                                                <span class="value">Delivered</span>
-                                            </div>
-                                        </div>
-                                        <div class="order-product-row">
-                                            <div class="product-info">
-                                                <img src="/assets/orders-product-image.png"
-                                                    alt="AnyHDD Dual Monitor Docking Station"
-                                                    onerror="this.src='/src/assets/docking-stations.svg'">
-                                                <div class="nav-text">
-                                                    <h4>AnyHDD Dual Monitor Docking Station</h4>
-                                                    <p>6” wide pre sloped trench drain</p>
-                                                </div>
-                                            </div>
-                                            <a href="/config-my-account-orders-id" class="view-order-link">View
-                                                Order</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Order 3 -->
-                                <div>
-                                    <h3 class="order-header-title">Order number <span>SS-123457895</span></h3>
-                                    <div class="order-card">
-                                        <div class="order-details-grid">
-                                            <div class="detail-item">
-                                                <span class="label">Order Date</span>
-                                                <span class="value">03.10.2024</span>
-                                            </div>
-                                            <div class="detail-item">
-                                                <span class="label">Total</span>
-                                                <span class="value">208,00 €</span>
-                                            </div>
-                                            <div class="detail-item">
-                                                <span class="label">Status</span>
-                                                <span class="value">Delivered</span>
-                                            </div>
-                                        </div>
-                                        <div class="order-product-row">
-                                            <div class="product-info">
-                                                <img src="/assets/orders-product-image.png"
-                                                    alt="AnyHDD Dual Monitor Docking Station"
-                                                    onerror="this.src='/src/assets/docking-stations.svg'">
-                                                <div class="nav-text">
-                                                    <h4>AnyHDD Dual Monitor Docking Station</h4>
-                                                    <p>6” wide pre sloped trench drain</p>
-                                                </div>
-                                            </div>
-                                            <a href="/config-my-account-orders-id" class="view-order-link">View
-                                                Order</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @end
                             </div>
                         </div>
                     </div>

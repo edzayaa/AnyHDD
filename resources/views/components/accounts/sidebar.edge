@@ -1,15 +1,15 @@
 @let (activeRoute = {
-    overview: request.matchesRoute('account.overview') ? 'active' : '',
-    orders: request.matchesRoute('account.orders') ? 'active' : '',
-    settings: request.matchesRoute('account.settings') ? 'active' : '',
-    addresses: request.matchesRoute('account.addresses') ? 'active' : '',
+    overview: request.matchesRoute('customer.overview') ? 'active' : '',
+    orders: request.matchesRoute('customer.orders') ? 'active' : '',
+    settings: request.matchesRoute('customer.settings') ? 'active' : '',
+    addresses: request.matchesRoute('customer.addresses') ? 'active' : '',
 })
 
 
 <div class="my-account-sidebar show-in-left">
     <ul class="sidebar-menu">
         <li>
-            <a href="{{ route('account.overview') }}" class="menu-item {{ activeRoute.overview }}">
+            <a href="{{ route('customer.overview') }}" class="menu-item {{ activeRoute.overview }}">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M8.70833 16.043C8.4552 16.043 8.25 16.2482 8.25 16.5013C8.25 16.7544 8.4552 16.9596 8.70833 16.9596H13.2917C13.5448 16.9596 13.75 16.7544 13.75 16.5013C13.75 16.2482 13.5448 16.043 13.2917 16.043H8.70833Z"
@@ -21,7 +21,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('account.orders') }}" class="menu-item {{ activeRoute.orders }}">
+            <a href="{{ route('customer.orders') }}" class="menu-item {{ activeRoute.orders }}">
                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M21.7344 14.8907V7.31412C21.7347 7.24253 21.716 7.17214 21.6804 7.11007C21.6447 7.04801 21.5933 6.99647 21.5313 6.96068L11.6797 1.27318C11.6179 1.23752 11.5479 1.21875 11.4766 1.21875C11.4053 1.21875 11.3352 1.23752 11.2734 1.27318L1.42188 6.96068C1.35988 6.99647 1.30845 7.04801 1.27278 7.11007C1.23711 7.17214 1.21847 7.24253 1.21875 7.31412V18.6891C1.21847 18.7607 1.23711 18.8311 1.27278 18.8932C1.30845 18.9552 1.35988 19.0068 1.42188 19.0426L11.2734 24.7301C11.3352 24.7657 11.4053 24.7845 11.4766 24.7845C11.5479 24.7845 11.6179 24.7657 11.6797 24.7301L15.3806 22.5932C15.8419 23.2395 16.4458 23.771 17.1454 24.1466C17.845 24.5221 18.6217 24.7317 19.4152 24.759C20.2088 24.7863 20.9981 24.6306 21.7218 24.3041C22.4456 23.9775 23.0846 23.4888 23.5892 22.8757C24.0939 22.2626 24.4507 21.5417 24.6321 20.7686C24.8135 19.9956 24.8145 19.1911 24.6352 18.4176C24.4559 17.6441 24.101 16.9222 23.598 16.3077C23.0949 15.6933 22.4573 15.2029 21.7344 14.8744V14.8907ZM11.4766 2.0938L20.5156 7.31412L15.9819 9.93037L7.58875 4.34037L11.4766 2.0938ZM11.4766 12.5344L2.4375 7.31412L6.80469 4.7913L15.1938 10.3854L11.4766 12.5344ZM2.03125 8.01693L11.0703 13.2372V23.6738L2.03125 18.4535V8.01693ZM11.8828 23.6738V13.2372L15.5391 11.1126V14.2772C15.5391 14.385 15.5819 14.4883 15.6581 14.5645C15.7342 14.6407 15.8376 14.6835 15.9453 14.6835C16.0531 14.6835 16.1564 14.6407 16.2326 14.5645C16.3088 14.4883 16.3516 14.385 16.3516 14.2772V10.6454L20.9016 8.01693V14.6022C20.4713 14.4846 20.0273 14.4245 19.5813 14.4235C18.7021 14.4257 17.8381 14.6521 17.0707 15.0811C16.3034 15.5101 15.658 16.1277 15.1957 16.8754C14.7334 17.6232 14.4693 18.4765 14.4285 19.3547C14.3876 20.2329 14.5713 21.107 14.9622 21.8944L11.8828 23.6738ZM19.6016 23.9704C18.7378 23.9704 17.8935 23.7142 17.1753 23.2344C16.4571 22.7545 15.8974 22.0724 15.5668 21.2744C15.2363 20.4764 15.1498 19.5983 15.3183 18.7512C15.4868 17.904 15.9027 17.1259 16.5135 16.5151C17.1243 15.9043 17.9024 15.4884 18.7496 15.3199C19.5967 15.1514 20.4748 15.2379 21.2728 15.5684C22.0708 15.899 22.7529 16.4587 23.2327 17.1769C23.7126 17.8951 23.9688 18.7394 23.9688 19.6032C23.9677 20.7611 23.5072 21.8713 22.6884 22.6901C21.8697 23.5088 20.7595 23.9693 19.6016 23.9704Z" />
@@ -33,7 +33,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('account.settings') }}" class="menu-item {{ activeRoute.settings }}">
+            <a href="{{ route('customer.settings') }}" class="menu-item {{ activeRoute.settings }}">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M16.3125 9.375C16.3125 6.99375 14.3812 5.0625 12 5.0625C9.61875 5.0625 7.6875 6.99375 7.6875 9.375C7.6875 11.7562 9.61875 13.6875 12 13.6875C14.3812 13.6875 16.3125 11.7562 16.3125 9.375ZM8.8125 9.375C8.8125 7.6125 10.2375 6.1875 12 6.1875C13.7625 6.1875 15.1875 7.6125 15.1875 9.375C15.1875 11.1375 13.7625 12.5625 12 12.5625C10.2375 12.5625 8.8125 11.1375 8.8125 9.375Z"
@@ -46,7 +46,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('account.addresses') }}" class="menu-item {{ activeRoute.addresses }}">
+            <a href="{{ route('customer.addresses') }}" class="menu-item {{ activeRoute.addresses }}">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M0.914062 5.50065V20.1673L7.33073 16.5007L14.6641 20.1673L21.0807 16.5007V1.83398L14.6641 5.50065L7.33073 1.83398L0.914062 5.50065Z"
@@ -62,7 +62,13 @@
         </li>
     </ul>
     <div class="sidebar-signout">
-        <button class="signout-btn">
+        <button class="signout-btn htmx-button"
+            x-data="{ loading: false }"
+            hx-post="{{ route('api.auth.deleteAccessToken') }}"
+            @htmx:before-request="loading = true"
+            @htmx:after-settle="loading = false;"
+            :disabled="loading"
+        >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9"
@@ -71,7 +77,7 @@
                 <path d="M21 12H9" stroke="#999999" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
 
-            SIGN OUT
+            <span x-text="loading ? 'SIGNING OUT...' : 'SIGN OUT'"></span>
         </button>
     </div>
 </div>

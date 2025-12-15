@@ -10,11 +10,10 @@ export class AuthController {
     constructor(private authService: AuthService) {}
     
     async login({ request, response }: HttpContext) {
-        await new Promise(resolve => setTimeout(resolve, 10000));
         const payload = await request.validateUsing(loginValidator)
         const data = await this.authService.login(payload)
         response.cookie('customerAccessToken', data.accessToken)
-        response.header('HX-Redirect', router.makeUrl('account.overview'))
+        response.header('HX-Redirect', router.makeUrl('customer.overview'))
         return response.noContent()
     }
 
@@ -57,9 +56,10 @@ export class AuthController {
     }
 
     async deleteAccessToken({ request, response }: HttpContext) {
-        const accessToken = request.cookie('accessToken')
-        const data = await this.authService.deleteAccessToken(accessToken, request.ip())
-        response.clearCookie('accessToken')
-        return response.ok(data)
+        const accessToken = request.cookie('customerAccessToken')
+        await this.authService.deleteAccessToken(accessToken, request.ip())
+        response.clearCookie('customerAccessToken')
+        response.header('HX-Redirect', router.makeUrl('home'))
+        return response.noContent()
     }
 }

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell To Us Inquiry</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background-color: #F2F2F4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+        }
+        .header {
+            background-color: #00254B;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header h1 {
+            color: #FFFFFF;
+            margin: 0;
+            font-size: 32px;
+            font-weight: 700;
+        }
+        .header p {
+            color: rgba(248, 248, 248, 0.70);
+            margin: 10px 0 0 0;
+            font-size: 16px;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .field {
+            margin-bottom: 24px;
+        }
+        .field-label {
+            color: #00254B;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .field-value {
+            color: #000000;
+            font-size: 16px;
+            line-height: 1.5;
+            padding: 12px;
+            background-color: #F2F2F4;
+            border-radius: 4px;
+        }
+        .message-box {
+            background-color: #F2F2F4;
+            padding: 20px;
+            border-left: 4px solid #00254B;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+        .footer {
+            background-color: #00254B;
+            padding: 30px;
+            text-align: center;
+        }
+        .footer p {
+            color: rgba(248, 248, 248, 0.70);
+            margin: 0;
+            font-size: 14px;
+        }
+        .divider {
+            height: 1px;
+            background-color: #E4E4E4;
+            margin: 30px 0;
+        }
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #00254B;
+            color: #FFFFFF;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Sell To Us</h1>
+            <p>New inquiry from potential seller</p>
+        </div>
+        
+        <div class="content">
+            <div class="field">
+                <span class="field-label">Contact Name</span>
+                <div class="field-value">{{ name }}</div>
+            </div>
+            
+            @if(company)
+            <div class="field">
+                <span class="field-label">Company Name</span>
+                <div class="field-value">{{ company }}</div>
+            </div>
+            @endif
+            
+            <div class="field">
+                <span class="field-label">Email</span>
+                <div class="field-value">{{ email }}</div>
+            </div>
+            
+            <div class="field">
+                <span class="field-label">Phone Number</span>
+                <div class="field-value">{{ phone }}</div>
+            </div>
+            
+            @if(productList)
+            <div class="divider"></div>
+            
+            <div class="field">
+                <span class="field-label">Product List</span>
+                <div class="message-box">{{ productList }}</div>
+            </div>
+            @endif
+            
+            @if(notes)
+            <div class="field">
+                <span class="field-label">Comments or Notes</span>
+                <div class="message-box">{{ notes }}</div>
+            </div>
+            @endif
+
+            @if(images && images.length > 0)
+            <div class="divider"></div>
+            <div class="field">
+                <span class="field-label">Attached Images</span>
+                <div style="margin-top: 8px;">
+                    <span class="badge">{{ images.length }} image(s) attached</span>
+                </div>
+            </div>
+            @endif
+        </div>
+        
+        <div class="footer">
+            <p>Turn your excess IT hardware into cash. We buy new, refurbished, and decommissioned equipment.</p>
+        </div>
+    </div>
+</body>
+</html>

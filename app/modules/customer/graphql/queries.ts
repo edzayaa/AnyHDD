@@ -6,7 +6,7 @@ export const customer = `
             displayName
             email
             phone
-            orders (first: 50, reverse: true) {
+            orders (first: 100, reverse: true) {
                 edges {
                     node {
                         orderNumber
@@ -17,6 +17,25 @@ export const customer = `
                             currencyCode
                         }
                         processedAt  
+                        statusUrl
+                        lineItems(first: 2) {
+                            edges {
+                                node {
+                                    title
+                                    quantity
+                                    variant {
+                                        id
+                                        price {
+                                            amount
+                                            currencyCode
+                                        }
+                                        image {
+                                            url
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -31,7 +50,7 @@ export const customerAddresses = `
             defaultAddress {
                 id
             }
-            addresses (first: 20, reverse: true) {
+            addresses (first: 50, reverse: true) {
                 edges {
                     node {
                         id

@@ -34,18 +34,6 @@
       position: relative;
     }
 
-
-    .htmx-request button,
-    .htmx-request.htmx-button {
-      color: transparent !important;
-    }
-
-    .htmx-request button svg,
-    .htmx-request.htmx-button svg {
-      visibility: hidden !important;
-    }
-
-
     .btn-loader {
       width: 18px;
       height: 18px;
@@ -57,22 +45,13 @@
       position: absolute;
       inset: 0;
       margin: auto;
-
-      display: none;
     }
 
-
-    .htmx-request .htmx-indicator,
-    .htmx-request.htmx-indicator {
-      display: block;
-    }
-
-    button:disabled {
+    .htmx-button:disabled {
       opacity: 0.6;
       cursor: not-allowed;
       pointer-events: none;
     }
-
 
     @keyframes spin {
       to {
@@ -90,6 +69,7 @@
 </head>
 
 <body {{ customClass ? `class=${customClass}` : '' }} hx-ext="response-targets">
+  @if (!isAuth)
   @include('components/common/nav')
   @endif
   <div class="white-overlay"></div>

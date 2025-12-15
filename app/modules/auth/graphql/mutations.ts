@@ -31,7 +31,6 @@ export const customerAccessTokenDelete = `
         customerAccessTokenDelete(customerAccessToken: $customerAccessToken) {
             deletedAccessToken
             userErrors {
-                code
                 message
             }
         }

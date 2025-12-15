@@ -2,6 +2,8 @@
 
 @slot('styles')
 @vite(['resources/css/core/contact.scss', 'resources/js/core/contact.js'])
+@vite('resources/css/app.css')
+<link href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/components/alert.css,npm/daisyui@5/theme/light.css" rel="stylesheet" type="text/css" />
 @endslot
 
 @slot('main')
@@ -55,16 +57,27 @@
                 <div class="form_container">
                     <h2 class=" xl">How can we help?</h2>
 
-                    <form class="warranty_form" action="">
+                    <form class="warranty_form"
+                        x-data="{ loading: false }"
+                        x-ref="contactForm"
+                        hx-post="{{ route('api.pages.contactUs') }}" 
+                        hx-target="#response-feedback"
+                        hx-target-error="#response-feedback"
+                        hx-swap="innerHTML"
+                        @htmx:before-request="loading = true" 
+                        @htmx:after-settle="loading = false; $refs.contactForm.reset()"
+                        >
+
+                        <div id="response-feedback"></div>
 
                         <div class="wrapper-halfs">
                             <div class="input-container-half ">
                                 <label for="fullname">Full Name</label>
-                                <input placeholder="Enter your name" name="fullname" required type="text">
+                                <input placeholder="Enter your name" name="name" required type="text">
                             </div>
                             <div class="input-container-half ">
-                                <label for="lastname">Company</label>
-                                <input placeholder="Enter your company name" name="company_name" required type="text">
+                                <label for="company">Company</label>
+                                <input placeholder="Enter your company name" name="company" required type="text">
                             </div>
                         </div>
 
@@ -74,45 +87,37 @@
                                 <input placeholder="Enter your email" name="email" required type="email">
                             </div>
                             <div class="input-container-half ">
-                                <label for="phone-number">Phone Number</label>
-                                <input placeholder="Phone Number" name="phone-number" required type="tel">
+                                <label for="phone">Phone Number</label>
+                                <input placeholder="Phone Number" name="phone" required type="tel">
                             </div>
                         </div>
                         <!--SELECT OPTION-->
                         <div class="input-container">
                             <label for="inquiry-type">Reason for Contact</label>
-                            <select name="inquiry-type" id="inquiry-type" required>
+                            <select name="reason" id="inquiry-type" required>
                                 <option value="" disabled selected>Select an option</option>
                                 <option value="sales">Sales</option>
-                                <option value="technical-support">Support</option>
+                                <option value="support">Support</option>
                                 <option value="warranty">Warranty</option>
-                                <option value="selling-equipment">Selling Equipment</option>
+                                <option value="selling">Selling Equipment</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
-                        <!-- <div class="input-container">
-                                        <label  for="email">Email</label>
-                                        <input placeholder="Enter your email" name="email" required type="email">
-                                    </div>
-                                    <div class="input-container">
-                                        <label  for="phone-number">Phone Number</label>
-                                        <input placeholder="Phone Number" name="phone-number" required type="tel">
-                                    </div> -->
 
                         <div class="input-container">
                             <label for="message">Message</label>
                             <textarea name="message" type="text"></textarea>
                         </div>
 
-                        <button class="custom-button common-styles" type="submit">
-                            Submit
-                            <svg viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <button class="custom-button common-styles htmx-button" type="submit" :disabled="loading">
+                            <span :style="{ color: loading ? 'transparent' : ''}">Submit</span>
+                            <svg  :style="{ visibility: loading ? 'hidden' : 'visible' }" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect rx="18.5" fill="white" />
                                 <path
                                     d="M25.9179 18.9179C26.1488 18.6871 26.1488 18.3129 25.9179 18.0821L22.1565 14.3206C21.9257 14.0898 21.5514 14.0898 21.3206 14.3206C21.0898 14.5514 21.0898 14.9257 21.3206 15.1565L24.6641 18.5L21.3206 21.8435C21.0898 22.0743 21.0898 22.4486 21.3206 22.6794C21.5514 22.9102 21.9257 22.9102 22.1565 22.6794L25.9179 18.9179ZM11.5 18.5L11.5 19.0911L25.5 19.0911L25.5 18.5L25.5 17.9089L11.5 17.9089L11.5 18.5Z"
                                     fill="#2F80ED" />
                             </svg>
-
+                            <span x-show="loading" class="btn-loader"></span>
                         </button>
                     </form>
                 </div>
