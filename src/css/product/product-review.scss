@@ -351,5 +351,43 @@
                padding: 0;
             }
         }
+
+        @media only screen and (max-width: 480px) {
+            .form-stars-label {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .form-textarea {
+                font-size: 2rem;
+            }
+
+            .form-inputs-row {
+                flex-direction: column;
+                gap: 1.5rem;
+                
+                .form-input {
+                    width: 100%;
+                    font-size: 2rem;
+                }
+            }
+
+            .form-checkbox-row {
+                margin-top: 2rem;
+                 input[type=checkbox]{
+                    width: 2.5rem;
+                    height: 2.5rem;
+                 }
+                label {
+                    font-size: 1.5rem;
+                }
+            }
+            .submit-review-btn{
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
+
+
+        }
     }
 }
