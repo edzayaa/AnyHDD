@@ -1,3 +1,5 @@
+import gsap from "gsap";
+
 document.addEventListener('DOMContentLoaded', () => {
     const writeReviewBtn = document.querySelector('.write-review-button');
     const reviewListContainer = document.querySelector('.review-list');
@@ -6,20 +8,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.querySelector('.submit-review-btn');
     const backBtn = document.querySelector('.back-to-reviews-btn'); // Optional, if we add one
 
-    if (writeReviewBtn && reviewContainer && reviewFormContainer) {
+    if (writeReviewBtn && reviewFormContainer) {
         writeReviewBtn.addEventListener('click', () => {
             // Hide review list and title
-
-
             if (reviewListContainer) reviewListContainer.style.display = 'none';
-            writeReviewBtn.style.display = 'none'; // Hide the "Write a review" button itself if desired, or keep it. 
-            // Based on user request "reemplazandola", it should probably replace the list interaction.
-            // But usually the button is on the left. Let's hide the list in the right column.
+            writeReviewBtn.style.display = 'none';
 
+            // Show form
             reviewFormContainer.style.display = 'block';
 
-            // Animation class if needed
-            reviewFormContainer.classList.add('fade-in');
+            // GSAP Animation
+            gsap.fromTo(reviewFormContainer,
+                { autoAlpha: 0, y: 20 },
+                { duration: 0.8, autoAlpha: 1, y: 0, ease: "power2.out" }
+            );
         });
     }
 
