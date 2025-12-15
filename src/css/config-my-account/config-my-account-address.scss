@@ -26,11 +26,18 @@
         }
     }
 
+    .address-item-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+        margin-bottom: 1.5rem;
+}
+
     .address-item {
         background: rgba(248, 248, 248, 1);
         border-radius: 0.9rem;
         padding: 1.5rem;
-        margin-bottom: 1.5rem;
+    
         position: relative;
         width: 40%;
         min-width: 400px;
