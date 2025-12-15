@@ -591,13 +591,51 @@
                                 <svg viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4.08206 14.9179C4.31288 15.1488 4.68712 15.1488 4.91794 14.9179L8.67938 11.1565C8.9102 10.9257 8.9102 10.5514 8.67938 10.3206C8.44856 10.0898 8.07432 10.0898 7.8435 10.3206L4.5 13.6641L1.1565 10.3206C0.92568 10.0898 0.551446 10.0898 0.320626 10.3206C0.0898055 10.5514 0.0898056 10.9257 0.320626 11.1565L4.08206 14.9179ZM4.5 0.5L3.90895 0.5L3.90895 14.5L4.5 14.5L5.09105 14.5L5.09105 0.5L4.5 0.5Z" fill="#00254B"/>
                                 </svg>
-
                             </button>                         
                         </div>
-                          
-                        </div>
-                            
                         
+                        <!-- Review Form Container (Hidden by default) -->
+                        <div class="review-form-container" style="display: none;">
+                            <div class="form-stars-label">Your rating</div>
+                            <div class="form-stars">
+                                <!-- 5 SVG Stars -->
+                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 0L12.2451 6.90983H19.5106L13.6327 11.1803L15.8779 18.0902L10 13.8197L4.12215 18.0902L6.36729 11.1803L0.489435 6.90983H7.75486L10 0Z" stroke="#052F5A" fill="none"/></svg>
+                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 0L12.2451 6.90983H19.5106L13.6327 11.1803L15.8779 18.0902L10 13.8197L4.12215 18.0902L6.36729 11.1803L0.489435 6.90983H7.75486L10 0Z" stroke="#052F5A" fill="none"/></svg>
+                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 0L12.2451 6.90983H19.5106L13.6327 11.1803L15.8779 18.0902L10 13.8197L4.12215 18.0902L6.36729 11.1803L0.489435 6.90983H7.75486L10 0Z" stroke="#052F5A" fill="none"/></svg>
+                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 0L12.2451 6.90983H19.5106L13.6327 11.1803L15.8779 18.0902L10 13.8197L4.12215 18.0902L6.36729 11.1803L0.489435 6.90983H7.75486L10 0Z" stroke="#052F5A" fill="none"/></svg>
+                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 0L12.2451 6.90983H19.5106L13.6327 11.1803L15.8779 18.0902L10 13.8197L4.12215 18.0902L6.36729 11.1803L0.489435 6.90983H7.75486L10 0Z" stroke="#052F5A" fill="none"/></svg>
+                            </div>
+                            
+                            <textarea class="form-textarea" placeholder="Your review"></textarea>
+                            
+                            <div class="form-inputs-row">
+                                <input type="text" class="form-input" placeholder="Name">
+                                <input type="email" class="form-input" placeholder="Email">
+                            </div>
+                            
+                            <div class="form-checkbox-row">
+                                <input type="checkbox" id="save-info-check">
+                                <label for="save-info-check">Save my name, email, and website in this browser for the next time I comment.</label>
+                            </div>
+                            
+                            <!-- <button class="custom-button common-styles submit-review-btn">
+                                Submit
+                                <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" width="37" height="37" rx="18.5" fill="white"/>
+                                <path d="M25.9179 18.9179C26.1488 18.6871 26.1488 18.3129 25.9179 18.0821L22.1565 14.3206C21.9257 14.0898 21.5514 14.0898 21.3206 14.3206C21.0898 14.5514 21.0898 14.9257 21.3206 15.1565L24.6641 18.5L21.3206 21.8435C21.0898 22.0743 21.0898 22.4486 21.3206 22.6794C21.5514 22.9102 21.9257 22.9102 22.1565 22.6794L25.9179 18.9179ZM11.5 18.5L11.5 19.0911L25.5 19.0911L25.5 18.5L25.5 17.9089L11.5 17.9089L11.5 18.5Z" fill="#2F80ED"/>
+                                </svg>
+                            </button> -->
+
+							<button  class="custom-button common-styles search-button submit-review-btn">
+                                Submit
+                                <svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="0.5" width="37" height="37" rx="18.5" fill="white"/>
+                                    <path d="M26.4179 18.9179C26.6488 18.6871 26.6488 18.3129 26.4179 18.0821L22.6565 14.3206C22.4257 14.0898 22.0514 14.0898 21.8206 14.3206C21.5898 14.5514 21.5898 14.9257 21.8206 15.1565L25.1641 18.5L21.8206 21.8435C21.5898 22.0743 21.5898 22.4486 21.8206 22.6794C22.0514 22.9102 22.4257 22.9102 22.6565 22.6794L26.4179 18.9179ZM12 18.5L12 19.0911L26 19.0911L26 18.5L26 17.9089L12 17.9089L12 18.5Z" fill="#2F80ED"/>
+                                </svg>
+
+                            </button>
+                        </div>
+
                     </div>
                 </section>
 							<!-- END HERE -->
@@ -867,5 +905,6 @@
 		<script defer type="module" src="/src/js/white-overlay.js"></script>
 		<script defer type="module" src="/src/js/show-navbar.js"></script>
 		<script defer type="module" src="/src/js/feature-desing.js"></script>
+        <script defer type="module" src="/src/js/product-review.js"></script>
 	</body>
 </html>
