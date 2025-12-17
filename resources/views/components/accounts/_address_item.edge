@@ -1,0 +1,96 @@
+<div class="address-item" 
+    data-address-id="{{ address.node.id }}"
+    x-data="{ removing: false }" 
+    x-bind:class="{ 'opacity-0 scale-95': removing }"
+    x-transition.duration.300ms>
+
+    <div class="default-indicator"> 
+        <input name="addressId" class="default-radio tw-cursor-pointer" type="radio" {{ address.node.isDefault ? 'checked' : '' }}
+            hx-put="{{ route('api.customer.updateDefaultAddress') }}" 
+            hx-headers='{"X-Feedback-Scope": "address:default"}'
+            hx-vals='{"addressId": "{{ address.node.id }}"}'
+            hx-swap="none">
+        <p class="default-label">Default</p>
+    </div>
+
+    <div class="address-fields">
+        <div class="address-field">
+            <p class="field-label">First Name</p>
+            <p class="field-value">{{ address.node.firstName }}</p>
+        </div>
+
+        <div class="address-field">
+            <p class="field-label">Last Name</p>
+            <p class="field-value">{{ address.node.lastName }}</p>
+        </div>
+
+        <div class="address-field">
+            <p class="field-label">Address*</p>
+            <p class="field-value">{{ address.node.address1 }}</p>
+        </div>
+
+        <div class="address-field">
+            <p class="field-label">Additional Address Line</p>
+            <p class="field-value">{{ address.node.address2 ? address.node.address2 : 'N/A' }}</p>
+        </div>
+
+        <div class="address-field full-width">
+            <p class="field-label">Company</p>
+            <p class="field-value">{{ address.node.company ? address.node.company : 'N/A' }}</p>
+        </div>
+
+        <div class="address-field postal-city-group">
+            <div class="postal-code-field">
+                <p class="field-label">Postal Code</p>
+                <p class="field-value">{{ address.node.zip ? address.node.zip : 'N/A' }}</p>
+            </div>
+            <div class="city-field">
+                <p class="field-label">City</p>
+                <p class="field-value">{{ address.node.city ? address.node.city : 'N/A' }}</p>
+            </div>
+        </div>
+
+        <div class="province-field full-width">
+            <p class="field-label">Province/State/Region</p>
+            <p class="field-value">{{ address.node.province ? address.node.province : 'N/A' }}</p>
+        </div>
+
+        <div class="address-field full-width">
+            <p class="field-label">Country</p>
+            <p class="field-value">{{ address.node.country ? address.node.country : 'N/A' }}</p>
+        </div>
+    </div>
+
+    <div class="address-actions">
+        <button class="action-link edit-address-btn" 
+            data-address-id="{{ address.node.id }}"
+            data-address="{{ json({
+                id: address.node.id,
+                firstName: address.node.firstName || '',
+                lastName: address.node.lastName || '',
+                company: address.node.company || '',
+                address1: address.node.address1 || '',
+                address2: address.node.address2 || '',
+                zip: address.node.zip || '',
+                city: address.node.city || '',
+                countryCode: address.node.countryCodeV2 || '',
+                provinceCode: address.node.provinceCode || '',
+                phone: address.node.phone || ''
+            }) }}"
+            onclick="window.dispatchEvent(new CustomEvent('open-address-drawer', { 
+                detail: { address: JSON.parse(this.dataset.address) }
+            }))">Edit</button>
+        <button class="action-link remove-link htmx-button" :disabled="removing"
+            hx-post="{{ route('api.customer.deleteAddress') }}" hx-swap="none"
+            hx-headers='{"X-Feedback-Scope": "global"}' hx-vals='{"addressId": "{{ address.node.id }}"}'
+            @htmx:before-request="removing = true" @htmx:after-request="
+                    const xhr = $event.detail.xhr;
+                    if (xhr.status >= 200 && xhr.status < 300) { 
+                        setTimeout(() => $el.closest('.address-item').remove(), 300); 
+                    } else { 
+                        removing = false; 
+                    }
+                ">
+            Remove</button>
+    </div>
+</div>

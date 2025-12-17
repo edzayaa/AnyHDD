@@ -20,20 +20,38 @@ export const addressValidator = vine.compile(
         address: vine.object({
             firstName: vine.string().trim().minLength(2).maxLength(20).regex(nameRegex),
             lastName: vine.string().trim().minLength(2).maxLength(20).regex(nameRegex),
+            company: vine.string().trim().minLength(2).maxLength(50).optional(),
             address1: vine.string().trim().minLength(2).maxLength(50),
             address2: vine.string().trim().minLength(2).maxLength(50).optional(),
             city: vine.string().trim().minLength(2).maxLength(50),
-            country: vine.string().trim().minLength(2).maxLength(50),
-            province: vine.string().trim().minLength(2).maxLength(50).optional(),
+            country: vine.string().trim().minLength(1).maxLength(50),
+            province: vine.string().trim().minLength(1).maxLength(50).optional(),
             zip: vine.string().trim().minLength(2).maxLength(50).optional(),
-            phone: vine.string().trim().regex(/^[1-9]\d{4,14}$/).optional(),
-            prefixCode: vine.string().trim().regex(/^[1-9]\d{0,3}$/).optional(),
-            isDefault: vine.boolean().optional(),
+            phone: vine.string().trim().regex(/^\+?[\d\s\(\)\-]{7,20}$/).optional(),
         })
     })
 )
 
-export const defaultAddressValidtor = vine.compile(
+export const updateAddressValidator = vine.compile(
+    vine.object({
+        customerAccessToken: vine.string().trim(),
+        addressId: vine.string().trim(),
+        address: vine.object({
+            firstName: vine.string().trim().minLength(2).maxLength(20).regex(nameRegex),
+            lastName: vine.string().trim().minLength(2).maxLength(20).regex(nameRegex),
+            company: vine.string().trim().minLength(2).maxLength(50).optional(),
+            address1: vine.string().trim().minLength(2).maxLength(50),
+            address2: vine.string().trim().minLength(2).maxLength(50).optional(),
+            city: vine.string().trim().minLength(2).maxLength(50),
+            country: vine.string().trim().minLength(1).maxLength(50),
+            province: vine.string().trim().minLength(1).maxLength(50).optional(),
+            zip: vine.string().trim().minLength(2).maxLength(50).optional(),
+            phone: vine.string().trim().regex(/^\+?[\d\s\(\)\-]{7,20}$/).optional(),
+        })
+    })
+)
+
+export const defaultAddressValidator = vine.compile(
     vine.object({
         customerAccessToken: vine.string().trim(),
         addressId: vine.string().trim(),

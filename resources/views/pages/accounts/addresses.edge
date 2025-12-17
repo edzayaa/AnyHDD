@@ -2,146 +2,129 @@
 
 @slot('styles')
 @vite(['resources/css/core/accounts/address.scss', 'resources/js/core/accounts/address.js'])
+@vite('resources/css/app.css')
 @endslot
 
 @slot('main')
-<!-- EDIT ACCOUNT DRAWER -->
-<div id="edit-account-drawer-container">
-    <div id="edit-account-overlay"></div>
+@include('components/feedback/address/_toast')
 
-    <aside id="edit-account-drawer">
+<div id="add-address-drawer-container" x-data="addressDrawer()" x-init="init()">
+    <div id="add-address-overlay" x-show="isOpen" x-transition:enter="tw-transition tw-ease-out tw-duration-300" x-transition:enter-start="tw-opacity-0" x-transition:enter-end="tw-opacity-100" x-transition:leave="tw-transition tw-ease-in tw-duration-200" x-transition:leave-start="tw-opacity-100" x-transition:leave-end="tw-opacity-0" @click="closeDrawer()" style="display: none;"></div>
+
+    <aside id="add-address-drawer" :class="{ 'drawer-open': isOpen }" @close:modal.window="closeDrawer()">
         <div class="drawer-header">
-            <svg class="close-btn-account-edit" width="8" height="14" viewBox="0 0 8 14" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 13L1 7L7 1" stroke="#052F5A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
+            <svg class="close-btn-address-drawer" @click="closeDrawer()" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 13L1 7L7 1" stroke="#052F5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            <h2 class="s">Edit your details</h2>
-
+            <h2 class="s" x-text="isEditMode ? 'Edit your address' : 'Add your address'"></h2>
         </div>
 
         <div class="drawer-content">
-            <form id="edit-account-form">
-                <div class="divided-input">
-                    <div class="form-group">
-                        <label class="form-label" for="edit-first-name">First Name</label>
-                        <input type="text" id="edit-first-name" class="form-input" value="Alex" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="edit-last-name">Last Name</label>
-                        <input type="text" id="edit-last-name" class="form-input" value="Sehgal" required>
-                    </div>
-                </div>
-
-
-                <!-- <div class="form-group">
-							<label class="form-label" for="edit-gender">Gender</label>
-							<select id="edit-gender" class="form-select" required>
-								<option value="male" selected>Male</option>
-								<option value="female">Female</option>
-								<option value="other">Other</option>
-								<option value="prefer-not-to-say">Prefer not to say</option>
-							</select>
-						</div> -->
-
-                <div class="form-group">
-                    <label class="form-label" for="edit-dob">Date of Birth</label>
-                    <input type="date" id="edit-dob" class="form-input" value="1995-10-01" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="edit-phone">Phone Number</label>
-                    <input type="tel" id="edit-phone" class="form-input" value="+1215-3565" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="edit-password">Password</label>
-                    <input type="password" id="edit-password" class="form-input" placeholder="Enter new password">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="edit-confirm-password">Confirm Password</label>
-                    <input type="password" id="edit-confirm-password" class="form-input"
-                        placeholder="Confirm new password">
-                </div>
-            </form>
-        </div>
-
-        <div class="drawer-footer">
-
-            <button type="submit" form="edit-account-form" class="btn-save">Submit</button>
-            <button type="button" class="btn-cancel" id="cancel-edit-btn">Cancel</button>
-        </div>
-    </aside>
-</div>
-<!-- ADD ADDRESS DRAWER -->
-<div id="add-address-drawer-container">
-    <div id="add-address-overlay"></div>
-
-    <aside id="add-address-drawer">
-        <div class="drawer-header">
-            <svg class="close-btn-address-drawer" width="8" height="14" viewBox="0 0 8 14" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 13L1 7L7 1" stroke="#052F5A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-            </svg>
-            <h2 class="s">Add your address</h2>
-
-        </div>
-
-        <div class="drawer-content">
-            <form id="add-address-form">
-                <div class="divided-input">
-                    <div class="form-group">
-                        <label class="form-label" for="add-street">Street</label>
-                        <input type="text" id="add-street" class="form-input" placeholder="" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="add-number">Number</label>
-                        <input type="text" id="add-number" class="form-input" placeholder="" required>
+            <form id="add-address-form" @submit.prevent="submitForm">
+                <div x-show="errorMessage" x-transition:enter="tw-transition tw-ease-out tw-duration-300" x-transition:enter-start="tw-opacity-0 tw-transform tw-translate-y-[-10px]" x-transition:enter-end="tw-opacity-100 tw-transform tw-translate-y-0" x-transition:leave="tw-transition tw-ease-in tw-duration-200" x-transition:leave-start="tw-opacity-100" x-transition:leave-end="tw-opacity-0" class="tw-bg-red-50 tw-border-l-4 tw-border-red-500 tw-p-4 tw-mb-4 tw-rounded-r-lg" role="alert">
+                    <div class="tw-flex tw-items-start">
+                        <div class="tw-flex-shrink-0">
+                            <svg class="tw-h-5 tw-w-5 tw-text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="tw-ml-3">
+                            <p class="tw-text-sm tw-text-red-700" x-text="errorMessage"></p>
+                        </div>
+                        <div class="tw-ml-auto tw-pl-3">
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-label" for="add-additional">Additional Address Line</label>
-                    <input type="text" id="add-additional" class="form-input" placeholder="">
-                </div>
-
-                <div class="divided-input">
-                    <div class="form-group">
-                        <label class="form-label" for="add-zip">ZIP Code</label>
-                        <input type="text" id="add-zip" class="form-input" placeholder="" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="add-city">City</label>
-                        <input type="text" id="add-city" class="form-input" placeholder="" required>
+                <div x-show="noChangesWarning" x-transition:enter="tw-transition tw-ease-out tw-duration-300" x-transition:enter-start="tw-opacity-0 tw-transform tw-translate-y-[-10px]" x-transition:enter-end="tw-opacity-100 tw-transform tw-translate-y-0" x-transition:leave="tw-transition tw-ease-in tw-duration-200" x-transition:leave-start="tw-opacity-100" x-transition:leave-end="tw-opacity-0" class="tw-bg-amber-50 tw-border-l-4 tw-border-amber-500 tw-p-4 tw-mb-4 tw-rounded-r-lg" role="alert">
+                    <div class="tw-flex tw-items-start">
+                        <div class="tw-flex-shrink-0">
+                            <svg class="tw-h-5 tw-w-5 tw-text-amber-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="tw-ml-3">
+                            <p class="tw-text-sm tw-text-amber-700">No changes detected. Modify at least one field to update.</p>
+                        </div>
+                        <div class="tw-ml-auto tw-pl-3">
+                        </div>
                     </div>
                 </div>
-
+                
                 <div class="form-group">
                     <label class="form-label" for="add-country">Country</label>
-                    <select id="add-country" class="form-select" required>
+                    <select id="add-country" x-model="formData.country" class="form-select" @change="onCountryChange()" required>
                         <option value="">Select country</option>
-                        <option value="australia">Australia</option>
-                        <option value="usa">United States</option>
-                        <option value="canada">Canada</option>
-                        <option value="uk">United Kingdom</option>
-                        <option value="other">Other</option>
+                        <template x-for="country in countries" :key="country.code">
+                            <option :value="country.code" x-text="country.name"></option>
+                        </template>
                     </select>
+                </div>
+
+                <div class="divided-input">
+                    <div class="form-group">
+                        <label class="form-label" for="add-firstName" x-text="getFieldLabel('firstName')"></label>
+                        <input type="text" id="add-firstName" x-model="formData.firstName" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="add-lastName" x-text="getFieldLabel('lastName')"></label>
+                        <input type="text" id="add-lastName" x-model="formData.lastName" class="form-input" required>
+                    </div>
+                </div>
+
+                <div class="form-group" x-show="showField('company')">
+                    <label class="form-label" for="add-company" x-text="getFieldLabel('company')"></label>
+                    <input type="text" id="add-company" x-model="formData.company" class="form-input">
+                </div>
+
+                <div class="form-group" x-show="showField('address1')">
+                    <label class="form-label" for="add-address1" x-text="getFieldLabel('address1')"></label>
+                    <input type="text" id="add-address1" x-model="formData.address1" class="form-input" :required="showField('address1')">
+                </div>
+
+                <div class="form-group" x-show="showField('address2')">
+                    <label class="form-label" for="add-address2" x-text="getFieldLabel('address2')"></label>
+                    <input type="text" id="add-address2" x-model="formData.address2" class="form-input">
+                </div>
+
+                <div class="divided-input">
+                    <div class="form-group" x-show="showField('city')">
+                        <label class="form-label" for="add-city" x-text="getFieldLabel('city')"></label>
+                        <input type="text" id="add-city" x-model="formData.city" class="form-input" :required="showField('city')">
+                    </div>
+                    <div class="form-group" x-show="showField('zip')">
+                        <label class="form-label" for="add-zip" x-text="getFieldLabel('postalCode')"></label>
+                        <input type="text" id="add-zip" x-model="formData.zip" class="form-input">
+                    </div>
+                </div>
+
+                <div class="form-group" x-show="selectedCountry?.zones?.length > 0">
+                    <label class="form-label" for="add-province" x-text="getFieldLabel('zone')"></label>
+                    <select id="add-province" x-model="formData.province" class="form-select" :required="selectedCountry?.zones?.length > 0">
+                        <option value="">Select</option>
+                        <template x-for="zone in selectedCountry?.zones || []" :key="zone.code">
+                            <option :value="zone.code" x-text="zone.name"></option>
+                        </template>
+                    </select>
+                </div>
+
+                <div class="form-group" x-show="showField('phone')">
+                    <label class="form-label" for="add-phone" x-text="getFieldLabel('phone')"></label>
+                    <input type="tel" id="add-phone" x-model="formData.phone" class="form-input">
                 </div>
             </form>
         </div>
 
         <div class="drawer-footer">
-
-            <button type="submit" form="add-address-form" class="btn-save">Submit</button>
-            <button type="button" class="btn-cancel" id="cancel-address-btn">Cancel</button>
+            <button type="submit" form="add-address-form" class="btn-save htmx-button" :disabled="loading">
+                <span class="btn-text" :class="{ 'tw-invisible': loading }" x-text="isEditMode ? 'Update' : 'Submit'"></span>
+                <span x-show="loading" class="btn-loader"></span>
+            </button>
+            <button type="button" class="btn-cancel" id="cancel-address-btn" :disabled="loading">Cancel</button>
         </div>
     </aside>
 </div>
+
 <div id="smooth-wrapper">
     <div id="smooth-content">
         <div class="contact-us-container">
@@ -165,7 +148,7 @@
                             @include('components/accounts/_addresses')
 
                             <!-- Add New Address Button -->
-                            <button class="add-address-btn">
+                            <button class="add-address-btn" onclick="window.dispatchEvent(new CustomEvent('open-address-drawer'))">
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <rect width="16" height="16" rx="8" fill="#D7D7D7" />

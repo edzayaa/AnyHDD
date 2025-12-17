@@ -4,18 +4,12 @@ export default {
     content: [
         './resources/views/**/*.edge',
         './resources/js/**/*.js',
+        './node_modules/preline/dist/*.js',
     ],
 
     corePlugins: {
         preflight: false,
     },
 
-    plugins: [
-        require('daisyui'),
-    ],
-   
-    daisyui: {
-        themes: ['light'],
-        prefix: 'tw-',
-    },
+
 }

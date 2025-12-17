@@ -3,7 +3,6 @@
 @slot('styles')
 @vite(['resources/css/core/accounts/my-account.scss', 'resources/js/core/accounts/my-account.js'])
 @vite('resources/css/app.css')
-<link href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/components/alert.css,npm/daisyui@5/theme/light.css" rel="stylesheet" type="text/css" />
 @endslot
 
 @slot('main')
@@ -26,14 +25,16 @@
             <h2 class="s">Edit your details</h2>
         </div>
 
-        <div id="response-feedback"></div>
+        <div id="response-feedback">
+            @include('components/feedback/_response_feedback')
+        </div>
 
         <div class="drawer-content">
             <form id="edit-account-form" 
                 x-ref="editAccountForm" 
                 hx-post="{{ route('api.customer.updateCustomer') }}"
-                hx-target="#personal-info-section" 
-                hx-target-error="#response-feedback"
+                hx-header='{"X-Feedback-Scope": "global"}'
+                hx-target="#personal-info-section"
                 hx-swap="innerHTML"
                 @htmx:before-request="loading = true"
                 @htmx:after-request="loading = false">

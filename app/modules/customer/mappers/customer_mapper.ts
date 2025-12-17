@@ -40,19 +40,45 @@ export class CustomerMapper {
             zip: data.address.zip,
         };
 
-        if (data.address.prefixCode && data.address.phone) {
-            const prefix = data.address.prefixCode.toString();
-            let rawPhone = data.address.phone.toString().replace(/^\+/, '');
-            const prefixRegex = new RegExp(`^${prefix}`);
-            if (prefixRegex.test(rawPhone)) {
-                address.phone = `+${rawPhone}`;
-            } else {
-                address.phone = `+${prefix}${rawPhone}`;
-            }
+        if (data.address.company) {
+            address.company = data.address.company;
+        }
+
+        if (data.address.phone) {
+            let phone = data.address.phone.toString().replace(/[\s\(\)\-]/g, '');
+            address.phone = phone.startsWith('+') ? phone : `+${phone}`;
         }
 
         return {
             customerAccessToken: data.customerAccessToken,
+            address
+        }
+    }
+
+    static toUpdateAddress(data: any) {
+        const address: any = {
+            firstName: data.address.firstName,
+            lastName: data.address.lastName,
+            address1: data.address.address1,
+            address2: data.address.address2,
+            city: data.address.city,
+            country: data.address.country,
+            province: data.address.province,
+            zip: data.address.zip,
+        };
+
+        if (data.address.company) {
+            address.company = data.address.company;
+        }
+
+        if (data.address.phone) {
+            let phone = data.address.phone.toString().replace(/[\s\(\)\-]/g, '');
+            address.phone = phone.startsWith('+') ? phone : `+${phone}`;
+        }
+
+        return {
+            customerAccessToken: data.customerAccessToken,
+            addressId: data.addressId,
             address
         }
     }

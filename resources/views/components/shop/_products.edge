@@ -1,0 +1,24 @@
+@if(collection.products && collection.products.edges.length > 0)
+@each(item in collection.products.edges)
+<div class="product-card">
+    <div class="product-card-top">
+        <h3>{{ item.node.title }}</h3>
+        <a href='/collections/all?productType={{ item.node.productType }}'>{{ item.node.productType }}</a>
+    </div>
+    <div class='product-card-img'>
+        <img src="{{ item.node.featuredImage.url }}" alt="{{ item.node.title }}" />
+    </div>
+    <div class="product-card-details">
+        <a href="{{ route('getProduct', { handle: item.node.handle }) }}">See Details</a>
+        <div>
+            <button class="add-to-cart-button">
+                <img src="/img/plus-button.svg" alt="Add to Cart" />
+            </button>
+            <span>${{ item.node.priceRange.minVariantPrice.amount }}</span>
+        </div>
+    </div>
+</div>
+@endeach
+@else
+<p>No products found in this collection.</p>
+@endif

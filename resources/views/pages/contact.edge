@@ -3,7 +3,6 @@
 @slot('styles')
 @vite(['resources/css/core/contact.scss', 'resources/js/core/contact.js'])
 @vite('resources/css/app.css')
-<link href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/components/alert.css,npm/daisyui@5/theme/light.css" rel="stylesheet" type="text/css" />
 @endslot
 
 @slot('main')
@@ -61,19 +60,20 @@
                         x-data="{ loading: false }"
                         x-ref="contactForm"
                         hx-post="{{ route('api.pages.contactUs') }}" 
-                        hx-target="#response-feedback"
-                        hx-target-error="#response-feedback"
+                        hx-headers='{"X-Feedback-Scope": "global"}'
                         hx-swap="innerHTML"
                         @htmx:before-request="loading = true" 
-                        @htmx:after-settle="loading = false; $refs.contactForm.reset()"
+                        @htmx:after-request="loading = false; $refs.contactForm.reset()"
                         >
 
-                        <div id="response-feedback"></div>
+                        <div id="response-feedback">
+                            @include('components/feedback/_response_feedback')
+                        </div>
 
                         <div class="wrapper-halfs">
                             <div class="input-container-half ">
                                 <label for="fullname">Full Name</label>
-                                <input placeholder="Enter your name" name="name" required type="text">
+                                <input placeholder="Enter your name" name="name" type="text" required> 
                             </div>
                             <div class="input-container-half ">
                                 <label for="company">Company</label>

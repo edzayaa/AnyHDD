@@ -7,9 +7,11 @@ import StorefrontClient from "#shopify/storefront";
 import { CustomerService } from "#modules/customer/services/customer_service";
 
 // Validators
-import { 
-    addressValidator, 
-    customerValidator, 
+import {
+    addressValidator,
+    customerValidator,
+    defaultAddressValidator,
+    updateAddressValidator
 } from "#modules/customer/validators/customer_validator";
 
 import { BadRequestException } from "#exceptions/common";
@@ -29,39 +31,89 @@ export class CustomerApiController {
     }
 
     async updateCustomer({ request, response, session, view }: HttpContext) {
-        console.log('Update Customer Request Body:', request.body());
         const payload = await request.validateUsing(customerValidator, {
             data: { customerAccessToken: request.cookie('customerAccessToken'), ...request.body() }
         })
 
-        const hasUpdateField = payload.firstName || payload.lastName || payload.email || 
-                               payload.phone || payload.password;
-        
+        const hasUpdateField = payload.firstName || payload.lastName || payload.email ||
+            payload.phone || payload.password;
+
         if (!hasUpdateField) {
             throw new BadRequestException('At least one field must be provided for update')
         }
 
-        const { data, updatePassword }= await this.customerService.updateCustomer(payload)
+        const { data, updatePassword } = await this.customerService.updateCustomer(payload)
         if (updatePassword) {
             session.flash('success', 'Your password has been updated successfully! Please login to your account.')
+            response.clearCookie('customerAccessToken')
             response.header('HX-Redirect', router.makeUrl('auth.login'))
         }
-        response.header('HX-Trigger', 'close:modal')
+        response.status(200).header('HX-Trigger', 'close:modal')
         return view.render('components/accounts/_personal_info', { customer: data })
     }
 
-    async createAddress({ request, response }: HttpContext) {
+    async createAddress({ request, response, view }: HttpContext) {
         const payload = await request.validateUsing(addressValidator, {
             data: { customerAccessToken: request.cookie('customerAccessToken'), ...request.body() }
         })
-        return response.created(await this.customerService.createAddress(payload))
+
+        const addressData = await this.customerService.createAddress(payload)
+        const address = {
+            node: addressData
+        }
+        
+        response.status(201)
+        return view.render('components/accounts/_address_item', { address })
     }
 
-    /**
-    async updateDefaultAddress({ request, params, response }: HttpContext) {
-        const data = await request.body()
-        const variables = this.sanitize(request.cookie('accessToken'), data)
-        return response.ok(await this.customerService.updateDefaultAddress({ ...variables, addressId: params.id }))
+    async updateAddress({ request, response, view }: HttpContext) {
+        const payload = await request.validateUsing(updateAddressValidator, { 
+            data: { customerAccessToken: request.cookie('customerAccessToken'), ...request.body() } 
+        })
+
+        const addressData = await this.customerService.updateAddress(payload)
+        const address = {
+            node: addressData
+        }
+        
+        response.status(200)
+        return view.render('components/accounts/_address_item', { address })
     }
-    */
+
+    async updateDefaultAddress({ request, response }: HttpContext) {
+        const payload = await request.validateUsing(defaultAddressValidator, {
+            data: { customerAccessToken: request.cookie('customerAccessToken'), ...request.body() }
+        })
+        await this.customerService.updateDefaultAddress(payload)
+        return response
+            .status(200)
+            .header('HX-Trigger', JSON.stringify({
+                'app:success': {
+                    type: 'success',
+                    message: 'Default address has been updated successfully!',
+                    title: 'Default Address Updated',
+                    scope: request.header('X-Feedback-Scope') || 'global'
+                }
+            }))
+            .noContent()
+    }
+
+    async deleteAddress({ request, response }: HttpContext) {
+        const payload = await request.validateUsing(defaultAddressValidator, {
+            data: { customerAccessToken: request.cookie('customerAccessToken'), ...request.body() }
+        })
+
+        await this.customerService.deleteAddress(payload)
+        return response
+            .status(200)
+            .header('HX-Trigger', JSON.stringify({
+                'app:success': {
+                    type: 'success',
+                    message: 'Address has been deleted successfully!',
+                    title: 'Address Deleted',
+                    scope: request.header('X-Error-Scope') || 'global'
+                }
+            }))
+            .noContent()
+    }
 }

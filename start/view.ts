@@ -37,3 +37,8 @@ edge.global("formatOrderStatus", (status: string): string => {
       return "Order received"
   }
 })
+
+
+edge.global("json", (obj: any) => {
+  return JSON.stringify(obj);
+})

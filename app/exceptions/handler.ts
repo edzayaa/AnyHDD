@@ -34,7 +34,7 @@ export default class HttpExceptionHandler extends ExceptionHandler {
   /**
    * The method is used for handling errors and returning
    * response to the client
-   */
+   
   async handle(error: unknown, ctx: HttpContext) {
     const isHtmx = ctx.request.header('HX-Request')
     if (error instanceof errors.E_VALIDATION_ERROR) {
@@ -72,6 +72,57 @@ export default class HttpExceptionHandler extends ExceptionHandler {
 
     return super.handle(error, ctx)
   }
+  */
+  async handle(error: unknown, ctx: HttpContext) {
+    const isHtmx = ctx.request.header('HX-Request')
+    const scope = ctx.request.header('X-Feedback-Scope') || 'global'
+
+    if (error instanceof errors.E_VALIDATION_ERROR) {
+      const payload = {
+        type: 'error',
+        message: error.messages[0].message,
+        title: 'Validation Error',
+        scope: scope,
+      }
+
+      if (isHtmx) {
+        return ctx.response
+          .status(422)
+          .header('HX-Trigger', JSON.stringify({
+            'app:error': payload,
+          }))
+          .send('')
+      }
+
+      return ctx.response.status(422).json(error.messages)
+    }
+
+    if (error instanceof BadRequestException) {
+      const payload = {
+        type: 'error',
+        message: error.message,
+        title: 'An error occurred sending your request',
+        scope: scope,
+      }
+
+      if (isHtmx) {
+        return ctx.response
+          .status(400)
+          .header('HX-Trigger', JSON.stringify({
+            'app:error': payload,
+          }))
+          .send('')
+      }
+
+      return ctx.response.status(400).json({
+        error: 'BAD_REQUEST',
+        message: error.message,
+      })
+    }
+
+    return super.handle(error, ctx)
+  }
+
 
   /**
    * The method is used to report error to the logging service or

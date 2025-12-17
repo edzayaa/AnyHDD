@@ -14,6 +14,7 @@ export default defineConfig({
        */
       entrypoints: [
         'resources/css/app.css',
+        'resources/js/flowbite-init.js',
         'resources/css/core/common.scss',
         'resources/css/core/home.scss',
         'resources/css/core/about.scss',

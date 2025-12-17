@@ -112,31 +112,31 @@
     <div class="desk-submenu">
         <ul class=''>
             <li>
-                <a href="/shop/monitors">
+                <a href="{{ route('shop.productsByCollection', { handle: 'monitors' }) }}">
                     <img src="/assets/monitor.svg" alt="Monitors" />
                     Monitors
                 </a>
             </li>
             <li>
-                <a href="/shop/scanners">
+                <a href="{{ route('shop.productsByCollection', { handle: 'scanners' }) }}">
                     <img src="/assets/scanners.svg" alt="Scanners" />
                     Scanners
                 </a>
             </li>
             <li>
-                <a href="/shop/thermals">
+                <a href="{{ route('shop.productsByCollection', { handle: 'thermal-printers' }) }}">
                     <img src="/assets/printers.svg" alt="Thermal Printers" />
                     Thermal Printers
                 </a>
             </li>
             <li>
-                <a href="/shop/docking-stations">
+                <a href="{{ route('shop.productsByCollection', { handle: 'docking-stations' }) }}">
                     <img src="/assets/docking-stations.svg" alt="HP & Lenovo Docking Stations" />
                     HP & Lenovo Docking Stations
                 </a>
             </li>
             <li>
-                <a href="/shop">
+                <a href="{{ route('shop.products') }}">
                     <img src="/assets/all-categories.svg" alt="All Categories" />
                     All Categories
                 </a>

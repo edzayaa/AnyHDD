@@ -1,0 +1,24 @@
+<div x-cloak x-data="{ showSuccess: false, message: '', title: '', scope: '{{ scope || 'global' }}' }"
+    @app:success.window="
+        if ($event.detail.scope === scope) {
+            message = $event.detail.message;
+            title = $event.detail.title || 'Success';
+            showSuccess = true;
+            setTimeout(() => showSuccess = false, 5000);
+        }
+    ">
+    
+    @include('components/feedback/shared/toast/_success')
+</div>
+
+<div x-cloak x-data="{ showError: false, message: '', title: '', scope: 'address:default' }"
+    @app:error.window="
+        if ($event.detail.scope === scope) {
+            message = $event.detail.message;
+            title = $event.detail.title || 'Error';
+            showError = true;
+            setTimeout(() => showError = false, 5000);
+        }
+    ">
+    @include('components/feedback/shared/toast/_error')
+</div>

@@ -1,59 +1,9 @@
-@each(address in customer.addresses)
-<div class="address-item">
-    {{{ address.node.isDefault ? `
-    <div class="default-indicator">
-        <!-- <div class="default-radio"></div> -->
-        <input class="default-radio" checked type="radio">
-        <p class="default-label">Default</p>
-    </div>
-    ` : '' }}}
-
-    <div class="address-fields">
-        <div class="address-field">
-            <p class="field-label">First Name</p>
-            <p class="field-value">{{ address.node.firstName }}</p>
-        </div>
-
-        <div class="address-field">
-            <p class="field-label">Last Name</p>
-            <p class="field-value">{{ address.node.lastName }}</p>
-        </div>
-
-        <div class="address-field">
-            <p class="field-label">Address*</p>
-            <p class="field-value">{{ address.node.address1 }}</p>
-        </div>
-
-        <div class="address-field">
-            <p class="field-label">Additional Address Line</p>
-            <p class="field-value">{{ address.node.address2 ? address.node.address2 : 'N/A' }}</p>
-        </div>
-
-        <div class="address-field full-width">
-            <p class="field-label">Company</p>
-            <p class="field-value">{{ address.node.company ? address.node.company : 'N/A' }}</p>
-        </div>
-
-        <div class="address-field postal-city-group">
-            <div class="postal-code-field">
-                <p class="field-label">Postal Code</p>
-                <p class="field-value">{{ address.node.zip ? address.node.zip : 'N/A' }}</p>
-            </div>
-            <div class="city-field">
-                <p class="field-label">City</p>
-                <p class="field-value">{{ address.node.city ? address.node.city : 'N/A' }}</p>
-            </div>
-        </div>
-
-        <div class="address-field full-width">
-            <p class="field-label">Country</p>
-            <p class="field-value">{{ address.node.country ? address.node.country : 'N/A' }}</p>
-        </div>
-    </div>
-
-    <div class="address-actions">
-        <button class="action-link">Edit</button>
-        <button class="action-link remove-link">Remove</button>
-    </div>
+<div class="address-item-container">
+    @if(customer.addresses && customer.addresses.length > 0)
+    @each(address in customer.addresses)
+    @include('components/accounts/_address_item')
+    @endeach
+    @else
+    <p class="no-addresses-message">You have no saved addresses.</p>
+    @endif
 </div>
-@endeach

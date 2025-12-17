@@ -1,0 +1,34 @@
+@let(notificationData = flashMessages.get('notification'))
+
+@if(notificationData)
+<script>
+    window.__notification__ = JSON.parse('{{{ js.stringify(notificationData) }}}');
+</script>
+@endif
+
+<div x-cloak x-data="{ 
+        showSuccess: false, 
+        message: '', 
+        title: '', 
+        scope: '{{ scope || 'global' }}'
+    }"
+    x-init="
+        if (window.__notification__ && window.__notification__.scope === scope) {
+            message = window.__notification__.message;
+            title = window.__notification__.title || 'Success';
+            showSuccess = true;
+            setTimeout(() => showSuccess = false, 5000);
+            delete window.__notification__;
+        }
+    "
+    @register:success.window="
+        if ($event.detail.scope === scope) {
+            message = $event.detail.message;
+            title = $event.detail.title || 'Success';
+            showSuccess = true;
+            setTimeout(() => showSuccess = false, 5000);
+        }
+    ">
+
+    @include('components/feedback/shared/toast/_success')
+</div>

@@ -3,10 +3,10 @@
 @slot('styles')
 @vite(['resources/css/core/auth/login.scss', 'resources/js/core/auth/login.js'])
 @vite('resources/css/app.css')
-<link href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/components/alert.css,npm/daisyui@5/theme/light.css" rel="stylesheet" type="text/css" />
 @endslot
 
 @slot('main')
+@include('components/feedback/login/_toast')
 <div id="smooth-wrapper">
     <div id="smooth-content">
         <div class="login-acount-container-major">
@@ -21,30 +21,21 @@
                     <span class="over-title">Sign In</span>
                     <h1 class="xl">Sign In</h1>
                     <form class="account-form" 
-                        x-ref="loginForm"
+                        x-ref="loginForm" 
                         x-data="{ loading: false }"
                         hx-post="{{ route('api.auth.login') }}" 
-                        hx-target="#response-feedback" 
-                        hx-target-error="#response-feedback"
+                        hx-headers='{"X-Feedback-Scope": "global"}'
                         hx-swap="innerHTML"
-                        @htmx:before-request="loading = true" 
-                        @htmx:after-settle="loading = false; $refs.loginForm.reset()">
+                        @htmx:before-request="loading = true"
+                        @htmx:after-request="loading = false; $refs.loginForm.reset()">
 
                         <div id="response-feedback">
-                            @if(flashMessages.has('success'))
-                            <div role="alert" class="tw-alert tw-alert-success" style="padding: 1rem !important; margin-bottom: 1rem !important;">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="tw-h-6 tw-w-6 tw-shrink-0 tw-stroke-current tw-stroke-white" fill="none" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span class="tw-text-white">{{ flashMessages.get('success') }}</span>
-                            </div>
-                            @endif
+                            @include('components/feedback/_response_feedback')
                         </div>
 
                         <div class="input-container">
                             <label for="fullname">Email</label>
-                            <input placeholder="Enter your email" name="email" type="email" required>
+                            <input placeholder="Enter your email" name="email" required type="email">
                         </div>
 
                         <div class="input-container password-container">
@@ -56,7 +47,8 @@
                         </div>
                         <button class="custom-button common-styles htmx-button" type="submit" :disabled="loading">
                             <span :style="{ color: loading ? 'transparent' : ''}">Sign In</span>
-                            <svg :style="{ visibility: loading ? 'hidden' : 'visible' }" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg :style="{ visibility: loading ? 'hidden' : 'visible' }" viewBox="0 0 37 37" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <rect rx="18.5" fill="white" />
                                 <path
                                     d="M25.9179 18.9179C26.1488 18.6871 26.1488 18.3129 25.9179 18.0821L22.1565 14.3206C21.9257 14.0898 21.5514 14.0898 21.3206 14.3206C21.0898 14.5514 21.0898 14.9257 21.3206 15.1565L24.6641 18.5L21.3206 21.8435C21.0898 22.0743 21.0898 22.4486 21.3206 22.6794C21.5514 22.9102 21.9257 22.9102 22.1565 22.6794L25.9179 18.9179ZM11.5 18.5L11.5 19.0911L25.5 19.0911L25.5 18.5L25.5 17.9089L11.5 17.9089L11.5 18.5Z"
@@ -67,7 +59,8 @@
                         </button>
                     </form>
                     <a class="forgot-password-link" href="{{ route('auth.forgotPassword') }}">Forgot Password?</a>
-                    <a class="login-link" href="{{ route('auth.register') }}"><span>New User?</span> Create an account</a>
+                    <a class="login-link" href="{{ route('auth.register') }}"><span>New User?</span> Create an
+                        account</a>
                 </div>
 
             </section>

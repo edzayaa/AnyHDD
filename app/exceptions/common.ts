@@ -4,6 +4,7 @@ import { HttpContext } from '@adonisjs/core/http'
 export class BadRequestException extends Exception {
     constructor(
         message: string,
+        public type: string = 'alert',
         public validationErrors?: any[]
     ) {
         super(message)

@@ -24,6 +24,8 @@ const messages = {
     'notes.maxLength': 'Notes must be at most {{ max }} characters long.',
     'productList.minLength': 'Product List must be at least {{ min }} characters long.',
     'productList.maxLength': 'Product List must be at most {{ max }} characters long.',
+    'issueDescription.minLength': 'Issue must be at least {{ min }} characters long.',
+    'issueDescription.maxLength': 'Issue must be at most {{ max }} characters long.',
 }
 
 const fields = {

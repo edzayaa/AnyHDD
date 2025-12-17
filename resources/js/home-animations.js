@@ -18,26 +18,26 @@ tl.to('.white-overlay', {
     duration: 1.5,
 });
 
-tl.fromTo('nav',{
+tl.fromTo('nav', {
     yPercent: -100,
-},{
+}, {
     yPercent: 0,
     duration: 2,
     ease: 'power2.out',
 }, "<")
 
-tl.fromTo(".hero-container",{
+tl.fromTo(".hero-container", {
     yPercent: 10,
-},{
+}, {
     yPercent: 0,
     duration: 2,
     ease: 'power2.out',
 }, "<")
 
 /*Categories*/
-tl.fromTo(".section-2",{
+tl.fromTo(".section-2", {
     yPercent: 40,
-},{
+}, {
     yPercent: 0,
     duration: 2,
     ease: 'power2.out',
@@ -52,9 +52,9 @@ const shopTl = gsap.timeline({
     }
 });
 
-shopTl.fromTo(".shop-section",{
+shopTl.fromTo(".shop-section", {
     opacity: 0,
-},{
+}, {
     opacity: 1,
     duration: 2,
     ease: 'power2.out',
@@ -71,10 +71,10 @@ const benefitsTl = gsap.timeline({
     }
 });
 
-benefitsTl.fromTo(".benefits-section h2",{
+benefitsTl.fromTo(".benefits-section h2", {
     yPercent: -500,
     alpha: 0
-},{
+}, {
     alpha: 1,
     yPercent: 0,
     duration: 1,
@@ -84,7 +84,7 @@ benefitsTl.fromTo(".benefits-section h2",{
 benefitsTl.fromTo(".benefits-section .img-container", {
     yPercent: -50,
     alpha: 0
-},{
+}, {
     alpha: 1,
     yPercent: 0,
     duration: 1,
@@ -113,20 +113,23 @@ const aboutTl = gsap.timeline({
     }
 });
 
-aboutTl.fromTo(".home-about h2",{
+aboutTl.fromTo(".home-about h2", {
     scale: 0.9,
-},{
+}, {
     scale: 1,
     duration: 1,
     ease: 'power2.out'
 })
-.fromTo(".about-img-container",{
-    width: '60%',
-},{
-    width: '100%',
-    duration: 1,
-    ease: 'power2.out'
-}, "<")
+    .fromTo(".about-img-container", {
+        // width: '60%',
+        transformOrigin: 'left',
+        scaleX: 0.6
+    }, {
+        // width: '100%',
+        scaleX: 1,
+        duration: 1.25,
+        ease: 'power2.out'
+    }, "<")
 
 /*Testimonial Tl*/
 const testimonialTl = gsap.timeline({

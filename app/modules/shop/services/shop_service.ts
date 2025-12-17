@@ -1,0 +1,62 @@
+import StorefrontClient from "#shopify/storefront";
+import * as queries from "#modules/shop/graphql/queries";
+import * as Response from "#modules/shop/interfaces/shop_interface";
+
+export class ShopService {
+    constructor(private readonly storefront: StorefrontClient) {}
+
+    async getProducts(handle: string) {
+        const data = await this.storefront.request(queries.getCollection, { handle }) as Response.ShopInterface;
+        return data.collection
+    }
+
+    async getBestSellingProducts() {
+        const data = await this.storefront.request(queries.bestSellingProducts) as Response.BestSellingProductsInterface;
+        return data
+    }
+
+    async getFilteredCollection(params: Response.FilteredCollectionParams) {
+        const filters: any[] = params.filters || []
+
+        if (params.minPrice !== undefined || params.maxPrice !== undefined) {
+            const priceFilter: any = { price: {} }
+            if (params.minPrice !== undefined) priceFilter.price.min = params.minPrice
+            if (params.maxPrice !== undefined) priceFilter.price.max = params.maxPrice
+            filters.push(priceFilter)
+        }
+
+        if (params.productType) {
+            filters.push({ productType: params.productType })
+        }
+
+        if (params.available !== undefined) {
+            filters.push({ available: params.available })
+        }
+
+        if (params.metafields && params.metafields.length > 0) {
+            for (const mf of params.metafields) {
+                filters.push({
+                    productMetafield: {
+                        namespace: mf.namespace,
+                        key: mf.key,
+                        value: mf.value
+                    }
+                })
+            }
+        }
+
+        const handle = params.handle === 'all' ? 'frontpage' : params.handle
+
+        const variables = {
+            handle,
+            first: params.first || 18,
+            after: params.after || null,
+            sortKey: params.sortKey || 'COLLECTION_DEFAULT',
+            reverse: params.reverse || false,
+            filters: filters.length > 0 ? filters : undefined
+        }
+
+        const data = await this.storefront.request(queries.getFilteredCollection, variables) as Response.FilteredCollectionInterface
+        return data
+    }
+}

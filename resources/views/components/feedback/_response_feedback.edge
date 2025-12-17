@@ -1,0 +1,60 @@
+<div x-cloak x-data="{ showError: false, showSuccess: false, message: '', title: '', scope: '{{ scope || 'global' }}' }"
+    @app:error.window="
+        if ($event.detail.scope === scope) {
+            message = $event.detail.message;
+            title = $event.detail.title || 'Error';
+            showError = true;
+            setTimeout(() => showError = false, 5000);
+        }
+    " @app:success.window="
+        if ($event.detail.scope === scope) {
+            message = $event.detail.message;
+            title = $event.detail.title || 'Success';
+            showSuccess = true;
+            setTimeout(() => showSuccess = false, 5000);
+        }
+    ">
+
+    <div x-show="showSuccess" 
+        x-transition
+        class="tw-bg-teal-50 tw-border-t-2 tw-border-teal-500 tw-rounded-lg tw-p-4 tw-mb-10" 
+        role="alert" 
+        tabindex="-1" 
+        aria-labelledby="hs-bordered-success-style-label">
+        <div class="tw-flex">
+            <div class="tw-shrink-0">
+                <span class="tw-inline-flex tw-justify-center tw-items-center tw-size-8 tw-rounded-full tw-border-4 tw-border-teal-100 tw-bg-teal-200 tw-text-teal-800">
+                    <svg class="tw-shrink-0 tw-size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                        <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                </span>
+            </div>
+            <div class="tw-ms-3 tw-flex tw-items-center">
+                <p class="tw-text-sm tw-text-teal-800" x-text="message"></p>
+            </div>
+        </div>
+    </div>
+
+    <div x-show="showError" 
+        x-transition
+        class="tw-bg-red-200 tw-border-s-4 tw-border-red-500 tw-p-4 tw-mb-10" 
+        role="alert" 
+        tabindex="-1" 
+        aria-labelledby="hs-bordered-red-style-label">
+        <div class="tw-flex">
+            <div class="tw-shrink-0">
+                <span class="tw-inline-flex tw-justify-center tw-items-center tw-size-8 tw-rounded-full tw-border-4 tw-border-red-100 tw-bg-red-300 tw-text-red-800">
+                    <svg class="tw-shrink-0 tw-size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6 6 18"></path>
+                        <path d="m6 6 12 12"></path>
+                    </svg>
+                </span>
+            </div>
+            <div class="tw-ms-3 tw-flex tw-items-center">
+                <p class="tw-text-sm tw-text-red-800" x-text="message"></p>
+            </div>
+        </div>
+    </div>
+    
+</div>

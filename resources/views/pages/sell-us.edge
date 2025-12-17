@@ -3,7 +3,6 @@
 @slot('styles')
 @vite(['resources/css/core/sell-us.scss', 'resources/js/core/sell-us.js'])
 @vite('resources/css/app.css')
-<link href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/components/loading.css,npm/daisyui@5/components/alert.css,npm/daisyui@5/theme/light.css" rel="stylesheet" type="text/css" />
 @endslot
 
 @slot('main')
@@ -26,26 +25,34 @@
                         x-ref="sellUsForm"
                         hx-post="{{ route('api.pages.sellToUs') }}" 
                         hx-encoding="multipart/form-data"
-                        hx-target="#response-feedback"
-                        hx-target-error="#response-feedback"
+                        hx-headers='{"X-Feedback-Scope": "global"}'
                         hx-swap="innerHTML"
                         @htmx:before-request="loading = true" 
-                        @htmx:after-settle="loading = false; resetForm()"
+                        @htmx:after-request="loading = false; resetForm()"
                         >
 
                         <div id="response-feedback">
-                            <template x-if="error">
-                                <div role="alert" class="tw-alert tw-alert-error" style="padding: 1rem !important; margin-bottom: 1rem !important;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="tw-h-6 tw-w-6 tw-shrink-0 tw-stroke-current tw-stroke-white" fill="none"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-
-                                    <span class="tw-text-white" x-text="error"></span>
-
+                            @include('components/feedback/_response_feedback')
+                            <div x-show="error" 
+                                x-transition
+                                class="tw-bg-red-200 tw-border-s-4 tw-border-red-500 tw-p-4 tw-mb-10" 
+                                role="alert" 
+                                tabindex="-1" 
+                                aria-labelledby="hs-bordered-red-style-label">
+                                <div class="tw-flex">
+                                    <div class="tw-shrink-0">
+                                        <span class="tw-inline-flex tw-justify-center tw-items-center tw-size-8 tw-rounded-full tw-border-4 tw-border-red-100 tw-bg-red-300 tw-text-red-800">
+                                            <svg class="tw-shrink-0 tw-size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M18 6 6 18"></path>
+                                                <path d="m6 6 12 12"></path>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div class="tw-ms-3 tw-flex tw-items-center">
+                                        <p class="tw-text-sm tw-text-red-800" x-text="error"></p>
+                                    </div>
                                 </div>
-                            </template>
+                            </div>
                         </div>
                         
                         <div class="wrapper-halfs">
@@ -104,7 +111,7 @@
                         </div>
                         <button class="submit-btn htmx-button" type="submit" :disabled="loading">
                             <span x-show="!loading">Get a Quote</span>
-                            <span x-show="loading" class="loading loading-dots loading-md"></span>
+                            <span x-show="loading" class="btn-loader"></span>
                         </button>
                     </form>
                 </div>

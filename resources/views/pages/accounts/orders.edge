@@ -2,6 +2,7 @@
 
 @slot('styles')
 @vite(['resources/css/core/accounts/orders.scss', 'resources/js/core/accounts/orders.js'])
+@vite('resources/css/app.css')
 @endslot
 
 @slot('main')
@@ -23,6 +24,7 @@
                         <div class="orders-section">
                             <div class="wrapper-scroll">
                                 <!-- Order 1 -->
+                                @if(customer.orders && customer.orders.edges.length > 0) 
                                 @each(order in customer.orders.edges)
                                 <div>
                                     <h3 class="order-header-title">Order number <span>#{{ order.node.orderNumber }}</span></h3>
@@ -58,6 +60,29 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endeach
+                                @else
+                                <div class="no-orders-message">
+                                    <div class="tw-bg-blue-50 tw-border tw-border-blue-200 tw-text-sm tw-text-blue-800 tw-rounded-lg tw-p-4 dark:tw-bg-blue-800/10 dark:tw-border-blue-900 dark:tw-text-blue-500" role="alert">
+                                        <div class="tw-flex">
+                                            <div class="tw-shrink-0">
+                                                <svg class="tw-shrink-0 tw-size-4 tw-mt-0.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <circle cx="12" cy="12" r="10"></circle>
+                                                    <path d="M12 16v-4"></path>
+                                                    <path d="M12 8h.01"></path>
+                                                </svg>
+                                            </div>
+                                            <div class="tw-ms-4">
+                                                <h3 class="tw-text-sm tw-font-semibold">
+                                                    No orders found
+                                                </h3>
+                                                <div class="tw-mt-1 tw-text-sm tw-text-blue-700 dark:tw-text-blue-400">
+                                                    You haven't placed any orders yet.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
                                 @end
                             </div>
                         </div>

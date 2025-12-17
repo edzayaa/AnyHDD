@@ -9,11 +9,12 @@
 
 import router from '@adonisjs/core/services/router'
 import { PagesController } from '#modules/pages/controllers/http/pages_controller'
-import { ShopController } from '#modules/shop/controllers/Http/ShopController'
+import { ShopController } from '#modules/shop/controllers/http/shop_controller'
 import { CustomerController } from '#modules/customer/controllers/http/customer_controller'
 
 // API 
 import { AuthController } from '#modules/auth/controllers/auth_controller'
+import { ShopApiController } from '#modules/shop/controllers/api/shop_controller'
 import { CustomerApiController } from '#modules/customer/controllers/api/customer_controller'
 import { PagesApiController } from '#modules/pages/controllers/api/pages_controller'
 
@@ -28,12 +29,19 @@ router.group(() => {
     router.on('/about').render('pages/about').as('about')
     router.on('/terms-and-conditions').render('pages/terms-and-conditions').as('termsAndConditions')
     router.on('/privacy-policy').render('pages/privacy-policy').as('privacyPolicy')
+
+    if (process.env.NODE_ENV === 'development') {
+        console.log('Registering test route...')
+        router.on('/test').render('pages/testing').as('test')
+    }
 })
 
 router.group(() => {
-    router.get('/', [ShopController, 'products']).as('products')
-    router.get('/:handle', [ShopController, 'findProduct']).as('findProduct')
-}).prefix('/shop').as('shop')
+    router.get('/all', [ShopController, 'products']).as('products')
+    router.get('/:handle', [ShopController, 'products']).as('productsByCollection')
+}).prefix('/collections').as('shop')
+
+router.get('/products/:handle', [ShopController, 'findProduct']).as('getProduct')
 
 router.group(() => {
     router.on('/login').render('pages/auth/login').as('login').use(middleware.isLogged())
@@ -61,11 +69,21 @@ router.group(() => {
 }).prefix('/api/auth').as('api.auth')
 
 router.group(() => {
+    router.get('/best-selling-products', [ShopApiController, 'bestSellingProducts']).as('bestSellingProducts')
+    router.get('/collections/:handle/products', [ShopApiController, 'getFilteredProducts']).as('filteredProducts')
+}).prefix('/api/shop').as('api.shop')
+
+router.group(() => {
     router.post('/', [CustomerApiController, 'updateCustomer']).as('updateCustomer')
+    router.post('/addresses', [CustomerApiController, 'createAddress']).as('createAddress')
+    router.put('/addresses', [CustomerApiController, 'updateAddress']).as('updateAddress')
+    router.put('/addresses/default', [CustomerApiController, 'updateDefaultAddress']).as('updateDefaultAddress')
+    router.post('/addresses/delete', [CustomerApiController, 'deleteAddress']).as('deleteAddress')
 }).prefix('/api/customer').as('api.customer')
 
 router.group(() => {
     router.post('/contact', [PagesApiController, 'contactUs']).as('contactUs').as('contactUs')
     router.post('/sell-to-us', [PagesApiController, 'sellToUs']).as('sellToUs')
     router.post('/warranty', [PagesApiController, 'warranty']).as('warranty')
+    router.get('/countries', [PagesApiController, 'countries']).as('countries')
 }).prefix('/api').as('api.pages')

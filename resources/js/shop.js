@@ -198,7 +198,7 @@ function renderBestSellersSlider() {
             1024: {
                 slidesPerView: "auto",
             },
-            1280:{
+            1280: {
                 slidesPerView: "auto",
             }
         }
@@ -246,6 +246,7 @@ function renderFilter(options) {
 
         header.addEventListener('click', () => {
             const isContentVisible = content.offsetHeight > 0;
+            console.log("CLICK");
             if (isContentVisible) {
                 gsap.to(content, { height: 0, duration: 0.3, ease: "none" });
                 gsap.to(arrow, { rotate: -180, duration: 0.3 });
@@ -288,7 +289,7 @@ function getPageNumbers(current, total) {
     if (total <= 7) {
         return Array.from({ length: total }, (_, i) => i + 1);
     }
-    
+
     const pages = [];
     pages.push(1);
 
@@ -332,14 +333,14 @@ function renderPagination(currentPage, totalPages) {
                 <img src="/img/prev-arrow.svg" alt="Previous" />
             </button>
             ${pageNumbers.map((page, idx) =>
-                typeof page === 'number' ? `
+        typeof page === 'number' ? `
                     <button class="page-button ${currentPage === page ? 'active' : ''}" data-page="${page}">
                         ${page < 10 ? `0${page}` : page}
                     </button>
                 ` : `
                     <span key="ellipsis-${idx}" class="ellipsis">...</span>
                 `
-            ).join('')}
+    ).join('')}
             <button class="next-button" ${currentPage === totalPages ? 'disabled' : ''}>
                 <img src="/img/next-arrow.svg" alt="Next" />
             </button>

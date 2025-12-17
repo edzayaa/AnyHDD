@@ -20,6 +20,52 @@ export const customerAddressCreate = `
         customerAddressCreate(address: $address, customerAccessToken: $customerAccessToken) {
             customerAddress {
                 id
+                name
+                firstName
+                lastName
+                company
+                address1
+                address2
+                city
+                country
+                countryCodeV2
+                formatted
+                latitude
+                longitude
+                phone
+                province
+                provinceCode
+                zip
+            }
+            customerUserErrors {
+                code
+                message
+            }
+        }
+    }
+`
+
+export const customerAddressUpdate = `
+    mutation customerAddressUpdate($addressId: ID!, $address: MailingAddressInput!, $customerAccessToken: String!) {
+        customerAddressUpdate(id: $addressId, address: $address, customerAccessToken: $customerAccessToken) {
+            customerAddress {
+                id
+                name
+                firstName
+                lastName
+                company
+                address1
+                address2
+                city
+                country
+                countryCodeV2
+                formatted
+                latitude
+                longitude
+                phone
+                province
+                provinceCode
+                zip
             }
             customerUserErrors {
                 code
@@ -35,6 +81,18 @@ export const customerDefaultAddressUpdate = `
             customer {
                 id
             }
+            customerUserErrors {
+                code
+                message
+            }
+        }
+    }
+`
+
+export const customerAddressDelete = `
+    mutation customerAddressDelete($customerAccessToken: String!, $addressId: ID!) {
+        customerAddressDelete(id: $addressId, customerAccessToken: $customerAccessToken) {
+            deletedCustomerAddressId
             customerUserErrors {
                 code
                 message
@@ -80,4 +138,3 @@ export const customerAccessTokenDelete = `
         }
     }
 `
-    

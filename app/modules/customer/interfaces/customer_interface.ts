@@ -61,17 +61,42 @@ export interface UpdateCustomerInterface {
     }
 }
 
+export interface CustomerAddressNode {
+    id: string
+    name: string
+    firstName: string
+    lastName: string
+    address1: string
+    address2: string | null
+    city: string
+    country: string
+    countryCodeV2: string
+    company: string | null
+    formatted: string[]
+    latitude: number | null
+    longitude: number | null
+    phone: string | null
+    province: string | null
+    provinceCode: string | null
+    zip: string | null
+}
+
 export interface CreateAddressInterface {
     customerAddressCreate: {
-        customerAddress: {
-            id: string
-        }
+        customerAddress: CustomerAddressNode
+        customerUserErrors: CustomerUserErrors[]
+    }
+}
+
+export interface UpdateDefaultAddressInterface {
+    customerDefaultAddressUpdate: {
         customerUserErrors: CustomerUserErrors[]
     }
 }
 
 export interface UpdateAddressInterface {
-    customerDefaultAddressUpdate: {
+    customerAddressUpdate: {
+        customerAddress: CustomerAddressNode
         customerUserErrors: CustomerUserErrors[]
     }
 }
@@ -103,5 +128,12 @@ export interface CreateCustomerInterface {
 export interface DeleteCustomerAccessTokenInterface {
     customerAccessTokenDelete: {
         userErrors: CustomerUserErrors[]
+    }
+}
+
+export interface DeleteAddressInterface {
+    customerAddressDelete: {
+        deletedCustomerAddressId: string
+        customerUserErrors: CustomerUserErrors[]
     }
 }

@@ -8,11 +8,6 @@ import * as queries from "#modules/customer/graphql/queries"
 import { InputInterface } from "#interfaces/shopify_interface"
 import * as Response from "#modules/customer/interfaces/customer_interface"
 
-// Validators
-import { 
-    defaultAddressValidtor,
-} from "#modules/customer/validators/customer_validator";
-
 // Helpers
 import handleUserErrors from "#helpers/user_errors"
 
@@ -21,15 +16,6 @@ import { CustomerMapper } from "#modules/customer/mappers/customer_mapper"
 
 export class CustomerService {
     constructor(private storefront: StorefrontClient) {}
-
-    private async updateDefaultAddress(body: InputInterface) {
-        const payload = await defaultAddressValidtor.validate(body)
-        const variables = CustomerMapper.toUpdateDefaultAddress(payload)
-        const data = await this.storefront.request(mutations.customerDefaultAddressUpdate, variables) as Response.UpdateAddressInterface
-        const customerData = data.customerDefaultAddressUpdate
-        handleUserErrors(customerData.customerUserErrors)
-        return payload
-    }
 
     async getCustomer(customerAccessToken: string) {
         const data = await this.storefront.request(queries.customer, { customerAccessToken }) as Response.CustomerInterface
@@ -46,14 +32,14 @@ export class CustomerService {
             (address.node as any).isDefault = address.node.id === defaultAddressId
         })
 
-        addresses.sort((a, b) => {
-            if (a.node.id === defaultAddressId) return -1
-            if (b.node.id === defaultAddressId) return 1
-            return 0
-        })
-
+        //addresses.sort((a, b) => {
+        //    if (a.node.id === defaultAddressId) return -1
+        //    if (b.node.id === defaultAddressId) return 1
+        //    return 0
+        //})
         return {
             displayName: data.customer.displayName,
+            defaultAddressId: defaultAddressId,
             addresses: [...addresses]
         }
     }
@@ -79,12 +65,29 @@ export class CustomerService {
         const data = await this.storefront.request(mutations.customerAddressCreate, variables) as Response.CreateAddressInterface
         const customerData = data.customerAddressCreate
         handleUserErrors(customerData.customerUserErrors)
-        if (payload.address.isDefault) {
-            await this.updateDefaultAddress({
-                customerAccessToken: payload.customerAccessToken,
-                addressId: customerData.customerAddress.id
-            })
-        }
+        return customerData.customerAddress
+    }
+
+    async updateAddress(payload: any) { 
+        const variables = CustomerMapper.toUpdateAddress(payload)
+        const data = await this.storefront.request(mutations.customerAddressUpdate, variables) as Response.UpdateAddressInterface
+        const customerData = data.customerAddressUpdate
+        handleUserErrors(customerData.customerUserErrors)
+        return customerData.customerAddress
+    }
+
+    async updateDefaultAddress(payload: any) {
+        const variables = CustomerMapper.toUpdateDefaultAddress(payload)
+        const data = await this.storefront.request(mutations.customerDefaultAddressUpdate, variables) as Response.UpdateDefaultAddressInterface
+        const customerData = data.customerDefaultAddressUpdate
+        handleUserErrors(customerData.customerUserErrors)
+        return payload
+    }
+
+    async deleteAddress(payload: any) {
+        const data = await this.storefront.request(mutations.customerAddressDelete, payload) as Response.DeleteAddressInterface
+        const customerData = data.customerAddressDelete
+        handleUserErrors(customerData.customerUserErrors)
         return payload
     }
 }
