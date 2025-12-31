@@ -52,7 +52,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="best-sellers-slide">
+                <div class="best-sellers-slide"
+                    hx-get="{{ route('api.shop.bestSellingProducts') }}" 
+                    hx-trigger="load" 
+                    hx-target="#best-sellers-wrapper"
+                    hx-swap="innerHTML"
+                    >
+                    <div class="swiper best-sellers-swiper">
+                        <div class="swiper-wrapper" id="best-sellers-wrapper">
+                            <div class="tw-flex tw-justify-center tw-items-center tw-w-full tw-h-40">
+                                <div class="tw-animate-spin tw-inline-block tw-size-8 tw-border-3 tw-border-current tw-border-t-transparent tw-text-blue-600 tw-rounded-full tw-dark:text-blue-500" role="status" aria-label="loading" style="border-top: 4px solid;">
+                                    <span class="tw-sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="sort-container">
                     <div class="search-container">

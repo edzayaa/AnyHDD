@@ -202,7 +202,7 @@
                             <button type="button" class="clear-filters-btn" onclick="clearFilters()">Clear All Filters</button>
                         </div>
                     </form>
-                    <div class="products-container">
+                    <div class="products-container" x-data="cartManager">
                         <h5>{{ collection.title }}</h5>
                         <div id="products-loading" class="htmx-indicator tw-flex tw-justify-center tw-items-center tw-w-full tw-py-10">
                             <div class="tw-animate-spin tw-inline-block tw-size-8 tw-border-4 tw-border-blue-600 tw-border-t-transparent tw-rounded-full" role="status" aria-label="loading"></div>
@@ -210,7 +210,7 @@
                         <div class="products" id="products-grid">
                             @include('components/shop/_products')
                         </div>
-                        <div class="pagination-container">
+                        <div class="pagination-container" style="margin-top: 3rem;">
                             <div class="pagination">
                                 <button class="prev-button" disabled>
                                     <img src="/img/prev-arrow.svg" alt="Previous" />
@@ -231,7 +231,6 @@
 </div>
 
 <script>
-    // Clear all filters function
     function clearFilters() {
         const form = document.getElementById('shop-filters-form');
         const sortSelect = document.getElementById('shop-sort-select');

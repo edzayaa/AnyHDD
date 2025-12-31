@@ -15,6 +15,7 @@ import { CustomerController } from '#modules/customer/controllers/http/customer_
 // API 
 import { AuthController } from '#modules/auth/controllers/auth_controller'
 import { ShopApiController } from '#modules/shop/controllers/api/shop_controller'
+import { CartApiController } from '#modules/cart/controllers/api/cart_controller'
 import { CustomerApiController } from '#modules/customer/controllers/api/customer_controller'
 import { PagesApiController } from '#modules/pages/controllers/api/pages_controller'
 
@@ -72,6 +73,14 @@ router.group(() => {
     router.get('/best-selling-products', [ShopApiController, 'bestSellingProducts']).as('bestSellingProducts')
     router.get('/collections/:handle/products', [ShopApiController, 'getFilteredProducts']).as('filteredProducts')
 }).prefix('/api/shop').as('api.shop')
+
+router.group(() => {
+    router.get('/', [CartApiController, 'cart']).as('get')
+    router.post('/', [CartApiController, 'add']).as('add')
+    router.delete('/', [CartApiController, 'remove']).as('remove')
+    router.patch('/', [CartApiController, 'update']).as('update')
+    router.post('/discount-codes', [CartApiController, 'cartDiscountCodesUpdate']).as('cartDiscountCodesUpdate')
+}).prefix('/api/cart').as('api.cart')
 
 router.group(() => {
     router.post('/', [CustomerApiController, 'updateCustomer']).as('updateCustomer')
