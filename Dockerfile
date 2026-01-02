@@ -18,6 +18,7 @@ COPY package.json package-lock.json* ./
 RUN npm ci --omit=dev
 
 COPY --from=builder /app/build ./build
+COPY --from=builder /app/public ./public
 #COPY .env .env
 
 EXPOSE 3333

@@ -37,7 +37,20 @@ export default defineConfig({
         'resources/css/core/accounts/my-account.scss',
         'resources/css/core/accounts/overview.scss',
 
-        
+        "resources/js/core/shop/products.js",
+        "resources/js/core/warranty.js",
+        "resources/js/core/privacy.js",
+        "resources/js/core/terms.js",
+        "resources/js/core/sell-us.js",
+        "resources/js/core/accounts/address.js",
+        "resources/js/core/accounts/overview.js",
+        "resources/js/core/accounts/orders.js",
+        "resources/js/core/accounts/my-account.js",
+        "resources/js/core/faq.js",
+        "resources/js/core/about.js",
+        "resources/js/core/auth/login.js",
+        "resources/js/core/contact.js",
+        "resources/js/core/home.js",
       ],
 
       /**
