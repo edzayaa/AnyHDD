@@ -1,27 +1,112 @@
-@if(collection.products && collection.products.edges.length > 0)
-@each(item in collection.products.edges)
-<div class="product-card">
-    <div class="product-card-top">
-        <h3>{{ item.node.title }}</h3>
-        <a href='/collections/all?productType={{ item.node.productType }}'>{{ item.node.productType }}</a>
-    </div>
-    <div class='product-card-img'>
-        <img src="{{ item.node.featuredImage.url }}" alt="{{ item.node.title }}" />
-    </div>
-    <div class="product-card-details">
-        <a href="{{ route('getProduct', { handle: item.node.handle }) }}">See Details</a>
-        <div>
-            <button class="add-to-cart-button"
-                @click="addToCart('{{ item.node.selectedOrFirstAvailableVariant.id }}')"
-                 :disabled="loading"
-            >
-                <img src="/img/plus-button.svg" alt="Add to Cart" />
-            </button>
-            <span>${{ item.node.priceRange.minVariantPrice.amount }}</span>
+<div class="shop">
+    <form id="shop-filters-form"
+        hx-get="{{ route('api.shop.filteredProducts', { handle: collection.handle || 'all' }) }}"
+        hx-trigger="change from:#shop-filters-form, change from:#shop-sort-select" 
+        hx-target="#products-grid"
+        hx-swap="innerHTML">
+        <div class="filters">
+            <div class='filter-head'>
+                <img src="/img/all-categories.svg" alt="Filters Icon" />
+                <h3>
+                    Filters
+                </h3>
+            </div>
+            <div class="filter-container">
+                <div class="filter-option">
+                    <div class="filter-header" tabindex="0" role="button">
+                        <h4>Price</h4>
+                        <svg class="filter-arrow" xmlns="http://www.w3.org/2000/svg" width="17" height="10"
+                            viewBox="0 0 17 10" fill="none">
+                            <path d="M1 9L8.5 2L16 9" stroke="#052F5A" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="filter-content" style="height: auto;">
+                        <ul class="filter-options">
+                            <li><label><input type="radio" name="priceRange" value="25-80" /> $ 25.00 - $80.00</label>
+                            </li>
+                            <li><label><input type="radio" name="priceRange" value="80-150" /> $ 80.00 - $150.00</label>
+                            </li>
+                            <li><label><input type="radio" name="priceRange" value="150-200" /> $ 150.00 -
+                                    $200.00</label></li>
+                            <li><label><input type="radio" name="priceRange" value="" /> All Prices</label></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="filter-option">
+                    <div class="filter-header" tabindex="0" role="button">
+                        <h4>Status</h4>
+                        <svg class="filter-arrow" xmlns="http://www.w3.org/2000/svg" width="17" height="10"
+                            viewBox="0 0 17 10" fill="none">
+                            <path d="M1 9L8.5 2L16 9" stroke="#052F5A" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="filter-content" style="height: auto;">
+                        <ul class="filter-options">
+                            <li><label><input type="checkbox" name="metafield[custom.on_sale]" value="true" /> On
+                                    Sale</label></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="filter-option">
+                    <div class="filter-header" tabindex="0" role="button">
+                        <h4>Number of Ports</h4>
+                        <svg class="filter-arrow" xmlns="http://www.w3.org/2000/svg" width="17" height="10"
+                            viewBox="0 0 17 10" fill="none">
+                            <path d="M1 9L8.5 2L16 9" stroke="#052F5A" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="filter-content" style="height: auto;">
+                        <ul class="filter-options">
+                            <li><label><input type="radio" name="metafield[custom.number_of_ports]" value="1" /> 1
+                                    Port</label></li>
+                            <li><label><input type="radio" name="metafield[custom.number_of_ports]" value="2-3" /> 2 - 3
+                                    Ports</label></li>
+                            <li><label><input type="radio" name="metafield[custom.number_of_ports]" value="3+" /> More
+                                    than 3 Ports</label></li>
+                            <li><label><input type="radio" name="metafield[custom.number_of_ports]" value="" />
+                                    All</label></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="filter-option">
+                    <div class="filter-header" tabindex="0" role="button">
+                        <h4>Charging Type</h4>
+                        <svg class="filter-arrow" xmlns="http://www.w3.org/2000/svg" width="17" height="10"
+                            viewBox="0 0 17 10" fill="none">
+                            <path d="M1 9L8.5 2L16 9" stroke="#052F5A" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="filter-content" style="height: auto;">
+                        <ul class="filter-options">
+                            <li><label><input type="radio" name="metafield[custom.charging_type]"
+                                        value="Built-in Battery" /> Built-in Battery</label></li>
+                            <li><label><input type="radio" name="metafield[custom.charging_type]" value="Magnetic" />
+                                    Magnetic</label></li>
+                            <li><label><input type="radio" name="metafield[custom.charging_type]" value="" />
+                                    All</label></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="clear-filters-btn" onclick="clearFilters()">Clear All Filters</button>
         </div>
+    </form>
+    <div class="products-container" x-data="cartManager">
+        <h5>{{ collection.title }}</h5>
+        <div class="products" id="products-grid">
+            @include('components/shop/_products-container')
+        </div>
+        @if(collection.products && (collection.products.pageInfo.hasNextPage || collection.products.pageInfo.hasPreviousPage))
+        <div class="pagination-container" style="margin-top: 3rem;">
+            <div class="pagination">
+                <button type="button" class="prev-button" disabled>
+                    <img src="/img/prev-arrow.svg" alt="Previous" />
+                </button>
+                <button type="button" class="next-button">
+                    <img src="/img/next-arrow.svg" alt="Next" />
+                </button>
+            </div>
+        </div>
+        @endif
     </div>
 </div>
-@endeach
-@else
-<p>No products found in this collection.</p>
-@endif

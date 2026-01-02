@@ -79,7 +79,9 @@ export interface MetafieldFilter {
 export interface FilteredCollectionParams {
     handle: string
     first?: number
+    last?: number
     after?: string
+    before?: string
     sortKey?: ProductCollectionSortKey
     reverse?: boolean
     filters?: ProductFilterInput[]

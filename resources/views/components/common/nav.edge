@@ -148,7 +148,7 @@
             <h3>Shop by categories</h3>
             <ul class="categories">
                 <li class="category-item">
-                    <a href="/shop/monitors">
+                    <a href="{{ route('shop.productsByCollection', { handle: 'monitors' }) }}">
                         <img src="/assets/monitor.svg" alt="Monitors" />
                         <h4>Monitors</h4>
                     </a>
@@ -160,19 +160,19 @@
                     </a>
                 </li>
                 <li class="category-item">
-                    <a href="/shop/thermals">
+                    <a href="{{ route('shop.productsByCollection', { handle: 'thermal-printers' }) }}">
                         <img src="/assets/printers.svg" alt="Thermal Printers" />
                         <h4>Thermal Printers</h4>
                     </a>
                 </li>
                 <li class="category-item">
-                    <a href="/shop/docking-stations">
+                    <a href="{{ route('shop.productsByCollection', { handle: 'hp-lenovo-docking-stations' }) }}">
                         <img src="/assets/docking-stations.svg" alt="HP & Lenovo Docking Stations" />
                         <h4>HP & Lenovo Docking Stations</h4>
                     </a>
                 </li>
                 <li class="category-item">
-                    <a href="/shop">
+                    <a href="{{ route('shop.products') }}">
                         <img src="/assets/all-categories.svg" alt="All Categories" />
                         <h4>All Categories</h4>
                     </a>

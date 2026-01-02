@@ -59,23 +59,29 @@ export class ShopApiController {
             }
         }
 
-        const params_filter = {
+        const params_filter: any = {
             handle,
-            first: qs.limit ? parseInt(qs.limit) : 18,
-            after: qs.cursor || undefined,
             sortKey,
             reverse,
             minPrice,
             maxPrice,
             productType: qs.productType || undefined,
-            available: qs.available === 'true' ? true : qs.available === 'false' ? false : undefined,
             metafields: metafields.length > 0 ? metafields : undefined,
         }
 
+        if (qs.before) {
+            params_filter.last = qs.limit ? parseInt(qs.limit) : 18
+            params_filter.before = qs.before
+        } else {
+            params_filter.first = qs.limit ? parseInt(qs.limit) : 18
+            if (qs.after) {
+                params_filter.after = qs.after
+            }
+        }
 
         const data = await this.shopService.getFilteredCollection(params_filter)
 
-        return view.render('components/shop/_products', {
+        return view.render('components/shop/_products-container', {
             collection: data.collection,
         })
     }

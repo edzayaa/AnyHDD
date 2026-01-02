@@ -53,6 +53,7 @@
                     </div>
                 </div>
                 <div class="best-sellers-slide"
+                    x-data="cartManager"
                     hx-get="{{ route('api.shop.bestSellingProducts') }}" 
                     hx-trigger="load" 
                     hx-target="#best-sellers-wrapper"
@@ -85,34 +86,18 @@
                         </Button>
                     </div>
                     <div class="sort">
-                        <select class='custom-select common-styles' id="shop-sort-select">
-                            <option value="default" selected>Sort by:</option>
-                            <option value="popularity">Most Popular</option>
-                            <option value="priceLowToHigh">Price: Low to High</option>
-                            <option value="priceHighToLow">Price: High to Low</option>
+                        <select class='custom-select common-styles' id="shop-sort-select" name="sortKey">
+                            <option value="" selected>Sort by:</option>
+                            <option value="BEST_SELLING">Most Popular</option>
+                            <option value="PRICE">Price: Low to High</option>
+                            <option value="PRICE_DESC">Price: High to Low</option>
+                            <option value="CREATED">Newest</option>
+                            <option value="TITLE">Name: A-Z</option>
                         </select>
                     </div>
                 </div>
                 <div class="divider-shop"></div>
-                <div class="shop">
-                    <div class="filters">
-                        <div class='filter-head'>
-                            <img src="/img/all-categories.svg" alt="Filters Icon" />
-                            <h3>
-                                Filters
-                            </h3>
-                        </div>
-                        <div class="filter-container">
-                        </div>
-                    </div>
-                    <div class="products-container">
-                        <h5>Docking Stations / 33 Item(s) Found</h5>
-                        <div class="products">
-                        </div>
-                        <div class="pagination-container">
-                        </div>
-                    </div>
-                </div>
+                @include('components/shop/_products')
             </section>
             <section class="desktop-only benefits-section">
                 <div class="head">
@@ -728,7 +713,7 @@
                         <h3 class="title-2" class="benefit-item-title" data-name="5">Monitor XZA</h3>
                         <h3 class="title-3" class="benefit-item-title" data-name="6">Docking Station</h3>
                     </div>
-                    <a href="/shop" class="custom-button common-styles">
+                    <a href="{{ route('shop.products')}}" class="custom-button common-styles">
                         Shop Now
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
                             <path
@@ -789,7 +774,7 @@
                     <div class="swiper-pagination"></div>
                 </div>
                 <div class="button-container">
-                    <a href="/shop" class="custom-button common-styles">
+                    <a href="{{ route('shop.products')}}" class="custom-button common-styles">
                         Shop Now
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
                             <path

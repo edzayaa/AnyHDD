@@ -9,3 +9,6 @@ import '../home-animations.js';
 import '../hover-matcher.js';
 import '../shopping-bag.js';
 import '../main.js';
+
+import './services/cart'
+import './services/filters'

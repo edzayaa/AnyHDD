@@ -11,7 +11,7 @@ export class CartApiController {
     async cart({ request, response }: HttpContext) {
         const cartId = request.cookie('cartId')
         if (!cartId) {
-            return response.badRequest({ message: 'Cart ID is required' });
+            return response.ok({ message: 'Cart ID is required' });
         }
         return response.ok(await this.cartService.cart(cartId));
     }

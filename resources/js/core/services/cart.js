@@ -21,7 +21,6 @@ class CartManager extends ApiClient {
     }
 
     updateCartData(data) {
-        console.log('Updating cart data', data);
         this.cart = data.lines?.nodes || [];
         this.subtotal = data.cost?.subtotalAmount?.amount || '0.00';
         this.checkoutUrl = data.checkoutUrl;

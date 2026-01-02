@@ -1,0 +1,14 @@
+@if(collection.products && collection.products.edges.length > 0)
+@each(item in collection.products.edges)
+@include('components/shop/_product-card')
+@endeach
+@else
+<p>No products found in this collection.</p>
+@endif
+<div 
+    data-has-next="{{ collection.products.pageInfo.hasNextPage }}" 
+    data-has-prev="{{ collection.products.pageInfo.hasPreviousPage }}" 
+    data-end-cursor="{{ collection.products.pageInfo.endCursor }}" 
+    data-start-cursor="{{ collection.products.pageInfo.startCursor }}"
+    id="pagination-data"
+></div>

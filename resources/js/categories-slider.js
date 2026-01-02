@@ -6,45 +6,27 @@ const categories = [
     {
         title: "Monitor",
         description: "Lorem ipsum dolor sit amet consectetur. A odio dictum cras",
-        uri: "/shop/monitor",
+        uri: "/collections/monitors",
         img: "/img/monitors.png"
+    },
+    {
+        title: "All Categories",
+        description: "Lorem ipsum dolor sit amet consectetur. A odio dictum cras",
+        uri: "/collections/all",
+        img: "/img/docking-stations.png"
     },
     {
         title: "Scanners",
         description: "Lorem ipsum dolor sit amet consectetur. A odio dictum cras",
-        uri: "/shop/monitor",
+        uri: "/collections/scanners",
         img: "/img/scanners.png"
-    },
-    {
-        title: "Docking Stations",
-        description: "Lorem ipsum dolor sit amet consectetur. A odio dictum cras",
-        uri: "/shop/monitor",
-        img: "/img/docking-stations.png"
     },
     {
         title: "Thermal Printers",
         description: "Lorem ipsum dolor sit amet consectetur. A odio dictum cras",
-        uri: "/shop/monitor",
+        uri: "/collections/thermal-printers",
         img: "/img/scanners.png"
     },
-    {
-        title: "Docking Stations",
-        description: "Lorem ipsum dolor sit amet consectetur. A odio dictum cras",
-        uri: "/shop/monitor",
-        img: "/img/docking-stations.png"
-    },
-    {
-        title: "Docking Stations",
-        description: "Lorem ipsum dolor sit amet consectetur. A odio dictum cras",
-        uri: "/shop/monitor",
-        img: "/img/docking-stations.png"
-    },
-    {
-        title: "Docking Stations",
-        description: "Lorem ipsum dolor sit amet consectetur. A odio dictum cras",
-        uri: "/shop/monitor",
-        img: "/img/docking-stations.png"
-    }
 ];
 
 function renderCategoriesSlider() {

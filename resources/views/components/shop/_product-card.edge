@@ -1,0 +1,27 @@
+<div class="product-card">
+    <div class="product-card-top">
+        <h3>{{ item.node.title }}</h3>
+        @if(item.node.productType)
+        <a href='javascript:void(0)'>{{ item.node.productType }}</a>
+        @endif
+    </div>
+    <div class='product-card-img'>
+        <img src="{{ item.node.featuredImage.url }}" alt="{{ item.node.title }}" />
+    </div>
+    <div class="product-card-details">
+        <a href="{{ route('getProduct', { handle: item.node.handle }) }}">See Details</a>
+        @if(item.node.availableForSale) 
+        <div>
+            <button class="add-to-cart-button"
+                @click="addToCart('{{ item.node.selectedOrFirstAvailableVariant.id }}')"
+                 :disabled="loading"
+            >
+                <img src="/img/plus-button.svg" alt="Add to Cart" />
+            </button>
+            <span>${{ item.node.priceRange.minVariantPrice.amount }}</span>
+        </div>
+        @else
+        <span style="font-size: 1rem; color: #052F5A;font-weight: 500;">Out of Stock</span>
+        @endif
+    </div>
+</div>

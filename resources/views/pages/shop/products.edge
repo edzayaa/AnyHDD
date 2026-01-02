@@ -4,40 +4,6 @@
 @vite(['resources/css/core/shop/products.scss', 'resources/js/core/shop/products.js'])
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 @vite('resources/css/app.css')
-<style>
-    .clear-filters-btn {
-        margin-top: 1rem;
-        padding: 0.5rem 1rem;
-        background-color: transparent;
-        border: 1px solid #052F5A;
-        color: #052F5A;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 0.875rem;
-        transition: all 0.2s ease;
-        width: 100%;
-    }
-    .clear-filters-btn:hover {
-        background-color: #052F5A;
-        color: white;
-    }
-    .htmx-indicator {
-        display: none;
-    }
-    .htmx-request .htmx-indicator {
-        display: flex;
-    }
-    .htmx-request #products-grid {
-        opacity: 0.5;
-        pointer-events: none;
-    }
-    .no-products-message {
-        grid-column: 1 / -1;
-        text-align: center;
-        padding: 2rem;
-        color: #666;
-    }
-</style>
 @endslot
 
 @slot('main')
@@ -76,6 +42,7 @@
                     </div>
                 </div>
                 <div class="best-sellers-slide"
+                    x-data="cartManager"
                     hx-get="{{ route('api.shop.bestSellingProducts') }}" 
                     hx-trigger="load" 
                     hx-target="#best-sellers-wrapper"
@@ -93,8 +60,15 @@
                 </div>
                 <div class="sort-container">
                     <div class="search-container">
-                        <input class='search-input' id="shop-search-input" type="text" placeholder='Search AnyHDD' />
-                        <Button class='custom-button common-styles search-button' id="shop-search">
+                        <input class='search-input' 
+                               id="shop-search-input" 
+                               type="text" 
+                               placeholder='Search AnyHDD'
+                               oninput="filterProducts()"
+                               onkeyup="if(event.key === 'Enter') filterProducts()" />
+                        <Button class='custom-button common-styles search-button' 
+                                id="shop-search"
+                                onclick="filterProducts()">
                             Search
                             <svg class='search-icon' xmlns="http://www.w3.org/2000/svg" width="14" height="14"
                                 viewBox="0 0 14 14" fill="none">
@@ -119,109 +93,7 @@
                     </div>
                 </div>
                 <div class="divider-shop"></div>
-                <div class="shop">
-                    <form id="shop-filters-form" 
-                          hx-get="{{ route('api.shop.filteredProducts', { handle: collection.handle || 'all' }) }}"
-                          hx-trigger="change from:#shop-filters-form, change from:#shop-sort-select"
-                          hx-target="#products-grid"
-                          hx-swap="innerHTML"
-                          hx-indicator="#products-loading">
-                        <div class="filters">
-                            <div class='filter-head'>
-                                <img src="/img/all-categories.svg" alt="Filters Icon" />
-                                <h3>
-                                    Filters
-                                </h3>
-                            </div>
-                            <div class="filter-container">
-                                <div class="filter-option">
-                                    <div class="filter-header" tabindex="0" role="button">
-                                        <h4>Price</h4>
-                                        <svg class="filter-arrow" xmlns="http://www.w3.org/2000/svg" width="17" height="10"
-                                            viewBox="0 0 17 10" fill="none">
-                                            <path d="M1 9L8.5 2L16 9" stroke="#052F5A" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                    <div class="filter-content" style="height: auto;">
-                                        <ul class="filter-options">
-                                            <li><label><input type="radio" name="priceRange" value="25-80" /> $ 25.00 - $80.00</label></li>
-                                            <li><label><input type="radio" name="priceRange" value="80-150" /> $ 80.00 - $150.00</label></li>
-                                            <li><label><input type="radio" name="priceRange" value="150-200" /> $ 150.00 - $200.00</label></li>
-                                            <li><label><input type="radio" name="priceRange" value="" /> All Prices</label></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="filter-option">
-                                    <div class="filter-header" tabindex="0" role="button">
-                                        <h4>Status</h4>
-                                        <svg class="filter-arrow" xmlns="http://www.w3.org/2000/svg" width="17" height="10"
-                                            viewBox="0 0 17 10" fill="none">
-                                            <path d="M1 9L8.5 2L16 9" stroke="#052F5A" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                    <div class="filter-content" style="height: auto;">
-                                        <ul class="filter-options">
-                                            <li><label><input type="checkbox" name="available" value="true" /> On Sale</label></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="filter-option">
-                                    <div class="filter-header" tabindex="0" role="button">
-                                        <h4>Number of Ports</h4>
-                                        <svg class="filter-arrow" xmlns="http://www.w3.org/2000/svg" width="17" height="10"
-                                            viewBox="0 0 17 10" fill="none">
-                                            <path d="M1 9L8.5 2L16 9" stroke="#052F5A" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                    <div class="filter-content" style="height: auto;">
-                                        <ul class="filter-options">
-                                            <li><label><input type="radio" name="metafield[custom.number_of_ports]" value="1" /> 1 Port</label></li>
-                                            <li><label><input type="radio" name="metafield[custom.number_of_ports]" value="2-3" /> 2 - 3 Ports</label></li>
-                                            <li><label><input type="radio" name="metafield[custom.number_of_ports]" value="3+" /> More than 3 Ports</label></li>
-                                            <li><label><input type="radio" name="metafield[custom.number_of_ports]" value="" /> All</label></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="filter-option">
-                                    <div class="filter-header" tabindex="0" role="button">
-                                        <h4>Charging Type</h4>
-                                        <svg class="filter-arrow" xmlns="http://www.w3.org/2000/svg" width="17" height="10"
-                                            viewBox="0 0 17 10" fill="none">
-                                            <path d="M1 9L8.5 2L16 9" stroke="#052F5A" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                    <div class="filter-content" style="height: auto;">
-                                        <ul class="filter-options">
-                                            <li><label><input type="radio" name="metafield[custom.charging_type]" value="Built-in Battery" /> Built-in Battery</label></li>
-                                            <li><label><input type="radio" name="metafield[custom.charging_type]" value="Magnetic" /> Magnetic</label></li>
-                                            <li><label><input type="radio" name="metafield[custom.charging_type]" value="" /> All</label></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="button" class="clear-filters-btn" onclick="clearFilters()">Clear All Filters</button>
-                        </div>
-                    </form>
-                    <div class="products-container" x-data="cartManager">
-                        <h5>{{ collection.title }}</h5>
-                        <div id="products-loading" class="htmx-indicator tw-flex tw-justify-center tw-items-center tw-w-full tw-py-10">
-                            <div class="tw-animate-spin tw-inline-block tw-size-8 tw-border-4 tw-border-blue-600 tw-border-t-transparent tw-rounded-full" role="status" aria-label="loading"></div>
-                        </div>
-                        <div class="products" id="products-grid">
-                            @include('components/shop/_products')
-                        </div>
-                        <div class="pagination-container" style="margin-top: 3rem;">
-                            <div class="pagination">
-                                <button class="prev-button" disabled>
-                                    <img src="/img/prev-arrow.svg" alt="Previous" />
-                                </button>
-                                <button class="next-button">
-                                    <img src="/img/next-arrow.svg" alt="Next" />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @include('components/shop/_products')
             </section>
 
         </div>
@@ -229,51 +101,5 @@
         @include('components/common/footer')
     </div>
 </div>
-
-<script>
-    function clearFilters() {
-        const form = document.getElementById('shop-filters-form');
-        const sortSelect = document.getElementById('shop-sort-select');
-        
-        // Reset all radio buttons and checkboxes
-        form.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
-            input.checked = false;
-        });
-        
-        // Reset sort select
-        sortSelect.value = '';
-        
-        // Trigger HTMX request to reload products without filters
-        htmx.trigger(form, 'change');
-    }
-
-    // Include sort select in form submission
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById('shop-filters-form');
-        const sortSelect = document.getElementById('shop-sort-select');
-        
-        // Add hidden input for sortKey when sort changes
-        sortSelect.addEventListener('change', function() {
-            let sortInput = form.querySelector('input[name="sortKey"]');
-            if (!sortInput) {
-                sortInput = document.createElement('input');
-                sortInput.type = 'hidden';
-                sortInput.name = 'sortKey';
-                form.appendChild(sortInput);
-            }
-            sortInput.value = this.value;
-            htmx.trigger(form, 'change');
-        });
-        
-        // Before HTMX request, ensure sortKey is included
-        document.body.addEventListener('htmx:configRequest', function(evt) {
-            if (evt.detail.elt === form || evt.detail.elt.closest('#shop-filters-form')) {
-                if (sortSelect.value) {
-                    evt.detail.parameters['sortKey'] = sortSelect.value;
-                }
-            }
-        });
-    });
-</script>
 @endslot
 @end

@@ -1,22 +1,5 @@
 @each(item in products.edges)
 <div class="swiper-slide">
-    <div class="product-card">
-        <div class="product-card-top">
-            <h3>{{ item.node.title }}</h3>
-            <a href='/shop/category'>Docking Station</a>
-        </div>
-        <div class='product-card-img'>
-            <img src="{{ item.node.featuredImage.url }}" alt="{{ item.node.title }}" />
-        </div>
-        <div class="product-card-details">
-            <a href="/products/{{ item.node.handle }}">See Details</a>
-            <div>
-                <button class="add-to-cart-button">
-                    <img src="/img/plus-button.svg" alt="Add to Cart" />
-                </button>
-                <span>${{ item.node.priceRange.minVariantPrice.amount }}</span>
-            </div>
-        </div>
-    </div>
+    @include('components/shop/_product-card')
 </div>
 @endeach

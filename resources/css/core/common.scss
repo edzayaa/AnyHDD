@@ -2,3 +2,45 @@
 @use '../navbar.css';
 @use '../shopping-bag/shopping-bag.scss';
 @use '../footer.css';
+
+.clear-filters-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 1px solid #052F5A;
+    color: #052F5A;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.clear-filters-btn:hover {
+    background-color: #052F5A;
+    color: white;
+}
+
+.htmx-indicator {
+    display: none;
+}
+
+.htmx-request .htmx-indicator {
+    display: flex;
+}
+
+.htmx-request #products-grid {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.no-products-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+
+.product-hidden {
+    display: none !important;
+}

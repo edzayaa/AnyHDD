@@ -10,9 +10,12 @@ export class ShopController {
         this.shopService = new ShopService(storefront)
     }
 
-    async products({ view, params }: HttpContext) {
+    async products({ view, params, response }: HttpContext) {
         const handle = params.handle || "frontpage"
         const data = await this.shopService.getProducts(handle)
+        if (!data) {
+            return view.render('pages/errors/not_found')
+        }
         return view.render('pages/shop/products', { collection: data })
     }
 

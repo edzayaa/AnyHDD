@@ -47,13 +47,22 @@ export class ShopService {
 
         const handle = params.handle === 'all' ? 'frontpage' : params.handle
 
-        const variables = {
+        const variables: any = {
             handle,
-            first: params.first || 18,
-            after: params.after || null,
             sortKey: params.sortKey || 'COLLECTION_DEFAULT',
             reverse: params.reverse || false,
             filters: filters.length > 0 ? filters : undefined
+        }
+
+        // Handle pagination - use last/before for backward pagination, first/after for forward
+        if (params.before) {
+            variables.last = params.last || 18
+            variables.before = params.before
+        } else {
+            variables.first = params.first || 18
+            if (params.after) {
+                variables.after = params.after
+            }
         }
 
         const data = await this.storefront.request(queries.getFilteredCollection, variables) as Response.FilteredCollectionInterface

@@ -29,6 +29,12 @@ export const getCollection = `
                         ...ProductFragment
                     }
                 }
+                pageInfo {
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                    endCursor
+                }
             }
         }
     }
@@ -39,7 +45,9 @@ export const getFilteredCollection = `
     query getFilteredCollection(
         $handle: String!,
         $first: Int,
+        $last: Int,
         $after: String,
+        $before: String,
         $sortKey: ProductCollectionSortKeys,
         $reverse: Boolean,
         $filters: [ProductFilter!]
@@ -48,7 +56,9 @@ export const getFilteredCollection = `
             title
             products(
                 first: $first,
+                last: $last,
                 after: $after,
+                before: $before,
                 sortKey: $sortKey,
                 reverse: $reverse,
                 filters: $filters
@@ -56,17 +66,6 @@ export const getFilteredCollection = `
                 edges {
                     node {
                         ...ProductFragment
-                    }
-                }
-                filters {
-                    id
-                    label
-                    type
-                    values {
-                        id
-                        label
-                        count
-                        input
                     }
                 }
                 pageInfo {
