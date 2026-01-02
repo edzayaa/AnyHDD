@@ -14,7 +14,6 @@ export default defineConfig({
        */
       entrypoints: [
         'resources/css/app.css',
-        'resources/js/flowbite-init.js',
         'resources/css/core/common.scss',
         'resources/css/core/home.scss',
         'resources/css/core/about.scss',
@@ -23,7 +22,22 @@ export default defineConfig({
         'resources/css/core/warranty.scss',
         'resources/css/core/terms.scss',
         'resources/css/core/privacy.scss',
-        'resources/css/core/shop.scss',
+        'resources/css/core/sell-us.scss',
+
+        'resources/css/core/shop/products.scss',
+
+        'resources/css/core/auth/forgot.scss',
+        'resources/css/core/auth/login.scss',
+        'resources/css/core/auth/register.scss',
+        'resources/css/core/auth/reset.scss',
+
+        'resources/css/core/accounts/address.scss',
+        'resources/css/core/accounts/info.scss',
+        'resources/css/core/accounts/orders.scss',
+        'resources/css/core/accounts/my-account.scss',
+        'resources/css/core/accounts/overview.scss',
+
+        
       ],
 
       /**
