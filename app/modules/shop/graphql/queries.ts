@@ -123,3 +123,83 @@ export const getFilteredProducts = `
     }
     ${basicProductFragment}
 `
+
+export const getProductByHandle = `
+    query product($handle: String!) {
+        product(handle: $handle) {
+            id
+            title
+            handle
+            description
+            descriptionHtml
+            compareAtPriceRange {
+                maxVariantPrice {
+                    amount
+                    currencyCode
+                }
+                minVariantPrice {
+                    amount
+                    currencyCode
+                }
+            }
+            images(first: 20) {
+                edges {
+                    node {
+                        url
+                        altText
+                    }
+                }
+            }
+            variants(first: 10) {
+                edges {
+                    node {
+                        id
+                        title
+                        availableForSale
+                        price {
+                            amount
+                            currencyCode
+                        }
+                    }
+                }
+            }
+            metafields(identifiers: [
+                { key: "about", namespace: "custom" },
+                { key: "methods_of_use", namespace: "custom" },
+                { key: "package_items", namespace: "custom" },
+                { key: "warning", namespace: "custom" },
+                { key: "product_benefits", namespace: "custom" }
+            ]) {
+                key
+                value
+                references(first: 4) {
+                    edges {
+                        node {
+                            ... on Metaobject {
+                                fields {
+                                    key
+                                    value
+                                    reference {
+                                        ... on MediaImage {
+                                            image {
+                                                url
+                                                altText
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            selectedOrFirstAvailableVariant {
+                id
+                price {
+                    amount
+                    currencyCode
+                }
+            }
+        }
+    }
+`

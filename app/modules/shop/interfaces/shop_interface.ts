@@ -50,7 +50,6 @@ export interface BestSellingProductsInterface {
     }
 }
 
-// Filter interfaces
 export type ProductSortKey = 'BEST_SELLING' | 'CREATED_AT' | 'ID' | 'PRICE' | 'PRODUCT_TYPE' | 'RELEVANCE' | 'TITLE' | 'UPDATED_AT' | 'VENDOR'
 export type ProductCollectionSortKey = 'BEST_SELLING' | 'COLLECTION_DEFAULT' | 'CREATED' | 'ID' | 'MANUAL' | 'PRICE' | 'RELEVANCE' | 'TITLE'
 
@@ -85,7 +84,6 @@ export interface FilteredCollectionParams {
     sortKey?: ProductCollectionSortKey
     reverse?: boolean
     filters?: ProductFilterInput[]
-    // Convenience params that will be converted to filters
     minPrice?: number
     maxPrice?: number
     productType?: string
@@ -142,7 +140,6 @@ export interface FilteredCollectionInterface {
     }
 }
 
-// Legacy interface - keep for backward compatibility
 export interface FilteredProductsParams {
     first?: number
     after?: string
@@ -183,6 +180,64 @@ export interface FilteredProductsInterface {
             hasPreviousPage: boolean
             startCursor: string | null
             endCursor: string | null
+        }
+    }
+}
+
+export interface ProductInterface {
+    product: {
+        handle: string
+        title: string
+        description: string
+        productType: string
+        availableForSale: boolean
+        featuredImage: {
+            url: string
+            altText: string | null
+        } | null
+        priceRange: {
+            minVariantPrice: {
+                amount: string
+            }
+            maxVariantPrice: {
+                amount: string
+            }
+        }
+        customFields?: { [key: string]: string | { value: string; references?: Array<Record<string, string>> } }
+        images: {
+            edges: Array<{
+                node: {
+                    url: string
+                    altText: string | null
+                }
+            }>
+        }
+        compareAtPriceRange?: {
+            minVariantPrice: {
+                amount: string
+            }
+            maxVariantPrice: {
+                amount: string
+            }
+        }
+        descriptionHtml: string
+        metafields: Array<{
+            key: string
+            value: string
+        }> | null | undefined
+        variants: {
+            edges: Array<{
+                node: {
+                    id: string
+                    title: string
+                    price: string
+                    availableForSale: boolean
+                    selectedOptions: Array<{
+                        name: string
+                        value: string
+                    }>
+                }
+            }>
         }
     }
 }

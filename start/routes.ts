@@ -28,8 +28,8 @@ router.group(() => {
     router.on('/contact').render('pages/contact').as('contact')
     router.on('/warranty').render('pages/warranty').as('warranty')
     router.on('/about').render('pages/about').as('about')
-    router.on('/terms-and-conditions').render('pages/terms-and-conditions').as('termsAndConditions')
-    router.on('/privacy-policy').render('pages/privacy-policy').as('privacyPolicy')
+    router.on('/terms-and-conditions').render('pages/terms').as('termsAndConditions')
+    router.on('/privacy-policy').render('pages/privacy').as('privacyPolicy')
 
     if (process.env.NODE_ENV === 'development') {
         console.log('Registering test route...')
@@ -42,7 +42,7 @@ router.group(() => {
     router.get('/:handle', [ShopController, 'products']).as('productsByCollection')
 }).prefix('/collections').as('shop')
 
-router.get('/products/:handle', [ShopController, 'findProduct']).as('getProduct')
+router.get('/products/:handle', [ShopController, 'getProduct']).as('getProduct')
 
 router.group(() => {
     router.on('/login').render('pages/auth/login').as('login').use(middleware.isLogged())

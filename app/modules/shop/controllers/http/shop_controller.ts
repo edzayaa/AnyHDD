@@ -19,8 +19,11 @@ export class ShopController {
         return view.render('pages/shop/products', { collection: data })
     }
 
-    findProduct({ params, view }: HttpContext) {
-        const productId = params.id
-        return view.render('pages/shop/product', { productId })
+    async getProduct({ params, view }: HttpContext) {
+        const data = await this.shopService.getProductByHandle(params.handle)
+        if (!data) {
+            return view.render('pages/errors/not_found')
+        }
+        return view.render('pages/shop/product', { product: data } )
     }
 }

@@ -1,11 +1,11 @@
 import edge from "edge.js";
 
 edge.global("formatOrderDate", (dateString: string) => {
-    const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0'); 
-    const year = date.getFullYear();
-    return `${day}.${month}.${year}`;
+  const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}.${month}.${year}`;
 })
 
 edge.global("formatOrderStatus", (status: string): string => {
@@ -41,4 +41,8 @@ edge.global("formatOrderStatus", (status: string): string => {
 
 edge.global("json", (obj: any) => {
   return JSON.stringify(obj);
+})
+
+edge.global("comparePrices", (price1: number, price2: number): boolean => {
+  return price1 < price2;
 })

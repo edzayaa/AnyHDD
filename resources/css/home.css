@@ -43,9 +43,11 @@
        display: none;
    }
 }
-.swiper-slide.hero-slide{
+.hero-slide{
+    position: relative;
     border-radius: 5rem;
     height: 60vh;
+    overflow: hidden;
 }
 .hero-bg-img{
     position: absolute;
@@ -498,7 +500,7 @@
         height: 160%;
         transform: translate(-50%, -60%);
     }
-    .swiper-slide.hero-slide{
+    .hero-slide{
         height: 456px;
     }
     .section-2 .slider-controls{

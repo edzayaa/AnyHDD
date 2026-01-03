@@ -23,7 +23,7 @@ function renderCategoriesSlider() {
     const container = document.querySelector('.product-slider-container');
     if (!container) return;
 
-    // Estructura HTML con ambos sliders SEPARADOS
+    /* Estructura HTML con ambos sliders SEPARADOS
     container.innerHTML = `
         <div class="swiper gallery-main">
             <div class="swiper-wrapper">
@@ -53,6 +53,7 @@ function renderCategoriesSlider() {
             </div>
         </div>
     `;
+    */
 
     // 1. Inicializar el Swiper de miniaturas PRIMERO
     const thumbsSwiper = new Swiper('.gallery-thumbs', {

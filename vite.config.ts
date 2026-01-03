@@ -25,6 +25,7 @@ export default defineConfig({
         'resources/css/core/sell-us.scss',
 
         'resources/css/core/shop/products.scss',
+        'resources/css/core/shop/product.scss',
 
         'resources/css/core/auth/forgot.scss',
         'resources/css/core/auth/login.scss',
@@ -38,6 +39,7 @@ export default defineConfig({
         'resources/css/core/accounts/overview.scss',
 
         "resources/js/core/shop/products.js",
+        "resources/js/core/shop/product.js",
         "resources/js/core/warranty.js",
         "resources/js/core/privacy.js",
         "resources/js/core/terms.js",

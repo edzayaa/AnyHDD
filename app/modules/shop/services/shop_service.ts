@@ -1,6 +1,7 @@
 import StorefrontClient from "#shopify/storefront";
 import * as queries from "#modules/shop/graphql/queries";
 import * as Response from "#modules/shop/interfaces/shop_interface";
+import { processMetafields } from "#modules/shop/utils/shop_utils";
 
 export class ShopService {
     constructor(private readonly storefront: StorefrontClient) {}
@@ -8,6 +9,12 @@ export class ShopService {
     async getProducts(handle: string) {
         const data = await this.storefront.request(queries.getCollection, { handle }) as Response.ShopInterface;
         return data.collection
+    }
+
+    async getProductByHandle(handle: string) {
+        const data = await this.storefront.request(queries.getProductByHandle, { handle }) as Response.ProductInterface;
+        data.product.customFields = processMetafields(data.product.metafields);
+        return data.product
     }
 
     async getBestSellingProducts() {
@@ -54,7 +61,6 @@ export class ShopService {
             filters: filters.length > 0 ? filters : undefined
         }
 
-        // Handle pagination - use last/before for backward pagination, first/after for forward
         if (params.before) {
             variables.last = params.last || 18
             variables.before = params.before
