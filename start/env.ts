@@ -41,5 +41,9 @@ export default await Env.create(new URL('../', import.meta.url), {
   SMTP_PASSWORD: Env.schema.string(),
 
   RESEND_API_KEY: Env.schema.string(),
-  CONTACT_TO: Env.schema.string()
+  CONTACT_TO: Env.schema.string(),
+
+  // Judge API Variables
+  JUDGE_API_URL: Env.schema.string({ format: 'url' }),
+  JUDGE_API_KEY: Env.schema.string()
 })

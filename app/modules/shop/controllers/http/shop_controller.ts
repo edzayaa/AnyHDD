@@ -24,6 +24,68 @@ export class ShopController {
         if (!data) {
             return view.render('pages/errors/not_found')
         }
-        return view.render('pages/shop/product', { product: data } )
+
+        let reviews: any[] = []
+        try {
+            const fetchedReviews = await this.shopService.reviews(data.id, '1')
+            reviews = Array.isArray(fetchedReviews) ? fetchedReviews : []
+        } catch (error) {
+            console.error('Error fetching reviews:', error)
+            reviews = []
+        }
+
+        const reviewSummary = this.buildReviewSummary(reviews)
+
+        return view.render('pages/shop/product', { product: data, reviews, reviewSummary })
+    }
+
+    private buildReviewSummary(reviews: Array<{ rating?: number }> = []) {
+        const ratingLabels: Record<number, string> = {
+            1: 'one',
+            2: 'two',
+            3: 'three',
+            4: 'four',
+            5: 'five',
+        }
+
+        const ratingCounts: Record<number, number> = {
+            1: 0,
+            2: 0,
+            3: 0,
+            4: 0,
+            5: 0,
+        }
+
+        let totalScore = 0
+
+        for (const review of reviews) {
+            const parsedRating = Number(review?.rating) || 0
+            const normalizedRating = Math.min(5, Math.max(1, Math.round(parsedRating)))
+            ratingCounts[normalizedRating] += 1
+            totalScore += normalizedRating
+        }
+
+        const totalReviews = reviews.length
+        const averageRating = totalReviews > 0 ? totalScore / totalReviews : 0
+        const averageRatingFormatted = averageRating.toFixed(1)
+
+        const breakdown = [5, 4, 3, 2, 1].map((rating) => {
+            const count = ratingCounts[rating]
+            const percentage = totalReviews > 0 ? Math.round((count / totalReviews) * 100) : 0
+            return {
+                rating,
+                label: ratingLabels[rating],
+                count,
+                percentage,
+            }
+        })
+
+        return {
+            totalReviews,
+            averageRating,
+            averageRatingFormatted,
+            totalScore,
+            breakdown,
+        }
     }
 }

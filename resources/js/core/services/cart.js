@@ -12,6 +12,7 @@ class CartManager extends ApiClient {
         this.discountCodes = [];
 
         this.couponCode = '';
+        this.variantId = null;
     }
 
     async initCart() {
@@ -50,7 +51,14 @@ class CartManager extends ApiClient {
         this.updateCartData(data);
     }
 
-    async addToCart(merchandiseId, quantity = 1) {
+    async addToCart(variantId = null) {
+        let merchandiseId = this.variantId;
+        let quantity = Alpine.store('product').quantity || 1;
+
+        if (!merchandiseId) {
+            merchandiseId = variantId;
+        };
+
         const { data, success } = await this.post(endpoints.cart, { merchandiseId, quantity });
 
         if (success) {

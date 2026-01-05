@@ -186,6 +186,7 @@ export interface FilteredProductsInterface {
 
 export interface ProductInterface {
     product: {
+        id: string
         handle: string
         title: string
         description: string
@@ -240,4 +241,23 @@ export interface ProductInterface {
             }>
         }
     }
+}
+
+export interface JudgeReview {
+    rating: number;
+    title: string;
+    body: string;
+}
+
+export interface JudgeInternalProduct {
+    product: {
+        id: string;
+    }
+    error: string | null;
+}
+
+export interface JudgeReviews {
+    current_page: number;
+    per_page: number;
+    reviews: Array<JudgeReview>;
 }

@@ -1,0 +1,344 @@
+<input type="hidden" id="productId" value="{{ product.id }}" name="productId"/>
+<h2 class="xl show-mobile fade-in-top">Product Reviews</h2>
+<p class="your-email show-mobile fade-in-bottom">Your email address will not be published. Required
+    fields are marked</p>
+<div class="califications">
+    <div class="stars-bars-container" data-total-score="{{ reviewSummary.totalScore }}">
+        @each(row in reviewSummary.breakdown)
+            <div class="qly-row" data-rating="{{ row.rating }}">
+                <img class="stars-icon" src="/assets/product/product-review/{{ row.label }}.png" alt="{{ row.rating }} stars icon">
+                <span class="rating-count">{{ row.count }}</span>
+                <div class="bar-track">
+                    <div class="bar-fill" style="width: {{ row.percentage }}%;"></div>
+                </div>
+            </div>
+        @endeach
+    </div>
+    <button class="custom-button common-styles write-review-button" id="newsletter-button">
+        <p>Write a Review</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+            <path
+                d="M14.9179 4.91794C15.1488 4.68712 15.1488 4.31288 14.9179 4.08206L11.1565 0.320624C10.9257 0.0898037 10.5514 0.0898038 10.3206 0.320624C10.0898 0.551445 10.0898 0.925679 10.3206 1.1565L13.6641 4.5L10.3206 7.8435C10.0898 8.07432 10.0898 8.44855 10.3206 8.67937C10.5514 8.91019 10.9257 8.91019 11.1565 8.67937L14.9179 4.91794ZM0.5 4.5L0.5 5.09105L14.5 5.09105L14.5 4.5L14.5 3.90895L0.5 3.90895L0.5 4.5Z"
+                fill="#2F80ED" />
+        </svg>
+    </button>
+</div>
+<div class="review-container">
+    <h2 class="xl hide-mobile">Product Reviews</h2>
+    <p class="your-email hide-mobile">Your email address will not be published. Required fields are
+        marked</p>
+    <div class="review-list">
+        <div id="review-list" data-total-reviews="{{ reviewSummary.totalReviews }}" data-product-id="{{ product.id }}">
+            @if(reviews && reviews.length > 0)
+                @each(review in reviews.slice(0, 5))
+                    @include('components/shop/_review-item')
+                @endeach
+            @else
+                <div class="review-card" id="no-reviews-message">
+                    <p class="client-review-text">No reviews yet. Be the first to review this product!</p>
+                </div>
+            @endif
+        </div>
+
+        <div id="review-pagination-state">
+            <input type="hidden" name="id" value="{{ product.id }}" id="reviews-pagination-id">
+            <input type="hidden" name="page" value="2" id="reviews-pagination-page">
+            <input type="hidden" name="perPage" value="5" id="reviews-pagination-per-page">
+        </div>
+        
+        @if(reviews && reviews.length > 5)
+        <button class="see-more-btn" id="see-more-btn"
+            hx-get="{{ route('api.shop.productReviews') }}"
+            hx-target="#review-list"
+            hx-swap="beforeend"
+            data-page="2"
+            data-per-page="5"
+            hx-include="#review-pagination-state"
+            hx-on::after-request="handleSeeMoreResponse(event, this)">
+            See More
+            <svg viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M4.08206 14.9179C4.31288 15.1488 4.68712 15.1488 4.91794 14.9179L8.67938 11.1565C8.9102 10.9257 8.9102 10.5514 8.67938 10.3206C8.44856 10.0898 8.07432 10.0898 7.8435 10.3206L4.5 13.6641L1.1565 10.3206C0.92568 10.0898 0.551446 10.0898 0.320626 10.3206C0.0898055 10.5514 0.0898056 10.9257 0.320626 11.1565L4.08206 14.9179ZM4.5 0.5L3.90895 0.5L3.90895 14.5L4.5 14.5L5.09105 14.5L5.09105 0.5L4.5 0.5Z"
+                    fill="#00254B" />
+            </svg>
+        </button>
+        @endif
+    </div>
+
+    <div class="review-form-container" style="display: none;">
+        <div class="form-stars-label">Your rating</div>
+        <div class="form-stars">
+            <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M10 0L12.2451 6.90983H19.5106L13.6327 11.1803L15.8779 18.0902L10 13.8197L4.12215 18.0902L6.36729 11.1803L0.489435 6.90983H7.75486L10 0Z"
+                    stroke="#052F5A" fill="none" />
+            </svg>
+            <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M10 0L12.2451 6.90983H19.5106L13.6327 11.1803L15.8779 18.0902L10 13.8197L4.12215 18.0902L6.36729 11.1803L0.489435 6.90983H7.75486L10 0Z"
+                    stroke="#052F5A" fill="none" />
+            </svg>
+            <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M10 0L12.2451 6.90983H19.5106L13.6327 11.1803L15.8779 18.0902L10 13.8197L4.12215 18.0902L6.36729 11.1803L0.489435 6.90983H7.75486L10 0Z"
+                    stroke="#052F5A" fill="none" />
+            </svg>
+            <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M10 0L12.2451 6.90983H19.5106L13.6327 11.1803L15.8779 18.0902L10 13.8197L4.12215 18.0902L6.36729 11.1803L0.489435 6.90983H7.75486L10 0Z"
+                    stroke="#052F5A" fill="none" />
+            </svg>
+            <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M10 0L12.2451 6.90983H19.5106L13.6327 11.1803L15.8779 18.0902L10 13.8197L4.12215 18.0902L6.36729 11.1803L0.489435 6.90983H7.75486L10 0Z"
+                    stroke="#052F5A" fill="none" />
+            </svg>
+        </div>
+        
+        <input type="hidden" id="review-rating" name="rating" value="5">
+
+        <textarea class="form-textarea" placeholder="Your review" id="review-content" name="content"></textarea>
+
+        @if(!request.cookie('accessToken'))
+        <div class="form-inputs-row">
+            <input type="text" class="form-input" placeholder="Name" id="review-name" name="name">
+            <input type="email" class="form-input" placeholder="Email" id="review-email" name="email">
+        </div>
+        @endif
+
+        <button class="custom-button common-styles search-button submit-review-btn"
+            hx-post="{{ route('api.shop.createProductReview') }}" 
+            hx-include="#review-content, #review-name, #review-email, #review-rating, #productId"
+            hx-target="#review-list"
+            hx-swap="none"
+            hx-on::after-request="handleReviewSubmit(event)"
+            >
+            Submit
+            <svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0.5" width="37" height="37" rx="18.5" fill="white" />
+                <path
+                    d="M26.4179 18.9179C26.6488 18.6871 26.6488 18.3129 26.4179 18.0821L22.6565 14.3206C22.4257 14.0898 22.0514 14.0898 21.8206 14.3206C21.5898 14.5514 21.5898 14.9257 21.8206 15.1565L25.1641 18.5L21.8206 21.8435C21.5898 22.0743 21.5898 22.4486 21.8206 22.6794C22.0514 22.9102 22.4257 22.9102 22.6565 22.6794L26.4179 18.9179ZM12 18.5L12 19.0911L26 19.0911L26 18.5L26 17.9089L12 17.9089L12 18.5Z"
+                    fill="#2F80ED" />
+            </svg>
+
+        </button>
+    </div>
+
+</div>
+
+<script>
+    document.getElementById('newsletter-button')?.addEventListener('click', function() {
+        const formContainer = document.querySelector('.review-form-container');
+        if (formContainer.style.display === 'none' || formContainer.style.display === '') {
+            formContainer.style.display = 'block';
+        } else {
+            formContainer.style.display = 'none';
+        }
+    });
+
+    const stars = document.querySelectorAll('.form-stars svg');
+    const ratingInput = document.getElementById('review-rating');
+    
+    stars.forEach((star, index) => {
+        star.style.cursor = 'pointer';
+        
+        star.addEventListener('click', function() {
+            const rating = index + 1;
+            ratingInput.value = rating;
+            
+            stars.forEach((s, i) => {
+                const path = s.querySelector('path');
+                if (i < rating) {
+                    path.setAttribute('fill', '#052F5A');
+                } else {
+                    path.setAttribute('fill', 'none');
+                }
+            });
+        });
+        
+        star.addEventListener('mouseenter', function() {
+            const rating = index + 1;
+            stars.forEach((s, i) => {
+                const path = s.querySelector('path');
+                if (i < rating) {
+                    path.setAttribute('fill', '#052F5A');
+                    path.setAttribute('fill-opacity', '0.5');
+                }
+            });
+        });
+        
+        star.addEventListener('mouseleave', function() {
+            const currentRating = parseInt(ratingInput.value);
+            stars.forEach((s, i) => {
+                const path = s.querySelector('path');
+                if (i < currentRating) {
+                    path.setAttribute('fill', '#052F5A');
+                    path.setAttribute('fill-opacity', '1');
+                } else {
+                    path.setAttribute('fill', 'none');
+                }
+            });
+        });
+    });
+    
+    window.resetStars = function() {
+        stars.forEach((star, index) => {
+            const path = star.querySelector('path');
+            if (index < 5) {
+                path.setAttribute('fill', '#052F5A');
+            } else {
+                path.setAttribute('fill', 'none');
+            }
+        });
+    };
+    
+    function syncPaginationInputs(button) {
+        if (!button) return;
+        const pageInput = document.getElementById('reviews-pagination-page');
+        const perPageInput = document.getElementById('reviews-pagination-per-page');
+        if (pageInput && button.dataset.page) {
+            pageInput.value = button.dataset.page;
+        }
+        if (perPageInput && button.dataset.perPage) {
+            perPageInput.value = button.dataset.perPage;
+        }
+    }
+    
+    function updateButtonNextPage(button) {
+        if (!button) return;
+        const perPage = parseInt(button.dataset.perPage || document.getElementById('reviews-pagination-per-page')?.value || '5');
+        const reviewCards = document.querySelectorAll('#review-list .review-card').length;
+        const nextPage = Math.floor(reviewCards / perPage) + 1;
+        button.dataset.page = nextPage.toString();
+        syncPaginationInputs(button);
+    }
+
+    function updateRatingOverview(totalScore, totalReviews) {
+        const averageElement = document.getElementById('average-rating-value');
+        const totalElement = document.getElementById('total-reviews-count');
+        const average = totalReviews > 0 ? totalScore / totalReviews : 0;
+        if (averageElement) {
+            averageElement.textContent = average.toFixed(1);
+        }
+        if (totalElement) {
+            totalElement.textContent = totalReviews.toString();
+        }
+    }
+
+    function updateBreakdownRows(totalReviews, submittedRating) {
+        const rows = document.querySelectorAll('.stars-bars-container .qly-row');
+        rows.forEach((row) => {
+            const rating = parseInt(row.getAttribute('data-rating') || '0', 10);
+            const countElement = row.querySelector('.rating-count');
+            if (!countElement) {
+                return;
+            }
+            let count = parseInt(countElement.textContent || '0', 10);
+            if (rating === submittedRating) {
+                count += 1;
+                countElement.textContent = count.toString();
+            }
+            const bar = row.querySelector('.bar-fill');
+            const percentage = totalReviews > 0 ? (count / totalReviews) * 100 : 0;
+            if (bar) {
+                bar.style.width = `${percentage}%`;
+            }
+        });
+    }
+    
+    window.handleReviewSubmit = function(event) {
+        if (event.detail.successful) {
+            let submittedRating = parseInt((ratingInput && ratingInput.value) ? ratingInput.value : '5', 10) || 5;
+            submittedRating = Math.min(5, Math.max(1, submittedRating));
+            document.getElementById('review-content').value = '';
+            const nameInput = document.getElementById('review-name');
+            const emailInput = document.getElementById('review-email');
+            if (nameInput) nameInput.value = '';
+            if (emailInput) emailInput.value = '';
+            if (ratingInput) {
+                ratingInput.value = '5';
+            }
+            resetStars();
+            
+            document.querySelector('.review-form-container').style.display = 'none';
+            const reviewListWrapper = document.querySelector('.review-list');
+            if (reviewListWrapper) {
+                reviewListWrapper.style.display = '';
+            }
+            const writeReviewButton = document.querySelector('.write-review-button');
+            if (writeReviewButton) {
+                writeReviewButton.style.display = '';
+            }
+            
+            const noReviewsMsg = document.getElementById('no-reviews-message');
+            if (noReviewsMsg) {
+                noReviewsMsg.remove();
+            }
+            
+            const reviewList = document.getElementById('review-list');
+            const responseHtml = event.detail.xhr.responseText;
+            if (responseHtml && responseHtml.trim()) {
+                reviewList.insertAdjacentHTML('afterbegin', responseHtml);
+            }
+
+            const currentTotal = parseInt(reviewList.dataset.totalReviews || '0', 10);
+            const updatedTotal = currentTotal + 1;
+            reviewList.dataset.totalReviews = updatedTotal.toString();
+            const starsContainer = document.querySelector('.stars-bars-container');
+            const currentScore = Number(starsContainer?.dataset.totalScore || '0');
+            const updatedScore = currentScore + submittedRating;
+            if (starsContainer) {
+                starsContainer.dataset.totalScore = updatedScore.toString();
+            }
+            updateRatingOverview(updatedScore, updatedTotal);
+            updateBreakdownRows(updatedTotal, submittedRating);
+            
+            const reviewCards = reviewList.querySelectorAll('.review-card').length;
+            if (reviewCards >= 5 && updatedTotal > 5) {
+                let seeMoreBtn = document.getElementById('see-more-btn');
+                if (!seeMoreBtn) {
+                    seeMoreBtn = document.createElement('button');
+                    seeMoreBtn.id = 'see-more-btn';
+                    seeMoreBtn.className = 'see-more-btn';
+                    seeMoreBtn.setAttribute('hx-get', '{{ route("api.shop.productReviews") }}');
+                    seeMoreBtn.setAttribute('hx-target', '#review-list');
+                    seeMoreBtn.setAttribute('hx-swap', 'beforeend');
+                    seeMoreBtn.setAttribute('data-page', '2');
+                    seeMoreBtn.setAttribute('data-per-page', '5');
+                    seeMoreBtn.setAttribute('hx-include', '#review-pagination-state');
+                    seeMoreBtn.setAttribute('hx-on::after-request', 'handleSeeMoreResponse(event, this)');
+                    seeMoreBtn.innerHTML = `See More
+                        <svg viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.08206 14.9179C4.31288 15.1488 4.68712 15.1488 4.91794 14.9179L8.67938 11.1565C8.9102 10.9257 8.9102 10.5514 8.67938 10.3206C8.44856 10.0898 8.07432 10.0898 7.8435 10.3206L4.5 13.6641L1.1565 10.3206C0.92568 10.0898 0.551446 10.0898 0.320626 10.3206C0.0898055 10.5514 0.0898056 10.9257 0.320626 11.1565L4.08206 14.9179ZM4.5 0.5L3.90895 0.5L3.90895 14.5L4.5 14.5L5.09105 14.5L5.09105 0.5L4.5 0.5Z" fill="#00254B" />
+                        </svg>`;
+                    document.querySelector('.review-list').appendChild(seeMoreBtn);
+                    htmx.process(seeMoreBtn);
+                }
+                seeMoreBtn.style.display = 'flex';
+                updateButtonNextPage(seeMoreBtn);
+            }
+        }
+    };
+    
+
+    window.handleSeeMoreResponse = function(event, button) {
+        if (!event.detail.successful) {
+            return;
+        }
+
+        const response = event.detail.xhr.responseText;
+        const reviewList = document.getElementById('review-list');
+        const totalReviews = parseInt(reviewList.dataset.totalReviews || '0');
+        const loadedReviews = reviewList.querySelectorAll('.review-card').length;
+
+        if (!response || response.trim() === '' || loadedReviews >= totalReviews) {
+            button.style.display = 'none';
+        } else {
+            button.dataset.page = (parseInt(button.dataset.page || '1') + 1).toString();
+            syncPaginationInputs(button);
+        }
+    };
+    
+    resetStars();
+    syncPaginationInputs(document.getElementById('see-more-btn'));
+</script>

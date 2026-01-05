@@ -1,10 +1,11 @@
 @layout.app({title: `${ product.title } - AnyHDD`, customClass: 'inner-pages'})
 
 @slot('styles')
-@vite(['resources/css/core/shop/product.scss', 'resources/js/core/shop/product.js'])
+@vite(['resources/css/core/shop/product.scss', 'resources/css/app.css', 'resources/js/core/shop/product.js'])
 @endslot
 
 @slot('main')
+@include('components/feedback/_response_toast')
 <div id="smooth-wrapper">
     <div id="smooth-content">
         <div class="product-container-major">
@@ -41,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-info">
+                <div class="product-info" x-data="cartManager">
                     <h1 class="xl product-header fade-in-element">{{ product.title }}</h1>
                     <p class="description-text xs fade-in-element">{{{ product.descriptionHtml }}}</p>
                     <div class="price_box_add_btn">
@@ -54,11 +55,11 @@
                         </div>
                         <div class="add_btn_container">
                             <div class="add_btn">
-                                <button>-</button>
-                                <span>01</span>
-                                <button>+</button>
+                                <button @click="$store.product.quantity > 1 && $store.product.quantity--">-</button>
+                                <span x-text="$store.product.quantity"></span>
+                                <button @click="$store.product.quantity < 20 && $store.product.quantity++">+</button>
                             </div>
-                            <Button class='custom-button common-styles' id="add-to-cart-button">
+                            <Button class='custom-button common-styles' id="add-to-cart-button"  @click="addToCart('{{ product.selectedOrFirstAvailableVariant.id}}')" :disabled="loading">
                                 Add to Cart
                                 <svg viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect rx="18.5" fill="white"></rect>
@@ -74,7 +75,7 @@
                         </p>
                         <div class="btn-model-select-container">
                             @each((item, index) in product.variants.edges)
-                            <button class="condition-btn {{ index === 0 ? 'active' : '' }}">{{ item.node.title }}</button>
+                            <button @click="variantId = '{{ item.node.id }}'" class="condition-btn {{ index === 0 ? 'active' : '' }}">{{ item.node.title }}</button>
                             @end
                         </div>
                         @end
@@ -543,171 +544,7 @@
             </section>
 
             <section class="product-review">
-                <h2 class="xl show-mobile fade-in-top">Product Reviews</h2>
-                <p class="your-email show-mobile fade-in-bottom">Your email address will not be published. Required
-                    fields are marked</p>
-                <div class="califications">
-                    <div class="stars-bars-container">
-                        <div class="qly-row">
-                            <img class="stars-icon" src="/assets/product/product-review/five.png" alt="stars icon">
-                            <span>3</span>
-                            <div class="bar-track">
-                                <div class="bar-fill bar-fill-three-stars"></div>
-                            </div>
-                        </div>
-                        <div class="qly-row">
-                            <img class="stars-icon" src="/assets/product/product-review/four.png" alt="stars icon">
-                            <span>0</span>
-                            <div class="bar-track">
-                                <div class="bar-fill"></div>
-                            </div>
-                        </div>
-                        <div class="qly-row">
-                            <img class="stars-icon" src="/assets/product/product-review/three.png" alt="stars icon">
-                            <span>0</span>
-                            <div class="bar-track">
-                                <div class="bar-fill"></div>
-                            </div>
-                        </div>
-                        <div class="qly-row">
-                            <img class="stars-icon" src="/assets/product/product-review/two.png" alt="stars icon">
-                            <span>0</span>
-                            <div class="bar-track">
-                                <div class="bar-fill"></div>
-                            </div>
-                        </div>
-                        <div class="qly-row">
-                            <img class="stars-icon" src="/assets/product/product-review/one.png" alt="stars icon">
-                            <span>0</span>
-                            <div class="bar-track">
-                                <div class="bar-fill"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="custom-button common-styles write-review-button" id="newsletter-button">
-                        <p>Write a Review</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
-                            <path
-                                d="M14.9179 4.91794C15.1488 4.68712 15.1488 4.31288 14.9179 4.08206L11.1565 0.320624C10.9257 0.0898037 10.5514 0.0898038 10.3206 0.320624C10.0898 0.551445 10.0898 0.925679 10.3206 1.1565L13.6641 4.5L10.3206 7.8435C10.0898 8.07432 10.0898 8.44855 10.3206 8.67937C10.5514 8.91019 10.9257 8.91019 11.1565 8.67937L14.9179 4.91794ZM0.5 4.5L0.5 5.09105L14.5 5.09105L14.5 4.5L14.5 3.90895L0.5 3.90895L0.5 4.5Z"
-                                fill="#2F80ED" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="review-container">
-                    <h2 class="xl hide-mobile">Product Reviews</h2>
-                    <p class="your-email hide-mobile">Your email address will not be published. Required fields are
-                        marked</p>
-                    <div class="review-list">
-                        <div class="review-card">
-                            <p class="client-name">
-                                Joe Doe
-                            </p>
-                            <img src="/assets/product/product-review/five.png" alt="stars icon">
-                            <p class="client-review-text">Lorem ipsum dolor sit amet consectetur. Ullamcorper sed id id
-                                tellus. Habitasse mauris scelerisque aliquet mauris sit quam ultrices quam pellentesque.
-                                Commodo morbi dictum porta </p>
-                        </div>
-                        <div class="review-card">
-                            <p class="client-name">
-                                Joe Doe
-                            </p>
-                            <img src="/assets/product/product-review/five.png" alt="stars icon">
-                            <p class="client-review-text">Lorem ipsum dolor sit amet consectetur. Ullamcorper sed id id
-                                tellus. Habitasse mauris scelerisque aliquet mauris sit quam ultrices quam pellentesque.
-                                Commodo morbi dictum porta </p>
-                        </div>
-
-                        <div class="review-card">
-                            <p class="client-name">
-                                Joe Doe
-                            </p>
-                            <img src="/assets/product/product-review/five.png" alt="stars icon">
-                            <p class="client-review-text">Lorem ipsum dolor sit amet consectetur. Ullamcorper sed id id
-                                tellus. Habitasse mauris scelerisque aliquet mauris sit quam ultrices quam pellentesque.
-                                Commodo morbi dictum porta </p>
-                        </div>
-                        <button class="see-more-btn">
-                            See More
-                            <svg viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M4.08206 14.9179C4.31288 15.1488 4.68712 15.1488 4.91794 14.9179L8.67938 11.1565C8.9102 10.9257 8.9102 10.5514 8.67938 10.3206C8.44856 10.0898 8.07432 10.0898 7.8435 10.3206L4.5 13.6641L1.1565 10.3206C0.92568 10.0898 0.551446 10.0898 0.320626 10.3206C0.0898055 10.5514 0.0898056 10.9257 0.320626 11.1565L4.08206 14.9179ZM4.5 0.5L3.90895 0.5L3.90895 14.5L4.5 14.5L5.09105 14.5L5.09105 0.5L4.5 0.5Z"
-                                    fill="#00254B" />
-                            </svg>
-                        </button>
-                    </div>
-
-                    <!-- Review Form Container (Hidden by default) -->
-                    <div class="review-form-container" style="display: none;">
-                        <div class="form-stars-label">Your rating</div>
-                        <div class="form-stars">
-                            <!-- 5 SVG Stars -->
-                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M10 0L12.2451 6.90983H19.5106L13.6327 11.1803L15.8779 18.0902L10 13.8197L4.12215 18.0902L6.36729 11.1803L0.489435 6.90983H7.75486L10 0Z"
-                                    stroke="#052F5A" fill="none" />
-                            </svg>
-                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M10 0L12.2451 6.90983H19.5106L13.6327 11.1803L15.8779 18.0902L10 13.8197L4.12215 18.0902L6.36729 11.1803L0.489435 6.90983H7.75486L10 0Z"
-                                    stroke="#052F5A" fill="none" />
-                            </svg>
-                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M10 0L12.2451 6.90983H19.5106L13.6327 11.1803L15.8779 18.0902L10 13.8197L4.12215 18.0902L6.36729 11.1803L0.489435 6.90983H7.75486L10 0Z"
-                                    stroke="#052F5A" fill="none" />
-                            </svg>
-                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M10 0L12.2451 6.90983H19.5106L13.6327 11.1803L15.8779 18.0902L10 13.8197L4.12215 18.0902L6.36729 11.1803L0.489435 6.90983H7.75486L10 0Z"
-                                    stroke="#052F5A" fill="none" />
-                            </svg>
-                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M10 0L12.2451 6.90983H19.5106L13.6327 11.1803L15.8779 18.0902L10 13.8197L4.12215 18.0902L6.36729 11.1803L0.489435 6.90983H7.75486L10 0Z"
-                                    stroke="#052F5A" fill="none" />
-                            </svg>
-                        </div>
-
-                        <textarea class="form-textarea" placeholder="Your review"></textarea>
-
-                        <div class="form-inputs-row">
-                            <input type="text" class="form-input" placeholder="Name">
-                            <input type="email" class="form-input" placeholder="Email">
-                        </div>
-
-                        <div class="form-checkbox-row">
-                            <input type="checkbox" id="save-info-check">
-                            <label for="save-info-check">Save my name, email, and website in this browser for the next
-                                time I comment.</label>
-                        </div>
-
-                        <!-- <button class="custom-button common-styles submit-review-btn">
-                                Submit
-                                <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="0.5" width="37" height="37" rx="18.5" fill="white"/>
-                                <path d="M25.9179 18.9179C26.1488 18.6871 26.1488 18.3129 25.9179 18.0821L22.1565 14.3206C21.9257 14.0898 21.5514 14.0898 21.3206 14.3206C21.0898 14.5514 21.0898 14.9257 21.3206 15.1565L24.6641 18.5L21.3206 21.8435C21.0898 22.0743 21.0898 22.4486 21.3206 22.6794C21.5514 22.9102 21.9257 22.9102 22.1565 22.6794L25.9179 18.9179ZM11.5 18.5L11.5 19.0911L25.5 19.0911L25.5 18.5L25.5 17.9089L11.5 17.9089L11.5 18.5Z" fill="#2F80ED"/>
-                                </svg>
-                            </button> -->
-
-                        <button class="custom-button common-styles search-button submit-review-btn">
-                            Submit
-                            <svg width="38" height="37" viewBox="0 0 38 37" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <rect x="0.5" width="37" height="37" rx="18.5" fill="white" />
-                                <path
-                                    d="M26.4179 18.9179C26.6488 18.6871 26.6488 18.3129 26.4179 18.0821L22.6565 14.3206C22.4257 14.0898 22.0514 14.0898 21.8206 14.3206C21.5898 14.5514 21.5898 14.9257 21.8206 15.1565L25.1641 18.5L21.8206 21.8435C21.5898 22.0743 21.5898 22.4486 21.8206 22.6794C22.0514 22.9102 22.4257 22.9102 22.6565 22.6794L26.4179 18.9179ZM12 18.5L12 19.0911L26 19.0911L26 18.5L26 17.9089L12 17.9089L12 18.5Z"
-                                    fill="#2F80ED" />
-                            </svg>
-
-                        </button>
-                    </div>
-
-                </div>
+                @include('components/shop/_reviews')
             </section>
             <!-- END HERE -->
             @include('components/common/footer')

@@ -1,0 +1,5 @@
+<div class="review-card">
+    <p class="client-name">{{ review.reviewer?.name || 'Anonymous' }}</p>
+    <img src="/assets/product/product-review/{{ review.rating === 5 ? 'five' : review.rating === 4 ? 'four' : review.rating === 3 ? 'three' : review.rating === 2 ? 'two' : 'one' }}.png" alt="stars icon">
+    <p class="client-review-text">{{ review.body }}</p>
+</div>

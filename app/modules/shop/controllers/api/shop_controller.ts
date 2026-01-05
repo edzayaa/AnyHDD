@@ -85,4 +85,32 @@ export class ShopApiController {
             collection: data.collection,
         })
     }
+
+    async reviews({ request, view }: HttpContext) {
+        const page = parseInt(request.qs().page || '1');
+        const perPage = parseInt(request.qs().perPage || '5');
+        const allReviews = await this.shopService.reviews(request.qs().id, '1');
+        
+        const startIndex = (page - 1) * perPage;
+        const endIndex = startIndex + perPage;
+        const paginatedReviews = allReviews.slice(startIndex, endIndex);
+        
+        let html = '';
+        
+        if (paginatedReviews && paginatedReviews.length > 0) {
+            for (const review of paginatedReviews) {
+                html += await view.render('components/shop/_review-item', { review });
+            }
+        } else {
+            html = '';
+        }
+        
+        return html;
+    }
+    
+    async createReview({ request, view }: HttpContext) {
+        const accessToken = request.cookie('accessToken');
+        const result = await this.shopService.createReview(request.body(), accessToken);
+        return view.render('components/shop/_review-item', { review: result });
+    }
 }

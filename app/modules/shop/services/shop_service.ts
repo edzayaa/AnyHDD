@@ -1,10 +1,18 @@
 import StorefrontClient from "#shopify/storefront";
 import * as queries from "#modules/shop/graphql/queries";
 import * as Response from "#modules/shop/interfaces/shop_interface";
+
+import JudgeClient from "#helpers/judge";
+import { CustomerService } from "#modules/customer/services/customer_service";
 import { processMetafields } from "#modules/shop/utils/shop_utils";
 
 export class ShopService {
-    constructor(private readonly storefront: StorefrontClient) {}
+    private judgeClient: JudgeClient;
+
+    constructor(private readonly storefront: StorefrontClient) {
+        const customerService = new CustomerService(storefront);
+        this.judgeClient = new JudgeClient(customerService);
+    }
 
     async getProducts(handle: string) {
         const data = await this.storefront.request(queries.getCollection, { handle }) as Response.ShopInterface;
@@ -74,4 +82,14 @@ export class ShopService {
         const data = await this.storefront.request(queries.getFilteredCollection, variables) as Response.FilteredCollectionInterface
         return data
     }
+
+    async reviews(productId: string, page: string) {
+        const result = await this.judgeClient.reviews(productId, page);
+        return result;
+    }
+
+    async createReview(body: Record<string, any>, accessToken?: string) {
+        return this.judgeClient.createReview(body, accessToken);
+    }
+
 }
