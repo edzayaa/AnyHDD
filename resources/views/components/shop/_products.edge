@@ -99,10 +99,10 @@
         @if(collection.products && (collection.products.pageInfo.hasNextPage || collection.products.pageInfo.hasPreviousPage))
         <div class="pagination-container" style="margin-top: 3rem;">
             <div class="pagination">
-                <button type="button" class="prev-button" disabled>
+                <button type="button" class="prev-button" {{!collection.products.pageInfo.hasPreviousPage ? 'disabled' : ''}}>
                     <img src="/img/prev-arrow.svg" alt="Previous" />
                 </button>
-                <button type="button" class="next-button">
+                <button type="button" class="next-button" {{!collection.products.pageInfo.hasNextPage ? 'disabled' : ''}}>
                     <img src="/img/next-arrow.svg" alt="Next" />
                 </button>
             </div>

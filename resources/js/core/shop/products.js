@@ -11,5 +11,5 @@ import '../../white-overlay';
 import '../../show-navbar';
 import '../../best-sellers-carousel';
 
-import '../services/cart'
 import '../services/filters'
+

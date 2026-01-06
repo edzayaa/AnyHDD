@@ -1,0 +1,74 @@
+@layout.app({title: 'Search', customClass: 'inner-pages'})
+
+@slot('styles')
+@vite(['resources/css/core/shop/search.scss', 'resources/js/core/shop/search.js'])
+@endslot
+
+@slot('main')
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+        <div class="products-container shop-page">
+            <div class="top-spacing"></div>
+            <section class="shop-section">
+                <div class="blured-circle-1 blured-circle desktop-only"></div>
+                <div class="blured-circle-2 blured-circle desktop-only"></div>
+                <div class="sort-container">
+                    <div class="search-container"  x-data="searchManager">
+                        <input class='search-input' id="shop-search-input" type="text" placeholder='Search AnyHDD' x-model.lazy="searchQuery" />
+                        <Button class='custom-button common-styles search-button' id="shop-search" @click="searchProducts(searchQuery)">
+                            Search
+                            <svg class='search-icon' xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                viewBox="0 0 14 14" fill="none">
+                                <path
+                                    d="M6.84245 10.7083C9.23424 10.7083 11.1732 8.7694 11.1732 6.3776C11.1732 3.98581 9.23424 2.04688 6.84245 2.04688C4.45065 2.04688 2.51172 3.98581 2.51172 6.3776C2.51172 8.7694 4.45065 10.7083 6.84245 10.7083Z"
+                                    stroke="#052F5A" stroke-width="1.08268" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M12.2572 11.7923L9.90234 9.4375" stroke="#052F5A" stroke-width="1.08268"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </Button>
+                    </div>
+                </div>
+                <div class="divider-shop"></div>
+                <div class="shop">
+                    <div class="products-container" x-data="cartManager">
+                        <h5>{{ query }} / {{ products.totalCount }} Item(s) Found</h5>
+                        <div class="products">
+                            @each(item in products.edges)
+                            @include('components/shop/_product-card')
+                            @else
+                            <h2 style="text-align: center; width: 100%;">No products found matching your search.</h2>
+                            @endeach
+                        </div>
+                        <div 
+                            data-has-next="{{ products.pageInfo.hasNextPage }}" 
+                            data-has-prev="{{ products.pageInfo.hasPreviousPage }}" 
+                            data-end-cursor="{{ products.pageInfo.endCursor }}" 
+                            data-start-cursor="{{ products.pageInfo.startCursor }}"
+                            id="pagination-data"
+                        ></div>
+                        @if(products && (products.pageInfo.hasNextPage || products.pageInfo.hasPreviousPage)) 
+                        <div class="pagination-container" style="margin-top: 3rem;">
+                            <div class="pagination">
+                                <button type="button" class="prev-button"
+                                    {{!products.pageInfo.hasPreviousPage ? 'disabled' : '' }}>
+                                    <img src="/img/prev-arrow.svg" alt="Previous" />
+                                </button>
+                                <button type="button" class="next-button" {{!products.pageInfo.hasNextPage
+                                    ? 'disabled' : '' }}>
+                                    <img src="/img/next-arrow.svg" alt="Next" />
+                                </button>
+                            </div>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        @include('components/common/footer')
+    </div>
+</div>
+@endslot
+@end

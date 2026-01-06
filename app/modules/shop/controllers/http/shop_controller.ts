@@ -88,4 +88,24 @@ export class ShopController {
             breakdown,
         }
     }
+
+    async search({ request, view }: HttpContext) {
+        const query = request.input('q', '')
+        if (!query) {
+            return view.render('pages/errors/not_found')
+        }
+        
+        const nextCursor = request.input('nextCursor')
+        const previousCursor = request.input('previousCursor')
+        const limit = request.input('limit', 18)
+        
+        const data = await this.shopService.searchProducts(query, {
+            nextCursor,
+            previousCursor,
+            limit: Number(limit)
+        }) as any
+        
+        console.log(data)
+        return view.render('pages/shop/search', { products: data.search, query })
+    }
 }
