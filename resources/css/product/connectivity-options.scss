@@ -65,6 +65,7 @@
 			display: flex;
 			margin-inline: auto;
 			justify-content: left;
+			margin-bottom: 1rem;
            @media only screen and (max-width: 1024px) {
 			 transform: scale(0.6);
 		    }
@@ -87,7 +88,7 @@
 			border-radius: 100px;
 			border: 1px solid var(--header-blue);
 			padding: 0.7em 1.1em;
-			margin-inline: 10px;
+			margin-left: 10px;
             @media only screen and (max-width: 768px) {
                 padding: 0.5em 0.8em;
                 margin-inline: 5px;
@@ -389,7 +390,13 @@
                     margin-left: 7.5%;
                 }
 			}
+		.connectivity-options-carousel{
+			width: 90%;
+			@media only screen and (max-width: 767px) {
+				width: 100%;
+			}
 
+		}
 			.custom-next-connectivity {
 				position: unset;
 					@media only screen and (max-width: 1280px) {
@@ -403,6 +410,7 @@
 
 			.nav-container{
 				display: flex;
+				display: none;
                 justify-content: left;
                 gap: 1.5%;
                 align-items: center;
