@@ -117,9 +117,23 @@ class CartManager extends ApiClient {
     get canCheckout() {
         return this.cart.length > 0 && this.checkoutUrl && !this.loading;
     }
+
+    
+}
+
+class SearchManager {
+    constructor() {
+        this.searchQuery = '';
+    }
+
+    searchProducts(query) {
+        if (!query || query.trim() === '') return;
+        window.location.href = `/search?q=${encodeURIComponent(query.trim())}`;
+    }
 }
 
 document.addEventListener('alpine:init', () => {
     Alpine.store('product', { quantity: 1 });
     Alpine.data('cartManager', () => new CartManager());
+    Alpine.data('searchManager', () => new SearchManager());
 });

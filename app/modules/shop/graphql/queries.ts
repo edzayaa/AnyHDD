@@ -203,3 +203,41 @@ export const getProductByHandle = `
         }
     }
 `
+
+export const searchProducts = `
+    query searchProducts(
+        $query: String!,
+        $first: Int = 18,
+        $last: Int,
+        $after: String,
+        $before: String,
+        $sortKey: SearchSortKeys,
+        $reverse: Boolean,
+    ) {
+        search(
+            query: $query,
+            first: $first,
+            last: $last,
+            after: $after,
+            before: $before,
+            sortKey: $sortKey,
+            reverse: $reverse,
+        ) {
+            edges {
+                node {
+                    ... on Product {
+                        ...ProductFragment
+                    }
+                }
+            }
+            pageInfo {
+                hasNextPage
+                hasPreviousPage
+                startCursor
+                endCursor
+            }
+            totalCount
+        }
+    }
+    ${basicProductFragment}
+`

@@ -1,6 +1,6 @@
 <div class="product-card">
     <div class="product-card-top">
-        <h3>{{ item.node.title }}</h3>
+        <h3>{{ truncate(item.node.title, 20) }}</h3>
         @if(item.node.productType)
         <a href='javascript:void(0)'>{{ item.node.productType }}</a>
         @endif

@@ -57,6 +57,7 @@ export const customerAddresses = `
                         name
                         firstName
                         lastName
+                        company
                         address1
                         address2
                         city

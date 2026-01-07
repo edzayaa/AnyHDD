@@ -30,6 +30,7 @@ router.group(() => {
     router.on('/about').render('pages/about').as('about')
     router.on('/terms-and-conditions').render('pages/terms').as('termsAndConditions')
     router.on('/privacy-policy').render('pages/privacy').as('privacyPolicy')
+    router.get('/search', [ShopController, 'search']).as('search')
 
     if (process.env.NODE_ENV === 'development') {
         console.log('Registering test route...')

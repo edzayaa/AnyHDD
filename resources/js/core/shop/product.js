@@ -16,5 +16,4 @@ import '../../show-navbar.js'
 import '../../feature-desing.js'
 import '../../product-review.js'
 
-import '../services/cart'
 import '../services/product'

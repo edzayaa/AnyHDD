@@ -29,10 +29,10 @@
             </button>
             <a href="{{ route('home') }}"><img class='logo-navbar' src="/img/anyhdd-logo.webp" /></a>
         </div>
-        <div class="center">
+        <div class="center" x-data="searchManager">
             <input class='search-input' id="search-nav-input" type="text"
-                placeholder='Find a Specific Product  in Our Store' />
-            <button class="custom-button search-button" id="search-nav-button">
+                placeholder='Find a Specific Product  in Our Store' x-model.lazy="searchQuery" />
+            <button class="custom-button search-button" id="search-nav-button"  @click="searchProducts(searchQuery)">
                 <p>Search</p>
                 <svg class='search-icon' xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"
                     fill="none">
@@ -59,11 +59,6 @@
                         stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </button>
-            <div class="search-results-container">
-                <ul class="search-results-list">
-
-                </ul>
-            </div>
         </div>
         <div class="right">
             <ul class="navbar-links">

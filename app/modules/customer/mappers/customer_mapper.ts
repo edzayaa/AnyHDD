@@ -32,6 +32,7 @@ export class CustomerMapper {
         const address: any = {
             firstName: data.address.firstName,
             lastName: data.address.lastName,
+            company: data.address.company,
             address1: data.address.address1,
             address2: data.address.address2,
             city: data.address.city,
@@ -59,6 +60,7 @@ export class CustomerMapper {
         const address: any = {
             firstName: data.address.firstName,
             lastName: data.address.lastName,
+            company: data.address.company,
             address1: data.address.address1,
             address2: data.address.address2,
             city: data.address.city,

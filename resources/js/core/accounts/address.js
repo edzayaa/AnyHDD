@@ -148,7 +148,7 @@ document.addEventListener('alpine:init', () => {
             const defaults = {
                 firstName: 'First Name',
                 lastName: 'Last Name',
-                company: 'Company',
+                company: 'Company (Optional)',
                 address1: 'Address',
                 address2: 'Apartment, suite, etc',
                 city: 'City',

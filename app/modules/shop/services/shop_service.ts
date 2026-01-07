@@ -83,6 +83,24 @@ export class ShopService {
         return data
     }
 
+    async searchProducts(query: string, paginationData?: { nextCursor?: string, previousCursor?: string, limit?: number }) {
+        const variables: any = { query };
+        
+        if (paginationData?.nextCursor) {
+            variables.after = paginationData.nextCursor;
+            variables.first = paginationData.limit || 18;
+        } else if (paginationData?.previousCursor) {
+            variables.before = paginationData.previousCursor;
+            variables.last = paginationData.limit || 18;
+            variables.first = null;
+        } else {
+            variables.first = paginationData?.limit || 18;
+        }
+        
+        const data = await this.storefront.request(queries.searchProducts, variables) as Response.SearchProductsInterface;
+        return data
+    }
+
     async reviews(productId: string, page: string) {
         const result = await this.judgeClient.reviews(productId, page);
         return result;

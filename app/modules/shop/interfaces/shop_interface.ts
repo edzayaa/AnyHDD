@@ -261,3 +261,34 @@ export interface JudgeReviews {
     per_page: number;
     reviews: Array<JudgeReview>;
 }
+
+export interface SearchProductsInterface {
+    products: {
+        edges: Array<{
+            node: {
+                handle: string
+                title: string
+                productType: string
+                availableForSale: boolean
+                featuredImage: {
+                    url: string
+                    altText: string | null
+                } | null
+                priceRange: {
+                    minVariantPrice: {
+                        amount: string
+                    }
+                }
+                selectedOrFirstAvailableVariant: {
+                    id: string
+                }
+            }
+        }>
+        pageInfo: {
+            hasNextPage: boolean
+            hasPreviousPage: boolean
+            startCursor: string | null
+            endCursor: string | null
+        }
+    }
+}
