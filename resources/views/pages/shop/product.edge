@@ -221,32 +221,39 @@
             </section>
             @endif
 
+            @if(product.connectivity) 
             <section class="connectivity-options">
                 <div class="left">
                     <h2 class="xxl fade-in-top">Connectivity Options</h2>
                     <div class="tech-badges">
+                        @each(item in product.connectivity.compatibility)
+                        @if(item == 'Windows') 
                         <div class="badge-item">
                             <img src="/assets/product/connectivity-options/microsoft.png" alt="microsoft icon">
                             <span>Microsoft Windows</span>
                         </div>
+                        @elseif(item == 'Apple')
                         <div class="badge-item">
                             <img src="/assets/product/connectivity-options/apple.png" alt="apple icon">
                             <span>Apple</span>
                         </div>
+                        @elseif(item == 'Linux')
                         <div class="badge-item">
                             <img src="/assets/product/connectivity-options/ubuntu.png" alt="ubuntu icon">
                             <span>Ubuntu</span>
-                        </div>
+                        </div> 
+                        @endif
+                        @endeach
                     </div>
                     <div class="connectivity-options-carousel">
                         <div class="connectivity-slider-container">
                             <div class="swiper gallery-main-connectivity">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide connectivity-slide">
-                                        <img src="/img/connectivity-options/connectivity.webp" class="connectivity-img" />
+                                        <img src="{{ product.connectivity.image.image.url }}" class="connectivity-img" />
                                     </div>
                                     <div class="swiper-slide connectivity-slide">
-                                        <img src="/img/connectivity-options/connectivity.webp" class="connectivity-img" />
+                                        <img src="{{ product.connectivity.image.image.url }}" class="connectivity-img" />
                                     </div>
                                 </div>
                                 <div class="nav-container">
@@ -265,11 +272,12 @@
                 </div>
                 <div class="right">
                     <div class="co-accordion-section">
+                        @each((item, index) in product.connectivity.features.references)
                         <div class="co-accordion js-accordion">
                             <div class="co-accordion__header">
                                 <div class="co-accordion-title">
-                                    <span class="co-accordion-index">1</span>
-                                    <h4 class="co-accordeon-header-title">About Dual Monitor Docking Station</h4>
+                                    <span class="co-accordion-index">{{ index + 1 }}</span>
+                                    <h4 class="co-accordeon-header-title">{{ item.title }}</h4>
                                 </div>
                                 <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.7676 3V22.525" class="hide-open" stroke="#052F5A" stroke-width="5.53778" stroke-linecap="round" stroke-linejoin="round"/>
@@ -279,51 +287,15 @@
                             <div class="co-accordion__body">
                                 <div class="co-radial_gradient_divider"></div>
                                 <p class="xs">
-                                    Yes, all our products include an official warranty. The coverage period varies by product, but typically ranges from 12 to 24 months against manufacturing defects.
+                                    {{ item.description }}
                                 </p>
                             </div>
                         </div>
-
-                        <div class="co-accordion js-accordion">
-                            <div class="co-accordion__header">
-                                <div class="co-accordion-title">
-                                    <span class="co-accordion-index">2</span>
-                                    <h4 class="co-accordeon-header-title">Do the products come with a warranty?</h4>
-                                </div>
-                                <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.7676 3V22.525" class="hide-open" stroke="#052F5A" stroke-width="5.53778" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M3 12.7617H22.525" stroke="#052F5A" stroke-width="5.53778" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <div class="co-accordion__body">
-                                <div class="co-radial_gradient_divider"></div>
-                                <p class="xs">
-                                    Yes, all our products include an official warranty. The coverage period varies by product, but typically ranges from 12 to 24 months against manufacturing defects.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="co-accordion js-accordion">
-                            <div class="co-accordion__header">
-                                <div class="co-accordion-title">
-                                    <span class="co-accordion-index">3</span>
-                                    <h4 class="co-accordeon-header-title">Methods of use of the product</h4>
-                                </div>
-                                <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.7676 3V22.525" class="hide-open" stroke="#052F5A" stroke-width="5.53778" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M3 12.7617H22.525" stroke="#052F5A" stroke-width="5.53778" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <div class="co-accordion__body">
-                                <div class="co-radial_gradient_divider"></div>
-                                <p class="xs">
-                                    Yes, all our products include an official warranty. The coverage period varies by product, but typically ranges from 12 to 24 months against manufacturing defects.
-                                </p>
-                            </div>
-                        </div>
+                        @endeach
                     </div>
                 </div>
             </section>
+            @endif
 
             <section class="feature-desing">
 

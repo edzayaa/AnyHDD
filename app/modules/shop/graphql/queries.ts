@@ -178,10 +178,41 @@ export const getProductByHandle = `
                 { key: "methods_of_use", namespace: "custom" },
                 { key: "package_items", namespace: "custom" },
                 { key: "warning", namespace: "custom" },
-                { key: "product_benefits", namespace: "custom" }
+                { key: "product_benefits", namespace: "custom" },
+                { key: "connectivity_options", namespace: "custom" },
             ]) {
                 key
                 value
+                reference {
+                    ... on Metaobject {
+                        id
+                        fields {
+                            key
+                            value
+                            reference {
+                                ... on MediaImage {
+                                        id
+                                        image {
+                                            url
+                                        }
+                                    }
+                                }
+                            references(first: 7) {
+                            edges {
+                                node {
+                                        ... on Metaobject {
+                                            id
+                                            fields {
+                                                key
+                                                value
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
                 references(first: 4) {
                     edges {
                         node {
