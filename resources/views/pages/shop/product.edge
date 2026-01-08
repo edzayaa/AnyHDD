@@ -42,28 +42,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-info" x-data="cartManager">
+                <div class="product-info" x-data="cartManager" data-default-variant-id="{{ product.selectedOrFirstAvailableVariant?.id }}">
                     <h1 class="xl product-header fade-in-element">{{ product.title }}</h1>
                     <p class="description-text xs fade-in-element">{{{ product.descriptionHtml }}}</p>
                     <div class="price_box_add_btn">
-                        <div class="prices">
-                            @if(
-                            hasDiscount(
-                                product.priceRange.minVariantPrice.amount,
-                                product.compareAtPriceRange?.minVariantPrice.amount
-                            )
-                            )
-                            <p>
-                                <span class="line-through">
-                                ${{ product.compareAtPriceRange.minVariantPrice.amount }}
+                        <div
+                            class="prices"
+                            data-default-price="{{ (product.selectedOrFirstAvailableVariant?.price?.amount) || product.priceRange.minVariantPrice.amount || '0' }}"
+                            data-default-compare="{{ (product.selectedOrFirstAvailableVariant?.compareAtPrice?.amount) || product.compareAtPriceRange?.minVariantPrice?.amount || '' }}"
+                        >
+                            <p x-init="registerPriceNode($el)">
+                                <span class="line-through" x-show="showComparePrice" x-cloak x-text="formattedComparePrice">
+                                    @if(
+                                        hasDiscount(
+                                            (product.selectedOrFirstAvailableVariant?.price?.amount) || product.priceRange.minVariantPrice.amount,
+                                            (product.selectedOrFirstAvailableVariant?.compareAtPrice?.amount) || product.compareAtPriceRange?.minVariantPrice?.amount
+                                        )
+                                    )
+                                    ${{ (product.selectedOrFirstAvailableVariant?.compareAtPrice?.amount) || product.compareAtPriceRange?.minVariantPrice?.amount || '' }}
+                                    @endif
                                 </span>
-                                ${{ product.priceRange.minVariantPrice.amount }}
+                                {{ (product.selectedOrFirstAvailableVariant?.price?.amount) || product.priceRange.minVariantPrice.amount || '0' }}
                             </p>
-                            @else
-                            <p>
-                                ${{ product.priceRange.minVariantPrice.amount }}
-                            </p>
-                            @endif
                         </div>
                         <div class="add_btn_container">
                             <div class="add_btn">
@@ -87,7 +87,13 @@
                         </p>
                         <div class="btn-model-select-container">
                             @each((item, index) in product.variants.edges)
-                            <button @click="variantId = '{{ item.node.id }}'" class="condition-btn {{ index === 0 ? 'active' : '' }}">{{ item.node.title }}</button>
+                            <button
+                                @click="selectVariant($event)"
+                                data-variant-id="{{ item.node.id }}"
+                                data-price="{{ item.node.price.amount || '0' }}"
+                                data-compare="{{ item.node.compareAtPrice?.amount || '' }}"
+                                class="condition-btn {{ index === 0 ? 'active' : '' }}"
+                            >{{ item.node.title }}</button>
                             @end
                         </div>
                         @end

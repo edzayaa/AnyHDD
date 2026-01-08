@@ -4,11 +4,14 @@ const toggleActive = () =>{
     if (!allLabels) return;
 
     const activeBtn = (e) => {
+        const button = e.currentTarget;
+        if (!button) return;
+
         allLabels.forEach(item => {
             item.classList.remove("active")
         })
 
-        e.target.classList.toggle("active")
+        button.classList.add("active")
     }
 
     allLabels.forEach(item => {
