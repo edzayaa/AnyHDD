@@ -132,6 +132,7 @@ export const getProductByHandle = `
             handle
             description
             descriptionHtml
+            availableForSale
             compareAtPriceRange {
                 maxVariantPrice {
                     amount

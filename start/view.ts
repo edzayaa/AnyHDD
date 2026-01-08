@@ -49,7 +49,6 @@ edge.global("hasDiscount", (priceAmount: number, compareAtAmount: number | null 
 }
 );
 
-
 edge.global("sanitizeShopifyId", (id: string): string => {
   const parts = id.split("/");
   return parts[parts.length - 1];

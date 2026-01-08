@@ -71,6 +71,7 @@
                                 <span x-text="$store.product.quantity"></span>
                                 <button @click="$store.product.quantity < 20 && $store.product.quantity++">+</button>
                             </div>
+                            @if(product.availableForSale) 
                             <Button class='custom-button common-styles' id="add-to-cart-button"  @click="addToCart('{{ product.selectedOrFirstAvailableVariant.id}}')" :disabled="loading">
                                 Add to Cart
                                 <svg viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -80,6 +81,17 @@
                                         fill="#2F80ED"></path>
                                 </svg>
                             </Button>
+                            @else
+                            <Button class='custom-button common-styles button-disabled' disabled>
+                                Add to Cart
+                                <svg viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect rx="18.5" fill="white"></rect>
+                                    <path
+                                        d="M25.9179 18.9179C26.1488 18.6871 26.1488 18.3129 25.9179 18.0821L22.1565 14.3206C21.9257 14.0898 21.5514 14.0898 21.3206 14.3206C21.0898 14.5514 21.0898 14.9257 21.3206 15.1565L24.6641 18.5L21.3206 21.8435C21.0898 22.0743 21.0898 22.4486 21.3206 22.6794C21.5514 22.9102 21.9257 22.9102 22.1565 22.6794L25.9179 18.9179ZM11.5 18.5L11.5 19.0911L25.5 19.0911L25.5 18.5L25.5 17.9089L11.5 17.9089L11.5 18.5Z"
+                                        fill="#2F80ED"></path>
+                                </svg>
+                            </Button>
+                            @endif
                         </div>
                         @if(product.variants.edges.length > 1) 
                         <p class="description-text xs model-title">
@@ -92,6 +104,7 @@
                                 data-variant-id="{{ item.node.id }}"
                                 data-price="{{ item.node.price.amount || '0' }}"
                                 data-compare="{{ item.node.compareAtPrice?.amount || '' }}"
+                                data-available="{{ item.node.availableForSale }}"
                                 class="condition-btn {{ index === 0 ? 'active' : '' }}"
                             >{{ item.node.title }}</button>
                             @end

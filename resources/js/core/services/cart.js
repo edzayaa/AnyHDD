@@ -20,10 +20,25 @@ class CartManager extends ApiClient {
         this.compareAtPriceRaw = null;
         this.priceContainer = null;
         this.priceTextNode = null;
+        this.addToCartButton = null;
+        this.variantAvailable = true;
     }
 
     init() {
         this.initializePricing();
+        this.initializeAvailabilityState();
+    }
+
+    truncateTitle(title, maxLength = 25) {
+        if (typeof title !== 'string' || maxLength <= 0) {
+            return '';
+        }
+        
+        if (title.length <= maxLength) {
+            return title;
+        }
+
+        return title.slice(0, maxLength - 3) + '...';
     }
 
     initializePricing() {
@@ -46,17 +61,79 @@ class CartManager extends ApiClient {
         this.setPricing(activeButton.dataset.price, activeButton.dataset.compare);
     }
 
+    initializeAvailabilityState() {
+        this.cacheAddToCartButton();
+
+        const activeButton = this.$el?.querySelector('.condition-btn.active');
+        if (activeButton) {
+            const isAvailable = this.parseAvailabilityFlag(activeButton.dataset.available);
+            this.updateVariantAvailability(isAvailable);
+            return;
+        }
+
+        if (this.addToCartButton) {
+            const hasDisabledClass = this.addToCartButton.classList.contains('button-disabled');
+            const isDisabledAttr = this.addToCartButton.hasAttribute('disabled');
+            this.updateVariantAvailability(!(hasDisabledClass || isDisabledAttr));
+        }
+    }
+
+    cacheAddToCartButton() {
+        if (this.addToCartButton && document.body.contains(this.addToCartButton)) {
+            return;
+        }
+
+        this.addToCartButton = this.$el
+            ? this.$el.querySelector('#add-to-cart-button')
+            : document.querySelector('#add-to-cart-button');
+    }
+
+    parseAvailabilityFlag(flag) {
+        if (typeof flag !== 'string') {
+            return true;
+        }
+
+        const normalized = flag.trim().toLowerCase();
+        if (normalized === 'false' || normalized === '0' || normalized === 'no') {
+            return false;
+        }
+
+        if (normalized === 'true' || normalized === '1' || normalized === 'yes') {
+            return true;
+        }
+
+        return true;
+    }
+
+    updateVariantAvailability(isAvailable) {
+        this.variantAvailable = isAvailable !== false;
+        this.cacheAddToCartButton();
+
+        if (!this.addToCartButton) {
+            return;
+        }
+
+        this.addToCartButton.classList.toggle('button-disabled', !this.variantAvailable);
+
+        if (this.variantAvailable) {
+            this.addToCartButton.removeAttribute('disabled');
+        } else {
+            this.addToCartButton.setAttribute('disabled', 'disabled');
+        }
+    }
+
     selectVariant(event) {
         const target = event?.currentTarget;
         if (!target) return;
 
-        const { variantId, price, compare } = target.dataset;
+        const { variantId, price, compare, available } = target.dataset;
 
         if (variantId) {
             this.variantId = variantId;
         }
 
         this.setPricing(price, compare);
+        this.updateVariantAvailability(this.parseAvailabilityFlag(available));
     }
 
     setPricing(price, compare) {
@@ -215,6 +292,10 @@ class CartManager extends ApiClient {
     }
 
     async addToCart(variantId = null) {
+        if (!this.variantAvailable) {
+            return;
+        }
+
         let merchandiseId = this.variantId;
         let quantity = Alpine.store('product').quantity || 1;
 
