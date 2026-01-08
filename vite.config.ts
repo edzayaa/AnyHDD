@@ -53,6 +53,7 @@ export default defineConfig({
         "resources/js/core/auth/login.js",
         "resources/js/core/contact.js",
         "resources/js/core/home.js",
+        "resources/js/core/common.js",
       ],
 
       /**
