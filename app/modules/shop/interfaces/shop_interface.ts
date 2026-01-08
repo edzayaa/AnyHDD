@@ -292,3 +292,14 @@ export interface SearchProductsInterface {
         }
     }
 }
+
+export interface CollectionsInterface {
+    collections: {
+        edges: Array<{
+            node: {
+                title: string
+                handle: string
+            }
+        }>
+    }
+}

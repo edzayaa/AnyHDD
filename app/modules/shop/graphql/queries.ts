@@ -283,3 +283,21 @@ export const searchProducts = `
     }
     ${basicProductFragment}
 `
+
+export const getCollections = `
+    query getCollections {
+        collections(first: 100) {
+            edges {
+                node {
+                    title
+                    handle
+                    description(truncateAt: 100)
+                    image {
+                        url
+                        altText
+                    }
+                }
+            }
+        }
+    }
+`

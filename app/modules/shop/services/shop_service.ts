@@ -19,6 +19,11 @@ export class ShopService {
         return data.collection
     }
 
+    async getCollections() {
+        const data = await this.storefront.request(queries.getCollections) as Response.CollectionsInterface;
+        return data.collections
+    }
+
     async getProductByHandle(handle: string) {
         const data = await this.storefront.request(queries.getProductByHandle, { handle }) as Response.ProductInterface;
         data.product.customFields = processMetafields(data.product.metafields);
