@@ -47,10 +47,22 @@
                     <p class="description-text xs fade-in-element">{{{ product.descriptionHtml }}}</p>
                     <div class="price_box_add_btn">
                         <div class="prices">
-                            @if(comparePrices(product.compareAtPriceRange?.minVariantPrice.amount || 0, product.compareAtPriceRange?.maxVariantPrice.amount || 0)) 
-                            <p><span> ${{ product.compareAtPriceRange?.maxVariantPrice.amount }} </span> ${{ product.compareAtPriceRange?.minVariantPrice.amount }}</p>
+                            @if(
+                            hasDiscount(
+                                product.priceRange.minVariantPrice.amount,
+                                product.compareAtPriceRange?.minVariantPrice.amount
+                            )
+                            )
+                            <p>
+                                <span class="line-through">
+                                ${{ product.compareAtPriceRange.minVariantPrice.amount }}
+                                </span>
+                                ${{ product.priceRange.minVariantPrice.amount }}
+                            </p>
                             @else
-                            <p>$ {{ product.compareAtPriceRange?.minVariantPrice.amount }}</p>
+                            <p>
+                                ${{ product.priceRange.minVariantPrice.amount }}
+                            </p>
                             @endif
                         </div>
                         <div class="add_btn_container">

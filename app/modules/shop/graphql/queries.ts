@@ -142,6 +142,16 @@ export const getProductByHandle = `
                     currencyCode
                 }
             }
+            priceRange {
+                maxVariantPrice {
+                    amount
+                    currencyCode
+                }
+                minVariantPrice {
+                    amount
+                    currencyCode
+                }
+            }
             images(first: 20) {
                 edges {
                     node {
