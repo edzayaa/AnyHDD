@@ -98,6 +98,10 @@ export default defineConfig({
       pattern: 'public/**',
       reloadServer: false,
     },
+    {
+      pattern: 'app/modules/pages/data/**/*.json',
+      reloadServer: false,
+    }
   ],
 
   assetsBundler: false,
