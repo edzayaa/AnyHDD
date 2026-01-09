@@ -73,6 +73,7 @@ router.group(() => {
 router.group(() => {
     router.get('/best-selling-products', [ShopApiController, 'bestSellingProducts']).as('bestSellingProducts')
     router.get('/collections/:handle/products', [ShopApiController, 'getFilteredProducts']).as('filteredProducts')
+    router.get('/collections', [ShopApiController, 'getCollections']).as('getCollections')
     router.get('/products/reviews', [ShopApiController, 'reviews']).as('productReviews')
     router.post('/products/reviews', [ShopApiController, 'createReview']).as('createProductReview')
 }).prefix('/api/shop').as('api.shop')

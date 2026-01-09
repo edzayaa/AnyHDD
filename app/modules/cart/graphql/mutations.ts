@@ -19,6 +19,7 @@ const cartFragment = `
                 merchandise {
                     ... on ProductVariant {
                         id
+                        title
                         product {
                             id
                             title

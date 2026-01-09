@@ -20,6 +20,7 @@ export const cart = `
                     merchandise {
                         ... on ProductVariant {
                             id
+                            title
                             product {
                                 id
                                 title

@@ -1,3 +1,5 @@
+import type { ConnectivityPayload, Metafield } from "#modules/shop/utils/shop_utils"
+
 export interface ShopInterface {
     collection: {
         products: {
@@ -205,6 +207,7 @@ export interface ProductInterface {
             }
         }
         customFields?: { [key: string]: string | { value: string; references?: Array<Record<string, string>> } }
+        connectivity?: ConnectivityPayload | null
         images: {
             edges: Array<{
                 node: {
@@ -222,10 +225,7 @@ export interface ProductInterface {
             }
         }
         descriptionHtml: string
-        metafields: Array<{
-            key: string
-            value: string
-        }> | null | undefined
+        metafields: Metafield[] | null | undefined
         variants: {
             edges: Array<{
                 node: {
@@ -290,5 +290,16 @@ export interface SearchProductsInterface {
             startCursor: string | null
             endCursor: string | null
         }
+    }
+}
+
+export interface CollectionsInterface {
+    collections: {
+        edges: Array<{
+            node: {
+                title: string
+                handle: string
+            }
+        }>
     }
 }

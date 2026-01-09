@@ -21,6 +21,11 @@ export class ShopApiController {
         return view.render('components/shop/_products', { collection: data })
     }
 
+    async getCollections({ response }: HttpContext) {
+        const data = await this.shopService.getCollections()
+        return response.json(data)
+    }
+
     async getFilteredProducts({ request, view, params }: HttpContext) {
         const qs = request.qs()
         const handle = params.handle || 'all'

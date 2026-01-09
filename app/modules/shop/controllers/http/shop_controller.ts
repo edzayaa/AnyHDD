@@ -105,7 +105,6 @@ export class ShopController {
             limit: Number(limit)
         }) as any
         
-        console.log(data)
         return view.render('pages/shop/search', { products: data.search, query })
     }
 }

@@ -43,9 +43,11 @@ edge.global("json", (obj: any) => {
   return JSON.stringify(obj);
 })
 
-edge.global("comparePrices", (price1: number, price2: number): boolean => {
-  return price1 < price2;
-})
+edge.global("hasDiscount", (priceAmount: number, compareAtAmount: number | null | undefined): boolean => {
+  if (!compareAtAmount) return false;
+  return compareAtAmount > priceAmount;
+}
+);
 
 edge.global("sanitizeShopifyId", (id: string): string => {
   const parts = id.split("/");

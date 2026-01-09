@@ -4,7 +4,7 @@ import * as Response from "#modules/shop/interfaces/shop_interface";
 
 import JudgeClient from "#helpers/judge";
 import { CustomerService } from "#modules/customer/services/customer_service";
-import { processMetafields } from "#modules/shop/utils/shop_utils";
+import { processMetafields, processConnectivityMetafields } from "#modules/shop/utils/shop_utils";
 
 export class ShopService {
     private judgeClient: JudgeClient;
@@ -19,9 +19,15 @@ export class ShopService {
         return data.collection
     }
 
+    async getCollections() {
+        const data = await this.storefront.request(queries.getCollections) as Response.CollectionsInterface;
+        return data.collections
+    }
+
     async getProductByHandle(handle: string) {
         const data = await this.storefront.request(queries.getProductByHandle, { handle }) as Response.ProductInterface;
         data.product.customFields = processMetafields(data.product.metafields);
+        data.product.connectivity = processConnectivityMetafields(data.product.metafields);
         return data.product
     }
 
