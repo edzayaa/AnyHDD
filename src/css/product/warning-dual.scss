@@ -141,7 +141,7 @@
 
     .white-cards-container{
         display: flex;
-        justify-content: space-between;
+        gap: 1%;
         align-items: center;
         width: 100%;
         aspect-ratio: calc(1890/254);
@@ -154,7 +154,7 @@
 
     .white-card{
 
-        background-image: url(/src/assets/product/warning-dual/bg-white-card.webp);
+        background-image: url(/assets/product/warning-dual/bg-white-card.webp);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
