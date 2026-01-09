@@ -2,18 +2,13 @@
 	background-image: url(/src/assets/product/connectivity-options/bg.webp);
 	background-repeat: no-repeat;
 	background-size: contain;
-	background-position: left;
+	background-position: center;
 	padding-bottom: 5%;
-	display: flex;
-	padding-inline: 8%;
-    justify-content: space-between;
-	@media only screen and (max-width: 1024px) {
-		flex-direction: column;
-	}
 	h2{
-		text-align: left;
+		text-align: center;
 		color: var(--header-blue);
 		position: relative;
+		width: fit-content;
 		margin: auto;
 		margin-bottom: 1.25%;
 		&::before{
@@ -49,23 +44,11 @@
 				}
 			}
 		}
-		.right{
-			width: 50%;
-			@media only screen and (max-width: 767px) {
-				width: 100%;
-			}
-		}
-		.left{
-			width: 50%;
-						@media only screen and (max-width: 767px) {
-								width: 100%;
-						}
-		}
+
 		.tech-badges{
 			display: flex;
 			margin-inline: auto;
-			justify-content: left;
-			margin-bottom: 1rem;
+			justify-content: center;
            @media only screen and (max-width: 1024px) {
 			 transform: scale(0.6);
 		    }
@@ -88,7 +71,7 @@
 			border-radius: 100px;
 			border: 1px solid var(--header-blue);
 			padding: 0.7em 1.1em;
-			margin-left: 10px;
+			margin-inline: 10px;
             @media only screen and (max-width: 768px) {
                 padding: 0.5em 0.8em;
                 margin-inline: 5px;
@@ -121,7 +104,7 @@
 		    }
 		}
 		.connectivity-img{
-			width: 75%;
+			width: 34.5%;
 			object-fit: contain;
             @media only screen and (max-width: 767px) {
                 width: 95%;
@@ -133,8 +116,9 @@
 
 		.swiper-slide.connectivity-slide {
             display: flex;
+            justify-content: center;
             position: relative;
-            height: 30rem;
+            height: 600px;
 
             @media only screen and (min-width: 2250px) {
                     height: 750px;
@@ -390,13 +374,7 @@
                     margin-left: 7.5%;
                 }
 			}
-		.connectivity-options-carousel{
-			width: 90%;
-			@media only screen and (max-width: 767px) {
-				width: 100%;
-			}
 
-		}
 			.custom-next-connectivity {
 				position: unset;
 					@media only screen and (max-width: 1280px) {
@@ -410,8 +388,7 @@
 
 			.nav-container{
 				display: flex;
-				display: none;
-                justify-content: left;
+                justify-content: center;
                 gap: 1.5%;
                 align-items: center;
                 height: 42px;
@@ -440,18 +417,14 @@
                 position: unset;
                 background-color: rgba(217, 217, 217, 1);
                 margin-bottom: 22px;
-								margin-right: 1rem;
                 @media only screen and (max-width: 1280px) {
                     width: 150px !important;
-
                 }
                 @media only screen and (max-width: 767px) {
                     width: 160px;
                 }
             }
-						.custom-next-connectivity{
-							margin-left: 1rem;
-						}
+
             .swiper-scrollbar-drag {
                 width: 87.5px !important;
                 position: unset;
@@ -741,149 +714,4 @@
 				right: 9%;
 			}	
 		}
-}
-
-/* Connectivity Right: Accordion styles with own classes */
-.connectivity-options {
-	.right {
-		.co-accordeon-header-title {
-			font-size: 20px;
-			@media only screen and (min-width: 2250px) {
-				font-size: 1.042vw;
-			}
-			@media only screen and (max-width: 767px) {
-				font-size: 15px;
-				white-space: nowrap;
-			}
-		}
-
-		.co-accordion-section {
-			padding: 2.5% 0 0 0;
-			position: relative;
-			z-index: 1;
-			@media only screen and (max-width: 767px) {
-				padding-top: 7.5%;
-				padding-bottom: 15%;
-			}
-		}
-
-		.co-accordion {
-			position: relative;
-			z-index: 1;
-			display: flex;
-			flex-direction: column;
-			overflow: hidden;
-			background-color: #A0A0A024;
-			margin-bottom: 2%;
-			border-radius: 1rem;
-
-			.co-accordion__header {
-				padding: 1rem 1.5rem;
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				cursor: pointer;
-				transition: all 0.2s ease-out;
-				height: 5rem;
-				@media only screen and (min-width: 2150px) {
-					height: 10%;
-				}
-				@media only screen and (min-width: 768px) and (max-width: 1024px) {
-					height: 70px;
-				}
-				@media only screen and (max-width: 767px) {
-					height: unset;
-					min-height: 57px;
-					padding: 1rem 1.75rem;
-				}
-				.co-accordion-title{
-					display: inline-flex;
-					align-items: center;
-				}
-				.co-accordion-index {
-					display: inline-flex;
-					align-items: center;
-					justify-content: center;
-					width: 3rem;
-					height: 3rem;
-					aspect-ratio: 1;
-					background-color: #ffffff;
-					border-radius: 50%;
-					color: #00254B;
-					font-weight: 700;
-					margin-right: 1rem;
-					/* Match h4 font sizes across breakpoints */
-					font-size: 20px;
-					@media only screen and (min-width: 2250px) {
-						font-size: 1.042vw;
-					}
-					@media only screen and (max-width: 767px) {
-						font-size: 15px;
-					}
-				}
-
-				h4 {
-					font-weight: 500;
-					transition: 200ms transform ease-in-out;
-					color: #00254B;
-					@media only screen and (max-width: 767px) {
-						width: 87%;
-						text-wrap: auto;
-					}
-				}
-				svg {
-					height: 10px;
-					width: 10px;
-					@media only screen and (min-width: 2150px) {
-						height: 16px;
-						width: 16px;
-					}
-				}
-			}
-
-			.hide-open {
-				transition: 200ms transform ease-in-out;
-				transform-origin: center center;
-			}
-
-			&.accordion--expand .hide-open {
-				transform: rotate(90deg);
-			}
-			&.accordion--expand svg path {
-				stroke: var(--active-blue);
-			}
-
-			.co-accordion__body {
-				overflow: hidden;
-				max-height: 0px;
-				will-change: height;
-				transition: 300ms all ease-in-out;
-				padding-inline: 1.5rem;
-				padding-left: calc(1.5rem + 4rem + 0.75rem);
-				@media only screen and (max-width: 767px) {
-					padding-inline: 1.75rem;
-					padding-left: calc(1.75rem + 4rem + 0.75rem);
-				}
-				p {
-					color: #777777;
-					padding-bottom: 2.5%;
-					font-size: 1.2rem;
-					@media only screen and (max-width: 767px) {
-						padding-bottom: 5%;
-						width: 100%;
-						padding-top: 2.5%;
-						font-size: 1.4rem;
-					}
-				}
-			}
-
-			.co-radial_gradient_divider {
-				display: none;
-			}
-
-			&.accordion--expand .co-accordion__body {
-				max-height: 500px;
-			}
-		}
-	}
 }
