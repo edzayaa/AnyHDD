@@ -494,6 +494,7 @@
     }
     .hero-slide .content{
         padding: 25px 12px;
+        height: 456px;
     }
     .hero-bg-img img{
         width: auto;

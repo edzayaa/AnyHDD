@@ -11,7 +11,7 @@ export interface MetafieldReferenceImage {
 export interface MetafieldReference {
     key: string
     value: string | null
-    reference?: MetafieldReferenceImage | null
+    reference?: any
     references?: {
         edges: Array<{
             node: {
@@ -24,9 +24,7 @@ export interface MetafieldReference {
 export interface Metafield {
     key: string
     value: object | string
-    reference?: {
-        fields?: MetafieldReference[]
-    } | null
+    reference?: any
     references?: {
         edges: Array<{
             node: {
@@ -38,7 +36,8 @@ export interface Metafield {
 
 interface CustomFieldValue {
     value: string
-    references?: Array<Record<string, string>>
+    references?: Array<Record<string, any>>
+    reference?: any
 }
 
 interface CustomFields {
@@ -56,8 +55,11 @@ export function processMetafields(metafields: Metafield[] | null | undefined): C
                 ? field.value
                 : JSON.stringify(field.value)
 
+            const entry: CustomFieldValue = { value }
+            let hasComplexData = false
+
             if (field.references?.edges && field.references.edges.length > 0) {
-                const references = field.references.edges.map(edge => {
+                entry.references = field.references.edges.map(edge => {
                     return edge.node.fields.reduce((refAcc, refField) => {
                         refAcc[refField.key] = refField.value
                         
@@ -68,11 +70,16 @@ export function processMetafields(metafields: Metafield[] | null | undefined): C
                         return refAcc
                     }, {} as Record<string, any>)
                 })
+                hasComplexData = true
+            }
 
-                acc[field.key] = {
-                    value,
-                    references
-                }
+            if (field.reference) {
+                entry.reference = field.reference
+                hasComplexData = true
+            }
+
+            if (hasComplexData) {
+                acc[field.key] = entry
             } else {
                 acc[field.key] = value
             }

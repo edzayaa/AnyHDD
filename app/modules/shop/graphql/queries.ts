@@ -181,6 +181,8 @@ export const getProductByHandle = `
                 { key: "warning", namespace: "custom" },
                 { key: "product_benefits", namespace: "custom" },
                 { key: "connectivity_options", namespace: "custom" },
+                { key: "video", namespace: "custom" },
+                { key: "feature_and_design", namespace: "custom" }
             ]) {
                 key
                 value
@@ -198,9 +200,9 @@ export const getProductByHandle = `
                                         }
                                     }
                                 }
-                            references(first: 7) {
-                            edges {
-                                node {
+                            references(first: 12) {
+                                edges {
+                                    node {
                                         ... on Metaobject {
                                             id
                                             fields {
@@ -211,6 +213,11 @@ export const getProductByHandle = `
                                     }
                                 }
                             }
+                        }
+                    }
+                    ... on Video {
+                        sources {
+                            url
                         }
                     }
                 }
