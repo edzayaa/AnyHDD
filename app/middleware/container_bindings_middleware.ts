@@ -1,8 +1,8 @@
 import { Logger } from '@adonisjs/core/logger'
 import { HttpContext } from '@adonisjs/core/http'
 import { NextFn } from '@adonisjs/core/types/http'
-import StorefrontClient from '#shopify/storefront'
-import AdminClient from '#shopify/admin'
+//import StorefrontClient from '#shopify/storefront'
+//import AdminClient from '#shopify/admin'
 
 /**
  * The container bindings middleware binds classes to their request
@@ -18,8 +18,8 @@ export default class ContainerBindingsMiddleware {
     ctx.containerResolver.bindValue(Logger, ctx.logger)
     
     // Bind Shopify clients as singletons (created once per application lifecycle)
-    ctx.containerResolver.bindValue(StorefrontClient, ctx.containerResolver.make(StorefrontClient))
-    ctx.containerResolver.bindValue(AdminClient, ctx.containerResolver.make(AdminClient))
+    //ctx.containerResolver.bindValue(StorefrontClient, ctx.containerResolver.make(StorefrontClient))
+    //ctx.containerResolver.bindValue(AdminClient, ctx.containerResolver.make(AdminClient))
 
     return next()
   }
