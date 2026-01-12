@@ -1,8 +1,36 @@
-<h1>
-  {{ error.code }} - Server error
-</h1>
-<p>
-  This template is rendered by the
-  <a href="http://docs.adonisjs.com/guides/exception-handling#status-pages">status pages feature</a>
-  of the global exception handler.
-</p>
+@layout.app({title: '500', customClass: 'inner-pages'})
+
+@slot('styles')
+@vite(['resources/css/core/error.scss', 'resources/js/core/error.js'])
+@endslot
+
+@slot('main')
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+        <div class="not-found-container-major">
+            <div class="top-spacing"></div>
+
+            <!-- START HERE -->
+            <section class="not-found-container">
+                <h1 class="xs">Internal Server Error</h1>
+                <p class="not-found-number">500</p>
+                <p class="text-description-not-found xs">Oops! Internal server error has occurred.<br
+                        class="show-mobile" /> Please try again later.<br class="hide-mobile" /></p>
+                <button onclick="window.location.href='/'" class="custom-button common-styles" type="submit">
+                    Back to Home
+                    <svg viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect rx="18.5" fill="white" />
+                        <path
+                            d="M25.9179 18.9179C26.1488 18.6871 26.1488 18.3129 25.9179 18.0821L22.1565 14.3206C21.9257 14.0898 21.5514 14.0898 21.3206 14.3206C21.0898 14.5514 21.0898 14.9257 21.3206 15.1565L24.6641 18.5L21.3206 21.8435C21.0898 22.0743 21.0898 22.4486 21.3206 22.6794C21.5514 22.9102 21.9257 22.9102 22.1565 22.6794L25.9179 18.9179ZM11.5 18.5L11.5 19.0911L25.5 19.0911L25.5 18.5L25.5 17.9089L11.5 17.9089L11.5 18.5Z"
+                            fill="#2F80ED" />
+                    </svg>
+                </button>
+
+            </section>
+            <!-- END HERE -->
+            @include('components/common/footer')
+        </div>
+    </div>
+</div>
+@endslot
+@end

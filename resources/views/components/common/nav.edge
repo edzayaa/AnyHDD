@@ -31,7 +31,14 @@
         </div>
         <div class="center" x-data="searchManager">
             <input class='search-input' id="search-nav-input" type="text"
-                placeholder='Find a Specific Product  in Our Store' x-model.lazy="searchQuery" />
+                placeholder='Find a Specific Product  in Our Store' x-model.lazy="searchQuery"
+                name="query"
+                hx-get="{{ route('api.shop.predictiveSearch') }}"
+                hx-trigger="input changed delay:500ms, search"
+                hx-target=".search-results-list"
+                hx-swap="innerHTML"
+                autocomplete="off"
+                 />
             <button class="custom-button search-button" id="search-nav-button"  @click="searchProducts(searchQuery)">
                 <p>Search</p>
                 <svg class='search-icon' xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"
@@ -40,13 +47,6 @@
                         d="M6.84245 10.7083C9.23424 10.7083 11.1732 8.7694 11.1732 6.3776C11.1732 3.98581 9.23424 2.04688 6.84245 2.04688C4.45065 2.04688 2.51172 3.98581 2.51172 6.3776C2.51172 8.7694 4.45065 10.7083 6.84245 10.7083Z"
                         stroke="#052F5A" stroke-width="1.08268" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M12.2572 11.7923L9.90234 9.4375" stroke="#052F5A" stroke-width="1.08268"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                <svg class="clear-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"
-                    fill="none">
-                    <path d="M9.14648 3.11328L3.53125 8.72852" stroke="black" stroke-width="0.935872"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M3.53125 3.11328L9.14648 8.72852" stroke="black" stroke-width="0.935872"
                         stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </button>
@@ -59,6 +59,10 @@
                         stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </button>
+            <div class="search-results-container">
+                <ul class="search-results-list">
+                </ul>
+            </div>
         </div>
         <div class="right">
             <ul class="navbar-links">

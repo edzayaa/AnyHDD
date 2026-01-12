@@ -107,6 +107,11 @@ export class ShopService {
         return data
     }
 
+    async predictiveSearch(query: string) {
+        const data = await this.storefront.request(queries.predictiveSearch, { query }) as Response.PredictiveSearchInterface;
+        return data
+    }
+
     async reviews(productId: string, page: string) {
         const result = await this.judgeClient.reviews(productId, page);
         return result;

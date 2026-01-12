@@ -308,3 +308,14 @@ export const getCollections = `
         }
     }
 `
+
+export const predictiveSearch = `
+    query predictiveSearch($query: String!) {
+        predictiveSearch(query: $query, types: PRODUCT, limit: 6) {
+            products {
+                ...ProductFragment
+            }
+        }
+    }
+    ${basicProductFragment}
+`

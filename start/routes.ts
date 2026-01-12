@@ -76,6 +76,7 @@ router.group(() => {
     router.get('/collections', [ShopApiController, 'getCollections']).as('getCollections')
     router.get('/products/reviews', [ShopApiController, 'reviews']).as('productReviews')
     router.post('/products/reviews', [ShopApiController, 'createReview']).as('createProductReview')
+    router.get('/predictive-search', [ShopApiController, 'predictiveSearch']).as('predictiveSearch')
 }).prefix('/api/shop').as('api.shop')
 
 router.group(() => {

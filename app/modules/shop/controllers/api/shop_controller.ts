@@ -118,4 +118,15 @@ export class ShopApiController {
         const result = await this.shopService.createReview(request.body(), accessToken);
         return view.render('components/shop/_review-item', { review: result });
     }
+
+    async predictiveSearch({ request, view }: HttpContext) {
+        const query = request.qs().query || '';
+        const data = await this.shopService.predictiveSearch(query);
+        
+        if (!data.predictiveSearch?.products?.length) {
+            return '<p class="no-results">No products found.</p>';
+        }
+
+        return view.render('components/shop/_predictive-search', { products: data.predictiveSearch.products });
+    }
 }
