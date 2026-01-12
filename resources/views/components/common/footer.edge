@@ -3,24 +3,35 @@
         <img src="/img/about-home-overlay.webp" alt="Overlay">
     </div>
     <div class="footer-content">
+        <!--
         <div class="no-desk newsletter-container">
             <h6>Ready to stay in the loop?</h6>
             <h5>Subscribe to our newsletter and get <br> exclusive updates, deals, and insights —
                 <br>straight to your inbox.
             </h5>
-            <div class="newsletter">
-                <input class='form-input search-input' id="newsletter-input" type="text"
-                    placeholder='Enter Your Email' />
-                <button class="custom-button search-button" id="newsletter-button">
-                    <p>Subscribe Now</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+            <form class="newsletter" x-data="{ loading: false }" x-ref="newsletterForm">
+                <input class='form-input search-input' id="newsletter-input" type="email" name="email"
+                    placeholder='Enter Your Email' required />
+                <button class="custom-button search-button" id="newsletter-button" type="submit"
+                    hx-post="{{ route('api.customer.subscribe') }}" 
+                    hx-include="[name='email']"
+                    hx-headers='{"X-Feedback-Scope": "global"}'
+                    hx-swap="none"
+                    @htmx:before-request="loading = true"
+                    @htmx:after-request="loading = false; $refs.newsletterForm.reset()"
+                    :disabled="loading"
+                >
+                    <p x-show="!loading">Subscribe Now</p>
+                    <p x-show="loading" x-cloak>Loading...</p>
+                    <svg x-show="!loading" xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
                         <path
                             d="M14.9179 4.91794C15.1488 4.68712 15.1488 4.31288 14.9179 4.08206L11.1565 0.320624C10.9257 0.0898037 10.5514 0.0898038 10.3206 0.320624C10.0898 0.551445 10.0898 0.925679 10.3206 1.1565L13.6641 4.5L10.3206 7.8435C10.0898 8.07432 10.0898 8.44855 10.3206 8.67937C10.5514 8.91019 10.9257 8.91019 11.1565 8.67937L14.9179 4.91794ZM0.5 4.5L0.5 5.09105L14.5 5.09105L14.5 4.5L14.5 3.90895L0.5 3.90895L0.5 4.5Z"
                             fill="#2F80ED" />
                     </svg>
                 </button>
-            </div>
+            </form>
         </div>
+        -->
         <div class="first-divider"></div>
         <div class="content">
             <ul class='footer-list products'>
@@ -153,7 +164,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
                     <circle cx="2.5" cy="2.5" r="2.5" fill="#D0D0D0" />
                 </svg>
-                © 2023 AnyHDD. All rights reserved.
+                © 2026 AnyHDD. All rights reserved.
             </p>
             <p>Select Your Region: <img src="/assets/usa_flag.svg" alt="USA Flag" /> United States /
                 English</p>

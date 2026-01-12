@@ -57,3 +57,10 @@ export const defaultAddressValidator = vine.compile(
         addressId: vine.string().trim(),
     })
 )
+
+
+export const subscribeValidator = vine.compile(
+    vine.object({
+        email: vine.string().trim().email(),
+    })
+)

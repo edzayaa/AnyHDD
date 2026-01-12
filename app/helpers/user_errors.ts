@@ -2,7 +2,6 @@ import { BadRequestException } from "#exceptions/common";
 import { CustomerUserErrors } from "#interfaces/shopify_interface";
 
 export default function handleUserErrors(errors: CustomerUserErrors[]) {
-    console.log('Handling user errors:', errors);
     if (errors.length > 0) {
         const firstError = errors[0];
         if (firstError.code === 'UNIDENTIFIED_CUSTOMER') {

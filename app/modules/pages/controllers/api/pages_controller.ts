@@ -1,10 +1,11 @@
 import { HttpContext } from "@adonisjs/core/http"
+import { inject } from "@adonisjs/core"
 import { PagesService } from "#modules/pages/services/pages_service"
 import { contactValidator, sellToUsValidator, warrantyValidator } from "../../validators/pages_validator.js"
 
+@inject()
 export class PagesApiController {
-    private pagesService: PagesService
-    constructor() {
+    constructor(private pagesService: PagesService) {
         this.pagesService = new PagesService()
     }  
 

@@ -1,15 +1,11 @@
 import { HttpContext } from "@adonisjs/core/http"
-import StorefrontClient from "#shopify/storefront"
+import { inject } from "@adonisjs/core"
 import { ShopService } from "#modules/shop/services/shop_service"
 import { ProductCollectionSortKey } from "#modules/shop/interfaces/shop_interface"
 
+@inject()
 export class ShopApiController {
-    private shopService: ShopService
-
-    constructor() {
-        const storefront = new StorefrontClient()
-        this.shopService = new ShopService(storefront)
-    }
+    constructor(private shopService: ShopService) {}
 
     async bestSellingProducts({ view }: HttpContext) {
         const data = await this.shopService.getBestSellingProducts()

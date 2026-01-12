@@ -1,3 +1,4 @@
+import { inject } from "@adonisjs/core"
 import StorefrontClient from "#shopify/storefront";
 import * as queries from "#modules/shop/graphql/queries";
 import * as Response from "#modules/shop/interfaces/shop_interface";
@@ -6,11 +7,14 @@ import JudgeClient from "#helpers/judge";
 import { CustomerService } from "#modules/customer/services/customer_service";
 import { processMetafields, processConnectivityMetafields } from "#modules/shop/utils/shop_utils";
 
+@inject()
 export class ShopService {
     private judgeClient: JudgeClient;
 
-    constructor(private readonly storefront: StorefrontClient) {
-        const customerService = new CustomerService(storefront);
+    constructor(
+        private readonly storefront: StorefrontClient,
+        customerService: CustomerService
+    ) {
         this.judgeClient = new JudgeClient(customerService);
     }
 

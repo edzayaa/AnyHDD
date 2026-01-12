@@ -93,6 +93,7 @@ router.group(() => {
     router.put('/addresses', [CustomerApiController, 'updateAddress']).as('updateAddress')
     router.put('/addresses/default', [CustomerApiController, 'updateDefaultAddress']).as('updateDefaultAddress')
     router.post('/addresses/delete', [CustomerApiController, 'deleteAddress']).as('deleteAddress')
+    router.post('/subscribe', [CustomerApiController, 'subscribeToMarketing']).as('subscribe')
 }).prefix('/api/customer').as('api.customer')
 
 router.group(() => {

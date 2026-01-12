@@ -1,16 +1,12 @@
 import { HttpContext } from "@adonisjs/core/http"
-import StorefrontClient from "#shopify/storefront";
+import { inject } from "@adonisjs/core"
 import { CustomerService } from "#modules/customer/services/customer_service"
 
 import router from "@adonisjs/core/services/router";
 
+@inject()
 export class CustomerController {
-    private customerService: CustomerService
-
-    constructor() {
-        const storefrontClient = new StorefrontClient()
-        this.customerService = new CustomerService(storefrontClient)
-    }
+    constructor(private customerService: CustomerService) {}
 
     private unauthorized(response: HttpContext['response']) {
         response.clearCookie('customerAccessToken')
