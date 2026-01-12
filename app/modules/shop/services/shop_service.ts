@@ -26,6 +26,7 @@ export class ShopService {
 
     async getProductByHandle(handle: string) {
         const data = await this.storefront.request(queries.getProductByHandle, { handle }) as Response.ProductInterface;
+        if (!data.product) return null;
         data.product.customFields = processMetafields(data.product.metafields);
         data.product.connectivity = processConnectivityMetafields(data.product.metafields);
         return data.product
