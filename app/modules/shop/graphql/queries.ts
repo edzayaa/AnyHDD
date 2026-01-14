@@ -303,6 +303,9 @@ export const getCollections = `
                         url
                         altText
                     }
+                    metafield(namespace: "custom", key: "icon") {
+                        value
+                    }
                 }
             }
         }

@@ -110,35 +110,45 @@
     </div>
     <div class="desk-submenu">
         <ul class=''>
+            @each(collection in getPriorityCollections(collections))
+                <li>
+                    <a href="{{ route('shop.productsByCollection', { handle: collection.handle }) }}">
+                        @if(collection.metafield && collection.metafield.value)
+                            {{{ collection.metafield.value }}}
+                        @else
+                            <img src="/assets/{{ collection.handle }}.svg" alt="{{ collection.title }}" />
+                        @endif
+                        {{ collection.title }}
+                    </a>
+                </li>
+            @endeach
+            
             <li>
-                <a href="{{ route('shop.productsByCollection', { handle: 'monitors' }) }}">
-                    <img src="/assets/monitor.svg" alt="Monitors" />
-                    Monitors
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('shop.productsByCollection', { handle: 'scanners' }) }}">
-                    <img src="/assets/scanners.svg" alt="Scanners" />
-                    Scanners
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('shop.productsByCollection', { handle: 'thermal-printers' }) }}">
-                    <img src="/assets/printers.svg" alt="Thermal Printers" />
-                    Thermal Printers
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('shop.productsByCollection', { handle: 'hp-lenovo-docking-stations' }) }}">
-                    <img src="/assets/docking-stations.svg" alt="HP & Lenovo Docking Stations" />
-                    HP & Lenovo Docking Stations
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('shop.products') }}">
+                <a href="javascript:void(0);" class="all-categories-toggle">
                     <img src="/assets/all-categories.svg" alt="All Categories" />
                     All Categories
                 </a>
+                <div class="all-categories-dropdown">
+                    <div class="dropdown-header">Browse all categories</div>
+                    <ul class="all-categories-list">
+                        @let(allCollection = getAllCollection(collections))
+                        @if(allCollection)
+                            <li>
+                                <a href="{{ route('shop.productsByCollection', { handle: allCollection.handle }) }}">
+                                    {{ allCollection.title }}
+                                </a>
+                            </li>
+                        @endif
+                        
+                        @each(collection in getDropdownCollections(collections))
+                            <li>
+                                <a href="{{ route('shop.productsByCollection', { handle: collection.handle }) }}">
+                                    {{ collection.title }}
+                                </a>
+                            </li>
+                        @endeach
+                    </ul>
+                </div>
             </li>
         </ul>
     </div>
@@ -146,30 +156,18 @@
         <div class="top">
             <h3>Shop by categories</h3>
             <ul class="categories">
-                <li class="category-item">
-                    <a href="{{ route('shop.productsByCollection', { handle: 'monitors' }) }}">
-                        <img src="/assets/monitor.svg" alt="Monitors" />
-                        <h4>Monitors</h4>
-                    </a>
-                </li>
-                <li class="category-item">
-                    <a href="/shop/scanners">
-                        <img src="/assets/scanners.svg" alt="Scanners" />
-                        <h4>Scanners</h4>
-                    </a>
-                </li>
-                <li class="category-item">
-                    <a href="{{ route('shop.productsByCollection', { handle: 'thermal-printers' }) }}">
-                        <img src="/assets/printers.svg" alt="Thermal Printers" />
-                        <h4>Thermal Printers</h4>
-                    </a>
-                </li>
-                <li class="category-item">
-                    <a href="{{ route('shop.productsByCollection', { handle: 'hp-lenovo-docking-stations' }) }}">
-                        <img src="/assets/docking-stations.svg" alt="HP & Lenovo Docking Stations" />
-                        <h4>HP & Lenovo Docking Stations</h4>
-                    </a>
-                </li>
+                @each(collection in getPriorityCollections(collections))
+                    <li class="category-item">
+                        <a href="{{ route('shop.productsByCollection', { handle: collection.handle }) }}">
+                            @if(collection.metafield && collection.metafield.value)
+                                {{{ collection.metafield.value }}}
+                            @else
+                                <img src="/assets/{{ collection.handle }}.svg" alt="{{ collection.title }}" />
+                            @endif
+                            <h4>{{ collection.title }}</h4>
+                        </a>
+                    </li>
+                @endeach
                 <li class="category-item">
                     <a href="{{ route('shop.products') }}">
                         <img src="/assets/all-categories.svg" alt="All Categories" />

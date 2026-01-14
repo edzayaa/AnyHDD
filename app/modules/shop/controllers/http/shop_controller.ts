@@ -7,7 +7,7 @@ export class ShopController {
     constructor(private shopService: ShopService) {}
 
     async products({ view, params }: HttpContext) {
-        const handle = params.handle || "frontpage"
+        const handle = params.handle || "all"
         const data = await this.shopService.getProducts(handle)
         if (!data) {
             return view.render('pages/errors/not_found')

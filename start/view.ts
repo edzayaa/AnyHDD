@@ -53,3 +53,30 @@ edge.global("sanitizeShopifyId", (id: string): string => {
   const parts = id.split("/");
   return parts[parts.length - 1];
 })
+
+edge.global("getPriorityCollections", (collections: any): any[] => {
+  const priorityHandles = ['monitors', 'scanners', 'thermal-printers', 'hp-lenovo-docking-stations'];
+  const result: any[] = [];
+  
+  priorityHandles.forEach(handle => {
+    const collection = collections.edges.find((e: any) => e.node.handle === handle);
+    if (collection) {
+      result.push(collection.node);
+    }
+  });
+  
+  return result;
+})
+
+edge.global("getDropdownCollections", (collections: any): any[] => {
+  const priorityHandles = ['monitors', 'scanners', 'thermal-printers', 'hp-lenovo-docking-stations'];
+  
+  return collections.edges
+    .filter((e: any) => !priorityHandles.includes(e.node.handle) && e.node.handle !== 'all')
+    .map((e: any) => e.node);
+})
+
+edge.global("getAllCollection", (collections: any): any | null => {
+  const collection = collections.edges.find((e: any) => e.node.handle === 'all');
+  return collection ? collection.node : null;
+})

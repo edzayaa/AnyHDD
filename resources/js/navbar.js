@@ -25,7 +25,6 @@ setTimeout(() => {
     ScrollTrigger.refresh();
 }, 100);
 
-// --- Lógica de búsqueda (HTMX) ---
 document.addEventListener('DOMContentLoaded', () => {
     const resultsWrapper = document.querySelector('.search-results-container');
     const overlay = document.querySelector('.search-overlay');
@@ -45,10 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (button) button.removeAttribute('data-search-content');
     }
 
-    // HTMX Handler
     if (resultsContainer) {
         resultsContainer.addEventListener('htmx:afterSwap', (e) => {
-             // Check if content is actually empty or just whitespace
             if (resultsContainer.innerHTML.trim().length > 0) {
                 showResults();
             } else {
@@ -57,34 +54,83 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Ocultar resultados al hacer click en el contenedor de resultados (opcional)
     if (resultsWrapper) {
         resultsWrapper.addEventListener('click', (e) => {
-             // Optional: close on click? Generally predictive search stays open until selection.
-             // But maybe clicking outside closes it.
         });
     }
 
-    // Ocultar resultados y overlay al hacer click en el overlay
     if (overlay) {
         overlay.addEventListener('click', () => {
             hideResults();
         });
     }
 
-    // Mostrar resultados al hacer focus en el input
     if (input) {
         input.addEventListener('focus', () => {
             if (input.value.trim() && resultsContainer.innerHTML.trim().length > 0) {
                 showResults();
             }
         });
-        
+
         input.addEventListener('input', () => {
-             if (input.value.trim() === '') {
-                 hideResults();
-                 resultsContainer.innerHTML = '';
-             }
+            if (input.value.trim() === '') {
+                hideResults();
+                resultsContainer.innerHTML = '';
+            }
+        });
+
+        input.addEventListener('blur', () => {
+            setTimeout(() => {
+                hideResults();
+            }, 200);
+        });
+    }
+
+    const navElement = document.querySelector('nav');
+    const allCategoriesLink = document.querySelector('.desk-submenu .all-categories-toggle');
+    const allCategoriesItem = allCategoriesLink?.closest('li');
+    const dropdown = allCategoriesItem?.querySelector('.all-categories-dropdown');
+
+    if (navElement && allCategoriesLink && allCategoriesItem && dropdown) {
+        allCategoriesItem.classList.add('all-categories-item');
+        allCategoriesLink.classList.add('all-categories-toggle');
+        allCategoriesLink.setAttribute('role', 'button');
+        allCategoriesLink.setAttribute('aria-haspopup', 'true');
+        allCategoriesLink.setAttribute('aria-expanded', 'false');
+
+        const closeDropdown = () => {
+            allCategoriesItem.classList.remove('open');
+            allCategoriesLink.setAttribute('aria-expanded', 'false');
+        };
+
+        const openDropdown = () => {
+            allCategoriesItem.classList.add('open');
+            allCategoriesLink.setAttribute('aria-expanded', 'true');
+        };
+
+        allCategoriesLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            const isOpen = allCategoriesItem.classList.contains('open');
+            if (isOpen) {
+                closeDropdown();
+            } else {
+                openDropdown();
+            }
+        });
+
+        dropdown.addEventListener('click', (event) => event.stopPropagation());
+
+        document.addEventListener('click', (event) => {
+            if (allCategoriesItem.classList.contains('open') && !allCategoriesItem.contains(event.target)) {
+                closeDropdown();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeDropdown();
+            }
         });
     }
 });

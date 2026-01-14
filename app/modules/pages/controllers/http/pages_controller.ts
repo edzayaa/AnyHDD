@@ -7,7 +7,7 @@ export class PagesController {
     constructor(private shopService: ShopService) {}
 
     async home({ view, params }: HttpContext) {
-        const handle = params.handle || "frontpage"
+        const handle = params.handle || "all"
         const data = await this.shopService.getProducts(handle)
         return view.render('pages/index', { collection: data })
     }

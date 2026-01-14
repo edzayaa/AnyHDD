@@ -46,7 +46,7 @@
 .hero-slide{
     position: relative;
     border-radius: 5rem;
-    height: 60vh;
+    height: 60vh !important;
     overflow: hidden;
 }
 .hero-bg-img{
@@ -502,7 +502,7 @@
         transform: translate(-50%, -60%);
     }
     .hero-slide{
-        height: 456px;
+        height: 456px !important;
     }
     .section-2 .slider-controls{
         display: none;
