@@ -154,6 +154,55 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  // Dropdown de All Categories en desktop
+  const navElement = document.querySelector('nav');
+  const allCategoriesLink = document.querySelector('.desk-submenu a[href="/shop"]');
+  const allCategoriesItem = allCategoriesLink?.closest('li');
+  const dropdown = allCategoriesItem?.querySelector('.all-categories-dropdown');
+
+  if (navElement && allCategoriesLink && allCategoriesItem && dropdown) {
+    allCategoriesItem.classList.add('all-categories-item');
+    allCategoriesLink.classList.add('all-categories-toggle');
+    allCategoriesLink.setAttribute('role', 'button');
+    allCategoriesLink.setAttribute('aria-haspopup', 'true');
+    allCategoriesLink.setAttribute('aria-expanded', 'false');
+
+    const closeDropdown = () => {
+      allCategoriesItem.classList.remove('open');
+      allCategoriesLink.setAttribute('aria-expanded', 'false');
+    };
+
+    const openDropdown = () => {
+      allCategoriesItem.classList.add('open');
+      allCategoriesLink.setAttribute('aria-expanded', 'true');
+    };
+
+    allCategoriesLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const isOpen = allCategoriesItem.classList.contains('open');
+      if (isOpen) {
+        closeDropdown();
+      } else {
+        openDropdown();
+      }
+    });
+
+    dropdown.addEventListener('click', (event) => event.stopPropagation());
+
+    document.addEventListener('click', (event) => {
+      if (allCategoriesItem.classList.contains('open') && !allCategoriesItem.contains(event.target)) {
+        closeDropdown();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeDropdown();
+      }
+    });
+  }
 });
 
 
