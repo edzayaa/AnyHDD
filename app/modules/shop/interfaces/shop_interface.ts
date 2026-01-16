@@ -303,3 +303,12 @@ export interface CollectionsInterface {
         }>
     }
 }
+
+export interface PredictiveSearchInterface {
+    predictiveSearch: {
+        products: {
+            handle: string
+            title: string
+        }[]
+    }
+}

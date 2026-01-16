@@ -1,4 +1,6 @@
+import { inject } from "@adonisjs/core"
 import StorefrontClient from "#shopify/storefront";
+import AdminClient from "#shopify/admin";
 
 // Mutations
 import * as mutations from "#modules/customer/graphql/mutations"
@@ -14,8 +16,20 @@ import handleUserErrors from "#helpers/user_errors"
 // Mappers
 import { CustomerMapper } from "#modules/customer/mappers/customer_mapper"
 
+@inject()
 export class CustomerService {
-    constructor(private storefront: StorefrontClient) {}
+    constructor(private storefront: StorefrontClient, private admin: AdminClient) {}
+
+     private async findCustomer(query: string) {
+        return await this.admin.request(queries.findCustomer, { query })
+    }
+
+    private async createCustomer(email: string) {
+        const data = await this.admin.request(mutations.customerCreateSubscribed, {email}) as Response.CreateCustomerInterface
+        const userErrors = data.customerCreate.userErrors
+        handleUserErrors(userErrors)
+        return data.customerCreate
+    }
 
     async getCustomer(customerAccessToken: string) {
         const data = await this.storefront.request(queries.customer, { customerAccessToken }) as Response.CustomerInterface
@@ -89,5 +103,23 @@ export class CustomerService {
         const customerData = data.customerAddressDelete
         handleUserErrors(customerData.customerUserErrors)
         return payload
+    }
+
+    async subscribeToMarketing(payload: InputInterface) {
+        const search = await this.findCustomer(payload.email) as Response.FindCustomerInterface
+        if (!search.customers.nodes.length) {
+            await this.createCustomer(payload.email)
+            return { status: 'SUBSCRIBED' }
+        }
+        const customer = search.customers.nodes[0]
+        const customerId = customer.id
+        const subscriptionStatus = customer.defaultEmailAddress.marketingState
+        if (subscriptionStatus === 'SUBSCRIBED') {
+            return { status: 'ALREADY_SUBSCRIBED' }
+        }
+        const data = await this.admin.request(mutations.customerEmailMarketingConsentUpdate, { customerId }) as Response.SubscribeToMarketingInterface
+        const userErrors = data.customerEmailMarketingConsentUpdate.userErrors
+        handleUserErrors(userErrors)
+        return { status: 'SUBSCRIBED' }
     }
 }

@@ -76,6 +76,7 @@ router.group(() => {
     router.get('/collections', [ShopApiController, 'getCollections']).as('getCollections')
     router.get('/products/reviews', [ShopApiController, 'reviews']).as('productReviews')
     router.post('/products/reviews', [ShopApiController, 'createReview']).as('createProductReview')
+    router.get('/predictive-search', [ShopApiController, 'predictiveSearch']).as('predictiveSearch')
 }).prefix('/api/shop').as('api.shop')
 
 router.group(() => {
@@ -92,6 +93,7 @@ router.group(() => {
     router.put('/addresses', [CustomerApiController, 'updateAddress']).as('updateAddress')
     router.put('/addresses/default', [CustomerApiController, 'updateDefaultAddress']).as('updateDefaultAddress')
     router.post('/addresses/delete', [CustomerApiController, 'deleteAddress']).as('deleteAddress')
+    router.post('/subscribe', [CustomerApiController, 'subscribeToMarketing']).as('subscribe')
 }).prefix('/api/customer').as('api.customer')
 
 router.group(() => {

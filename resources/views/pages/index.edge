@@ -2,10 +2,11 @@
 
 @slot('styles')
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-@vite(['resources/css/core/home.scss', 'resources/js/core/home.js'])    
+@vite(['resources/css/core/home.scss', 'resources/css/app.css', 'resources/js/core/home.js'])    
 @endslot
 
 @slot('main')
+@include('components/feedback/_response_toast')
 <div id="smooth-wrapper">
     <div id="smooth-content">
         <div class="home-container">

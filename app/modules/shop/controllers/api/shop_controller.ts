@@ -1,15 +1,11 @@
 import { HttpContext } from "@adonisjs/core/http"
-import StorefrontClient from "#shopify/storefront"
+import { inject } from "@adonisjs/core"
 import { ShopService } from "#modules/shop/services/shop_service"
 import { ProductCollectionSortKey } from "#modules/shop/interfaces/shop_interface"
 
+@inject()
 export class ShopApiController {
-    private shopService: ShopService
-
-    constructor() {
-        const storefront = new StorefrontClient()
-        this.shopService = new ShopService(storefront)
-    }
+    constructor(private shopService: ShopService) {}
 
     async bestSellingProducts({ view }: HttpContext) {
         const data = await this.shopService.getBestSellingProducts()
@@ -117,5 +113,16 @@ export class ShopApiController {
         const accessToken = request.cookie('accessToken');
         const result = await this.shopService.createReview(request.body(), accessToken);
         return view.render('components/shop/_review-item', { review: result });
+    }
+
+    async predictiveSearch({ request, view }: HttpContext) {
+        const query = request.qs().query || '';
+        const data = await this.shopService.predictiveSearch(query);
+        
+        if (!data.predictiveSearch?.products?.length) {
+            return '<p class="no-results">No products found.</p>';
+        }
+
+        return view.render('components/shop/_predictive-search', { products: data.predictiveSearch.products });
     }
 }

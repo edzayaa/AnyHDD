@@ -1,0 +1,16 @@
+@each(item in products)
+<li class="search-result-item">
+    <a href="{{ route('getProduct', { handle: item.handle }) }}" class="search-result-link">
+        <div class="img-container">
+            <img src="{{ item.featuredImage.url }}" alt="">
+        </div>
+        <div class="search-result-content">
+            <div class="text-container">
+                <h5>{{ item.title }}</h5>
+                <h5 class="price">${{ item.priceRange.minVariantPrice.amount }}</h5>
+            </div>
+            <h6>See Details</h6>
+        </div>
+    </a>
+</li>
+@end

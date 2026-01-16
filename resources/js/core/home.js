@@ -1,3 +1,4 @@
+import '../best-sellers-carousel';
 import '../SmoothScroll.js';
 import '../navbar.js';
 import '../home-hero.js';

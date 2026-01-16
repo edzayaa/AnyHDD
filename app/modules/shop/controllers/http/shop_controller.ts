@@ -1,17 +1,13 @@
 import { HttpContext } from "@adonisjs/core/http"
-import StorefrontClient from "#shopify/storefront"
+import { inject } from "@adonisjs/core"
 import { ShopService } from "#modules/shop/services/shop_service"
 
+@inject()
 export class ShopController {
-    private shopService: ShopService
-
-    constructor() {
-        const storefront = new StorefrontClient()
-        this.shopService = new ShopService(storefront)
-    }
+    constructor(private shopService: ShopService) {}
 
     async products({ view, params }: HttpContext) {
-        const handle = params.handle || "frontpage"
+        const handle = params.handle || "all"
         const data = await this.shopService.getProducts(handle)
         if (!data) {
             return view.render('pages/errors/not_found')

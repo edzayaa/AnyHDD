@@ -28,6 +28,7 @@ export default await Env.create(new URL('../', import.meta.url), {
   // Shopify API Variables
   SHOPIFY_STORE_DOMAIN: Env.schema.string(),
   SHOPIFY_STOREFRONT_ACCESS_TOKEN: Env.schema.string(),
+  SHOPIFY_ADMIN_ACCESS_TOKEN: Env.schema.string(),
   SHOPIFY_API_VERSION: Env.schema.string(),
 
   /*

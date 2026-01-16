@@ -38,6 +38,7 @@ export default defineConfig({
         'resources/css/core/accounts/orders.scss',
         'resources/css/core/accounts/my-account.scss',
         'resources/css/core/accounts/overview.scss',
+        'resources/css/core/error.scss',
 
         "resources/js/core/shop/products.js",
         "resources/js/core/shop/product.js",
@@ -56,6 +57,7 @@ export default defineConfig({
         "resources/js/core/contact.js",
         "resources/js/core/home.js",
         "resources/js/core/common.js",
+        "resources/js/core/error.js",
       ],
 
       /**
