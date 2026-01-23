@@ -280,6 +280,11 @@
             position: relative;
         }
 
+        .password-container .input-wrap input{
+            width: 100%;
+            box-sizing: border-box;
+        }
+
         .show-password-icon{
             position: absolute;
             right: 5%;
