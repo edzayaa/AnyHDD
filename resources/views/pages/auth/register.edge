@@ -50,10 +50,10 @@
 
                         <div class="input-container password-container">
                             <label for="password">Password</label>
-                            <input id="password-input" placeholder="Enter your password" name="password" required
-                                type="password">
-                            <img class="show-password-icon" src="/assets/account/eye.png" alt="show-password-icon"
-                                role="button" tabindex="0">
+                            <div class="input-wrap">
+                                <input id="password-input" placeholder="Enter your password" name="password" required type="password">
+                                <img class="show-password-icon" src="/assets/account/eye.png" alt="show-password-icon" role="button" tabindex="0">
+                            </div>
                         </div>
                         
                         <button class="custom-button common-styles htmx-button" type="submit" :disabled="loading">

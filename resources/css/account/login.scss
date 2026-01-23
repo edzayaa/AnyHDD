@@ -290,21 +290,20 @@
             position: relative;
         }
 
+        .password-container .input-wrap{
+            width: 100%;
+            position: relative;
+        }
+
         .show-password-icon{
             position: absolute;
             right: 5%;
-            bottom: 0.55rem;
-            //top: 47%;
+            top: 0;
+            bottom: 0;
+            margin: auto;
             width: 2rem;
             height: 2rem;
             cursor: pointer;
-            @media only screen and (max-width:1440px) {
-                 bottom: 0.8rem;
-            }
-
-            @media only screen and (max-width:1024px) {
-                 bottom: 1.4rem;
-            }
         }
         .continue-alternatives button{
             transition: ease-in-out 0.2s filter;
