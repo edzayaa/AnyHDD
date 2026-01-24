@@ -5,8 +5,11 @@
         <a href='javascript:void(0)'>{{ item.node.productType }}</a>
         @endif
     </div>
+   
     <div class='product-card-img'>
-        <img src="{{ item.node.featuredImage.url }}" alt="{{ item.node.title }}" />
+         @if (item.node.featuredImage?.url)
+        <img src="{{ item.node?.featuredImage?.url }}" alt="{{ item.node.title }}" />
+         @endif
     </div>
     <div class="product-card-details">
         <a href="{{ route('getProduct', { handle: item.node.handle }) }}">See Details</a>
