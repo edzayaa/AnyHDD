@@ -1,16 +1,16 @@
 <div class="product-card">
     <div class="product-card-top">
-        <h3>{{ truncate(item.node.title, 20) }}</h3>
+        <a class="card-title" href="{{ route('getProduct', { handle: item.node.handle }) }}">{{ truncate(item.node.title, 20) }}</a>
         @if(item.node.productType)
-        <a href='javascript:void(0)'>{{ item.node.productType }}</a>
+        <a class="card-category" href='javascript:void(0)'>{{ item.node.productType }}</a>
         @endif
     </div>
    
-    <div class='product-card-img'>
+    <a href="{{ route('getProduct', { handle: item.node.handle }) }}" class='product-card-img'>
          @if (item.node.featuredImage?.url)
         <img src="{{ item.node?.featuredImage?.url }}" alt="{{ item.node.title }}" />
          @endif
-    </div>
+    </a>
     <div class="product-card-details">
         <a href="{{ route('getProduct', { handle: item.node.handle }) }}">See Details</a>
         @if(item.node.availableForSale) 
