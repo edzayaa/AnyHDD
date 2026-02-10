@@ -179,6 +179,7 @@ function renderBestSellersSlider() {
         modules: [Navigation],
         slidesPerView: 1.2,
         spaceBetween: 20,
+        loop: true,
         navigation: {
             prevEl: ".best-sellers-slider-prev",
             nextEl: ".best-sellers-slider-next"
