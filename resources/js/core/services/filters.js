@@ -135,14 +135,14 @@ document.addEventListener('DOMContentLoaded', function () {
         htmx.trigger(form, 'change');
     });
 
-    document.querySelector('.prev-button')?.addEventListener('click', function () {
-        if (!this.disabled) {
+    // Use event delegation for pagination buttons to handle dynamic content
+    document.body.addEventListener('click', function (evt) {
+        const prevButton = evt.target.closest('.prev-button');
+        const nextButton = evt.target.closest('.next-button');
+        
+        if (prevButton && !prevButton.disabled) {
             handlePagination('prev');
-        }
-    });
-
-    document.querySelector('.next-button')?.addEventListener('click', function () {
-        if (!this.disabled) {
+        } else if (nextButton && !nextButton.disabled) {
             handlePagination('next');
         }
     });

@@ -9,6 +9,6 @@ export class PagesController {
     async home({ view, params }: HttpContext) {
         const handle = params.handle || "all"
         const data = await this.shopService.getProducts(handle)
-        return view.render('pages/index', { collection: data })
+        return view.render('pages/index', { collection: { ...data, handle } })
     }
 }

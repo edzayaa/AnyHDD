@@ -68,6 +68,17 @@ export const getFilteredCollection = `
                         ...ProductFragment
                     }
                 }
+                filters {
+                    id
+                    label
+                    type
+                    values {
+                        id
+                        label
+                        count
+                        input
+                    }
+                }
                 pageInfo {
                     hasNextPage
                     hasPreviousPage
@@ -82,9 +93,16 @@ export const getFilteredCollection = `
 
 export const bestSellingProducts = `
     query bestSellingProducts {
-        products(first: 11, sortKey: BEST_SELLING) {
+        products(first: 20, sortKey: BEST_SELLING) {
             edges {
                 node {
+                    collections(first: 1) {
+                        edges {
+                            node {
+                                handle
+                            }
+                        }
+                    }
                     ...ProductFragment
                 }
             }
@@ -182,7 +200,8 @@ export const getProductByHandle = `
                 { key: "product_benefits", namespace: "custom" },
                 { key: "connectivity_options", namespace: "custom" },
                 { key: "video", namespace: "custom" },
-                { key: "feature_and_design", namespace: "custom" }
+                { key: "feature_and_design", namespace: "custom" },
+                { key: "feature_and_design_title", namespace: "custom" },
             ]) {
                 key
                 value

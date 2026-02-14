@@ -1,5 +1,7 @@
+@if(products.edges && products.edges.length > 0)
 @each(item in products.edges)
 <div class="swiper-slide">
     @include('components/shop/_product-card')
 </div>
 @endeach
+@endif

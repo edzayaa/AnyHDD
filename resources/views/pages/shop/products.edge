@@ -11,8 +11,7 @@
     <div id="smooth-content">
         <div class="products-container shop-page">
             <div class="top-spacing"></div>
-            <h1 class="xxxl shop-header fade-in-element"><span>Explore </span>our<br class="show-mobile" /> Docking
-                Stations</h1>
+            <h1 class="xxxl shop-header fade-in-element"><span>Explore </span>our<br class="show-mobile" /> {{ collection.title }}</h1>
             <p class="xxxs shop-subtitle hide-mobile fade-in-reverse">Maximize your workspace with our top-performing
                 docking stations, engineered for speed, stability, and seamless connectivity. These customer favorites
                 deliver everything you need — from ultra-fast data transfer to multi-device support — all in one sleek,
@@ -22,7 +21,7 @@
 
             <p class="shop-subtitle show-mobile xxxs">These customer favorites deliver everything you need — from
                 ultra-fast data transfer to multi-device support — all in one sleek, reliable hub.</p>
-            <section class="shop-section">
+            <section class="shop-section" id="best-sellers-section" x-data="{ hasProducts: true }" x-show="hasProducts">
                 <div class="blured-circle-1 blured-circle desktop-only"></div>
                 <div class="blured-circle-2 blured-circle desktop-only"></div>
                 <div class="headers">
@@ -43,7 +42,7 @@
                 </div>
                 <div class="best-sellers-slide"
                     x-data="cartManager"
-                    hx-get="{{ route('api.shop.bestSellingProducts') }}" 
+                    hx-get="{{ route('api.shop.bestSellingProducts') }}?handle={{ collection.handle }}" 
                     hx-trigger="load" 
                     hx-target="#best-sellers-wrapper"
                     hx-swap="innerHTML"

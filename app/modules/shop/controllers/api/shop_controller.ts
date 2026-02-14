@@ -8,6 +8,7 @@ export class ShopApiController {
     constructor(private shopService: ShopService) {}
 
     async bestSellingProducts({ view }: HttpContext) {
+        //const handle = request.qs().handle
         const data = await this.shopService.getBestSellingProducts()
         return view.render('components/shop/_best-sellers', { products: data.products })
     }

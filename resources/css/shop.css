@@ -216,6 +216,12 @@
 .pagination .next-button:hover {
   filter: opacity(0.8);
 }
+.pagination .prev-button:disabled,
+.pagination .next-button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
+}
 .pagination .page-button{
     color: #052F5A;
     font-size: 1.25rem;

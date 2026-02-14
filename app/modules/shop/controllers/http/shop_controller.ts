@@ -12,7 +12,7 @@ export class ShopController {
         if (!data) {
             return view.render('pages/errors/not_found')
         }
-        return view.render('pages/shop/products', { collection: data })
+        return view.render('pages/shop/products', { collection: { ...data, handle } })
     }
 
     async getProduct({ params, view }: HttpContext) {

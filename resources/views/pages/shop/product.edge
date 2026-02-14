@@ -379,7 +379,7 @@
                     <div class="badge">Design Feature</div>
                     <h2 class="xxxl  fade-in-bottom-feature">
                         Feature and Design:<br />
-                        <span class="gradient-text">{{ product.title }}</span>
+                        <span class="gradient-text">{{ product.customFields.feature_and_design_title || product.title }}</span>
                     </h2>
                     <div class="three-items fade-in-feature">
                         @each((item, index) in product.customFields.feature_and_design.references)
@@ -402,12 +402,14 @@
                 <div class="who_we_text">
                     <div class="header_cont">
                         <!-- <p class="label-header parragraph_desk">Powering Connections</p> -->
+                        @if(product.customFields.warning)
                         <h2 class="section-header xxxl fade-in-left">
                             Warning: <span> {{ product.title }}</span>
                         </h2>
+                        @endif
                     </div>
                     <div class="description_cont fade-in-right">
-                        <p class="xxxs">{{ product.customFields.warning || '' }}</p>
+                        <p class="xxxs">{{ product.customFields.warning }}</p>
                         <button onclick="window.location.href='{{ route('termsAndConditions') }}'"
                             class="custom-button common-styles search-button">
                             Terms and conditions

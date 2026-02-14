@@ -1,4 +1,4 @@
-@if(collection.products && collection.products.edges.length > 0)
+@if(collection?.products && collection.products?.edges?.length > 0)
 @each(item in collection.products.edges)
 @include('components/shop/_product-card')
 @endeach
@@ -6,9 +6,21 @@
 <p>No products found in this collection.</p>
 @endif
 <div 
-    data-has-next="{{ collection.products.pageInfo.hasNextPage }}" 
-    data-has-prev="{{ collection.products.pageInfo.hasPreviousPage }}" 
-    data-end-cursor="{{ collection.products.pageInfo.endCursor }}" 
-    data-start-cursor="{{ collection.products.pageInfo.startCursor }}"
+    data-has-next="{{ collection?.products?.pageInfo?.hasNextPage }}" 
+    data-has-prev="{{ collection?.products?.pageInfo?.hasPreviousPage }}" 
+    data-end-cursor="{{ collection?.products?.pageInfo?.endCursor }}" 
+    data-start-cursor="{{ collection?.products?.pageInfo?.startCursor }}"
     id="pagination-data"
 ></div>
+@if(collection?.products && (collection?.products.pageInfo.hasNextPage || collection?.products.pageInfo.hasPreviousPage))
+<div class="pagination-container" style="margin-top: 3rem;">
+    <div class="pagination">
+        <button type="button" class="prev-button" {{!collection.products.pageInfo.hasPreviousPage ? 'disabled' : ''}}>
+            <img src="/img/prev-arrow.svg" alt="Previous" />
+        </button>
+        <button type="button" class="next-button" {{!collection.products.pageInfo.hasNextPage ? 'disabled' : ''}}>
+            <img src="/img/next-arrow.svg" alt="Next" />
+        </button>
+    </div>
+</div>
+@endif

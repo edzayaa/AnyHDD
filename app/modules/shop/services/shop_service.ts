@@ -33,11 +33,23 @@ export class ShopService {
         if (!data.product) return null;
         data.product.customFields = processMetafields(data.product.metafields);
         data.product.connectivity = processConnectivityMetafields(data.product.metafields);
+        console.log('Processed Product:', data.product.customFields);
         return data.product
     }
 
     async getBestSellingProducts() {
         const data = await this.storefront.request(queries.bestSellingProducts) as Response.BestSellingProductsInterface;
+        
+        /*
+        if (collectionHandle && collectionHandle !== 'all') {
+            data.products.edges = data.products.edges.filter(edge => {
+                const nodeWithCollections = edge.node as unknown as { collections?: { edges?: Array<{ node: { handle: string } }> } };
+                const collections = nodeWithCollections.collections?.edges || [];
+                return collections.some(col => col.node.handle === collectionHandle);
+            });
+        }
+        */
+        
         return data
     }
 
@@ -71,7 +83,7 @@ export class ShopService {
             }
         }
 
-        const handle = params.handle === 'all' ? 'frontpage' : params.handle
+        const handle = params.handle || 'all'
 
         const variables: any = {
             handle,
