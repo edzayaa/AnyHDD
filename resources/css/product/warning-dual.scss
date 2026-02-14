@@ -9,11 +9,19 @@
 		font-weight: 700;
 		line-height: 1em;
         //white-space: pre;
-        @media only screen and (min-width: 768px) and (max-width: 1024px) {
-         font-size: 45px;
+        @media only screen and (min-width: 800px) and (max-width: 1024px) {
+         font-size: 4vw;
         }
+
          @media only screen and (max-width: 767px) {
           margin-bottom: 5%;
+          font-size: 5vw;
+        }
+
+        @media only screen and (max-width: 480px) {
+          margin-bottom: 2.5%;
+          font-size: 8.5vw;
+          line-height: 1.1;
         }
 	}
 
@@ -30,7 +38,7 @@
 		width: 18.125rem;
 		height: 10.8rem;
 		background-color: #F2F2F4;
-       
+
 		border-radius: 100%;
 		opacity: 0.8;
 		color: #F2F2F4;
@@ -93,6 +101,13 @@
             flex-direction: column;
             margin-bottom: 10%;
         }
+
+
+        button.custom-button.common-styles.search-button{
+        display: none;
+
+      }
+
     }
 
     .header_cont{
@@ -100,6 +115,7 @@
     }
 
     .description_cont{
+        display: none;
         width: 36%;
         height: 100%;
         @media only screen and (min-width: 1024px) and (max-width: 1650px) {
@@ -126,7 +142,7 @@
             line-height: 1.5em;
         }
     }
-    
+
     .custom-button.common-styles svg {
         padding: 0;
 
@@ -182,7 +198,7 @@
                 font-size: 8.108vw ;
                 margin-top: 17.55%;
             }
-           
+
         }
 
         p{
@@ -218,21 +234,21 @@
              object-fit: cover;
              width: 100%;
              height: 100%;
-        }  
+        }
                 @media only screen and (max-width: 767px) {
           display: none;
         }
-      
+
     }
 
     .card-1{
         width: 24%;
         @media only screen and (max-width: 767px) {
           width: 100%;
-          height: 20rem;
+          height: auto;
         }
         @media only screen and (max-width: 350px) {
-   
+
           height: 17rem;
         }
     }
@@ -262,7 +278,7 @@
         @media only screen and (max-width: 1024px) {
                    padding: 0.4rem 0.8rem;
         }
-        
+
         & > h6 {
             font-size: 1rem;
             font-weight: 400;

@@ -93,6 +93,15 @@
     @media only screen and (min-width: 480px) and (max-width: 600px) and (min-height: 480px) and (max-height: 600px)  {
          padding-top: 80%;
     }
+
+      @media only screen and (min-width: 420px) and (max-width: 480px) and (min-height: 700px) and (max-height: 1040px) {
+        padding-top: 60%;
+      }
+
+      @media only screen and (min-width: 360px) and (max-width: 400px) and (min-height: 650px) and (max-height: 850px) {
+        padding-top: 50%;
+      }
+
       @media only screen and (max-width: 350px) {
        padding-top:45% ;
    }
@@ -235,6 +244,9 @@
        @media only screen and (max-width: 767px) {
        font-size: 5.5vw;
      }
+      @media only screen and (min-width: 420px) and (max-width: 480px) and (min-height: 700px) and (max-height: 1040px) {
+         font-size: 7vw;
+      }
     @media only screen and (max-width: 390px) {
        font-size: 8.5vw;
      }

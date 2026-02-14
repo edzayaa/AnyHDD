@@ -18,6 +18,10 @@
 				gap: 0.5%;
 
 			}
+
+      @media only screen and (max-width: 767px) {
+				gap: 1.5%;
+			}
 		}
 		.card {
 			perspective:1000px;
@@ -38,7 +42,7 @@
 			 mix-blend-mode: multiply;
 		}
 
-		.card 
+		.card
 
 			.faces {
 				width:100%;
