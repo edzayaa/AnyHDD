@@ -6,7 +6,7 @@
         </div>
         <div class="search-result-content">
             <div class="text-container">
-                <h5>{{ item.title }}</h5>
+                <h5>{{ truncate(item.title, 45) }}</h5>
                 <h5 class="price">${{ item.priceRange.minVariantPrice.amount }}</h5>
             </div>
             <h6>See Details</h6>
