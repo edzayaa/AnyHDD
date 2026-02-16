@@ -6,6 +6,7 @@ import 'swiper/css';
 document.addEventListener('DOMContentLoaded', () => {
     const bestSellersSwiper = new Swiper('.best-sellers-swiper', {
         modules: [Navigation],
+        loop:'infinite',
         slidesPerView: 1.2,
         spaceBetween: 20,
         navigation: {

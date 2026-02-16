@@ -8,3 +8,4 @@ import '../float.js';
 import '../shopping-bag.js';
 import '../white-overlay.js';
 import '../show-navbar.js';
+import '../scroll-to-about.js';

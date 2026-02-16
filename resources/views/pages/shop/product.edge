@@ -71,7 +71,7 @@
                                 <span x-text="$store.product.quantity"></span>
                                 <button @click="$store.product.quantity < 20 && $store.product.quantity++">+</button>
                             </div>
-                            @if(product.availableForSale) 
+                            @if(product.availableForSale)
                             <Button class='custom-button common-styles' id="add-to-cart-button"  @click="addToCart('{{ product.selectedOrFirstAvailableVariant.id}}')" :disabled="loading">
                                 Add to Cart
                                 <svg viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -93,7 +93,7 @@
                             </Button>
                             @endif
                         </div>
-                        @if(product.variants.edges.length > 1) 
+                        @if(product.variants.edges.length > 1)
                         <p class="description-text xs model-title">
                             Model Condition
                         </p>
@@ -178,7 +178,7 @@
             </section>
 
 
-            @if(product.customFields.video && product.customFields.video.reference.sources && product.customFields.video.reference.sources.length > 0) 
+            @if(product.customFields.video && product.customFields.video.reference.sources && product.customFields.video.reference.sources.length > 0)
             <section class="video-section">
                 <img class="left-box" alt="video-section-left-image"
                     src="/assets/product/video-section/left-image.webp"></img>
@@ -212,7 +212,7 @@
             </section>
             @endif
 
-            @if(product.customFields.package_items && product.customFields.package_items.references && product.customFields.package_items.references.length > 0) 
+            @if(product.customFields.package_items && product.customFields.package_items.references && product.customFields.package_items.references.length > 0)
             <section class="flip-section">
                 <h2 class="xxl fade-in-top"><span>What’s</span> Included in<br class="show-mobile" /> the package</h2>
                 <div class="wrapper">
@@ -236,12 +236,12 @@
             </section>
             @endif
 
-            @if(product.connectivity) 
+            @if(product.connectivity)
             <section class="connectivity-options">
-                <h2 class="xxl fade-in-top">Connectivity Options</h2>
+                <h2 class="xxl fade-in-top">Compatibility Options</h2>
                  <div class="tech-badges">
                     @each(item in product.connectivity.compatibility)
-                    @if(item == 'Windows') 
+                    @if(item == 'Windows')
                     <div class="badge-item">
                         <img src="/assets/product/connectivity-options/microsoft.png" alt="microsoft icon">
                         <span>Microsoft Windows</span>
@@ -368,7 +368,7 @@
             </section>
             @endif
 
-            @if(product.customFields.feature_and_design && product.customFields.feature_and_design.references.length > 0) 
+            @if(product.customFields.feature_and_design && product.customFields.feature_and_design.references.length > 0)
             <section class="feature-desing">
 
 
@@ -424,7 +424,7 @@
                         </button>
                     </div>
                 </div>
-                @if(product.customFields.product_benefits && product.customFields.product_benefits.references.length > 0) 
+                @if(product.customFields.product_benefits && product.customFields.product_benefits.references.length > 0)
                 <div class="white-cards-container">
                     @each((item, index) in product.customFields.product_benefits.references)
                     <div class="white-card card-{{ index + 1 }}">
