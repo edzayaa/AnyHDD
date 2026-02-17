@@ -168,14 +168,14 @@ function renderBestSellersSlider() {
     `).join('');
 
     container.innerHTML = `
-        <div class="swiper best-sellers-swiper aloha">
+        <div class="swiper best-sellers-swiper">
             <div class="swiper-wrapper">
                 ${slides}
             </div>
         </div>
     `;
 
-    const carousel = new Swiper('.best-sellers-swiper', {
+    new Swiper('.best-sellers-swiper', {
         modules: [Navigation],
         slidesPerView: 1.2,
         spaceBetween: 20,
@@ -389,8 +389,7 @@ function onPageChange(newPage) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('jujuju')
-    //renderBestSellersSlider();
+    renderBestSellersSlider();
     renderFilter(filterOptions);
     renderProductsList(mockProducts);
     renderPagination(paginationState.currentPage, paginationState.totalPages);
