@@ -2,10 +2,10 @@
   display: flex;
   justify-content: flex-start;
   padding-inline:3% ;
-  min-height: 50vh;
+  min-height: 30vh;
   padding-bottom:2.5%;
   @media only screen and (max-width: 980px) {
-     min-height: 25vh;
+     min-height: 20vh;
   }
     @media only screen and (max-width: 767px) {
     flex-direction: column;
@@ -105,7 +105,7 @@
         height: 4.5%;
     }
 
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 1200px) {
           height: auto;
     }
 

@@ -100,7 +100,10 @@
         margin-top: 0.5%;
         font-weight: 300;
         line-height: 1.05em;
-
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3; /* Number of lines to show */
+        overflow: hidden;
         @media only screen and (max-width: 1024px) {
             font-size: 7.533vw !important;
         }
