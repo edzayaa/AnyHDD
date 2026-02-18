@@ -11,7 +11,8 @@
     background-size: cover;
 
     @media only screen and (min-width: 1280px) and (max-width: 1440px) {
-        max-height: 110svh;
+        max-height: 130svh;
+
     }
 
     @media only screen and (min-width: 1024px) and (max-width: 1280px) {
@@ -63,10 +64,14 @@
         width: 45%;
 
         justify-content: space-between;
+        justify-content: center;
         margin: 1% 0;
+        margin-top: 3rem;
 
-        @media only screen and (max-width: 1024px) {
+        @media only screen and (max-width:1024px) {
             width: 100%;
+        }
+        @media only screen and (max-width:980px) {
             margin-top: 10%;
             margin-bottom: 10%;
         }
@@ -100,10 +105,10 @@
         margin-top: 0.5%;
         font-weight: 300;
         line-height: 1.05em;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-        overflow: hidden;
+        // display: -webkit-box;
+        // -webkit-box-orient: vertical;
+        // -webkit-line-clamp: 3;
+        // overflow: hidden;
         @media only screen and (max-width: 1024px) {
             font-size: 7.533vw !important;
         }
@@ -122,11 +127,18 @@
 
     .gradient-text {
         background: linear-gradient(90deg, #00102183 -4.53%, #F2F2F4 24.85%, #F2F2F4 82.52%, #0010217a 108.63%);
-        -webkit-background-clip: text;
+        // -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         font-weight: 500;
-        padding-bottom: 5%;
+        padding-bottom: 0;
+        padding-top: 2.5%;
+        display: block;
+
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
     }
 
     .feature-item {

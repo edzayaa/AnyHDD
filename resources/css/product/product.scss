@@ -61,6 +61,12 @@
     @media only screen and (max-width: 767px) {
       padding-inline: 0%;
     }
+    @media only screen and (min-width:2250px) {
+       font-size: 2.5vw;
+    }
+    @media only screen and (min-width: 3150px) {
+       font-size: 2vw;
+    }
   }
 
   .add_btn_container {
@@ -391,15 +397,16 @@
     }
 
     @media only screen and (max-width: 1024px) {
-      max-height: 140px;
-      min-height: 140px;
-    }
-
-    @media only screen and (max-width:980px) {
       max-height: unset;
       min-height: unset;
       height: unset;
     }
+
+    // @media only screen and (max-width:980px) {
+    //   max-height: unset;
+    //   min-height: unset;
+    //   height: unset;
+    // }
 
 
   }
