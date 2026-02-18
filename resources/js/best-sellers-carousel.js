@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bestSellersSwiper = new Swiper('.best-sellers-swiper', {
         modules: [Navigation],
         slidesPerView: 1.2,
-        loop: true,
+        //loop: true,
         spaceBetween: 20,
         navigation: {
             prevEl: ".best-sellers-slider-prev",
@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    if (window.location.pathname.includes('/collections')) {
-        setTimeout(() => {
-            bestSellersSwiper.update();
-        }, 100);
-    }
+    // if (window.location.pathname.includes('/collections')) {
+    //     setTimeout(() => {
+    //         bestSellersSwiper.update();
+    //     }, 100);
+    // }
 });
