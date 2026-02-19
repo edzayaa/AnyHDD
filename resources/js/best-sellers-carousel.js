@@ -3,11 +3,24 @@ import { Navigation } from "swiper/modules";
 import 'swiper/css';
 
 // Inicializar el carousel de Best Sellers
-document.addEventListener('DOMContentLoaded', () => {
-    const bestSellersSwiper = new Swiper('.best-sellers-swiper', {
+let bestSellersSwiper = null;
+
+const initBestSellersSwiper = () => {
+    const swiperElement = document.querySelector('.best-sellers-swiper');
+
+    if (!swiperElement) {
+        return;
+    }
+
+    if (bestSellersSwiper) {
+        bestSellersSwiper.destroy(true, true);
+        bestSellersSwiper = null;
+    }
+
+    bestSellersSwiper = new Swiper('.best-sellers-swiper', {
         modules: [Navigation],
         slidesPerView: 1.2,
-        //loop: true,
+        loop: true,
         spaceBetween: 20,
         navigation: {
             prevEl: ".best-sellers-slider-prev",
@@ -33,7 +46,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+};
 
+document.addEventListener('DOMContentLoaded', () => {
+    initBestSellersSwiper();
+
+    document.body.addEventListener('htmx:afterSwap', (evt) => {
+        if (evt.detail.target.id === 'best-sellers-wrapper') {
+            initBestSellersSwiper();
+        }
+    });
 
 
     // if (window.location.pathname.includes('/collections')) {
